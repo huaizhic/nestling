@@ -5,12 +5,11 @@ import LoginPage from './components/LoginPage.jsx';
 
 function App() {
   return (
-    <Router>
-      <div>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/login" component={LoginPage} />
-      </div>
-    </Router>
+    <div>
+      <LandingPage/>
+      <LoginPage/>
+    </div>
+    
   );
 }
 
