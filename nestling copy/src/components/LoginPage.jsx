@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -43,6 +44,7 @@ function LoginPage() {
             />
           </div>
           <button type="submit">Log In</button>
+          <Link to="/reset-password">Forgot Password?</Link>
         </form>
       </div>
     </div>
