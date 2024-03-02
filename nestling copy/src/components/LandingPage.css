@@ -8,12 +8,23 @@
     align-items: center;
     color: white;
     text-align: center;
+    font-family: 'Montserrat', sans-serif; /* Add this line to change the font */
 }
 
-.landing-page h1, .landing-page h2 {
+.landing-page h1{
+    display: flex;
+    margin: 10px;
+    justify-content: flex-start;
+}
+
+.landing-page h2 {
     margin: 10px;
 }
 
-.landing-page button {
+.button-contatiner {
     margin: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
 }
+

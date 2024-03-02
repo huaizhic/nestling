@@ -10,10 +10,13 @@ function LandingPage() {
             <div><img src={walter} alt="Walter" /></div>
             <div><h1>nestling.ai</h1></div>
             <div><h2>Unlock the door to your future with a simple click.</h2></div>
-            <div><Link to="/login"><button>Login</button></Link></div>
-            <div><Link to="/sign-up"><button>Signup</button></Link></div>
+            <div className="button-container">
+                <Link to="/login"><button>Login</button></Link>
+                <Link to="/sign-up"><button>Signup</button></Link>
+            </div>
         </div>
     );
 }
 
 export default LandingPage;
+
