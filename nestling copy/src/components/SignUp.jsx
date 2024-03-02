@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import walter from '../../src/assets/images/walter.png'; 
 
 function SignUp() {
   const [username, setUsername] = useState('');
@@ -33,6 +34,7 @@ function SignUp() {
 
   return (
     <div className="sign-up">
+        <div><img src={walter} alt="Walter" /></div>
       <h1>Nestling.ai</h1>
       <h2>New here?</h2>
       <form onSubmit={handleSubmit}>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import walter from '../../src/assets/images/walter.png'; 
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -23,7 +24,9 @@ function LoginPage() {
   return (
     <div className="login-page">
       <div>
+        <div><img src={walter} alt="Walter" /></div>
         <h1>nestling.ai</h1>
+        <h2>Welcome back!</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="username">Username:</label>
@@ -43,7 +46,7 @@ function LoginPage() {
               onChange={handlePasswordChange}
             />
           </div>
-          <button type="submit">Log In</button>
+          <button type="submit">Fly</button>
           <Link to="/reset-password">Forgot Password?</Link>
         </form>
       </div>

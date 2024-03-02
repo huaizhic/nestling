@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import walter from '../../src/assets/images/walter.png'; 
 
 function ResetPassword() {
   const [newPassword, setNewPassword] = useState('');
@@ -32,6 +33,7 @@ function ResetPassword() {
 
   return (
     <div className="reset-password">
+        <div><img src={walter} alt="Walter" /></div>
       <h2>Reset Password</h2>
       <form onSubmit={handleSubmit}>
         <div>

@@ -1,0 +1,19 @@
+.landing-page {
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.landing-page h1, .landing-page h2 {
+    margin: 10px;
+}
+
+.landing-page button {
+    margin: 10px;
+}
