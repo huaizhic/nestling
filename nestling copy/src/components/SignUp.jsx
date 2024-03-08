@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Signup.css';
 import walter from '../../src/assets/images/walter.png'; 
 
 function SignUp() {
@@ -38,8 +39,8 @@ function SignUp() {
       <h1>Nestling.ai</h1>
       <h2>New here?</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
+        <div className="input-wrapper">
+          <label htmlFor="username">Username*</label>
           <input
             type="text"
             id="username"
@@ -47,8 +48,8 @@ function SignUp() {
             onChange={handleUsernameChange}
           />
         </div>
-        <div>
-          <label htmlFor="phoneNumber">Phone Number:</label>
+        <div className="input-wrapper">
+          <label htmlFor="phoneNumber">Number</label>
           <input
             type="text"
             id="phoneNumber"
@@ -56,19 +57,19 @@ function SignUp() {
             onChange={handlePhoneNumberChange}
           />
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
+        <div className="input-wrapper">
+          <label htmlFor="email">Email</label>
           <input
-            type="email"
+            type="text"
             id="email"
             value={email}
             onChange={handleEmailChange}
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className="input-wrapper">
+          <label htmlFor="password">Password</label>
           <input
-            type="password"
+            type="text"
             id="password"
             value={password}
             onChange={handlePasswordChange}

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './LoginPage.css';
 import walter from '../../src/assets/images/walter.png'; 
+
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -28,8 +30,8 @@ function LoginPage() {
         <h1>nestling.ai</h1>
         <h2>Welcome back!</h2>
         <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="username">Username:</label>
+          <div className="input-wrapper">
+            <label htmlFor="username">Username</label>
             <input
               type="text"
               id="username"
@@ -37,17 +39,17 @@ function LoginPage() {
               onChange={handleUsernameChange}
             />
           </div>
-          <div>
-            <label htmlFor="password">Password:</label>
+          <div className="input-wrapper">
+            <label htmlFor="password">Password</label>
             <input
-              type="password"
+              type="text"
               id="password"
               value={password}
               onChange={handlePasswordChange}
             />
           </div>
-          <button type="submit">Fly</button>
           <Link to="/reset-password">Forgot Password?</Link>
+          <button type="submit">Fly</button>
         </form>
       </div>
     </div>
