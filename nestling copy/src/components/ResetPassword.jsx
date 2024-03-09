@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ResetPassword.css';
 import walter from '../../src/assets/images/walter.png'; 
 
 function ResetPassword() {
@@ -36,25 +37,25 @@ function ResetPassword() {
         <div><img src={walter} alt="Walter" /></div>
       <h2>Reset Password</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="input-wrapper">
           <label htmlFor="newPassword">Enter new password:</label>
           <input
-            type="password"
+            type="text"
             id="newPassword"
             value={newPassword}
             onChange={handleNewPasswordChange}
           />
         </div>
-        <div>
+        <div className="input-wrapper">
           <label htmlFor="confirmNewPassword">Confirm new password:</label>
           <input
-            type="password"
+            type="text"
             id="confirmNewPassword"
             value={confirmNewPassword}
             onChange={handleConfirmNewPasswordChange}
-          />
-          {!passwordsMatch && <p>Passwords do not match. Please renter password.</p>}
+          />      
         </div>
+        {!passwordsMatch && <p className="error-msg">Passwords do not match. Please renter password.</p>}
         <button type="submit">Reset Password</button>
       </form>
     </div>
