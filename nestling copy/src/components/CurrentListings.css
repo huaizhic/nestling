@@ -11,23 +11,12 @@
     font-family: 'Montserrat', sans-serif; 
 }
 
-/*.logo {
-    width: 100vw;
-    display: flex;
-    margin-top: 40px;
-    margin-left: 90px;
-  }
-
-.profile-picture{
-    margin-left: auto;
-}*/
-
 .topcontainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: #f1f1f1;
+    background-color: #F3FDFF;
 }
 
 .logo, .profile-picture, .navbar {
