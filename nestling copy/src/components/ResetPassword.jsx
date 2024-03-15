@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ResetPassword.css';
-import walter from '../../src/assets/images/walter.png'; 
+import walter from '../assets/images/walter.png'; 
 
 function ResetPassword() {
   const [newPassword, setNewPassword] = useState('');

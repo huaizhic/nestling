@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Signup.css';
-import walter from '../../src/assets/images/walter.png'; 
+import walter from '../assets/images/walter.png'; 
 
 function SignUp() {
   const [username, setUsername] = useState('');

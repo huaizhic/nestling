@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import indoorpool from '../../src/assets/images/indoorpool.png';
+import indoorpool from '../assets/images/indoorpool.png';
 import './LandingPage.css'; // Import the CSS file for styling
 
 function LandingPage() {

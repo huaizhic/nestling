@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './LoginPage.css';
-import walter from '../../src/assets/images/walter.png'; 
+import walter from '../assets/images/walter.png'; 
+//import supabase from '../Supabase';
 
 
 function LoginPage() {
@@ -10,18 +11,32 @@ function LoginPage() {
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
-  };
+  };//this function is called whenever there is a change in the username input field. It updates the username state variable with the new value entered by the user
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-  };
+  };//this function is called whenever there is a change in the password input field. It updates the password state variable with the new value entered by the user
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add logic to handle form submission (e.g., validate inputs, submit data to server)
-    console.log('Username:', username);
-    console.log('Password:', password);
-  };
+    try {
+      const { user, error } = await supabase.auth.signIn({
+        email: username,
+        password: password,
+      });
+      if (error) {
+        setError('Incorrect username or password');
+        console.error('Login failed:', error.message);
+      } else {
+        console.log('Login successful:', user);
+        // Handle successful login (e.g., redirect to dashboard)
+      }
+    } catch (error) {
+      setError('An error occurred while logging in');
+      console.error('Login failed:', error.message);
+    }
+  };//I just put this function here for now but I'm not sure how the checking will be implemented
+  
 
   return (
     <div className="login-page">
