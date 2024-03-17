@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./ResetPassword.css";
 import walter from "../assets/images/walter.png";
 import supabase from "../supabase";
+import { useNavigate } from "react-router-dom";
 
 function ResetPassword() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
@@ -43,6 +45,7 @@ function ResetPassword() {
       console.log("error:", error);
       if (error === null) {
         alert("Password change successful!");
+        navigate("/homepage");
       }
     } else if (newPassword !== confirmNewPassword) {
       // alert("Passwords don't match! Check again!");
