@@ -9,6 +9,8 @@ import AcctDetails from "./components/AcctDetails.jsx";
 import CurrentListings from "./components/CurrentListings.jsx";
 import EmailLogin from "./components/emailLogin.jsx";
 import DesiredHouseForm from "./components/desiredHouseForm.jsx";
+import Home from "./components/Home.jsx";
+import Article from "./components/Article.jsx";
 
 function App() {
   return (
@@ -16,12 +18,14 @@ function App() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="npm/reset-password" element={<ResetPassword />} />
       <Route path="/email-login" element={<EmailLogin />} />
       <Route path="/homepage" element={<Homepage />} />
       <Route path="/account-details" element={<AcctDetails />} />
       <Route path="/current-listings" element={<CurrentListings />} />
       <Route path="/desired-house" element={<DesiredHouseForm />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/article" element={<Article />} />
     </Routes>
   );
 }
