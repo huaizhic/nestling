@@ -40,7 +40,7 @@ function SignUp() {
       <h2>New here?</h2>
       <form onSubmit={handleSubmit}>
         <div className="input-wrapper">
-          <label htmlFor="username">Username*</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
