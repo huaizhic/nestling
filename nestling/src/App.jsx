@@ -11,6 +11,7 @@ import EmailLogin from "./components/emailLogin.jsx";
 import DesiredHouseForm from "./components/desiredHouseForm.jsx";
 import Home from "./components/Home.jsx";
 import Article from "./components/Article.jsx";
+import DesiredProperty from "./components/DesiredProperty.jsx";
 
 function App() {
   return (
@@ -21,11 +22,11 @@ function App() {
       <Route path="npm/reset-password" element={<ResetPassword />} />
       <Route path="/email-login" element={<EmailLogin />} />
       <Route path="/homepage" element={<Homepage />} />
-      <Route path="/account-details" element={<AcctDetails />} />
       <Route path="/current-listings" element={<CurrentListings />} />
       <Route path="/desired-house" element={<DesiredHouseForm />} />
       <Route path="/home" element={<Home />} />
       <Route path="/article" element={<Article />} />
+      <Route path="/desired-property" element={<DesiredProperty />} />
     </Routes>
   );
 }
