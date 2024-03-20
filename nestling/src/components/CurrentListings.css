@@ -1,36 +1,45 @@
-.current-listings{
+.current-listings {
     height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     color: black;
     background-color: #F3FDFF;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif; 
+    font-family: 'Plus Jakarta Sans', Montserrat, sans-serif; 
 }
 
 .topcontainer {
     width: 100vw;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 30px;
-    margin-bottom: 5000px;
+    padding: 20px;
     background-color: #F3FDFF;
 }
 
-.navbar ul {
-    list-style-type: none; 
+.navbar {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 100px; 
-    margin-left: 2000px;
+    justify-content: center;
+    background-color: #F3FDFF;
+    margin-left: 700px;
 }
 
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    padding-left: 0px;
+}
 
 .navbar ul li {
-    margin-left: 40px;
+    margin-left: 70px;
+}
+
+.navbar ul li:first-child {
+    margin-left: 0; /* Remove margin from first list item */
 }
 
 .navbar ul li a {
@@ -38,24 +47,23 @@
     color: black;
 }
 
-.logo{
-    margin-top: 40px;
-    margin-left: 40px;
-    width: 100px;
+.logo {
+    margin-left: 20px;
 }
 
-.profile-picture{
-    width: 90px;
-    height: 90px;
-    margin-left: 550px;
+.profile-picture {
+    margin-right: 20px;
+    background-color: #F3FDFF;
+    width: 100px;
+    height: 100px;
 }
 
 .profile-picture a {
-    text-decoration: none; 
+    text-decoration: none;
     color: black;
-    margin-top: 40px;
-  }
-  
+    display: flex;
+    justify-content: center;
+}
 
 .logo img, .profile-picture img {
     max-width: 100%;
@@ -63,37 +71,108 @@
 }
 
 .search-column {
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin-top: 200px; /* Add margin-top to create space between navbar and dropdowns */
-    margin-right: 2000px;
+    align-items: center; 
+    background-color: #F3FDFF;
 }
 
 .search-container {
-    background-color: #51B9E1; /* Blue background color */
-    padding: 10px; /* Add padding inside the container */
-    border-radius: 5px; /* Add border radius for rounded corners */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Align items vertically */
+    width: 100%;
+    background-color: #6CC2E8; 
+    padding: 10px; 
+    border-radius: 15px; 
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start; 
 }
 
 .search-container select {
-    margin-right: 10px; /* Add spacing between dropdowns */
+    width: 100%;
+    margin-right: 10px;
+    margin-bottom: 20px; 
+    background-color: #B6EDFA;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
 }
 
 .search-container button {
-    background-color: white; /* White background for the button */
-    color: #51B9E1; /* Blue text color for the button */
-    border: none; /* Remove button border */
-    padding: 5px 10px; /* Add padding inside the button */
-    border-radius: 3px; /* Add border radius for rounded corners */
-    cursor: pointer; /* Add pointer cursor on hover */
+    width: 95%;
+    background-color: #F3FDFF; 
+    color: black; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    margin-top: 10px;
+    font-weight: bold;
+    margin-left: 10px;
 }
 
 .search-container button:hover {
-    background-color: #f0f0f0; /* Change background color on hover */
+    background-color: #f0f0f0; 
 }
 
+.search-container label {
+    margin-bottom: 5px; 
+    font-weight: bold;
+}
 
+.desiredpropsearch {
+    margin-top: 5px;
+    width: 100%; 
+    background-color: #6CC2E8; 
+    padding: 15px; 
+    border-radius: 10px; 
+    display: flex;
+    justify-content: center;
+}
+
+.desiredpropsearch button{
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #F3FDFF;
+}
+
+.OR h3{
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.search{
+    margin-left: 125px;
+}
+
+.columns{
+    display: flex;
+    justify-content: space-around;
+    background-color: #F3FDFF;
+}
+
+.Listings h1{
+    font-weight: bold;
+}
+
+.search h1{
+    font-weight: bold;
+}
+
+.listings-column{
+    width: 50%;
+    background-color: #F3FDFF;
+}
+
+.Listings h1{
+    padding-top: 10px;
+    padding-left: 45px;
+}
+
+.listings-container{
+    height: 90%;
+    width: 100%;
+    background-color: #FCCACA;
+    border-radius: 10px;
+    margin-left: 20px;
+}
