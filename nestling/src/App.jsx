@@ -7,7 +7,7 @@ import ResetPassword from "./components/ResetPassword.jsx";
 import Homepage from "./components/Homepage.jsx";
 import AcctDetails from "./components/AcctDetails.jsx";
 import CurrentListings from "./components/CurrentListings.jsx";
-import EmailLogin from "./components/emailLogin.jsx";
+import EmailLogin from "./components/EmailLogin.jsx";
 import DesiredHouseForm from "./components/desiredHouseForm.jsx";
 import Home from "./components/Home.jsx";
 import Article from "./components/Article.jsx";
@@ -22,6 +22,7 @@ function App() {
       <Route path="npm/reset-password" element={<ResetPassword />} />
       <Route path="/email-login" element={<EmailLogin />} />
       <Route path="/homepage" element={<Homepage />} />
+      <Route path="/account-details" element={<AcctDetails />} />
       <Route path="/current-listings" element={<CurrentListings />} />
       <Route path="/desired-house" element={<DesiredHouseForm />} />
       <Route path="/home" element={<Home />} />
