@@ -1,0 +1,88 @@
+.desired-property {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif; 
+    background-color: #F3FDFF;
+    flex-direction: column;
+    width: 1440px;
+    height:1024px;
+}
+
+.header-text{
+    font-size: 64px;
+    font-weight:900;
+    flex:1;
+    color: #002224;
+}
+
+.bottom{
+    margin-top: 23.5px;
+}
+
+.title{
+    font-size: 18px;
+    font-weight:bold;
+    color:#F3FDFF;
+    justify-content: center;
+}
+
+.location{
+    width: 636px;
+    height: 67px;
+    background-color: #6CC2E8;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.amenities{
+    width: 636px;
+    height: 67px;
+    background-color: #6CC2E8;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.distance{
+    width: 636px;
+    height: 67px;
+    background-color: #6CC2E8;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.room-count{
+    width: 636px;
+    height: 67px;
+    background-color: #6CC2E8;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.gfa{
+    width: 636px;
+    height: 67px;
+    background-color: #6CC2E8;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.submit{
+    margin-top: 20px;
+    background-color: #002224;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+}
+
+.button{
+    border-radius: 15px;
+    text-align: center;
+    color:#F3FDFF;
+    font-size: 24px;
+    font-weight: bolder;
+}
