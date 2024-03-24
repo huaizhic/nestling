@@ -17,7 +17,7 @@ export const percentageMatchLogic = (
   let currentPoints = 0;
   let maxPoints = 230;
 
-  // since we don't want to modify sampleHousesData, we create a temp array instead
+  // since we don't want to modify the housing data itself, we create a temp array instead
   // we will add new temporary attributes to each house object, namely points and percentageMatch
   let tempData = currentList.map((house) => {
     return { ...house, points: currentPoints, percentageMatch: 0 };
@@ -54,7 +54,7 @@ export const percentageMatchLogic = (
         }
         break;
       default:
-        console.log("no amenities matched for option 1");
+        // console.log("no amenities matched for option 1");
         break;
     }
 
@@ -81,7 +81,7 @@ export const percentageMatchLogic = (
         }
         break;
       default:
-        console.log("no amenities matched for option 2");
+        // console.log("no amenities matched for option 2");
         break;
     }
 
@@ -108,7 +108,7 @@ export const percentageMatchLogic = (
         }
         break;
       default:
-        console.log("no amenities matched for option 3");
+        // console.log("no amenities matched for option 3");
         break;
     }
 
