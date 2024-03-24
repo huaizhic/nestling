@@ -6,7 +6,7 @@ import greenwalter from "../../src/assets/images/greenwalter.png";
 import { ListingPanel } from "./ListingPanel";
 import supabase from "../supabase";
 import { percentageMatchLogic } from "./percentageMatchLogic";
-import { tempData } from "./desiredHouseForm";
+// import { tempData } from "./desiredHouseForm";
 
 // export let currentList = [];
 

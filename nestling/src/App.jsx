@@ -8,11 +8,10 @@ import Homepage from "./components/Homepage.jsx";
 import AcctDetails from "./components/AcctDetails.jsx";
 import CurrentListings from "./components/CurrentListings.jsx";
 import EmailLogin from "./components/EmailLogin.jsx";
-import DesiredHouseForm from "./components/desiredHouseForm.jsx";
 import Home from "./components/Home.jsx";
 import Article from "./components/Article.jsx";
 import DesiredProperty from "./components/DesiredProperty.jsx";
-import Account from "./components/AcctDetails.jsx"
+import Account from "./components/AcctDetails.jsx";
 
 function App() {
   return (
@@ -25,7 +24,6 @@ function App() {
       <Route path="/homepage" element={<Homepage />} />
       <Route path="/account-details" element={<AcctDetails />} />
       <Route path="/current-listings" element={<CurrentListings />} />
-      <Route path="/desired-house" element={<DesiredHouseForm />} />
       <Route path="/home" element={<Home />} />
       <Route path="/article" element={<Article />} />
       <Route path="/account-details" element={<Account />} />
