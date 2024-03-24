@@ -1,178 +1,182 @@
 .current-listings {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: black;
-    background-color: #F3FDFF;
-    font-family: 'Plus Jakarta Sans', Montserrat, sans-serif; 
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  background-color: #f3fdff;
+  font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
 }
 
 .topcontainer {
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #F3FDFF;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f3fdff;
 }
 
 .navbar {
-    display: flex;
-    justify-content: center;
-    background-color: #F3FDFF;
-    margin-left: 700px;
+  display: flex;
+  justify-content: center;
+  background-color: #f3fdff;
+  margin-left: 700px;
 }
 
 .navbar ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    padding-left: 0px;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding-left: 0px;
 }
 
 .navbar ul li {
-    margin-left: 70px;
+  margin-left: 70px;
 }
 
 .navbar ul li:first-child {
-    margin-left: 0; /* Remove margin from first list item */
+  margin-left: 0; /* Remove margin from first list item */
 }
 
 .navbar ul li a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .logo {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .profile-picture {
-    margin-right: 20px;
-    background-color: #F3FDFF;
-    width: 100px;
-    height: 100px;
+  margin-right: 20px;
+  background-color: #f3fdff;
+  width: 100px;
+  height: 100px;
 }
 
 .profile-picture a {
-    text-decoration: none;
-    color: black;
-    display: flex;
-    justify-content: center;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
 }
 
-.logo img, .profile-picture img {
-    max-width: 100%;
-    height: auto;
+.logo img,
+.profile-picture img {
+  max-width: 100%;
+  height: auto;
 }
 
 .search-column {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    background-color: #F3FDFF;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3fdff;
 }
 
 .search-container {
-    width: 100%;
-    background-color: #6CC2E8; 
-    padding: 10px; 
-    border-radius: 15px; 
-    display: flex; 
-    flex-direction: column;
-    align-items: flex-start; 
+  width: 100%;
+  background-color: #6cc2e8;
+  padding: 10px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .search-container select {
-    width: 100%;
-    margin-right: 10px;
-    margin-bottom: 20px; 
-    background-color: #B6EDFA;
-    border-radius: 10px;
-    border: none;
-    padding: 5px;
+  width: 100%;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  background-color: #b6edfa;
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
 }
 
 .search-container button {
-    width: 95%;
-    background-color: #F3FDFF; 
-    color: black; 
-    border: none; 
-    border-radius: 10px; 
-    cursor: pointer; 
-    margin-top: 10px;
-    font-weight: bold;
-    margin-left: 10px;
+  width: 95%;
+  background-color: #f3fdff;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bold;
+  margin-left: 10px;
 }
 
 .search-container button:hover {
-    background-color: #f0f0f0; 
+  background-color: #f0f0f0;
 }
 
 .search-container label {
-    margin-bottom: 5px; 
-    font-weight: bold;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .desiredpropsearch {
-    margin-top: 5px;
-    width: 100%; 
-    background-color: #6CC2E8; 
-    padding: 15px; 
-    border-radius: 10px; 
-    display: flex;
-    justify-content: center;
+  margin-top: 5px;
+  width: 100%;
+  background-color: #6cc2e8;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
 }
 
-.desiredpropsearch button{
-    border-radius: 5px;
-    font-weight: bold;
-    background-color: #F3FDFF;
+.desiredpropsearch button {
+  border-radius: 5px;
+  font-weight: bold;
+  background-color: #f3fdff;
 }
 
-.OR h3{
-    margin-top: 10px;
-    font-weight: bold;
+.OR h3 {
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-.search{
-    margin-left: 125px;
+.search {
+  margin-left: 125px;
 }
 
-.columns{
-    display: flex;
-    justify-content: space-around;
-    background-color: #F3FDFF;
+.columns {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f3fdff;
 }
 
-.Listings h1{
-    font-weight: bold;
+.Listings h1 {
+  font-weight: bold;
 }
 
-.search h1{
-    font-weight: bold;
+.search h1 {
+  font-weight: bold;
 }
 
-.listings-column{
-    width: 50%;
-    background-color: #F3FDFF;
+.listings-column {
+  width: 50%;
+  background-color: #f3fdff;
 }
 
-.Listings h1{
-    padding-top: 10px;
-    padding-left: 45px;
+.Listings h1 {
+  padding-top: 10px;
+  padding-left: 45px;
 }
 
-.listings-container{
-    height: 90%;
-    width: 100%;
-    background-color: #FCCACA;
-    border-radius: 10px;
-    margin-left: 20px;
+.listings-container {
+  height: 90vh;
+  width: 100vh;
+  background-color: #fccaca;
+  border-radius: 10px;
+  margin-left: 20px;
+  display: grid;
+  overflow: scroll;
+  grid-template-columns: 50% 50%;
 }
