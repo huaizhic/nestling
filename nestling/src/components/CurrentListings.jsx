@@ -24,7 +24,7 @@ function CurrentListings() {
   useEffect(() => {
     const fetchListing = async () => {
       let { data, error } = await supabase.from("currentList").select("*");
-      //   console.log(data);
+      console.log(data);
       setCurrentList(data);
     };
 
