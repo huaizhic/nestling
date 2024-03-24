@@ -15,7 +15,7 @@ export const ListingPanel = ({ title, price, percentageMatch }) => {
           Percentage Match:{" "}
           {percentageMatch === undefined
             ? "Search to find out"
-            : percentageMatch}
+            : percentageMatch + "%"}
         </span>
       </div>
     </>
