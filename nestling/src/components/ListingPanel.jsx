@@ -1,6 +1,6 @@
 import "./ListingPanel.css";
 
-export const ListingPanel = ({ title, price }) => {
+export const ListingPanel = ({ title, price, percentageMatch }) => {
   return (
     <>
       <div className="listingPanel">
@@ -11,6 +11,12 @@ export const ListingPanel = ({ title, price }) => {
         ></img>
         <h3>{title}</h3>
         <h3>{price}</h3>
+        <span>
+          Percentage Match:{" "}
+          {percentageMatch === undefined
+            ? "Search to find out"
+            : percentageMatch}
+        </span>
       </div>
     </>
   );

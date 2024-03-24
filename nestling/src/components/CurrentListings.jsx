@@ -5,19 +5,31 @@ import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
 import { ListingPanel } from "./ListingPanel";
 import supabase from "../supabase";
+import { percentageMatchLogic } from "./percentageMatchLogic";
+import { tempData } from "./desiredHouseForm";
 
 // export let currentList = [];
 
 function CurrentListings() {
   const [currentList, setCurrentList] = useState([]);
   const [fetchflag, setFetchFlag] = useState(false);
+  const [locationInput, setLocationInput] = useState("EXPO MRT STATION");
+  const [amenityInput1, setAmenityInput1] = useState("Schools");
+  const [amenityInput2, setAmenityInput2] = useState("Supermarkets");
+  const [amenityInput3, setAmenityInput3] = useState("Parks");
+  const [distanceRadius, setDistanceRadius] = useState(2);
+  const [roomCountInput, setRoomCountInput] = useState(3);
+  const [grossFloorArea, setGrossFloorArea] = useState(1500);
 
   useEffect(() => {
     const fetchListing = async () => {
       let { data, error } = await supabase.from("currentList").select("*");
-      console.log(data);
+      //   console.log(data);
       setCurrentList(data);
     };
+
+    // due to duplicates in location options
+    const filterLocationList = () => {};
     fetchListing();
   }, [fetchflag]);
 
@@ -25,6 +37,31 @@ function CurrentListings() {
     // setFetchFlag(!fetchflag);
     return <h1>Fetching data...</h1>;
   }
+
+  const handleNormalSearch = (e) => {
+    e.preventDefault();
+    let tempData = percentageMatchLogic(
+      currentList,
+      locationInput,
+      roomCountInput,
+      distanceRadius,
+      amenityInput1,
+      amenityInput2,
+      amenityInput3,
+      grossFloorArea
+    );
+    // console.log(tempData);
+    tempData.sort((a, b) => {
+      if (a.percentageMatch < b.percentageMatch) {
+        return 1;
+      } else if (a.percentageMatch > b.percentageMatch) {
+        return -1;
+      }
+      // if a.percentageMatch = b.percentageMatch
+      return 0;
+    });
+    setCurrentList(tempData);
+  };
 
   return (
     <div className="current-listings">
@@ -60,47 +97,143 @@ function CurrentListings() {
               <h1>Search</h1>
             </div>
             <label htmlFor="Location">Location</label>
-            <select id="Location" style={{ color: "black" }}>
+            <select
+              id="Location"
+              value={locationInput}
+              style={{ color: "black" }}
+              onChange={(e) => setLocationInput(e.target.value)}
+            >
               <option value="option1">Preferred location</option>
-              <option value="option2">Woodlands</option>
+              {/* <option value="option2">Woodlands</option>
               <option value="option3">Tiong Bahru</option>
               <option value="option4">Tanjong Pagar</option>
-              <option value="option5">Orchard</option>
+              <option value="option5">Orchard</option> */}
+              {currentList.map((indivPanel) => {
+                // let isDuplicate = currentList.some(
+                //   (property) => property.nearestMRT === indivPanel.nearestMRT
+                // );
+                return (
+                  <option value={indivPanel.nearestMRT}>
+                    {indivPanel.nearestMRT}
+                  </option>
+                );
+              })}
             </select>
             <label htmlFor="Amenities">Amenities</label>
-            <select id="Amenities" style={{ color: "black" }}>
+            <select
+              id="Amenities"
+              style={{ color: "black" }}
+              value={amenityInput1}
+              onChange={(e) => {
+                if (
+                  e.target.value === amenityInput2 ||
+                  e.target.value === amenityInput3
+                ) {
+                  alert("Cannot choose same amenity again");
+                  setAmenityInput2("option1");
+                } else {
+                  setAmenityInput1(e.target.value);
+                }
+              }}
+            >
               <option value="option1">Preferred amenities</option>
+              <option value="Schools">Schools</option>
+              <option value="Supermarkets">Supermarkets</option>
+              <option value="Parks">Parks</option>
+              <option value="Stations">Stations</option>
+            </select>
+            <select
+              id="Amenities"
+              style={{ color: "black" }}
+              value={amenityInput2}
+              onChange={(e) => {
+                if (
+                  e.target.value === amenityInput1 ||
+                  e.target.value === amenityInput3
+                ) {
+                  alert("Cannot choose same amenity again");
+                  setAmenityInput2("option2");
+                } else {
+                  setAmenityInput2(e.target.value);
+                }
+              }}
+            >
+              <option value="option2">Preferred amenities</option>
+              <option value="Schools">Schools</option>
+              <option value="Supermarkets">Supermarkets</option>
+              <option value="Parks">Parks</option>
+              <option value="Stations">Stations</option>
+            </select>
+            <select
+              id="Amenities"
+              style={{ color: "black" }}
+              value={amenityInput3}
+              onChange={(e) => {
+                if (
+                  e.target.value === amenityInput1 ||
+                  e.target.value === amenityInput2
+                ) {
+                  alert("Cannot choose same amenity again");
+                  setAmenityInput3("option3");
+                } else {
+                  setAmenityInput3(e.target.value);
+                }
+              }}
+            >
+              {/* <option value="option1">Preferred amenities</option>
               <option value="option2">Secondary Schools</option>
               <option value="option3">Primary Schools</option>
               <option value="option4">Supermarkets</option>
               <option value="option5">Parks</option>
-              <option value="option6">Malls</option>
+              <option value="option6">Malls</option> */}
+              <option value="option3">Preferred amenities</option>
+              <option value="Schools">Schools</option>
+              <option value="Supermarkets">Supermarkets</option>
+              <option value="Parks">Parks</option>
+              <option value="Stations">Stations</option>
             </select>
-            <label htmlFor="Distance">Distance</label>
-            <select id="Distance" style={{ color: "black" }}>
+            <label htmlFor="Distance">Distance (KM)</label>
+            <select
+              id="Distance"
+              style={{ color: "black" }}
+              value={distanceRadius}
+              onChange={(e) => setDistanceRadius(e.target.value)}
+            >
               <option value="option1" style={{ color: "black" }}>
                 Radius within which amenities are
               </option>
-              <option value="option2">1km</option>
-              <option value="option3">2km</option>
-              <option value="option4">3km</option>
-              <option value="option5">4km</option>
-              <option value="option6">5km</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
             </select>
             <label htmlFor="Room Count">Room Count</label>
-            <select id="Room Count" style={{ color: "black" }}>
+            <select
+              id="Room Count"
+              style={{ color: "black" }}
+              value={roomCountInput}
+              onChange={(e) => setRoomCountInput(e.target.value)}
+            >
               <option value="option1">Preferred number of rooms</option>
-              <option value="option2">3</option>
-              <option value="option3">4</option>
-              <option value="option4">5</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
             </select>
-            <label htmlFor="GFA(gross floor area)">GFA(gross floor area)</label>
-            <select id="GFA(gross floor area)" style={{ color: "black" }}>
+            <label htmlFor="GFA(gross floor area)">
+              Gross Floor Area (GFA) (in sq metres, for eg: 1500)
+            </label>
+            {/* <select id="GFA(gross floor area)" style={{ color: "black" }}>
               <option value="option1"></option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
-            </select>
-            <button>SEARCH</button>
+            </select> */}
+            <input
+              type="number"
+              value={grossFloorArea}
+              onChange={(e) => setGrossFloorArea(e.target.value)}
+            />
+            <button onClick={(e) => handleNormalSearch(e)}>SEARCH</button>
           </div>
           <div className="OR">
             <h3>OR</h3>
@@ -126,6 +259,7 @@ function CurrentListings() {
                 <ListingPanel
                   title={indivPanel.projectName}
                   price={indivPanel.price}
+                  percentageMatch={indivPanel.percentageMatch}
                 />
               );
             })}
