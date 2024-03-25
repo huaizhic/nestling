@@ -19,7 +19,7 @@ function App() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/sign-up" element={<SignUp />} />
-      <Route path="npm/reset-password" element={<ResetPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/email-login" element={<EmailLogin />} />
       <Route path="/homepage" element={<Homepage />} />
       <Route path="/account-details" element={<AcctDetails />} />

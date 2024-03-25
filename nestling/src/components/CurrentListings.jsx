@@ -24,7 +24,7 @@ function CurrentListings() {
   useEffect(() => {
     const fetchListing = async () => {
       let { data, error } = await supabase.from("currentList").select("*");
-      //   console.log(data);
+      console.log(data);
       setCurrentList(data);
     };
 
@@ -49,6 +49,52 @@ function CurrentListings() {
       amenityInput2,
       amenityInput3,
       grossFloorArea
+    );
+    // console.log(tempData);
+    tempData.sort((a, b) => {
+      if (a.percentageMatch < b.percentageMatch) {
+        return 1;
+      } else if (a.percentageMatch > b.percentageMatch) {
+        return -1;
+      }
+      // if a.percentageMatch = b.percentageMatch
+      return 0;
+    });
+    setCurrentList(tempData);
+  };
+
+  const handleDesiredSubmit = async (e) => {
+    e.preventDefault();
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    console.log(user);
+
+    let { data, error } = await supabase
+      .from("userInfo")
+      .select("desiredProperty")
+      .eq("email", user.email);
+
+    // console.log(data);
+    let desiredAttributes = data[0].desiredProperty[0];
+    setLocationInput(desiredAttributes.location);
+    setAmenityInput1(desiredAttributes.amenity1);
+    setAmenityInput2(desiredAttributes.amenity2);
+    setAmenityInput3(desiredAttributes.amenity3);
+    setDistanceRadius(desiredAttributes.distanceRadius);
+    setRoomCountInput(desiredAttributes.roomCount);
+    setGrossFloorArea(desiredAttributes.grossFloorArea);
+
+    let tempData = percentageMatchLogic(
+      currentList,
+      desiredAttributes.location,
+      desiredAttributes.roomCount,
+      desiredAttributes.distanceRadius,
+      desiredAttributes.amenity1,
+      desiredAttributes.amenity2,
+      desiredAttributes.amenity3,
+      desiredAttributes.grossFloorArea
     );
     // console.log(tempData);
     tempData.sort((a, b) => {
@@ -233,7 +279,10 @@ function CurrentListings() {
             <h3>OR</h3>
           </div>
           <div className="desiredpropsearch">
-            <button style={{ color: "black" }}>
+            <button
+              style={{ color: "black" }}
+              onClick={(e) => handleDesiredSubmit(e)}
+            >
               Search using my desired property attributes
             </button>
           </div>
