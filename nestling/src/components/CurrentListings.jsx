@@ -65,37 +65,33 @@ function CurrentListings() {
 
   return (
     <div className="current-listings">
-      <div className="topcontainer">
-        <div className="logo">
-          <img src={walterlogo} alt="Walter Logo" />
+        <div className="topcontainer">
+            <div className="logo"><img src={walterlogo} alt="Walter Logo" /></div>
+            <div className="navbar">
+            <ul>
+                <li>
+                <Link to="/">Home</Link>
+                </li>
+                <li>
+                <Link to="/desired-property">Desired Property</Link>
+                </li>
+                <li>
+                <Link to="/current-listings">Current Listings</Link>
+                </li>
+                <li>
+                <Link to="/favourites">Favourites</Link>
+                </li>
+            </ul>
+            </div>
+            <div className="profile-picture">
+            <img src={greenwalter} alt="Green Walter Profile" />
+            <Link to="/account-details">Account</Link>
+            </div>
         </div>
-        <div className="navbar">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/desired-property">Desired Property</Link>
-            </li>
-            <li>
-              <Link to="/current-listings">Current Listings</Link>
-            </li>
-            <li>
-              <Link to="/favourites">Favourites</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="profile-picture">
-          <img src={greenwalter} alt="Green Walter Profile" />
-          <Link to="/account-details">Account</Link>
-        </div>
-      </div>
       <div className="columns">
         <div className="search-column">
           <div className="search-container">
-            <div className="search">
-              <h1>Search</h1>
-            </div>
+            <div className="search"><h1>Search</h1></div>
             <label htmlFor="Location">Location</label>
             <select
               id="Location"
@@ -140,7 +136,8 @@ function CurrentListings() {
               <option value="Schools">Schools</option>
               <option value="Supermarkets">Supermarkets</option>
               <option value="Parks">Parks</option>
-              <option value="Stations">Stations</option>
+              <option value="Stations">MRT Stations</option>
+              <option value="Malls">Malls</option>
             </select>
             <select
               id="Amenities"
@@ -162,7 +159,8 @@ function CurrentListings() {
               <option value="Schools">Schools</option>
               <option value="Supermarkets">Supermarkets</option>
               <option value="Parks">Parks</option>
-              <option value="Stations">Stations</option>
+              <option value="Stations">MRT Stations</option>
+              <option value="Malls">Malls</option>
             </select>
             <select
               id="Amenities"
@@ -190,7 +188,8 @@ function CurrentListings() {
               <option value="Schools">Schools</option>
               <option value="Supermarkets">Supermarkets</option>
               <option value="Parks">Parks</option>
-              <option value="Stations">Stations</option>
+              <option value="Stations">MRT Stations</option>
+              <option value="Malls">Malls</option>
             </select>
             <label htmlFor="Distance">Distance (KM)</label>
             <select
@@ -223,11 +222,6 @@ function CurrentListings() {
             <label htmlFor="GFA(gross floor area)">
               Gross Floor Area (GFA) (in sq metres, for eg: 1500)
             </label>
-            {/* <select id="GFA(gross floor area)" style={{ color: "black" }}>
-              <option value="option1"></option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </select> */}
             <input
               type="number"
               value={grossFloorArea}
@@ -245,9 +239,7 @@ function CurrentListings() {
           </div>
         </div>
         <div className="listings-column">
-          <div className="Listings">
-            <h1>Current Listings</h1>
-          </div>
+          <div className="Listings"><h1>Current Listings</h1></div>
           <div className="listings-container">
             {/* <ListingPanel />
             <ListingPanel />
@@ -256,11 +248,19 @@ function CurrentListings() {
             <ListingPanel /> */}
             {currentList.map((indivPanel) => {
               return (
+                /*<div className="listing-panel" key={index}>
                 <ListingPanel
                   title={indivPanel.projectName}
                   price={indivPanel.price}
                   percentageMatch={indivPanel.percentageMatch}
+                />*/
+                <div className="listing-panel">
+                <ListingPanel
+                    title={indivPanel.projectName}
+                    price={indivPanel.price}
+                    percentageMatch={indivPanel.percentageMatch}
                 />
+                </div>
               );
             })}
           </div>
