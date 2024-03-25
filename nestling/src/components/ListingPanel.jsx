@@ -1,17 +1,16 @@
 import "./ListingPanel.css";
+import emptyimage from '../assets/images/emptyimage.png';
 
 export const ListingPanel = ({ title, price, percentageMatch }) => {
   return (
     <>
       <div className="listingPanel">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png"
-          width="50%"
-          height="70%"
-        ></img>
+        <div className='listingPanelimage'>
+        <img src={emptyimage}></img>
+        </div>
         <h3>{title}</h3>
-        <h3>{price}</h3>
-        <span>
+        <h3>${price}</h3>
+        <span className="percentageBubble">
           Percentage Match:{" "}
           {percentageMatch === undefined
             ? "Search to find out"

@@ -2,6 +2,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   border: 1px solid;
+}
+
+.listingPanel h3 {
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px; 
+  text-align: left;
+  padding-left: 25px;
+} 
+
+.listingPanel img {
+  width: 275px;
+  height: auto; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.percentageBubble {
+  background-color: green; /* Bubble background color */
+  border-radius: 50%; /* Rounded corners */
+  font-weight: bold;
 }

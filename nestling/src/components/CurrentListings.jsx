@@ -127,6 +127,9 @@ function CurrentListings() {
                 <li>
                 <Link to="/favourites">Favourites</Link>
                 </li>
+                <li>
+                <Link to="/">Logout</Link>
+                </li>
             </ul>
             </div>
             <div className="profile-picture">
