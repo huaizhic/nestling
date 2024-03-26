@@ -12,6 +12,7 @@ import Home from "./components/Home.jsx";
 import Article from "./components/Article.jsx";
 import DesiredProperty from "./components/DesiredProperty.jsx";
 import Account from "./components/AcctDetails.jsx";
+import ListingInfo from "./components/ListingInfo.jsx";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Route path="/article" element={<Article />} />
       <Route path="/account-details" element={<Account />} />
       <Route path="/desired-property" element={<DesiredProperty />} />
+      <Route path="/listing-info" element={<ListingInfo />} />
     </Routes>
   );
 }

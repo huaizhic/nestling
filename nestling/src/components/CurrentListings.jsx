@@ -20,6 +20,7 @@ function CurrentListings() {
   const [distanceRadius, setDistanceRadius] = useState(2);
   const [roomCountInput, setRoomCountInput] = useState(3);
   const [grossFloorArea, setGrossFloorArea] = useState(1500);
+  const [showListings, setShowListings] = useState(false);{/*conditional render*/}
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -61,6 +62,7 @@ function CurrentListings() {
       return 0;
     });
     setCurrentList(tempData);
+    setShowListings(true);{/*conditional render*/}
   };
 
   const handleDesiredSubmit = async (e) => {
@@ -291,14 +293,18 @@ function CurrentListings() {
           </div>
         </div>
         <div className="listings-column">
-          <div className="Listings"><h1>Current Listings</h1></div>
+          <div className="Listings">
+            <h1>Current Listings</h1>
+            {!showListings && <p>Nothing chirping yet:(</p>}{/*conditional render*/}
+          </div>
           <div className="listings-container">
             {/* <ListingPanel />
             <ListingPanel />
             <ListingPanel />
             <ListingPanel />
             <ListingPanel /> */}
-            {currentList.map((indivPanel) => {
+            {showListings &&
+            currentList.map((indivPanel) => {
               return (
                 /*<div className="listing-panel" key={index}>
                 <ListingPanel
@@ -314,7 +320,8 @@ function CurrentListings() {
                 />
                 </div>
               );
-            })}
+            })
+          }
           </div>
         </div>
       </div>
