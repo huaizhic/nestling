@@ -295,9 +295,9 @@ function CurrentListings() {
         <div className="listings-column">
           <div className="Listings">
             <h1>Current Listings</h1>
-            {!showListings && <p>Nothing chirping yet:(</p>}{/*conditional render*/}
           </div>
           <div className="listings-container">
+            {!showListings && <p className="chirpingText">Nothing chirping yet:(</p>}{/*conditional render*/}
             {/* <ListingPanel />
             <ListingPanel />
             <ListingPanel />

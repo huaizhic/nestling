@@ -37,6 +37,7 @@
 .navbar ul li a {
   text-decoration: none;
   color: black;
+  font-weight: bold;
 }
 
 .navbar ul li:first-child{
@@ -147,7 +148,7 @@
 .desiredpropsearch button {
   border-radius: 10px;
   font-weight: bold;
-  background-color: #f3fdff;
+  background-color: #B6EDFA;
 }
 
 .OR h3 {
@@ -184,6 +185,7 @@
 }
 
 .Listings {
+  color: #670F0F;
   display: flex;
   justify-content: center;
 }
@@ -201,4 +203,14 @@
   display: grid;
   overflow: scroll;
   grid-template-columns: 50% 50%;
+}
+
+.chirpingText{
+  width: 350px;
+  font-weight: bold;
+  font-size: 30px;
+  color: #C84B4B;
+  text-align: center;
+  margin-left: 150px;
+  margin-top: 300px;
 }
