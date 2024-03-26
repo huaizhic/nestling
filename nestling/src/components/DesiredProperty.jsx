@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./DesiredProperty.css";
-import Dropdown from './Dropdown.jsx';
+import Dropdown from "./Dropdown.jsx";
 
 // import "./CurrentListings.css";
 import walterlogo from "../../src/assets/images/walterlogo.png";
@@ -186,7 +186,7 @@ function DesiredProperty() {
                   e.target.value === amenityInput3
                 ) {
                   alert("Cannot choose same amenity again");
-                  setAmenityInput2("option1");
+                  setAmenityInput1("option1");
                 } else {
                   setAmenityInput1(e.target.value);
                 }
