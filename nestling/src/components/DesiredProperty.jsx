@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import {Link  } from "react-router-dom";
 import "./DesiredProperty.css";
-import Dropdown from './Dropdown.jsx';
+import Dropdown from "./Dropdown.jsx";
 
 // import "./CurrentListings.css";
 import walterlogo from "../../src/assets/images/walterlogo.png";
@@ -28,13 +28,13 @@ export let desiredAttributes = [
 function DesiredProperty() {
   const [currentList, setCurrentList] = useState([]);
   const [fetchflag, setFetchFlag] = useState(false);
-  const [locationInput, setLocationInput] = useState("EXPO MRT STATION");
-  const [amenityInput1, setAmenityInput1] = useState("Schools");
-  const [amenityInput2, setAmenityInput2] = useState("Supermarkets");
-  const [amenityInput3, setAmenityInput3] = useState("Parks");
-  const [distanceRadius, setDistanceRadius] = useState(2);
-  const [roomCountInput, setRoomCountInput] = useState(3);
-  const [grossFloorArea, setGrossFloorArea] = useState(1500);
+  const [selectedLocation, setLocation] = useState('');
+  const [selectedDistance, setDistance] = useState('');
+  const [selectedRoomCount, setRoomCount] = useState('');
+  const [selectedGFA, setGFA] = useState('');
+  const [selectedAmenities1, setAmenities1] = useState('');
+  const [selectedAmenities2, setAmenities2] = useState('');
+  const [selectedAmenities3, setAmenities3] = useState(1500);
 
   useEffect(() => {
     // const fetchUser = async () => {
@@ -44,39 +44,39 @@ function DesiredProperty() {
     //   console.log(user);
     // };
 
-    const fetchListing = async () => {
-      let { data, error } = await supabase.from("currentList").select("*");
-      //   console.log(data);
-      setCurrentList(data);
-    };
+  const fetchListing = async () => {
+    let { data, error } = await supabase.from("currentList").select("*");
+    //   console.log(data);
+    setCurrentList(data);
+  };
 
-    // due to duplicates in location options
-    const filterLocationList = () => {};
+  // due to duplicates in location options
+  const filterLocationList = () => {};
 
-    const fetchDesiredAtrributes = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      console.log(user);
+  const fetchDesiredAtrributes = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    console.log(user);
 
-      let { data, error } = await supabase
-        .from("userInfo")
-        .select("desiredProperty")
-        .eq("email", user.email);
-      //   console.log(data);
-      console.log(data[0].desiredProperty[0]);
-      let fetchedDesiredAttributes = data[0].desiredProperty[0];
+    let { data, error } = await supabase
+      .from("userInfo")
+      .select("desiredProperty")
+      .eq("email", user.email);
+    //   console.log(data);
+    console.log(data[0].desiredProperty[0]);
+    let fetchedDesiredAttributes = data[0].desiredProperty[0];
 
-      setLocationInput(fetchedDesiredAttributes.location);
-      setAmenityInput1(fetchedDesiredAttributes.amenity1);
-      setAmenityInput2(fetchedDesiredAttributes.amenity2);
-      setAmenityInput3(fetchedDesiredAttributes.amenity3);
-      setDistanceRadius(fetchedDesiredAttributes.distanceRadius);
-      setRoomCountInput(fetchedDesiredAttributes.roomCount);
-      setGrossFloorArea(fetchedDesiredAttributes.grossFloorArea);
-    };
-    fetchListing();
-    fetchDesiredAtrributes();
+    setLocation(fetchedDesiredAttributes.location);
+    setAmenities1(fetchedDesiredAttributes.amenity1);
+    setAmenities2(fetchedDesiredAttributes.amenity2);
+    setAmenities3(fetchedDesiredAttributes.amenity3);
+    setDistance(fetchedDesiredAttributes.distanceRadius);
+    setRoomCount(fetchedDesiredAttributes.roomCount);
+    setGFA(fetchedDesiredAttributes.grossFloorArea);
+  };
+  fetchListing();
+  fetchDesiredAtrributes();
   }, [fetchflag]);
 
   if (currentList.length === 0) {
@@ -87,13 +87,13 @@ function DesiredProperty() {
   const handleSave = async (e) => {
     e.preventDefault();
 
-    desiredAttributes[0].location = locationInput;
-    desiredAttributes[0].amenity1 = amenityInput1;
-    desiredAttributes[0].amenity2 = amenityInput2;
-    desiredAttributes[0].amenity3 = amenityInput3;
-    desiredAttributes[0].distanceRadius = distanceRadius;
-    desiredAttributes[0].roomCount = roomCountInput;
-    desiredAttributes[0].grossFloorArea = grossFloorArea;
+    desiredAttributes[0].location = selectedLocation;
+    desiredAttributes[0].amenity1 = selectedAmenities1;
+    desiredAttributes[0].amenity2 = selectedAmenities2;
+    desiredAttributes[0].amenity3 = selectedAmenities3;
+    desiredAttributes[0].distanceRadius = selectedDistance;
+    desiredAttributes[0].roomCount = selectedRoomCount;
+    desiredAttributes[0].grossFloorArea = selectedGFA;
     console.log(desiredAttributes);
 
     const {
@@ -119,410 +119,192 @@ function DesiredProperty() {
     }
   };
 
-  return (
-    <div className="">
-      <div className="">
-        <div className="logo">
-          <img src={walterlogo} alt="Walter Logo" />
-        </div>
-        <div className="navbar">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/desired-property">Desired Property</Link>
-            </li>
-            <li>
-              <Link to="/current-listings">Current Listings</Link>
-            </li>
-            <li>
-              <Link to="/favourites">Favourites</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="profile-picture">
-          <img src={greenwalter} alt="Green Walter Profile" />
-          <Link to="/account-details">Account</Link>
-        </div>
-      </div>
-      <div className="columns">
-        <div className="search-column">
-          <div className="search-container">
-            <div className="">
-              <h1>Desired Property</h1>
-            </div>
-            <label htmlFor="Location">Location</label>
-            <select
-              id="Location"
-              value={locationInput}
-              style={{ color: "black" }}
-              onChange={(e) => setLocationInput(e.target.value)}
-            >
-              <option value="option1">Preferred location</option>
-              {/* <option value="option2">Woodlands</option>
-              <option value="option3">Tiong Bahru</option>
-              <option value="option4">Tanjong Pagar</option>
-              <option value="option5">Orchard</option> */}
-              {currentList.map((indivPanel) => {
-                // let isDuplicate = currentList.some(
-                //   (property) => property.nearestMRT === indivPanel.nearestMRT
-                // );
-                return (
-                  <option value={indivPanel.nearestMRT}>
-                    {indivPanel.nearestMRT}
-                  </option>
-                );
-              })}
-            </select>
-            <label htmlFor="Amenities">Amenities</label>
-            <select
-              id="Amenities"
-              style={{ color: "black" }}
-              value={amenityInput1}
-              onChange={(e) => {
-                if (
-                  e.target.value === amenityInput2 ||
-                  e.target.value === amenityInput3
-                ) {
-                  alert("Cannot choose same amenity again");
-                  setAmenityInput2("option1");
-                } else {
-                  setAmenityInput1(e.target.value);
-                }
-              }}
-            >
-              <option value="option1">Preferred amenities</option>
-              <option value="Schools">Schools</option>
-              <option value="Supermarkets">Supermarkets</option>
-              <option value="Parks">Parks</option>
-              <option value="Stations">Stations</option>
-            </select>
-            <select
-              id="Amenities"
-              style={{ color: "black" }}
-              value={amenityInput2}
-              onChange={(e) => {
-                if (
-                  e.target.value === amenityInput1 ||
-                  e.target.value === amenityInput3
-                ) {
-                  alert("Cannot choose same amenity again");
-                  setAmenityInput2("option2");
-                } else {
-                  setAmenityInput2(e.target.value);
-                }
-              }}
-            >
-              <option value="option2">Preferred amenities</option>
-              <option value="Schools">Schools</option>
-              <option value="Supermarkets">Supermarkets</option>
-              <option value="Parks">Parks</option>
-              <option value="Stations">Stations</option>
-            </select>
-            <select
-              id="Amenities"
-              style={{ color: "black" }}
-              value={amenityInput3}
-              onChange={(e) => {
-                if (
-                  e.target.value === amenityInput1 ||
-                  e.target.value === amenityInput2
-                ) {
-                  alert("Cannot choose same amenity again");
-                  setAmenityInput3("option3");
-                } else {
-                  setAmenityInput3(e.target.value);
-                }
-              }}
-            >
-              {/* <option value="option1">Preferred amenities</option>
-              <option value="option2">Secondary Schools</option>
-              <option value="option3">Primary Schools</option>
-              <option value="option4">Supermarkets</option>
-              <option value="option5">Parks</option>
-              <option value="option6">Malls</option> */}
-              <option value="option3">Preferred amenities</option>
-              <option value="Schools">Schools</option>
-              <option value="Supermarkets">Supermarkets</option>
-              <option value="Parks">Parks</option>
-              <option value="Stations">Stations</option>
-            </select>
-            <label htmlFor="Distance">Distance (KM)</label>
-            <select
-              id="Distance"
-              style={{ color: "black" }}
-              value={distanceRadius}
-              onChange={(e) => setDistanceRadius(e.target.value)}
-            >
-              <option value="option1" style={{ color: "black" }}>
-                Radius within which amenities are
-              </option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            <label htmlFor="Room Count">Room Count</label>
-            <select
-              id="Room Count"
-              style={{ color: "black" }}
-              value={roomCountInput}
-              onChange={(e) => setRoomCountInput(e.target.value)}
-            >
-              <option value="option1">Preferred number of rooms</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-            <label htmlFor="GFA(gross floor area)">
-              Gross Floor Area (GFA) (in sq metres, for eg: 1500)
-            </label>
-            {/* <select id="GFA(gross floor area)" style={{ color: "black" }}>
-              <option value="option1"></option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-            </select> */}
-            <input
-              type="number"
-              value={grossFloorArea}
-              onChange={(e) => setGrossFloorArea(e.target.value)}
-            />
-            <button onClick={(e) => handleSave(e)}>SAVE</button>
-            <button>ESTIMATE PRICE</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+  //for dropdown boxes: amenities, room count and distance
+  const distance = [
+    {value: '0-1km', label: '0-1km'},
+    {value: '1-2km', label: '1-2km'},
+    {value: '2-3km', label: '2-3km'},
+    {value: '3-4km', label: '3-4km'},
+    {value: '4-5km', label: '4-5km'},
+    {value: '5-6km', label: '5-6km'},
+    {value: '6-7km', label: '6-7km'},
+  ];
 
-export default DesiredProperty;
+  const roomcount = [
+    {value: '3 rooms', label: '3 rooms'},
+    {value: '4 rooms', label: '4 rooms'},
+    {value: '5 rooms', label: '5 rooms'},
+    {value: '>5 rooms', label: '>5 rooms'},
+];
 
-/*function DesiredProperty () {
-    const [selectedValue, setSelectedValue] = useState('');
-    const [userInput, setUserInput] = useState('');
+  const amenities = [
+  {value: 'MRT', label:'MRT'},
+  {value:'Parks', label:'Parks'},
+  {value: 'Schools', label: 'Schools'},
+  {value: 'Supermarkets', label:'Supermarkets'},
+  ];
 
-    const handleChange = (event) => {
-        setSelectedValue(event.target.value);
-    };
+  //console logging a json file
+  const generateJson = async (e) => {
 
-    const handleInputChange = (event) => {
-        setUserInput(event.target.value);
-    };
+    desiredAttributes[0].location = selectedLocation;
+    desiredAttributes[0].amenity1 = selectedAmenities1;
+    desiredAttributes[0].amenity2 = selectedAmenities2;
+    desiredAttributes[0].amenity3 = selectedAmenities3;
+    desiredAttributes[0].distanceRadius = selectedDistance;
+    desiredAttributes[0].roomCount = selectedRoomCount;
+    desiredAttributes[0].grossFloorArea = selectedGFA;
+    console.log(desiredAttributes);
 
-    const handleButtonClick = () => {
-        setSelectedValue(userInput);
-    };
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    console.log(user);
+    
+    const { data, error } = await supabase
+    .from("userInfo")
+    .update({ desiredProperty: desiredAttributes })
+    .eq("email", user.email)
+    .select();
+
+
+
+    console.log(data);
+    console.log(error);
+  }
 
     return(
         <div className="desired-property">
             <div className="top">
-                <p>navbar</p>
+            </div>
+            <div className="bottom">
+                <div className="header-section">
+                    <h2 className="header">Desired Property</h2>
+                </div>
+                <div className="dropdown-div">
+                  <div className="location-div">
+                    <h3 className="location">Location</h3>
+                  </div>
+                  <select
+                    id="Location"
+                    value={selectedLocation}
+                    className="dropdown"
+                    onChange={(e) => setLocation(e.target.value)}
+                  >
+                    <option value="option1">Preferred location</option>
+                    {/* <option value="option2">Woodlands</option>
+                    <option value="option3">Tiong Bahru</option>
+                    <option value="option4">Tanjong Pagar</option>
+                    <option value="option5">Orchard</option> */}
+                    {currentList.map((indivPanel) => {
+                      // let isDuplicate = currentList.some(
+                      //   (property) => property.nearestMRT === indivPanel.nearestMRT
+                      // );
+                      return (
+                        <option value={indivPanel.nearestMRT}>
+                          {indivPanel.nearestMRT}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </div>
+                <div className="amenities">
+                    <div>
+                        <h3 className="amenities-div">Amenities</h3>
+                    </div>
+                    <div className="amenities-dropdowns">
+                        <div className="amenities-1">
+                          <Dropdown
+                            options={amenities}
+                            selectedOption={selectedAmenities1}
+                            onSelect={setAmenities1}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === selectedAmenities2 ||
+                                e.target.value === selectedAmenities3
+                              ) {
+                                alert("Cannot choose same amenity again");
+                                setAmenities1("option1");
+                              } else {
+                                setAmenities1(e.target.value);
+                              }
+                            }}
+                          />
+                        </div>
+                        <div className="amenities-2">
+                          <Dropdown
+                            options={amenities}
+                            selectedOption={selectedAmenities2}
+                            onSelect={setAmenities2}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === selectedAmenities1 ||
+                                e.target.value === selectedAmenities3
+                              ) {
+                                alert("Cannot choose same amenity again");
+                                setAmenities2("option2");
+                              } else {
+                                setAmenities2(e.target.value);
+                              }
+                            }}
+                          />
+                        </div>
+                        <div className="amenities-3">
+                          <Dropdown
+                            options={amenities}
+                            selectedOption={selectedAmenities3}
+                            onSelect={setAmenities3}
+                            onChange={(e) => {
+                              if (
+                                e.target.value === selectedAmenities2 ||
+                                e.target.value === selectedAmenities1
+                              ) {
+                                alert("Cannot choose same amenity again");
+                                setAmenities3("option3");
+                              } else {
+                                setAmenities3(e.target.value);
+                              }
+                            }}
+                          />
+                        </div>
+                    </div>
+                </div>
+                <div className="dropdown-div">
+                  <h3 className="distance">Distance</h3>
+                  <Dropdown
+                    options={distance}
+                    selectedOption={selectedDistance}
+                    onSelect={setDistance}
+                  />
+                </div>
+
+                <div className="dropdown-div">
+                    <h3 className ="room-count">Room Count</h3>
+                    <Dropdown
+                        options={roomcount}
+                        selectedOption={selectedRoomCount}
+                        onSelect={setRoomCount}
+                    />
+                </div>
+
+                <div className="dropdown-div">
+                  <h3 className ="gfa">GFA</h3>
+                  <input
+                    type="number"
+                    value={selectedGFA}
+                    className="dropdown"
+                    onChange={(e) => setGFA(e.target.value)}
+                  />
+                </div>
             </div>
 
-            <div className="bottom">
-                <div className="header">
-                    <h2 className="header-text">Desired Property</h2>
-                </div>
-
-                <div className="location">
-                    <label htmlFor="dropdown-location">Location</label>
-                        <select id="dropdown" value={selectedValue} onChange={handleChange}>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                </div>
-
-                <div className="amenities">
-                    <label htmlFor="dropdown">Amenities</label>
-                        <select id="dropdown" value={selectedValue} onChange={handleChange}>
-                            <option value="">Amenities</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                    {selectedValue && <p>{selectedValue}</p>}
-                </div>
-
-                <div className="distance">
-                <label htmlFor="dropdown">Choose an option:</label>
-                        <select id="dropdown" value={selectedValue} onChange={handleChange}>
-                            <option value="">Distance</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                    {selectedValue && <p>{selectedValue}</p>}
-                </div>
-
-                <div className="room-count">
-                <label htmlFor="dropdown">Choose an option:</label>
-                        <select id="dropdown" value={selectedValue} onChange={handleChange}>
-                            <option value="">Room count</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                    {selectedValue && <p>{selectedValue}</p>}
-                </div>
-
-                <div className="gfa">
-                <label htmlFor="dropdown">Choose an option:</label>
-                        <select id="dropdown" value={selectedValue} onChange={handleChange}>
-                            <option value="">GFA</option>
-                            <option value="option1">Option 1</option>
-                            <option value="option2">Option 2</option>
-                            <option value="option3">Option 3</option>
-                        </select>
-                    {selectedValue && <p>{selectedValue}</p>}
-                </div>
+            <div className="generate-price">
+              <Link to ="/generated-price">
+                <h2 onClick={() => generateJson()}>Generate Price</h2>
+              </Link>
             </div>
         </div>
     );
-}*/
+}
 
-// function DesiredProperty() {
-//   const [selectedValues, setSelectedValues] = useState({
-//     dropdown: "",
-//   });
-
-//   const handleDropdownChange = (dropdownId, value) => {
-//     setSelectedValues((prevState) => ({
-//       ...prevState,
-//       [dropdownId]: value,
-//     }));
-//   };
-
-//   return (
-//     <div>
-//       <Dropdown
-//         value={selectedValues.dropdown1}
-//         onChange={handleDropdownChange}
-//       />
-//     </div>
-//   );
-// }
-
-// function Dropdown({ id, value, onChange }) {
-//   const options = ["Option 1", "Option 2", "Option 3"];
-
-//   const handleChange = (event) => {
-//     const selectedValue = event.target.value;
-//     onChange(id, selectedValue);
-//   };
-
-//   return (
-//     <div className="desired-property">
-//       <div className="top">
-//         <p>navbar</p>
-//       </div>
-
-//       <div className="header">
-//         <h2 className="header-text">Desired Property</h2>
-//       </div>
-
-//       <div className="bottom">
-//         <div className="location">
-//           <label htmlFor={id} className="title">
-//             Location
-//           </label>
-//           <select id={id} value={value} onChange={handleChange}>
-//             <option value="">Select an option</option>
-//             {options.map((option) => (
-//               <option key={option} value={option}>
-//                 {option}
-//               </option>
-//             ))}
-//           </select>
-//         </div>
-
-//         <div className="amenities">
-//           <label htmlFor={id} className="title">
-//             Amenities
-//           </label>
-//           <select id={id} value={value} onChange={handleChange}>
-//             <option value="">Select an option</option>
-//             {options.map((option) => (
-//               <option key={option} value={option}>
-//                 {option}
-//               </option>
-//             ))}
-//           </select>
-//           <select id={id} value={value} onChange={handleChange}>
-//             <option value="">Select an option</option>
-//             {options.map((option) => (
-//               <option key={option} value={option}>
-//                 {option}
-//               </option>
-//             ))}
-//           </select>
-//           <select id={id} value={value} onChange={handleChange}>
-//             <option value="">Select an option</option>
-//             {options.map((option) => (
-//               <option key={option} value={option}>
-//                 {option}
-//               </option>
-//             ))}
-//           </select>
-//         </div>
-
-//         <div className="distance">
-//           <label htmlFor={id} className="title">
-//             Distance
-//           </label>
-//           <select id={id} value={value} onChange={handleChange}>
-//             <option value="">Select an option</option>
-//             {options.map((option) => (
-//               <option key={option} value={option}>
-//                 {option}
-//               </option>
-//             ))}
-//           </select>
-//         </div>
-
-//         <div className="room-count">
-//           <label htmlFor={id} className="title">
-//             Room Count
-//           </label>
-//           <select id={id} value={value} onChange={handleChange}>
-//             <option value="">Select an option</option>
-//             {options.map((option) => (
-//               <option key={option} value={option}>
-//                 {option}
-//               </option>
-//             ))}
-//           </select>
-//         </div>
-
-//         <div className="gfa">
-//           <label htmlFor={id} className="title">
-//             GFA
-//           </label>
-//           <select id={id} value={value} onChange={handleChange}>
-//             <option value="">Select an option</option>
-//             {options.map((option) => (
-//               <option key={option} value={option}>
-//                 {option}
-//               </option>
-//             ))}
-//           </select>
-//         </div>
-
-//         <div className="submit">
-//           <button className="button">Save</button>
-//           <button
-//             onClick={() => console.log("Button clicked")}
-//             className="button"
-//           >
-//             Generate Price
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default DesiredProperty;
+export default DesiredProperty;
