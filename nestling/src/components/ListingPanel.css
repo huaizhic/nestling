@@ -39,6 +39,17 @@
   text-align: center;
 }
 
+.greenBubble{
+  height: 4rem;
+  width: 4rem;
+  margin-left: 16rem;
+  margin-bottom: 1rem;
+  background-color: #55830D; 
+  border-radius: 50%; 
+  font-weight: bold;
+  text-align: center;
+}
+
 .value{
   padding-top: 4px;
   color: white;
