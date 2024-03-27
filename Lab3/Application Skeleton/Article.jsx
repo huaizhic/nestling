@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-function Article(){
-    return(
-        <div>
-            <p>article!</p>
-        </div>
-    );
+function Article() {
+  // displays thought leadership article
 }
 
 export default Article;

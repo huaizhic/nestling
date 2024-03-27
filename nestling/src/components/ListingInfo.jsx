@@ -13,19 +13,19 @@ function ListingInfo(){
                 <div className="navbar">
                 <ul>
                     <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/" className="home">Home</Link>
                     </li>
                     <li>
-                    <Link to="/desired-property">Desired Property</Link>
+                    <Link to="/desired-property" className="desired-property">Desired Property</Link>
                     </li>
                     <li>
-                    <Link to="/current-listings">Current Listings</Link>
+                    <Link to="/current-listings" className="current-listings">Current Listings</Link>
                     </li>
                     <li>
-                    <Link to="/favourites">Favourites</Link>
+                    <Link to="/favourites" className="favourites">Favourites</Link>
                     </li>
                     <li>
-                    <Link to="/">Logout</Link>
+                    <Link to="/" className="logout">Logout</Link>
                     </li>
                 </ul>
                 </div>
