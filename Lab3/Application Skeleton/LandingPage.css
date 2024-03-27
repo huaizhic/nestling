@@ -1,0 +1,49 @@
+.landing-page {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.landing-page h1 {
+  margin: 30px 0 0;
+  font-weight: bold;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.landing-page h2 {
+  margin: 200px 0 70px;
+  font-weight: bold;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 25%;
+}
+
+.button-container button {
+  font-weight: bold;
+  font-size: 25px;
+  background-color: #68a2ab;
+  color: black;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+  background-color: #87cefa;
+}

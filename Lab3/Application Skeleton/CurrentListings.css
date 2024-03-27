@@ -1,0 +1,216 @@
+.current-listings {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  background-color: #f3fdff;
+  font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
+}
+
+.topcontainer {
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #f3fdff;
+}
+
+.navbar{
+    display: flex;
+    margin-left: 350px;
+}
+.navbar ul {
+    background-color: #f3fdff;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    width: 60vw;
+}
+
+.navbar ul li {
+  padding-left: 70px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.navbar ul li:first-child{
+    padding-left: 70px;
+}
+
+.navbar ul li:last-child{
+    padding-right: 70px;
+}
+
+.logo {
+  display: flex;
+  height: 100px;
+  width: 100px;
+}
+
+.profile-picture {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100px;
+}
+
+.profile-picture a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.logo img,
+.profile-picture img {
+  max-width: 100%;
+  height: auto;
+}
+
+.search-column {
+  width: 40%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #f3fdff;
+}
+
+.search-container {
+  width: 100%;
+  background-color: #6cc2e8;
+  padding: 10px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.search-container select {
+    width: 100%;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    background-color: #b6edfa;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+}
+
+.search-container input{
+    width: 100%;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    background-color: #b6edfa;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+}
+
+.search-container button {
+  width: 95%;
+  background-color: #f3fdff;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.search-container button:hover {
+  background-color: #f0f0f0;
+}
+
+.search-container label {
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+.desiredpropsearch {
+  margin-top: 5px;
+  width: 100%;
+  background-color: #6cc2e8;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.desiredpropsearch button {
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: #B6EDFA;
+}
+
+.OR h3 {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f3fdff;
+  width: 60vw;
+  height: 90vh;
+  margin-top: 0px;
+}
+
+.search h1 {
+  font-weight: bold;
+}
+
+.listings-column {
+  width: 60%;
+  height: 80vh;
+  display:flex;
+  flex-direction: column;
+  background-color: #f3fdff;
+}
+
+.Listings {
+  color: #670F0F;
+  display: flex;
+  justify-content: center;
+}
+
+.Listings h1{
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.listings-container {
+  height: 90%;
+  background-color: #fccaca;
+  border-radius: 15px;
+  margin-left: 20px;
+  display: grid;
+  overflow: scroll;
+  grid-template-columns: 50% 50%;
+}
+
+.chirpingText{
+  width: 350px;
+  font-weight: bold;
+  font-size: 30px;
+  color: #C84B4B;
+  text-align: center;
+  margin-left: 150px;
+  margin-top: 300px;
+}

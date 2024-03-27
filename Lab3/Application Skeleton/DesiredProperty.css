@@ -1,0 +1,110 @@
+.desired-property{
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  flex-direction: column; 
+  background-color: #F3FDFF;
+  background-size: cover;
+  background-position: center;
+  height: 1024px;
+  width: 1440px;
+}
+.header-section{
+  padding-bottom: 20px;
+}
+.header {
+  font-weight: bolder;
+  font-size: 58px;
+  margin: 0;
+  color: #002224;
+}
+.dropdown-div {
+  margin-top: 10px;
+  width: 600px;
+  height: 60px;
+  background-color: #6CC2E8;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+}
+.amenities{
+  margin-top: 23.5px;
+  height: 200px;
+  background-color: #6CC2E8;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 600px; 
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 15px;
+}
+.amenities-div{
+  font-size: 24px;
+  color: #F3FDFF;
+  font-weight:bold;
+  margin-right: 100px;
+}
+.amenities-1{
+  margin-bottom: 23px;
+}
+.amenities-2{
+  margin-bottom: 23px;
+}
+.location {
+  font-size: 24px;
+  color: #F3FDFF;
+  font-weight:bold;
+  margin-right: 120px;
+}
+.dropdown {
+  width: 300px;
+  height:40px;
+  border-radius: 15px;
+  padding-left: 10px;
+  border-width: 0px;
+  background-color: #C8F8FF;
+  color: #1B3F43;
+  font-weight: 700;
+  font-size: 18px;
+}
+.distance{
+  font-size: 24px;
+  color: #F3FDFF;
+  font-weight:bold;
+  margin-right: 118px;
+}
+.room-count{
+  font-size: 24px;
+  color: #F3FDFF;
+  font-weight:bold;
+  margin-right: 75px;
+}
+.gfa{
+  font-size: 24px;
+  color: #F3FDFF;
+  font-weight:bold;
+  margin-right: 180px;
+}
+.generate-price{
+  height:55px;
+  width:350px;
+  background-color:#002224;
+  border-radius: 15px;
+  color:#F3FDFF;
+  font-size:28px;
+  font-weight:bold;
+  padding-top: 5px;
+}
+
+h2{color:#F3FDFF;}
+.generate-price:hover{
+  transform: scale(0.97);
+}
