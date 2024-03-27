@@ -280,9 +280,7 @@ function CurrentListings() {
             />
             <button onClick={(e) => handleNormalSearch(e)}>SEARCH</button>
           </div>
-          <div className="OR">
-            <h3>OR</h3>
-          </div>
+          <div className="OR"><h3>OR</h3></div>
           <div className="desiredpropsearch">
             <button
               style={{ color: "black" }}

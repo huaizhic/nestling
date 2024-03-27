@@ -140,7 +140,7 @@
   width: 100%;
   background-color: #6cc2e8;
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   justify-content: center;
 }
@@ -198,7 +198,7 @@
 .listings-container {
   height: 90%;
   background-color: #fccaca;
-  border-radius: 10px;
+  border-radius: 15px;
   margin-left: 20px;
   display: grid;
   overflow: scroll;
