@@ -167,7 +167,7 @@
 .columns {
   display: flex;
   justify-content: space-around;
-  background-color: ;
+  background-color: #f3fdff;
   width: 90vw;
   height: 80vh;
   margin-top: 10px;
