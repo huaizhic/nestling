@@ -6,9 +6,6 @@ import star from '../../src/assets/images/star-icon.png';
 function Home () {
     return (
         <div className="home">
-            <div className="navbar">
-                <p>navbar</p>
-            </div>
 
             <div className="bottom">
                 <div className="blog">
