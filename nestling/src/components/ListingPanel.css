@@ -16,7 +16,7 @@
 } 
 
 .listingPanel img {
-  width: 260px;
+  width: 90%;
   height: auto; 
   padding-top: 10px;
   padding-bottom: 10px;
@@ -29,21 +29,20 @@
 }
 
 .percentageBubble {
-  height: 75px;
-  width: 75px;
+  height: 4rem;
+  width: 4rem;
+  margin-left: 16rem;
+  margin-bottom: 1rem;
   background-color: #55830D; 
   border-radius: 50%; 
   font-weight: bold;
   text-align: center;
-  margin-left: 225px;
-  margin-bottom: 15px;
-  margin-right: 15px;
 }
 
 .value{
   padding-top: 4px;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .match{

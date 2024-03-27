@@ -142,7 +142,7 @@ function CurrentListings() {
       <div className="columns">
         <div className="search-column">
           <div className="search-container">
-            <div className="search"><h1>Search</h1></div>
+            <div className="search"><h3>Search</h3></div>
             <label htmlFor="Location">Location</label>
             <select
               id="Location"
@@ -167,8 +167,10 @@ function CurrentListings() {
               })}
             </select>
             <label htmlFor="Amenities">Amenities</label>
+          <div className="amenities-container">
             <select
               id="Amenities"
+              className="amenity-dropdown"
               style={{ color: "black" }}
               value={amenityInput1}
               onChange={(e) => {
@@ -192,6 +194,7 @@ function CurrentListings() {
             </select>
             <select
               id="Amenities"
+              className="amenity-dropdown"
               style={{ color: "black" }}
               value={amenityInput2}
               onChange={(e) => {
@@ -215,6 +218,7 @@ function CurrentListings() {
             </select>
             <select
               id="Amenities"
+              className="amenity-dropdown"
               style={{ color: "black" }}
               value={amenityInput3}
               onChange={(e) => {
@@ -242,6 +246,7 @@ function CurrentListings() {
               <option value="Stations">MRT Stations</option>
               <option value="Malls">Malls</option>
             </select>
+          </div>
             <label htmlFor="Distance">Distance (KM)</label>
             <select
               id="Distance"
@@ -292,9 +297,7 @@ function CurrentListings() {
           </div>
         </div>
         <div className="listings-column">
-          <div className="Listings">
-            <h1>Current Listings</h1>
-          </div>
+          <div className="Listings"><h3>Current Listings</h3></div>
           <div className="listings-container">
             {!showListings && <p className="chirpingText">Nothing chirping yet:(</p>}{/*conditional render*/}
             {/* <ListingPanel />

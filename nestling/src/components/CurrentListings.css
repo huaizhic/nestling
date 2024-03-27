@@ -11,7 +11,7 @@
 
 .topcontainer {
   width: 100vw;
-  height: 20vh;
+  height: 15vh;
   display: flex;
   justify-content: space-around;
   padding: 20px;
@@ -23,11 +23,15 @@
     height: 40px;
     display: flex;
     justify-content: center;
-    margin: 50px 0 0 200px;
+    padding-bottom: 60px;
+    margin: 50px 0 30px 200px;
 }
 .navbar ul {
     background-color: #f3fdff;
     list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 400px;
 }
 
 .navbar ul li a {
@@ -46,15 +50,15 @@
 
 .logo {
   display: flex;
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
 }
 
 .profile-picture {
     display: flex;
     flex-direction: column;
-    height: 100px;
-    width: 100px;
+    height: 70px;
+    width: 70px;
 }
 
 .profile-picture a {
@@ -71,8 +75,8 @@
 }
 
 .search-column {
-  width: 40%;
-  height: 80vh;
+  width: 30vw;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -82,6 +86,7 @@
 
 .search-container {
   width: 100%;
+  height: 65vh;
   background-color: #6cc2e8;
   padding: 10px;
   border-radius: 15px;
@@ -103,7 +108,6 @@
 .search-container input{
     width: 100%;
     margin-right: 10px;
-    margin-bottom: 20px;
     background-color: #b6edfa;
     border-radius: 10px;
     border: none;
@@ -128,6 +132,7 @@
 
 .search-container label {
   margin-bottom: 0px;
+  margin-top: 0px;
   font-weight: bold;
 }
 
@@ -148,7 +153,7 @@
 }
 
 .OR h3 {
-  margin-top: 10px;
+  margin: 5px;
   font-weight: bold;
 }
 
@@ -162,19 +167,20 @@
 .columns {
   display: flex;
   justify-content: space-around;
-  background-color: #f3fdff;
-  width: 60vw;
-  height: 90vh;
-  margin-top: 0px;
+  background-color: ;
+  width: 90vw;
+  height: 80vh;
+  margin-top: 10px;
 }
 
-.search h1 {
+.search h3 {
   font-weight: bold;
+  padding: 0px;
 }
 
 .listings-column {
   width: 60%;
-  height: 80vh;
+  height: 85vh;
   display:flex;
   flex-direction: column;
   background-color: #f3fdff;
@@ -186,13 +192,13 @@
   justify-content: center;
 }
 
-.Listings h1{
+.Listings h3{
     font-weight: bold;
     padding-top: 5px;
 }
 
 .listings-container {
-  height: 90%;
+  height: 88%;
   background-color: #fccaca;
   border-radius: 15px;
   margin-left: 20px;
@@ -203,10 +209,14 @@
 
 .chirpingText{
   width: 350px;
+  margin-left: 40px;
+  padding-top: 250px;
   font-weight: bold;
   font-size: 30px;
   color: #C84B4B;
-  text-align: center;
-  margin-left: 150px;
-  margin-top: 300px;
+  text-align: center; 
+}
+
+.amenities-container {
+  display: flex;
 }
