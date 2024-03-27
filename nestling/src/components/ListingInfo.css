@@ -1,105 +1,120 @@
 .listing-info {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f3fdff;
-  font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
-}
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    background-color: #f3fdff;
+    font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
+  }
+  
+  .topcontainer {
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    padding-bottom: 0px;
+    background-color: #f3fdff;
+  }
+  
+  .navbar{
+      display: flex;
+      margin-left: 350px;
+  }
+  .navbar ul {
+      background-color: #f3fdff;
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      width: 60vw;
+  }
+  
+  .navbar ul li {
+    padding-left: 70px;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .navbar ul li:first-child{
+      padding-left: 70px;
+  }
+  
+  .navbar ul li:last-child{
+      padding-right: 70px;
+  }
+  
+  .logo {
+    display: flex;
+    height: 100px;
+    width: 100px;
+  }
+  
+  .profile-picture {
+      display: flex;
+      flex-direction: column;
+      height: 100px;
+      width: 100px;
+  }
+  
+  .profile-picture a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logo img,
+  .profile-picture img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .infoContainer{
+    display: flex;
+    justify-content: space-around;
+    width: 70vw;
+    height: 65vh;
+    background-color: #FCCACA;
+    border-radius: 15px;
+  }
 
-.topcontainer {
-  width: 100vw;
-  height: 20vh;
-  display: flex;
-  justify-content: space-around;
-}
+  .compareButton button{
+    height: 70px;
+    width: 292px;
+    font-weight: bold;
+    background-color: #670F0F;
+    color: white;
+    margin-top: 10px;
+    border-radius: 15px;
+    font-size: 25px;
+    text-align: center;
+  }
 
-.navbar{
-  position: fixed; /* Fix the navbar at the top of the screen */
-  top: 0; /* Position it at the top */
-  left: 0; /* Align it to the left */
-  width: 100%; /* Make it full width */
-  background-color: #f3fdff; /* Background color */
-  z-index: 1000; /* Set a high z-index to ensure it appears above other content */
-}
+  .imgColumn{
+    width: 35vw;
+    background-color: #FCCACA;
+    padding-left: 40px;
+    padding-top: 40px;
+  }
 
-.navbar ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-}
+  .textColumn{
+    width: 35vw;
+  }
 
-.navbar ul li {
-  margin-right: 20px; /* Adjust spacing between navbar items */
-}
+  .field h3{
+    background-color: #670F0F;
+    color: white;
+    border-radius: 15px;
+    font-weight: bold;
+    padding: 4px;
+    padding-left: 10px;
+    font-size: 20px;
+    margin: 10px;
+  }
 
-.navbar ul li:last-child {
-  margin-right: 0; /* Remove margin from the last navbar item */
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: black;
-  padding: 10px 16px; /* Adjust padding for navbar items */
-}
-
-.logo {
-  display: flex;
-  height: 100px;
-  width: 100px;
-}
-
-.profile-picture {
-  display: flex;
-  flex-direction: column;
-  height: 100px;
-  width: 100px;
-}
-
-.profile-picture a {
-  text-decoration: none;
-  color: black;
-  display: flex;
-  justify-content: center;
-}
-
-.logo img,
-.profile-picture img {
-  max-width: 100%;
-  height: auto;
-}
-
-.desired-property, .current-listings, .favourites {
-  white-space: nowrap;
-}
-
-
-.desired-property:active{
-  background-color: #4AB3E2;
-  color: #F3FDFF;
-  border-radius: 58px;
-  width: 170px;
-  height: 40px;
-  margin-right:15px;
-}
-
-.current-listings:active{
-  background-color: #670F0F;
-  color: #F3FDFF;
-  border-radius: 58px;
-  width: 170px;
-  height: 40px;
-  margin-right:-15px;
-}
-
-.favourites:active{
-  background-color: #FCCACA;
-  color: #002224;
-  border-radius: 58px;
-  width: 140px;
-  height: 40px;
-  margin-right:-15px;
-}

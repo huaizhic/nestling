@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Signup.css";
+import "./SignUp.css";
 import walter from "../assets/images/walter.png";
 import { useNavigate } from "react-router-dom";
 import supabase from "../supabase";
