@@ -19,19 +19,14 @@
 }
 
 .navbar{
+    width: 794px;
+    height: 40px;
     display: flex;
-    margin-left: 350px;
+    justify-content: center;
 }
 .navbar ul {
     background-color: #f3fdff;
     list-style-type: none;
-    display: flex;
-    justify-content: center;
-    width: 60vw;
-}
-
-.navbar ul li {
-  padding-left: 70px;
 }
 
 .navbar ul li a {
