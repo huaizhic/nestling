@@ -1,123 +1,125 @@
 .listing-info {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: black;
-    background-color: #f3fdff;
-    font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
-  }
-  
-  .topcontainer {
-    width: 100vw;
-    height: 15vh;
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    padding-bottom: 0px;
-    background-color: #f3fdff;
-  }
-  
-  .navbar{
-      display: flex;
-      height: 40px;
-      width: 794px;
-      margin: 50px 0 30px 200px;
-      margin-bottom: 400px;
-  }
-  .navbar ul {
-      background-color: #f3fdff;
-      list-style-type: none;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 60px;
-  }
-  
-  .navbar ul li {
-    padding-left: 70px;
-  }
-  
-  .navbar ul li a {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-  }
-  
-  .navbar ul li:first-child{
-      padding-left: 70px;
-  }
-  
-  .navbar ul li:last-child{
-      padding-right: 70px;
-  }
-  
-  .logo {
-    display: flex;
-    height: 80px;
-    width: 80px;
-  }
-  
-  .profile-picture {
-      display: flex;
-      flex-direction: column;
-      height: 70px;
-      width: 70px;
-  }
-  
-  .profile-picture a {
-    text-decoration: none;
-    color: black;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .logo img,
-  .profile-picture img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .infoContainer{
-    display: flex;
-    justify-content: space-around;
-    width: 70vw;
-    height: 65vh;
-    background-color: #FCCACA;
-    border-radius: 15px;
-  }
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  background-color: #f3fdff;
+  font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
+}
 
-  .compareButton button{
-    height: 70px;
-    width: 292px;
-    font-weight: bold;
-    background-color: #670F0F;
-    color: white;
-    margin-top: 10px;
-    border-radius: 15px;
-    font-size: 25px;
-    text-align: center;
-  }
+.topcontainer {
+  width: 100vw;
+  height: 15vh;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  padding-bottom: 0px;
+  background-color: #f3fdff;
+}
 
-  .imgColumn{
-    width: 35vw;
-    background-color: #FCCACA;
-    padding-left: 40px;
-    padding-top: 40px;
-  }
+.navbar {
+  display: flex;
+  height: 40px;
+  width: 794px;
+  margin: 50px 0 30px 200px;
+  margin-bottom: 400px;
+}
+.navbar ul {
+  background-color: #f3fdff;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
 
-  .textColumn{
-    width: 35vw;
-  }
+.navbar ul li {
+  padding-left: 70px;
+}
 
-  .field h3{
-    background-color: #670F0F;
-    color: white;
-    border-radius: 15px;
-    font-weight: bold;
-    padding: 4px;
-    padding-left: 10px;
-    font-size: 20px;
-    margin: 10px;
-  }
+.navbar ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
 
+.navbar ul li:first-child {
+  padding-left: 70px;
+}
+
+.navbar ul li:last-child {
+  padding-right: 70px;
+}
+
+.logo {
+  display: flex;
+  height: 80px;
+  width: 80px;
+}
+
+.profile-picture {
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  width: 70px;
+}
+
+.profile-picture a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.logo img,
+.profile-picture img {
+  max-width: 100%;
+  height: auto;
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 70vw;
+  height: 65vh;
+  background-color: #fccaca;
+  border-radius: 15px;
+}
+
+.compareButton button {
+  height: 70px;
+  width: 292px;
+  font-weight: bold;
+  background-color: #670f0f;
+  color: white;
+  margin-top: 10px;
+  border-radius: 15px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.imgColumn {
+  width: 35vw;
+  background-color: #fccaca;
+  padding-left: 40px;
+  padding-top: 40px;
+}
+
+.textColumn {
+  width: 35vw;
+}
+
+.field h3 {
+  background-color: #670f0f;
+  color: white;
+  border-radius: 15px;
+  font-weight: bold;
+  padding: 4px;
+  padding-left: 10px;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.data {
+}

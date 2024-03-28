@@ -20,7 +20,7 @@ function CurrentListings() {
   const [distanceRadius, setDistanceRadius] = useState(2);
   const [roomCountInput, setRoomCountInput] = useState(3);
   const [grossFloorArea, setGrossFloorArea] = useState(1500);
-  const [showListings, setShowListings] = useState(false);
+  const [showListings, setShowListings] = useState(true);
   {
     /*conditional render*/
   }
@@ -337,6 +337,7 @@ function CurrentListings() {
                       title={indivPanel.projectName}
                       price={indivPanel.price}
                       percentageMatch={indivPanel.percentageMatch}
+                      id={indivPanel.id}
                     />
                   </div>
                 );

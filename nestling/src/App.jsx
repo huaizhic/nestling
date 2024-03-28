@@ -13,7 +13,7 @@ import Article from "./components/Article.jsx";
 import DesiredProperty from "./components/DesiredProperty.jsx";
 import Account from "./components/AcctDetails.jsx";
 import ListingInfo from "./components/ListingInfo.jsx";
-import GeneratedPrice from './components/GeneratedPrice.jsx';
+import GeneratedPrice from "./components/GeneratedPrice.jsx";
 
 function App() {
   return (
@@ -32,6 +32,7 @@ function App() {
       <Route path="/desired-property" element={<DesiredProperty />} />
       <Route path="/listing-info" element={<ListingInfo />} />
       <Route path="/generated-price" element={<GeneratedPrice />} />
+      <Route path="/listing-info/:id" element={<ListingInfo />} />
     </Routes>
   );
 }
