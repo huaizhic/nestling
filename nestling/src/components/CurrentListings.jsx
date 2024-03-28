@@ -20,7 +20,10 @@ function CurrentListings() {
   const [distanceRadius, setDistanceRadius] = useState(2);
   const [roomCountInput, setRoomCountInput] = useState(3);
   const [grossFloorArea, setGrossFloorArea] = useState(1500);
-  const [showListings, setShowListings] = useState(false);{/*conditional render*/}
+  const [showListings, setShowListings] = useState(false);
+  {
+    /*conditional render*/
+  }
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -62,7 +65,10 @@ function CurrentListings() {
       return 0;
     });
     setCurrentList(tempData);
-    setShowListings(true);{/*conditional render*/}
+    setShowListings(true);
+    {
+      /*conditional render*/
+    }
   };
 
   const handleDesiredSubmit = async (e) => {
@@ -109,40 +115,45 @@ function CurrentListings() {
       return 0;
     });
     setCurrentList(tempData);
+    setShowListings(true);
   };
 
   return (
     <div className="current-listings">
-        <div className="topcontainer">
-            <div className="logo"><img src={walterlogo} alt="Walter Logo" /></div>
-            <div className="navbar">
-            <ul>
-                <li>
-                <Link to="/">Home</Link>
-                </li>
-                <li>
-                <Link to="/desired-property">Desired Property</Link>
-                </li>
-                <li>
-                <Link to="/current-listings">Current Listings</Link>
-                </li>
-                <li>
-                <Link to="/favourites">Favourites</Link>
-                </li>
-                <li>
-                <Link to="/">Logout</Link>
-                </li>
-            </ul>
-            </div>
-            <div className="profile-picture">
-            <img src={greenwalter} alt="Green Walter Profile" />
-            <Link to="/account-details">Account</Link>
-            </div>
+      <div className="topcontainer">
+        <div className="logo">
+          <img src={walterlogo} alt="Walter Logo" />
         </div>
+        <div className="navbar">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/desired-property">Desired Property</Link>
+            </li>
+            <li>
+              <Link to="/current-listings">Current Listings</Link>
+            </li>
+            <li>
+              <Link to="/favourites">Favourites</Link>
+            </li>
+            <li>
+              <Link to="/">Logout</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="profile-picture">
+          <img src={greenwalter} alt="Green Walter Profile" />
+          <Link to="/account-details">Account</Link>
+        </div>
+      </div>
       <div className="columns">
         <div className="search-column">
           <div className="search-container">
-            <div className="search"><h3>Search</h3></div>
+            <div className="search">
+              <h3>Search</h3>
+            </div>
             <label htmlFor="Location">Location</label>
             <select
               id="Location"
@@ -167,86 +178,86 @@ function CurrentListings() {
               })}
             </select>
             <label htmlFor="Amenities">Amenities</label>
-          <div className="amenities-container">
-            <select
-              id="Amenities"
-              className="amenity-dropdown"
-              style={{ color: "black" }}
-              value={amenityInput1}
-              onChange={(e) => {
-                if (
-                  e.target.value === amenityInput2 ||
-                  e.target.value === amenityInput3
-                ) {
-                  alert("Cannot choose same amenity again");
-                  setAmenityInput2("option1");
-                } else {
-                  setAmenityInput1(e.target.value);
-                }
-              }}
-            >
-              <option value="option1">Preferred amenities</option>
-              <option value="Schools">Schools</option>
-              <option value="Supermarkets">Supermarkets</option>
-              <option value="Parks">Parks</option>
-              <option value="Stations">MRT Stations</option>
-              <option value="Malls">Malls</option>
-            </select>
-            <select
-              id="Amenities"
-              className="amenity-dropdown"
-              style={{ color: "black" }}
-              value={amenityInput2}
-              onChange={(e) => {
-                if (
-                  e.target.value === amenityInput1 ||
-                  e.target.value === amenityInput3
-                ) {
-                  alert("Cannot choose same amenity again");
-                  setAmenityInput2("option2");
-                } else {
-                  setAmenityInput2(e.target.value);
-                }
-              }}
-            >
-              <option value="option2">Preferred amenities</option>
-              <option value="Schools">Schools</option>
-              <option value="Supermarkets">Supermarkets</option>
-              <option value="Parks">Parks</option>
-              <option value="Stations">MRT Stations</option>
-              <option value="Malls">Malls</option>
-            </select>
-            <select
-              id="Amenities"
-              className="amenity-dropdown"
-              style={{ color: "black" }}
-              value={amenityInput3}
-              onChange={(e) => {
-                if (
-                  e.target.value === amenityInput1 ||
-                  e.target.value === amenityInput2
-                ) {
-                  alert("Cannot choose same amenity again");
-                  setAmenityInput3("option3");
-                } else {
-                  setAmenityInput3(e.target.value);
-                }
-              }}
-            >
-              {/* <option value="option1">Preferred amenities</option>
+            <div className="amenities-container">
+              <select
+                id="Amenities"
+                className="amenity-dropdown"
+                style={{ color: "black" }}
+                value={amenityInput1}
+                onChange={(e) => {
+                  if (
+                    e.target.value === amenityInput2 ||
+                    e.target.value === amenityInput3
+                  ) {
+                    alert("Cannot choose same amenity again");
+                    setAmenityInput2("option1");
+                  } else {
+                    setAmenityInput1(e.target.value);
+                  }
+                }}
+              >
+                <option value="option1">Preferred amenities</option>
+                <option value="Schools">Schools</option>
+                <option value="Supermarkets">Supermarkets</option>
+                <option value="Parks">Parks</option>
+                <option value="Stations">MRT Stations</option>
+                <option value="Malls">Malls</option>
+              </select>
+              <select
+                id="Amenities"
+                className="amenity-dropdown"
+                style={{ color: "black" }}
+                value={amenityInput2}
+                onChange={(e) => {
+                  if (
+                    e.target.value === amenityInput1 ||
+                    e.target.value === amenityInput3
+                  ) {
+                    alert("Cannot choose same amenity again");
+                    setAmenityInput2("option2");
+                  } else {
+                    setAmenityInput2(e.target.value);
+                  }
+                }}
+              >
+                <option value="option2">Preferred amenities</option>
+                <option value="Schools">Schools</option>
+                <option value="Supermarkets">Supermarkets</option>
+                <option value="Parks">Parks</option>
+                <option value="Stations">MRT Stations</option>
+                <option value="Malls">Malls</option>
+              </select>
+              <select
+                id="Amenities"
+                className="amenity-dropdown"
+                style={{ color: "black" }}
+                value={amenityInput3}
+                onChange={(e) => {
+                  if (
+                    e.target.value === amenityInput1 ||
+                    e.target.value === amenityInput2
+                  ) {
+                    alert("Cannot choose same amenity again");
+                    setAmenityInput3("option3");
+                  } else {
+                    setAmenityInput3(e.target.value);
+                  }
+                }}
+              >
+                {/* <option value="option1">Preferred amenities</option>
               <option value="option2">Secondary Schools</option>
               <option value="option3">Primary Schools</option>
               <option value="option4">Supermarkets</option>
               <option value="option5">Parks</option>
               <option value="option6">Malls</option> */}
-              <option value="option3">Preferred amenities</option>
-              <option value="Schools">Schools</option>
-              <option value="Supermarkets">Supermarkets</option>
-              <option value="Parks">Parks</option>
-              <option value="Stations">MRT Stations</option>
-              <option value="Malls">Malls</option>
-            </select>
-          </div>
+                <option value="option3">Preferred amenities</option>
+                <option value="Schools">Schools</option>
+                <option value="Supermarkets">Supermarkets</option>
+                <option value="Parks">Parks</option>
+                <option value="Stations">MRT Stations</option>
+                <option value="Malls">Malls</option>
+              </select>
+            </div>
             <label htmlFor="Distance">Distance (KM)</label>
             <select
               id="Distance"
@@ -281,12 +292,14 @@ function CurrentListings() {
             <input
               type="number"
               value={grossFloorArea}
+              style={{ color: "black" }}
               onChange={(e) => setGrossFloorArea(e.target.value)}
             />
             <button onClick={(e) => handleNormalSearch(e)}>SEARCH</button>
           </div>
-          <div className="OR"><h3>OR</h3>
-        </div>
+          <div className="OR">
+            <h3>OR</h3>
+          </div>
           <div className="desiredpropsearch">
             <button
               style={{ color: "black" }}
@@ -297,33 +310,37 @@ function CurrentListings() {
           </div>
         </div>
         <div className="listings-column">
-          <div className="Listings"><h3>Current Listings</h3></div>
+          <div className="Listings">
+            <h3>Current Listings</h3>
+          </div>
           <div className="listings-container">
-            {!showListings && <p className="chirpingText">Nothing chirping yet:(</p>}{/*conditional render*/}
+            {!showListings && (
+              <p className="chirpingText">Nothing chirping yet:(</p>
+            )}
+            {/*conditional render*/}
             {/* <ListingPanel />
             <ListingPanel />
             <ListingPanel />
             <ListingPanel />
             <ListingPanel /> */}
             {showListings &&
-            currentList.map((indivPanel) => {
-              return (
-                /*<div className="listing-panel" key={index}>
+              currentList.map((indivPanel) => {
+                return (
+                  /*<div className="listing-panel" key={index}>
                 <ListingPanel
                   title={indivPanel.projectName}
                   price={indivPanel.price}
                   percentageMatch={indivPanel.percentageMatch}
                 />*/
-                <div className="listing-panel">
-                <ListingPanel
-                    title={indivPanel.projectName}
-                    price={indivPanel.price}
-                    percentageMatch={indivPanel.percentageMatch}
-                />
-                </div>
-              );
-            })
-          }
+                  <div className="listing-panel">
+                    <ListingPanel
+                      title={indivPanel.projectName}
+                      price={indivPanel.price}
+                      percentageMatch={indivPanel.percentageMatch}
+                    />
+                  </div>
+                );
+              })}
           </div>
         </div>
       </div>
