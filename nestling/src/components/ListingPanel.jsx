@@ -3,13 +3,7 @@ import emptyimage from "../assets/images/emptyimage.png";
 import { Link, Route, Routes } from "react-router-dom";
 import ListingInfo from "./ListingInfo";
 
-export const ListingPanel = ({
-  title,
-  price,
-  percentageMatch,
-  id,
-  indivData,
-}) => {
+export const ListingPanel = ({ indivData }) => {
   return (
     <>
       <div className="listingPanel">
@@ -26,10 +20,13 @@ export const ListingPanel = ({
             )}
             {/* <img src={emptyimage}></img> */}
           </div>
-          <Link to={`/listing-info/${id}`}>
+          <Link to={`/listing-info/${indivData.id}`}>
             {/* <h3>{title}</h3> */}
             <h3>{indivData.projectName}</h3>
           </Link>
+
+          <h3>{indivData.address}</h3>
+          <h3>{indivData.districtGroup}</h3>
           <h3>${indivData.price}</h3>
           {/* <h3>{id}</h3> */}
           {/*<span className="percentageBubble">
@@ -40,15 +37,15 @@ export const ListingPanel = ({
             </span>*/}
           <span
             className={`percentageBubble ${
-              percentageMatch !== undefined ? "greenBubble" : ""
+              indivData.percentageMatch !== undefined ? "greenBubble" : ""
             }`}
           >
             <div className="value">
-              {percentageMatch !== undefined &&
-                Math.round(percentageMatch) + "%"}
+              {indivData.percentageMatch !== undefined &&
+                Math.round(indivData.percentageMatch) + "%"}
             </div>
             <div className="match">
-              {percentageMatch !== undefined && "match"}
+              {indivData.percentageMatch !== undefined && "match"}
             </div>
           </span>
           {/* </Link> */}

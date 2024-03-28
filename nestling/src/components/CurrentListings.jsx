@@ -364,13 +364,7 @@ function CurrentListings() {
                   percentageMatch={indivPanel.percentageMatch}
                 />*/
                   <div className="listing-panel">
-                    <ListingPanel
-                      title={indivPanel.projectName}
-                      price={indivPanel.price}
-                      percentageMatch={indivPanel.percentageMatch}
-                      id={indivPanel.id}
-                      indivData={indivPanel}
-                    />
+                    <ListingPanel indivData={indivPanel} />
                   </div>
                 );
               })}
