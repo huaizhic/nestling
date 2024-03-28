@@ -30,11 +30,42 @@ function CurrentListings() {
       let { data, error } = await supabase.from("currentList").select("*");
       console.log(data);
       setCurrentList(data);
+      // return data;
+
+      // as original data as no room count, this is a scripting function to add room count based on existing GFA
+      const addRoomCount = (data) => {
+        // console.log(data);
+        data.forEach((indivProperty) => {
+          if (indivProperty.GFA < 1000) {
+            indivProperty.roomCount = 3;
+          } else if (indivProperty.GFA > 1000 && indivProperty.GFA < 1500) {
+            indivProperty.roomCount = 4;
+          } else if (indivProperty.GFA > 1500) {
+            indivProperty.roomCount = 5;
+          }
+        });
+        // console.log(data);
+      };
+
+      // addRoomCount(data);
+      // console.log(data);
+      // to upload newly added roomCount of each property to supabase
+      // data.forEach(async (indivProperty) => {
+      //   let { data1, error1 } = await supabase
+      //     .from("currentList")
+      //     .update({ roomCount: indivProperty.roomCount })
+      //     .eq("id", indivProperty.id);
+
+      //   // console.log(data1);
+      //   // console.log(error1);
+      // });
     };
 
     // due to duplicates in location options
     const filterLocationList = () => {};
+
     fetchListing();
+    // addRoomCount(data);
   }, [fetchflag]);
 
   if (currentList.length === 0) {

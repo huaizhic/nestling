@@ -7,6 +7,7 @@ import emptyimage from "../assets/images/emptyimage.png";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import supabase from "../supabase";
+import { percentageMatchLogic } from "./percentageMatchLogic";
 
 function ListingInfo() {
   const { id } = useParams();
@@ -16,15 +17,62 @@ function ListingInfo() {
       address: "loading",
     },
   ]);
+  const [percentageMatch, setPercentageMatch] = useState(0);
+  const [desiredListing, setDesiredListing] = useState([
+    {
+      projectName: "loading",
+      address: "loading",
+    },
+  ]);
 
   useEffect(() => {
     const fetchIndivListing = async () => {
-      let { data, error } = await supabase
+      //   console.log(id);
+      // fetch individual property details
+      let { data: currentListing, error } = await supabase
         .from("currentList")
         .select("*")
         .eq("id", id);
-      console.log(data);
-      setListing(data[0]);
+
+      console.log(currentListing);
+      //   console.log(error);
+      setListing(currentListing[0]);
+
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      //   console.log(user);
+      //   console.log(user.email);
+
+      let { data: data1, error: error1 } = await supabase
+        .from("userInfo")
+        .select("desiredProperty")
+        .eq("email", user.email);
+      //   console.log(data1);
+      let desiredProperty = data1[0].desiredProperty[0];
+      //   console.log(percentageMatch);
+      console.log(desiredProperty);
+      setDesiredListing(desiredProperty);
+
+      if (percentageMatch === 0) {
+        let tempData = percentageMatchLogic(
+          currentListing,
+          desiredProperty.location,
+          desiredProperty.roomCount,
+          desiredProperty.distanceRadius,
+          desiredProperty.amenity1,
+          desiredProperty.amenity2,
+          desiredProperty.amenity3,
+          desiredProperty.grossFloorArea
+        );
+
+        // console.log(tempData);
+        // let temp = tempData[0].percentageMatch;
+        // console.log(temp);
+        setPercentageMatch(tempData[0].percentageMatch);
+      }
+      //   console.log("hi");
     };
 
     fetchIndivListing();
@@ -82,7 +130,8 @@ function ListingInfo() {
           </div>
           <h3 className="data">{listing.projectName}</h3>
           <div className="field">
-            <h3>Address</h3>
+            <h3>Location </h3>
+            {/* <h3> {listing.nearestMRT}</h3> */}
             <span id="locationField"></span>
           </div>
           <h3 className="data">{listing.address}</h3>
@@ -90,18 +139,50 @@ function ListingInfo() {
             <h3>Amenities & Their Distances</h3>
             <span id="amenitiesField"></span>
           </div>
+          <h3 className="data">
+            Nearest School: {listing.nearestSchool} (Distance:{" "}
+            {listing.nearestSchoolDistance} km)
+          </h3>
+          <h3 className="data">
+            Nearest MRT: {listing.nearestMRT} (Distance:{" "}
+            {listing.nearestMRTDistance} km)
+          </h3>
+          <h3 className="data">
+            Nearest Park: {listing.nearestPark} (Distance:{" "}
+            {listing.nearestParkDistance} km)
+          </h3>
+          <h3 className="data">
+            Nearest Market: {listing.nearestMarket} (Distance:{" "}
+            {listing.nearestMarketDistance} km)
+          </h3>
           <div className="field">
             <h3>Room Count</h3>
             <span id="roomCountField"></span>
           </div>
+          <h3 className="data">{listing.roomCount}</h3>
           <div className="field">
             <h3>GFA (gross floor area)</h3>
             <span id="gfaField"></span>
           </div>
+          <h3 className="data">{listing.GFA} sqm</h3>
           <div className="field">
             <h3>Features of the house</h3>
             <span id="featuresField"></span>
           </div>
+          <div className="field">
+            <h3>Percentage Match based on desired attributes</h3>
+            <span id="featuresField"></span>
+          </div>
+          {percentageMatch === 0 ? (
+            <h3 className="data">Loading</h3>
+          ) : (
+            <h3 className="data">{percentageMatch}</h3>
+          )}
+          <div className="field">
+            <h3>District Group</h3>
+            <span id="featuresField"></span>
+          </div>
+          <h3 className="data">{listing.districtGroup}</h3>
         </div>
       </div>
       <div className="compareButton">

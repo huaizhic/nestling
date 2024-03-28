@@ -82,9 +82,10 @@
   display: flex;
   justify-content: space-around;
   width: 70vw;
-  height: 65vh;
+  height: 80vh;
   background-color: #fccaca;
   border-radius: 15px;
+  /* overflow: scroll; */
 }
 
 .compareButton button {
@@ -122,4 +123,5 @@
 }
 
 .data {
+  font-size: 16px;
 }
