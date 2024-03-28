@@ -1,0 +1,32 @@
+.favourites {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif; 
+    background-color: #F3FDFF;
+    flex-direction: row;
+    height: 1024x;
+    width: 1440px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Align children vertically */
+    margin-top: 20px; /* Adjust as needed */
+}
+
+.header {
+    color: #670F0F;
+    font-size: 64px;
+    font-weight: bold;
+    text-align: center; /* Align text horizontally */
+}
+
+.the-rest {
+    margin-top: 10px;
+    color: black;
+    width: 50px;
+    height: 50px;
+}
