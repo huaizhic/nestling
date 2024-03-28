@@ -24,7 +24,7 @@ function ListingInfo() {
         .select("*")
         .eq("id", id);
       console.log(data);
-      setListing(data);
+      setListing(data[0]);
     };
 
     fetchIndivListing();
@@ -62,19 +62,30 @@ function ListingInfo() {
       </div>
       <div className="infoContainer">
         <div className="imgColumn">
-          <img src={emptyimage}></img>
+          {listing.imageURL === null ? (
+            <img src={emptyimage} style={{ width: "90%", height: "90%" }}></img>
+          ) : (
+            <img
+              src={listing.imageURL}
+              style={{ width: "90%", height: "90%" }}
+            ></img>
+          )}
+          {/* <img
+            src={listing.imageURL}
+            style={{ width: "90%", height: "90%" }}
+          ></img> */}
         </div>
         <div className="textColumn">
           <div className="field">
             <h3>Project Name</h3>
             <span id="ProjectName"></span>
           </div>
-          <h3 className="data">{listing[0].projectName}</h3>
+          <h3 className="data">{listing.projectName}</h3>
           <div className="field">
             <h3>Address</h3>
             <span id="locationField"></span>
           </div>
-          <h3 className="data">{listing[0].address}</h3>
+          <h3 className="data">{listing.address}</h3>
           <div className="field">
             <h3>Amenities & Their Distances</h3>
             <span id="amenitiesField"></span>

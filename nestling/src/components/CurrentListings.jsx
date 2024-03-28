@@ -338,6 +338,7 @@ function CurrentListings() {
                       price={indivPanel.price}
                       percentageMatch={indivPanel.percentageMatch}
                       id={indivPanel.id}
+                      indivData={indivPanel}
                     />
                   </div>
                 );
