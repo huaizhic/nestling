@@ -11,28 +11,28 @@ import { percentageMatchLogic } from "./percentageMatchLogic";
 
 function ListingDetails(){
     const { id } = useParams();
-  const [listing, setListing] = useState([
-    {
-      projectName: "loading",
-      address: "loading",
-    },
-  ]);
-  const [percentageMatch, setPercentageMatch] = useState(0);
-  const [desiredListing, setDesiredListing] = useState([
-    {
-      projectName: "loading",
-      address: "loading",
-    },
-  ]);
+    const [listing, setListing] = useState([
+        {
+        projectName: "loading",
+        address: "loading",
+        },
+    ]);
+    const [percentageMatch, setPercentageMatch] = useState(0);
+    const [desiredListing, setDesiredListing] = useState([
+        {
+        projectName: "loading",
+        address: "loading",
+        },
+    ]);
 
-  useEffect(() => {
-    const fetchIndivListing = async () => {
-      //   console.log(id);
-      // fetch individual property details
-      let { data: currentListing, error } = await supabase
-        .from("currentList")
-        .select("*")
-        .eq("id", id);
+    useEffect(() => {
+        const fetchIndivListing = async () => {
+        //   console.log(id);
+        // fetch individual property details
+        let { data: currentListing, error } = await supabase
+            .from("currentList")
+            .select("*")
+            .eq("id", id);
 
       console.log(currentListing);
       //   console.log(error);
@@ -183,7 +183,7 @@ function ListingDetails(){
                     </div>
             </div>
             <div className="percentage-match-bubble">{percentageMatch}%</div>
-            <div className="compareButton"><Link to="/compare"><button>Compare</button></Link></div>
+            <div className="compareButton"><Link to={`/compare/${indivData.id}`}><button>Compare</button></Link></div>
         </div>
     );
 }

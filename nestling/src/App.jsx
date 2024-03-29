@@ -37,7 +37,7 @@ function App() {
       <Route path="/favourites" element={<Favourites />} />
       <Route path="/listing-info/:id" element={<ListingInfo />} />
       <Route path="/listing-details/:id" element={<ListingDetails />} />
-      <Route path="/compare" element={<Compare />} />
+      <Route path="/compare/:id" element={<Compare />} />
     </Routes>
   );
 }

@@ -74,7 +74,7 @@
 }
 
 .search-column {
-  width: 30vw;
+  width: 35vw;
   height: 60vh;
   display: flex;
   flex-direction: column;
@@ -197,10 +197,10 @@
 }
 
 .listings-container {
-  height: 88%;
+  height: 83.5%;
   background-color: #fccaca;
   border-radius: 15px;
-  margin-left: 20px;
+  margin-left: 5px;
   display: grid;
   overflow: scroll;
   grid-template-columns: 50% 50%;
