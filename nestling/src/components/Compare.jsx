@@ -157,6 +157,9 @@ function Compare(){
                 </div>
                 </div>
             </div>
+            <div className="AI-output">
+                ai stuff
+            </div>
         </div>
     );
 }
