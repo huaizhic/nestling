@@ -183,7 +183,7 @@ function ListingDetails(){
                     </div>
             </div>
             <div className="percentage-match-bubble">{percentageMatch}%</div>
-            <div className="compareButton"><button>Compare</button></div>
+            <div className="compareButton"><Link to="/compare"><button>Compare</button></Link></div>
         </div>
     );
 }

@@ -1,0 +1,104 @@
+.compare {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    background-color: #f3fdff;
+    font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
+  }
+  
+  .topcontainer {
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    padding-bottom: 0px;
+    background-color: #f3fdff;
+  }
+  
+  .navbar {
+    width: 794px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 30px 200px;
+    background-color: #f3fdff;
+  }
+
+  .navbar ul {
+    background-color: #f3fdff;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+  
+  .navbar ul li {
+    padding-left: 70px;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+  
+  .navbar ul li:first-child {
+    padding-left: 70px;
+  }
+  
+  .navbar ul li:last-child {
+    padding-right: 70px;
+  }
+  
+  .logo {
+    display: flex;
+    height: 80px;
+    width: 80px;
+  }
+  
+  .profile-picture {
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+    width: 70px;
+  }
+  
+  .profile-picture a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logo img,
+  .profile-picture img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .overall-container{
+    display: flex;
+    width: 70vw;
+    height: 60vh;
+  }
+
+  .desired-prop-col{
+    width: 50%;
+  }
+
+  .listing-col{
+    width: 50%;
+  }
+
+  .desired-prop-container{
+    width: 100%;
+    background-color: #6CC2E8;
+  }
+
+  .listing-info-container{
+    background-color: #FCCACA;
+  }

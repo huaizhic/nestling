@@ -15,6 +15,8 @@ import Account from "./components/AcctDetails.jsx";
 import ListingInfo from "./components/ListingInfo.jsx";
 import Favourites from "./components/Favourites.jsx";
 import ListingDetails from "./components/ListingDetails.jsx";
+import Compare from "./components/Compare.jsx";
+
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
       <Route path="/favourites" element={<Favourites />} />
       <Route path="/listing-info/:id" element={<ListingInfo />} />
       <Route path="/listing-details/:id" element={<ListingDetails />} />
+      <Route path="/compare" element={<Compare />} />
     </Routes>
   );
 }
