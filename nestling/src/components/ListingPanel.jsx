@@ -8,6 +8,7 @@ export const ListingPanel = ({ indivData }) => {
     <>
       <div className="listingPanel">
         <div className="panelWrapper">
+        
           {/* <Link to="/listing-info/:id" style={{ textDecoration: "none" }}> */}
           <div className="listingPanelImage">
             {indivData.imageURL === null ? (
@@ -20,14 +21,13 @@ export const ListingPanel = ({ indivData }) => {
             )}
             {/* <img src={emptyimage}></img> */}
           </div>
-          <Link to={`/listing-info/${indivData.id}`}>
+          <Link to={`/listing-info/${indivData.id}`} style={{ textDecoration: 'none' }}>
             {/* <h3>{title}</h3> */}
             <h3>{indivData.projectName}</h3>
+            <h3>{indivData.address}</h3>
+            <h3>{indivData.districtGroup}</h3>
+            <h3>${indivData.price}</h3>
           </Link>
-
-          <h3>{indivData.address}</h3>
-          <h3>{indivData.districtGroup}</h3>
-          <h3>${indivData.price}</h3>
           {/* <h3>{id}</h3> */}
           {/*<span className="percentageBubble">
             Percentage Match:{" "}
