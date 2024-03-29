@@ -21,7 +21,7 @@ export const ListingPanel = ({ indivData }) => {
             )}
             {/* <img src={emptyimage}></img> */}
           </div>
-          <Link to={`/listing-info/${indivData.id}`} style={{ textDecoration: 'none' }}>
+          <Link to={`/listing-details/${indivData.id}`} style={{ textDecoration: 'none' }}>
             {/* <h3>{title}</h3> */}
             <h3>{indivData.projectName}</h3>
             <h3>{indivData.address}</h3>

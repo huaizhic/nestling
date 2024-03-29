@@ -14,6 +14,7 @@ import DesiredProperty from "./components/DesiredProperty.jsx";
 import Account from "./components/AcctDetails.jsx";
 import ListingInfo from "./components/ListingInfo.jsx";
 import Favourites from "./components/Favourites.jsx";
+import ListingDetails from "./components/ListingDetails.jsx";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       <Route path="/listing-info" element={<ListingInfo />} />
       <Route path="/favourites" element={<Favourites />} />
       <Route path="/listing-info/:id" element={<ListingInfo />} />
+      <Route path="/listing-details/:id" element={<ListingDetails />} />
     </Routes>
   );
 }
