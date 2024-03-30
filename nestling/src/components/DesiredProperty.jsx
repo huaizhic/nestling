@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./DesiredProperty.css";
-import Dropdown from './Dropdown.jsx'
+import Dropdown from "./Dropdown.jsx";
 import supabase from "../supabase";
 
 export let desiredAttributes = [
@@ -17,13 +17,13 @@ export let desiredAttributes = [
 
 function DesiredProperty() {
   const [currentList, setCurrentList] = useState([]);
-  const [selectedLocation, setLocation] = useState('');
-  const [selectedDistance, setDistance] = useState('a');
-  const [selectedRoomCount, setRoomCount] = useState('');
-  const [selectedGFA, setGFA] = useState('');
-  const [selectedAmenities1, setAmenities1] = useState('');
-  const [selectedAmenities2, setAmenities2] = useState('');
-  const [selectedAmenities3, setAmenities3] = useState('');
+  const [selectedLocation, setLocation] = useState("");
+  const [selectedDistance, setDistance] = useState("a");
+  const [selectedRoomCount, setRoomCount] = useState("");
+  const [selectedGFA, setGFA] = useState("");
+  const [selectedAmenities1, setAmenities1] = useState("");
+  const [selectedAmenities2, setAmenities2] = useState("");
+  const [selectedAmenities3, setAmenities3] = useState("");
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -33,29 +33,39 @@ function DesiredProperty() {
         console.error("Error fetching data:", error.message);
       } else {
         setCurrentList(data);
+        // console.log(data);
       }
 
-      const { data: userData, error: userError } = await supabase.auth.getUser();
+      const { data: userData, error: userError } =
+        await supabase.auth.getUser();
       if (userError) {
         console.error("Error fetching user data:", userError.message);
       } else {
+        // console.log(userData);
         const { data: userDesiredData, error: desiredError } = await supabase
           .from("userInfo")
           .select("desiredProperty")
-          .eq("email", userData.email);
+          .eq("email", userData.user.email);
+
+        // console.log(userDesiredData);
 
         if (desiredError) {
-          console.error("Error fetching desired property data:", desiredError.message);
+          console.error(
+            "Error fetching desired property data:",
+            desiredError.message
+          );
         } else {
-          const fetchedDesiredAttributes = userDesiredData[0]?.desiredProperty[0];
+          const fetchedDesiredAttributes =
+            userDesiredData[0]?.desiredProperty[0];
+          // console.log(fetchedDesiredAttributes);
           if (fetchedDesiredAttributes) {
-            setLocation(fetchedDesiredAttributes.location || '');
-            setAmenities1(fetchedDesiredAttributes.amenity1 || '');
-            setAmenities2(fetchedDesiredAttributes.amenity2 || '');
-            setAmenities3(fetchedDesiredAttributes.amenity3 || '');
-            setDistance(fetchedDesiredAttributes.distanceRadius || '');
-            setRoomCount(fetchedDesiredAttributes.roomCount || '');
-            setGFA(fetchedDesiredAttributes.grossFloorArea || '');
+            setLocation(fetchedDesiredAttributes.location || "");
+            setAmenities1(fetchedDesiredAttributes.amenity1 || "");
+            setAmenities2(fetchedDesiredAttributes.amenity2 || "");
+            setAmenities3(fetchedDesiredAttributes.amenity3 || "");
+            setDistance(fetchedDesiredAttributes.distanceRadius || "");
+            setRoomCount(fetchedDesiredAttributes.roomCount || "");
+            setGFA(fetchedDesiredAttributes.grossFloorArea || "");
           }
         }
       }
@@ -98,71 +108,90 @@ function DesiredProperty() {
 
   //for dropdown boxes: amenities, room count, distance and location
   const locations = [
-    {value: 'Ang Mo Kio', label: 'Ang Mo Kio'},
-    {value: 'Bedok', label: 'Bedok'},
-    {value: 'Bishan', label: 'Bishan'}, 
-    {value: 'Bukit Batok', label: 'Bukit Batok'},
-    {value: 'Bukit Merah', label: 'Bukit Merah'},
-    {value: 'Bukit Panjang', label: 'Bukit Panjang'},
-    {value: 'Choa Chu Kang', label: 'Choa Chu Kang'}, 
-    {value: 'Clementi', label: 'Clementi'},
-    {value: 'Geylang', label: 'Geylang'},
-    {value: 'Hougang', label: 'Hougang'},
-    {value: 'Jurong East', label: 'Jurong East'},
-    {value: 'Jurong West', label: 'Jurong West'},
-    {value: 'Kallang/Whampoa', label: 'Kallang/Whampoa'},
-    {value: 'Pasir Ris', label: 'Pasir Ris'},
-    {value: 'Punggol', label: 'Punggol'},
-    {value: 'Queenstown', label: 'Queenstown'},
-    {value: 'Sembawang', label: 'Sembawang'},
-    {value: 'Sengkang', label: 'Sengkang'},
-    {value: 'Serangoon', label: 'Serangoon'},
-    {value: 'Tampines', label: 'Tampines'},
-    {value: 'Tengah', label: 'Tengah'},
-    {value: 'Toa Payoh', label: 'Toa Payoh'},
-    {value: 'Woodlands', label: 'Woodlands'},
-    {value: 'Yishun', label: 'Yishun'},
-];
+    { value: "Ang Mo Kio", label: "Ang Mo Kio" },
+    { value: "Bedok", label: "Bedok" },
+    { value: "Bishan", label: "Bishan" },
+    { value: "Bukit Batok", label: "Bukit Batok" },
+    { value: "Bukit Merah", label: "Bukit Merah" },
+    { value: "Bukit Panjang", label: "Bukit Panjang" },
+    { value: "Choa Chu Kang", label: "Choa Chu Kang" },
+    { value: "Clementi", label: "Clementi" },
+    { value: "Geylang", label: "Geylang" },
+    { value: "Hougang", label: "Hougang" },
+    { value: "Jurong East", label: "Jurong East" },
+    { value: "Jurong West", label: "Jurong West" },
+    { value: "Kallang/Whampoa", label: "Kallang/Whampoa" },
+    { value: "Pasir Ris", label: "Pasir Ris" },
+    { value: "Punggol", label: "Punggol" },
+    { value: "Queenstown", label: "Queenstown" },
+    { value: "Sembawang", label: "Sembawang" },
+    { value: "Sengkang", label: "Sengkang" },
+    { value: "Serangoon", label: "Serangoon" },
+    { value: "Tampines", label: "Tampines" },
+    { value: "Tengah", label: "Tengah" },
+    { value: "Toa Payoh", label: "Toa Payoh" },
+    { value: "Woodlands", label: "Woodlands" },
+    { value: "Yishun", label: "Yishun" },
+  ];
+
+  // const distance = [
+  //   { value: "0-1km", label: "0-1km" },
+  //   { value: "1-2km", label: "1-2km" },
+  //   { value: "2-3km", label: "2-3km" },
+  //   { value: "3-4km", label: "3-4km" },
+  //   { value: "4-5km", label: "4-5km" },
+  //   { value: "5-6km", label: "5-6km" },
+  //   { value: "6-7km", label: "6-7km" },
+  // ];
 
   const distance = [
-    {value: '0-1km', label: '0-1km'},
-    {value: '1-2km', label: '1-2km'},
-    {value: '2-3km', label: '2-3km'},
-    {value: '3-4km', label: '3-4km'},
-    {value: '4-5km', label: '4-5km'},
-    {value: '5-6km', label: '5-6km'},
-    {value: '6-7km', label: '6-7km'},
+    { value: "1", label: "< 1" },
+    { value: "2", label: "< 2" },
+    { value: "3", label: "< 3" },
+    { value: "4", label: "< 4" },
+    { value: "5", label: "< 5" },
   ];
 
   const roomcount = [
-    {value: '3 rooms', label: '3 rooms'},
-    {value: '4 rooms', label: '4 rooms'},
-    {value: '5 rooms', label: '5 rooms'},
-    {value: '>5 rooms', label: '>5 rooms'},
-];
+    { value: "3", label: "3 rooms" },
+    { value: "4", label: "4 rooms" },
+    { value: "5", label: "5 rooms" },
+    // { value: ">5 rooms", label: ">5 rooms" },
+  ];
 
   const amenities = [
-  {value: 'MRT', label:'MRT'},
-  {value:'Parks', label:'Parks'},
-  {value: 'Schools', label: 'Schools'},
-  {value: 'Supermarkets', label:'Supermarkets'},
+    { value: "Stations", label: "MRT Stations" },
+    { value: "Parks", label: "Parks" },
+    { value: "Schools", label: "Schools" },
+    { value: "Supermarkets", label: "Supermarkets" },
   ];
 
   const handleAmenities = () => {
+    // if (
+    //   (selectedAmenities3 &&
+    //     selectedAmenities2 &&
+    //     selectedAmenities3 === selectedAmenities2) ||
+    //   (selectedAmenities1 &&
+    //     selectedAmenities3 &&
+    //     selectedAmenities1 === selectedAmenities3) ||
+    //   (selectedAmenities1 &&
+    //     selectedAmenities2 &&
+    //     selectedAmenities1 === selectedAmenities2)
+    // ) {
+    //   alert("Please choose different amenities!");
+    // }
     if (
-      (selectedAmenities3 && selectedAmenities2 && selectedAmenities3 === selectedAmenities2) ||
-      (selectedAmenities1 && selectedAmenities3 && selectedAmenities1 === selectedAmenities3) ||
-      (selectedAmenities1 && selectedAmenities2 && selectedAmenities1 === selectedAmenities2)
+      selectedAmenities1 === selectedAmenities2 ||
+      selectedAmenities1 === selectedAmenities3
     ) {
       alert("Please choose different amenities!");
+      setAmenities1("");
     }
   };
-  
-  
-  useEffect(() => {
-    handleAmenities();
-  }, [selectedAmenities1, selectedAmenities2, selectedAmenities3]);
-  
+
+  // useEffect(() => {
+  //   handleAmenities();
+  // }, [selectedAmenities1, selectedAmenities2, selectedAmenities3]);
 
   return (
     <div className="desired-property">
@@ -173,11 +202,11 @@ function DesiredProperty() {
         </div>
         <div className="dropdown-div">
           <h3 className="location">Location</h3>
-            <Dropdown 
-              options={locations}
-              selectedOption={selectedLocation}
-              onSelect={setLocation}
-            />
+          <Dropdown
+            options={locations}
+            selectedOption={selectedLocation}
+            onSelect={setLocation}
+          />
         </div>
 
         <div className="amenities">
@@ -209,7 +238,7 @@ function DesiredProperty() {
           </div>
         </div>
         <div className="dropdown-div">
-          <h3 className="distance">Distance</h3>
+          <h3 className="distance">Distance (km)</h3>
           <Dropdown
             options={distance}
             selectedOption={selectedDistance}
@@ -218,7 +247,7 @@ function DesiredProperty() {
         </div>
 
         <div className="dropdown-div">
-          <h3 className ="room-count">Room Count</h3>
+          <h3 className="room-count">Room Count</h3>
           <Dropdown
             options={roomcount}
             selectedOption={selectedRoomCount}
@@ -227,7 +256,7 @@ function DesiredProperty() {
         </div>
 
         <div className="dropdown-div">
-          <h3 className ="gfa">GFA</h3>
+          <h3 className="gfa">GFA</h3>
           <input
             type="number"
             value={selectedGFA}
@@ -236,30 +265,34 @@ function DesiredProperty() {
           />
         </div>
       </div>
-        {!isVisible && (
-          <div>
-            <button onClick={toggleVisibility} className="generate-price">Generate Price</button>
-          </div>
-        )}
-        {isVisible && (
-          <div className="after-click">
-            <div className="generated-price-div">
-              <p className="generated-price-header">Estimated Price</p>
-              <div className="estimated-price-div">
-                <p className="estimated-price">~$100k</p>
-              </div>
-            </div>
-            <div className="buttons">
-              <div>
-                <button className="reconfigure">Reconfigure</button>
-              </div>
-              <div>
-                <button onClick={handleSave} className="confirm">Confirm</button>
-              </div>
+      {!isVisible && (
+        <div>
+          <button onClick={toggleVisibility} className="generate-price">
+            Generate Price
+          </button>
+        </div>
+      )}
+      {isVisible && (
+        <div className="after-click">
+          <div className="generated-price-div">
+            <p className="generated-price-header">Estimated Price</p>
+            <div className="estimated-price-div">
+              <p className="estimated-price">~$100k</p>
             </div>
           </div>
-        )}
-      </div>
+          <div className="buttons">
+            <div>
+              <button className="reconfigure">Reconfigure</button>
+            </div>
+            <div>
+              <button onClick={handleSave} className="confirm">
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 

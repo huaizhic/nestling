@@ -254,7 +254,7 @@ function CurrentListings() {
                 <option value="Supermarkets">Supermarkets</option>
                 <option value="Parks">Parks</option>
                 <option value="Stations">MRT Stations</option>
-                <option value="Malls">Malls</option>
+                {/* <option value="Malls">Malls</option> */}
               </select>
               <select
                 id="Amenities"
@@ -278,7 +278,7 @@ function CurrentListings() {
                 <option value="Supermarkets">Supermarkets</option>
                 <option value="Parks">Parks</option>
                 <option value="Stations">MRT Stations</option>
-                <option value="Malls">Malls</option>
+                {/* <option value="Malls">Malls</option> */}
               </select>
               <select
                 id="Amenities"
@@ -308,7 +308,7 @@ function CurrentListings() {
                 <option value="Supermarkets">Supermarkets</option>
                 <option value="Parks">Parks</option>
                 <option value="Stations">MRT Stations</option>
-                <option value="Malls">Malls</option>
+                {/* <option value="Malls">Malls</option> */}
               </select>
             </div>
             <label htmlFor="Distance">Distance (KM)</label>
