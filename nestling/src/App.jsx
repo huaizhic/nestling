@@ -17,8 +17,42 @@ import Favourites from "./components/Favourites.jsx";
 import ListingDetails from "./components/ListingDetails.jsx";
 import Compare from "./components/Compare.jsx";
 
+export let locations = [
+  { value: "Ang Mo Kio", label: "Ang Mo Kio" },
+  { value: "Bedok", label: "Bedok" },
+  { value: "Bishan", label: "Bishan" },
+  { value: "Bukit Batok", label: "Bukit Batok" },
+  { value: "Bukit Merah", label: "Bukit Merah" },
+  { value: "Bukit Panjang", label: "Bukit Panjang" },
+  { value: "Choa Chu Kang", label: "Choa Chu Kang" },
+  { value: "Clementi", label: "Clementi" },
+  { value: "Geylang", label: "Geylang" },
+  { value: "Hougang", label: "Hougang" },
+  { value: "Jurong East", label: "Jurong East" },
+  { value: "Jurong West", label: "Jurong West" },
+  { value: "Kallang/Whampoa", label: "Kallang/Whampoa" },
+  { value: "Pasir Ris", label: "Pasir Ris" },
+  { value: "Punggol", label: "Punggol" },
+  { value: "Queenstown", label: "Queenstown" },
+  { value: "Sembawang", label: "Sembawang" },
+  { value: "Sengkang", label: "Sengkang" },
+  { value: "Serangoon", label: "Serangoon" },
+  { value: "Tampines", label: "Tampines" },
+  { value: "Tengah", label: "Tengah" },
+  { value: "Toa Payoh", label: "Toa Payoh" },
+  { value: "Woodlands", label: "Woodlands" },
+  { value: "Yishun", label: "Yishun" },
+];
 
 function App() {
+  const [locationInput, setLocationInput] = useState("Tampines");
+  const [amenityInput1, setAmenityInput1] = useState("Schools");
+  const [amenityInput2, setAmenityInput2] = useState("Supermarkets");
+  const [amenityInput3, setAmenityInput3] = useState("Parks");
+  const [distanceRadius, setDistanceRadius] = useState(2);
+  const [roomCountInput, setRoomCountInput] = useState(3);
+  const [grossFloorArea, setGrossFloorArea] = useState(1500);
+
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
@@ -28,7 +62,27 @@ function App() {
       <Route path="/email-login" element={<EmailLogin />} />
       <Route path="/homepage" element={<Homepage />} />
       <Route path="/account-details" element={<AcctDetails />} />
-      <Route path="/current-listings" element={<CurrentListings />} />
+      <Route
+        path="/current-listings"
+        element={
+          <CurrentListings
+            locationInput={locationInput}
+            setLocationInput={setLocationInput}
+            amenityInput1={amenityInput1}
+            setAmenityInput1={setAmenityInput1}
+            amenityInput2={amenityInput2}
+            setAmenityInput2={setAmenityInput2}
+            amenityInput3={amenityInput3}
+            setAmenityInput3={setAmenityInput3}
+            distanceRadius={distanceRadius}
+            setDistanceRadius={setDistanceRadius}
+            roomCountInput={roomCountInput}
+            setRoomCountInput={setRoomCountInput}
+            grossFloorArea={grossFloorArea}
+            setGrossFloorArea={setGrossFloorArea}
+          />
+        }
+      />
       <Route path="/home" element={<Home />} />
       <Route path="/article" element={<Article />} />
       <Route path="/account-details" element={<Account />} />
@@ -37,7 +91,27 @@ function App() {
       <Route path="/favourites" element={<Favourites />} />
       <Route path="/listing-info/:id" element={<ListingInfo />} />
       <Route path="/listing-details/:id" element={<ListingDetails />} />
-      <Route path="/compare/:id" element={<Compare />} />
+      <Route
+        path="/compare/:id"
+        element={
+          <Compare
+            locationInput={locationInput}
+            setLocationInput={setLocationInput}
+            amenityInput1={amenityInput1}
+            setAmenityInput1={setAmenityInput1}
+            amenityInput2={amenityInput2}
+            setAmenityInput2={setAmenityInput2}
+            amenityInput3={amenityInput3}
+            setAmenityInput3={setAmenityInput3}
+            distanceRadius={distanceRadius}
+            setDistanceRadius={setDistanceRadius}
+            roomCountInput={roomCountInput}
+            setRoomCountInput={setRoomCountInput}
+            grossFloorArea={grossFloorArea}
+            setGrossFloorArea={setGrossFloorArea}
+          />
+        }
+      />
     </Routes>
   );
 }

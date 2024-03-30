@@ -36,16 +36,31 @@ export let locations = [
   { value: "Yishun", label: "Yishun" },
 ];
 
-function CurrentListings() {
+function CurrentListings({
+  locationInput,
+  setLocationInput,
+  amenityInput1,
+  setAmenityInput1,
+  setAmenityInput2,
+  setAmenityInput3,
+  amenityInput2,
+  amenityInput3,
+  distanceRadius,
+  setDistanceRadius,
+  roomCountInput,
+  setRoomCountInput,
+  grossFloorArea,
+  setGrossFloorArea,
+}) {
   const [currentList, setCurrentList] = useState([]);
   const [fetchflag, setFetchFlag] = useState(false);
-  const [locationInput, setLocationInput] = useState("EXPO MRT STATION");
-  const [amenityInput1, setAmenityInput1] = useState("Schools");
-  const [amenityInput2, setAmenityInput2] = useState("Supermarkets");
-  const [amenityInput3, setAmenityInput3] = useState("Parks");
-  const [distanceRadius, setDistanceRadius] = useState(2);
-  const [roomCountInput, setRoomCountInput] = useState(3);
-  const [grossFloorArea, setGrossFloorArea] = useState(1500);
+  // const [locationInput, setLocationInput] = useState("Tampines");
+  // const [amenityInput1, setAmenityInput1] = useState("Schools");
+  // const [amenityInput2, setAmenityInput2] = useState("Supermarkets");
+  // const [amenityInput3, setAmenityInput3] = useState("Parks");
+  // const [distanceRadius, setDistanceRadius] = useState(2);
+  // const [roomCountInput, setRoomCountInput] = useState(3);
+  // const [grossFloorArea, setGrossFloorArea] = useState(1500);
   const [showListings, setShowListings] = useState(true);
   {
     /*conditional render*/
