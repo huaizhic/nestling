@@ -25,6 +25,7 @@ function DesiredProperty() {
   const [selectedAmenities2, setAmenities2] = useState("");
   const [selectedAmenities3, setAmenities3] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const [abhijeetData, setAbhijeetData] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -75,6 +76,14 @@ function DesiredProperty() {
 
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
+    let temp = [
+      {
+        distanceRadius: selectedDistance,
+        grossFloorArea: selectedGFA,
+      },
+    ];
+    setAbhijeetData(temp);
+    console.log("abhijeetData:", temp);
   };
 
   const handleSave = async (e) => {
