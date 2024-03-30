@@ -84,7 +84,7 @@ function ListingInfo() {
         <div className="logo">
           <img src={walterlogo} alt="Walter Logo" />
         </div>
-         <div className="navbar">
+        {/* <div className="navbar">
                 <ul>
                     <li>
                     <Link to="/" className="home">Home</Link>
@@ -102,7 +102,7 @@ function ListingInfo() {
                     <Link to="/" className="logout">Logout</Link>
                     </li>
                 </ul>
-                </div>
+                </div> */}
         <div className="profile-picture">
           <img src={greenwalter} alt="Green Walter Profile" />
           <Link to="/account-details">Account</Link>
@@ -185,7 +185,9 @@ function ListingInfo() {
           <h3 className="data">{listing.districtGroup}</h3>
         </div>
       </div>
-      <div className="compareButton"><button>Compare</button></div>
+      <div className="compareButton">
+        <button>Compare</button>
+      </div>
     </div>
   );
 }

@@ -26,7 +26,7 @@ export const percentageMatchLogic = (
   // console.log(tempData);
 
   tempData.forEach((house) => {
-    if (house.nearestMRT === location) {
+    if (house.districtGroup === location) {
       // house = { ...house, points: (house.points += 50) };
       house.points += 50;
     }

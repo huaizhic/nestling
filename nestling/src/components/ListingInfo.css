@@ -85,7 +85,7 @@
   height: 80vh;
   background-color: #fccaca;
   border-radius: 15px;
-  /* overflow: scroll; */
+  overflow: scroll;
 }
 
 .compareButton button {

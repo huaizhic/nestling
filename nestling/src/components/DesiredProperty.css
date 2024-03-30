@@ -1,17 +1,17 @@
-.desired-property{
+.desired-property {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-family: "Montserrat", sans-serif;
-  flex-direction: column; 
-  background-color: #F3FDFF;
+  flex-direction: column;
+  background-color: #f3fdff;
   background-size: cover;
   background-position: center;
   height: 1024px;
   width: 1440px;
 }
-.header-section{
+.header-section {
   padding-bottom: 20px;
 }
 .header {
@@ -24,7 +24,7 @@
   margin-top: 10px;
   width: 580px;
   height: 60px;
-  background-color: #6CC2E8;
+  background-color: #6cc2e8;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -34,10 +34,10 @@
   border-radius: 15px;
   margin-left: 10px;
 }
-.amenities{
+.amenities {
   margin-top: 23.5px;
   height: 200px;
-  background-color: #6CC2E8;
+  background-color: #6cc2e8;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -48,71 +48,71 @@
   border-radius: 15px;
   margin-left: 10px;
 }
-.amenities-div{
+.amenities-div {
   font-size: 24px;
-  color: #F3FDFF;
-  font-weight:bold;
+  color: #f3fdff;
+  font-weight: bold;
   margin-right: 110px;
 }
-.amenities-1{
+.amenities-1 {
   margin-bottom: 23px;
 }
-.amenities-2{
+.amenities-2 {
   margin-bottom: 23px;
 }
 .location {
   font-size: 24px;
-  color: #F3FDFF;
-  font-weight:bold;
+  color: #f3fdff;
+  font-weight: bold;
   margin-right: 150px;
 }
 .dropdown {
   width: 300px;
-  height:40px;
+  height: 40px;
   border-radius: 15px;
   padding-left: 10px;
   border-width: 0px;
-  background-color: #C8F8FF;
-  color: #1B3F43;
+  background-color: #c8f8ff;
+  color: #1b3f43;
   font-weight: 700;
   font-size: 18px;
 }
-.distance{
+.distance {
   font-size: 24px;
-  color: #F3FDFF;
-  font-weight:bold;
+  color: #f3fdff;
+  font-weight: bold;
   margin-right: 125px;
 }
-.room-count{
+.room-count {
   font-size: 24px;
-  color: #F3FDFF;
-  font-weight:bold;
+  color: #f3fdff;
+  font-weight: bold;
   margin-right: 80px;
 }
-.gfa{
+.gfa {
   font-size: 24px;
-  color: #F3FDFF;
-  font-weight:bold;
+  color: #f3fdff;
+  font-weight: bold;
   margin-right: 190px;
 }
-.generate-price{
-  height:55px;
-  width:350px;
-  background-color:#002224;
+.generate-price {
+  height: 55px;
+  width: 350px;
+  background-color: #002224;
   border-radius: 15px;
-  color:#F3FDFF;
-  font-size:28px;
-  font-weight:bold;
+  color: #f3fdff;
+  font-size: 28px;
+  font-weight: bold;
   padding-top: 5px;
 }
-.generate-price:hover{
+.generate-price:hover {
   transform: scale(0.97);
 }
-.generated-price-div{
+.generated-price-div {
   margin-top: 18px;
   width: 636px;
   height: 67px;
-  background-color: #6CC2E8;
+  background-color: #6cc2e8;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -122,24 +122,24 @@
   padding-right: 20px;
   border-radius: 15px;
 }
-.generated-price-header{
+.generated-price-header {
   font-size: 24px;
-  color: #F3FDFF;
-  font-weight:bold;
+  color: #f3fdff;
+  font-weight: bold;
   margin-right: 35px;
 }
-.estimated-price-div{
+.estimated-price-div {
   width: 300px;
-  height:45px;
+  height: 45px;
   border-radius: 15px;
   padding-left: 0px;
-  background-color: #C8F8FF;
+  background-color: #c8f8ff;
   font-weight: 700;
   font-size: 18px;
-  padding-top:10px;
-  padding-right:200px;
+  padding-top: 10px;
+  padding-right: 200px;
 }
-.buttons{
+.buttons {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -148,25 +148,25 @@
   padding-right: 20px;
   border-radius: 15px;
 }
-.reconfigure{
+.reconfigure {
   margin-right: 10px;
-  margin-left:10px;
-  height:55px;
-  width:250px;
-  background-color:#002224;
+  margin-left: 10px;
+  height: 55px;
+  width: 250px;
+  background-color: #002224;
   border-radius: 15px;
-  color:#F3FDFF;
-  font-size:28px;
-  font-weight:bold;
+  color: #f3fdff;
+  font-size: 28px;
+  font-weight: bold;
   padding-top: 5px;
 }
-.confirm{
-  height:55px;
-  width:250px;
-  background-color:#002224;
+.confirm {
+  height: 55px;
+  width: 250px;
+  background-color: #002224;
   border-radius: 15px;
-  color:#F3FDFF;
-  font-size:28px;
-  font-weight:bold;
+  color: #f3fdff;
+  font-size: 28px;
+  font-weight: bold;
   padding-top: 5px;
 }

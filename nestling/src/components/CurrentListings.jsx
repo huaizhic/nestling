@@ -9,6 +9,32 @@ import { percentageMatchLogic } from "./percentageMatchLogic";
 // import { tempData } from "./desiredHouseForm";
 
 // export let currentList = [];
+export let locations = [
+  { value: "Ang Mo Kio", label: "Ang Mo Kio" },
+  { value: "Bedok", label: "Bedok" },
+  { value: "Bishan", label: "Bishan" },
+  { value: "Bukit Batok", label: "Bukit Batok" },
+  { value: "Bukit Merah", label: "Bukit Merah" },
+  { value: "Bukit Panjang", label: "Bukit Panjang" },
+  { value: "Choa Chu Kang", label: "Choa Chu Kang" },
+  { value: "Clementi", label: "Clementi" },
+  { value: "Geylang", label: "Geylang" },
+  { value: "Hougang", label: "Hougang" },
+  { value: "Jurong East", label: "Jurong East" },
+  { value: "Jurong West", label: "Jurong West" },
+  { value: "Kallang/Whampoa", label: "Kallang/Whampoa" },
+  { value: "Pasir Ris", label: "Pasir Ris" },
+  { value: "Punggol", label: "Punggol" },
+  { value: "Queenstown", label: "Queenstown" },
+  { value: "Sembawang", label: "Sembawang" },
+  { value: "Sengkang", label: "Sengkang" },
+  { value: "Serangoon", label: "Serangoon" },
+  { value: "Tampines", label: "Tampines" },
+  { value: "Tengah", label: "Tengah" },
+  { value: "Toa Payoh", label: "Toa Payoh" },
+  { value: "Woodlands", label: "Woodlands" },
+  { value: "Yishun", label: "Yishun" },
+];
 
 function CurrentListings() {
   const [currentList, setCurrentList] = useState([]);
@@ -197,15 +223,11 @@ function CurrentListings() {
               <option value="option3">Tiong Bahru</option>
               <option value="option4">Tanjong Pagar</option>
               <option value="option5">Orchard</option> */}
-              {currentList.map((indivPanel) => {
+              {locations.map((location) => {
                 // let isDuplicate = currentList.some(
                 //   (property) => property.nearestMRT === indivPanel.nearestMRT
                 // );
-                return (
-                  <option value={indivPanel.nearestMRT}>
-                    {indivPanel.nearestMRT}
-                  </option>
-                );
+                return <option value={location.value}>{location.label}</option>;
               })}
             </select>
             <label htmlFor="Amenities">Amenities</label>
@@ -221,7 +243,7 @@ function CurrentListings() {
                     e.target.value === amenityInput3
                   ) {
                     alert("Cannot choose same amenity again");
-                    setAmenityInput2("option1");
+                    setAmenityInput1("option1");
                   } else {
                     setAmenityInput1(e.target.value);
                   }
