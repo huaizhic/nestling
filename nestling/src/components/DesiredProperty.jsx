@@ -291,11 +291,11 @@ function DesiredProperty() {
           </div>
           <div className="buttons">
             <div>
-              <button className="reconfigure">Reconfigure</button>
+              <button className="reconfigure">Generate</button>
             </div>
             <div>
               <button onClick={handleSave} className="confirm">
-                Confirm
+                Save
               </button>
             </div>
           </div>
