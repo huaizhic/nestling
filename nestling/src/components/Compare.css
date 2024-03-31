@@ -199,9 +199,23 @@ color: #670F0F;
 
 .AI-output{
     width: 70vw;
-    height: 15vh;
+    height: 18vh;
     border: 2px solid black;
     margin-left: 7px;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 60px;
+}
+
+.prompt{
+    position: absolute;
+    right: 0;
+    margin-top: 38rem;
+    margin-right: 10rem;
+    background-color: #BD5084;
+    padding: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
 }

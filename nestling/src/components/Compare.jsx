@@ -241,6 +241,7 @@ function Compare({
             </div>
         </div>
       </div>
+      <div className="prompt">Like this property? Click the + button to save it!</div>
       <div className="AI-output">AI OUTPUT</div>
     </div>
   );
