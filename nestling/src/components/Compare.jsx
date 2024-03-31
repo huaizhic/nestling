@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import supabase from "../supabase";
 import { percentageMatchLogic } from "./percentageMatchLogic";
 import { locations } from "../App";
+import whitecross from "../../src/assets/images/whitecross.png";
 
 function Compare({
   locationInput,
@@ -165,88 +166,82 @@ function Compare({
       </div>
       <div className="overall-container">
         <div className="desired-prop-col">
-          <div className="desired-prop-container">
-            {/* <h3>Search</h3> */}
             <div className="search-container">
-              <div className="search">
-                <h3>Search</h3>
-              </div>
-              <label htmlFor="Location">Location</label>
-              <span>{locationInput}</span>
+                <div className="search"><h2>Search</h2></div>
+                <label htmlFor="Location">Location</label>
+                <span>{locationInput}</span>
 
-              <label htmlFor="Amenities">Amenities</label>
-              <span>{amenityInput1}</span>
-              <span>{amenityInput2}</span>
-              <span>{amenityInput3}</span>
+                <label htmlFor="Amenities">Amenities</label>
+                <span>{amenityInput1}</span>
+                <span>{amenityInput2}</span>
+                <span>{amenityInput3}</span>
 
-              <label htmlFor="Distance">Distance (KM)</label>
-              <span>{distanceRadius}</span>
+                <label htmlFor="Distance">Preferred Distance From Property To Amenities (KM)</label>
+                <span>{distanceRadius}</span>
 
-              <label htmlFor="Room Count">Room Count</label>
-              <span>{roomCountInput}</span>
-              <label htmlFor="GFA(gross floor area)">
-                Gross Floor Area (GFA) (in sq metres, for eg: 1500)
-              </label>
-              <span>{grossFloorArea}</span>
+                <label htmlFor="Room Count">Room Count</label>
+                <span>{roomCountInput}</span>
+                <label htmlFor="GFA(gross floor area)">
+                    GFA (gross floor area)
+                </label>
+                <span>{grossFloorArea} sqm</span>
             </div>
-          </div>
         </div>
         <div className="listing-col">
-          <div className="listing-info-container">
-            <div className="textColumn">
-              <h3 className="data">{listing.projectName}</h3>
-              <div className="field">
-                <h3>Location </h3>
-                {/* <h3> {listing.nearestMRT}</h3> */}
-                <span id="locationField"></span>
-              </div>
-              <h3 className="data">{listing.address}</h3>
-              <div className="field">
-                <h3>Amenities & Their Distances</h3>
-                {/* <button
-                  onClick={() => {
-                    console.log("nicoleData:", nicoleData);
-                  }}
-                >
-                  hi
-                </button> */}
-                <span id="amenitiesField"></span>
-              </div>
-              <h3 className="data">
-                Nearest School: {listing.nearestSchool}
-                <br /> {parseFloat(listing.nearestSchoolDistance).toFixed(1)} km
-                away
-              </h3>
-              <h3 className="data">
-                Nearest MRT: {listing.nearestMRT}
-                <br /> {parseFloat(listing.nearestMRTDistance).toFixed(1)} km
-                away
-              </h3>
-              <h3 className="data">
-                Nearest Park: {listing.nearestPark}
-                <br /> {parseFloat(listing.nearestParkDistance).toFixed(1)} km
-                away
-              </h3>
-              <h3 className="data">
-                Nearest Market: {listing.nearestMarket}
-                <br /> {parseFloat(listing.nearestMarketDistance).toFixed(1)} km
-                away
-              </h3>
-              <div className="field">
-                <h3>Room Count</h3>
-                <span id="roomCountField"></span>
-              </div>
-              <h3 className="data">{listing.roomCount}</h3>
-              <div className="field">
-                <h3>GFA (gross floor area)</h3>
-                <span id="gfaField"></span>
-              </div>
-              <h3 className="data">{listing.GFA} sqm</h3>
+            <div className="listing-info-container">
+                <h2>{listing.projectName}</h2>
+                <div className="save-button"><button><img src={whitecross}/></button></div>
+                <div className="field">
+                    <h3>Location </h3>
+                    {/* <h3> {listing.nearestMRT}</h3> */}
+                    <span id="locationField"></span>
+                </div>
+                <h3 className="data">{listing.address}</h3>
+                <div className="field">
+                    <h3>Amenities & Their Distances From Property</h3>
+                    {/* <button
+                    onClick={() => {
+                        console.log("nicoleData:", nicoleData);
+                    }}
+                    >
+                    hi
+                    </button> */}
+                    <span id="amenitiesField"></span>
+                </div>
+                <h3 className="data">
+                    Nearest School: {listing.nearestSchool}
+                    <br /> {parseFloat(listing.nearestSchoolDistance).toFixed(1)} km
+                    away
+                </h3>
+                <h3 className="data">
+                    Nearest MRT: {listing.nearestMRT}
+                    <br /> {parseFloat(listing.nearestMRTDistance).toFixed(1)} km
+                    away
+                </h3>
+                <h3 className="data">
+                    Nearest Park: {listing.nearestPark}
+                    <br /> {parseFloat(listing.nearestParkDistance).toFixed(1)} km
+                    away
+                </h3>
+                <h3 className="data">
+                    Nearest Market: {listing.nearestMarket}
+                    <br /> {parseFloat(listing.nearestMarketDistance).toFixed(1)} km
+                    away
+                </h3>
+                <div className="field">
+                    <h3>Room Count</h3>
+                    <span id="roomCountField"></span>
+                </div>
+                <h3 className="data">{listing.roomCount}</h3>
+                <div className="field">
+                    <h3>GFA (gross floor area)</h3>
+                    <span id="gfaField"></span>
+                </div>
+                <h3 className="data">{listing.GFA} sqm</h3>
             </div>
-          </div>
         </div>
       </div>
-      <div className="AI-output">ai stuff</div>
+      <div className="AI-output">AI OUTPUT</div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+{/*import React from "react";
 import { Link } from "react-router-dom";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
@@ -102,7 +102,7 @@ function ListingInfo() {
                     <Link to="/" className="logout">Logout</Link>
                     </li>
                 </ul>
-                </div> */}
+                </div> 
         <div className="profile-picture">
           <img src={greenwalter} alt="Green Walter Profile" />
           <Link to="/account-details">Account</Link>
@@ -121,7 +121,7 @@ function ListingInfo() {
           {/* <img
             src={listing.imageURL}
             style={{ width: "90%", height: "90%" }}
-          ></img> */}
+          ></img> 
         </div>
         <div className="textColumn">
           <div className="field">
@@ -131,7 +131,6 @@ function ListingInfo() {
           <h3 className="data">{listing.projectName}</h3>
           <div className="field">
             <h3>Location </h3>
-            {/* <h3> {listing.nearestMRT}</h3> */}
             <span id="locationField"></span>
           </div>
           <h3 className="data">{listing.address}</h3>
@@ -192,4 +191,4 @@ function ListingInfo() {
   );
 }
 
-export default ListingInfo;
+export default ListingInfo;*/}
