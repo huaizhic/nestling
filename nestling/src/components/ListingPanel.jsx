@@ -1,14 +1,13 @@
 import "./ListingPanel.css";
 import emptyimage from "../assets/images/emptyimage.png";
 import { Link, Route, Routes } from "react-router-dom";
-import ListingInfo from "./ListingInfo";
+// import ListingInfo from "./ListingInfo";
 
 export const ListingPanel = ({ indivData }) => {
   return (
     <>
       <div className="listingPanel">
         <div className="panelWrapper">
-        
           {/* <Link to="/listing-info/:id" style={{ textDecoration: "none" }}> */}
           <div className="listingPanelImage">
             {indivData.imageURL === null ? (
@@ -21,7 +20,10 @@ export const ListingPanel = ({ indivData }) => {
             )}
             {/* <img src={emptyimage}></img> */}
           </div>
-          <Link to={`/listing-details/${indivData.id}`} style={{ textDecoration: 'none' }}>
+          <Link
+            to={`/listing-details/${indivData.id}`}
+            style={{ textDecoration: "none" }}
+          >
             {/* <h3>{title}</h3> */}
             <h3>{indivData.projectName}</h3>
             <h3>{indivData.address}</h3>

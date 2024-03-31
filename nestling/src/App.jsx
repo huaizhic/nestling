@@ -12,7 +12,7 @@ import Home from "./components/Home.jsx";
 import Article from "./components/Article.jsx";
 import DesiredProperty from "./components/DesiredProperty.jsx";
 import Account from "./components/AcctDetails.jsx";
-import ListingInfo from "./components/ListingInfo.jsx";
+// import ListingInfo from "./components/ListingInfo.jsx";
 import Favourites from "./components/Favourites.jsx";
 import ListingDetails from "./components/ListingDetails.jsx";
 import Compare from "./components/Compare.jsx";
@@ -87,9 +87,9 @@ function App() {
       <Route path="/article" element={<Article />} />
       <Route path="/account-details" element={<Account />} />
       <Route path="/desired-property" element={<DesiredProperty />} />
-      <Route path="/listing-info" element={<ListingInfo />} />
+      {/* <Route path="/listing-info" element={<ListingInfo />} /> */}
       <Route path="/favourites" element={<Favourites />} />
-      <Route path="/listing-info/:id" element={<ListingInfo />} />
+      {/* <Route path="/listing-info/:id" element={<ListingInfo />} /> */}
       <Route path="/listing-details/:id" element={<ListingDetails />} />
       <Route
         path="/compare/:id"
