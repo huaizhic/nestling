@@ -83,7 +83,7 @@
   background-color: #f3fdff;
 }
 
-.search-container {
+.search-container-current-listings {
   width: 100%;
   height: 65vh;
   background-color: #6cc2e8;
@@ -94,7 +94,7 @@
   align-items: flex-start;
 }
 
-.search-container select {
+.search-container-current-listings select {
     width: 100%;
     margin-right: 10px;
     margin-bottom: 20px;
@@ -104,7 +104,7 @@
     padding: 5px;
 }
 
-.search-container input{
+.search-container-current-listings input{
     width: 100%;
     margin-right: 10px;
     background-color: #b6edfa;
@@ -113,7 +113,7 @@
     padding: 5px;
 }
 
-.search-container button {
+.search-container-current-listings button {
   width: 95%;
   background-color: #f3fdff;
   color: black;
@@ -125,11 +125,11 @@
   margin-left: 10px;
 }
 
-.search-container button:hover {
+.search-container-current-listings button:hover {
   background-color: #f0f0f0;
 }
 
-.search-container label {
+.search-container-current-listings label {
   margin-bottom: 0px;
   margin-top: 0px;
   font-weight: bold;

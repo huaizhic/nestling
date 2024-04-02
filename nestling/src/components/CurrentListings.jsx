@@ -190,6 +190,12 @@ function CurrentListings({
     setShowListings(true);
   };
 
+  async function handleLogout() {
+    let { error } = await supabase.auth.signOut();
+    alert("Logged out!");
+    navigate("/");
+  }
+
   return (
     <div className="current-listings">
       <div className="topcontainer">
@@ -211,7 +217,7 @@ function CurrentListings({
               <Link to="/favourites">Favourites</Link>
             </li>
             <li>
-              <Link to="/">Logout</Link>
+              <Link to="/" onClick={handleLogout}>Logout</Link>
             </li>
           </ul>
         </div>
@@ -222,7 +228,7 @@ function CurrentListings({
       </div>
       <div className="columns">
         <div className="search-column">
-          <div className="search-container">
+          <div className="search-container-current-listings">
             <div className="search">
               <h3>Search</h3>
             </div>

@@ -77,6 +77,13 @@ function ListingDetails() {
 
     fetchIndivListing();
   }, []);
+
+  async function handleLogout() {
+    let { error } = await supabase.auth.signOut();
+    alert("Logged out!");
+    navigate("/");
+  }
+  
   return (
     <div className="listing-details">
       <div className="topcontainer">
@@ -98,7 +105,7 @@ function ListingDetails() {
               <Link to="/favourites">Favourites</Link>
             </li>
             <li>
-              <Link to="/">Logout</Link>
+              <Link to="/" onClick={handleLogout}>Logout</Link>
             </li>
           </ul>
         </div>
@@ -184,7 +191,7 @@ function ListingDetails() {
           <h3 className="data">{listing.districtGroup}</h3>
         </div>
       </div>
-      <div className="percentage-match-bubble">{percentageMatch}%</div>
+      <div className="percentage-match-bubble">{Math.round(parseFloat(percentageMatch))}%</div>
       <div className="compareButton">
         <Link to={`/compare/${id}`}>
           <button>Compare</button>

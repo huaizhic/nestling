@@ -62,17 +62,14 @@
 
 .link-wrapper-1 {
   color: white;
-  display: flex;
-  justify-content: center;
+  background-color: #51b9e1;
   border-radius: 20px;
-  background-color: #6ecedd;
-  width: 170px;
-  padding: 3px;
 }
 
 .link-wrapper-1 a {
   color: white !important; /* Ensure that the text color is white */
   font-weight: bold !important;
+  text-decoration: none;
 }
 
 .link-wrapper-2 {
@@ -98,3 +95,20 @@
   background-color: #51b9e1;
   margin-top: 20px;
 }
+
+.button button:hover{
+  background-color: #87cefa;
+  border: none;
+}
+
+.link-wrapper-1 button{
+  background-color: #51b9e1;
+  border-radius: 20px;
+  width: 260px;
+}
+
+.link-wrapper-1 button:hover{
+  background-color: #87cefa;
+  border: none;
+}
+

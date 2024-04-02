@@ -60,8 +60,9 @@ function emailLogin() {
   return (
     <div className="reset-password">
       <div>
-        <img src={walter} alt="Walter" />
+        <img src={walter} alt="walter" />
       </div>
+      <h1>Nestling.ai</h1>
       <h2>Log In via Email</h2>
       {/* {passwordsMatch ? null : (
         <h3 style={{ color: "red" }}>Passwords don't match, try again!</h3>
