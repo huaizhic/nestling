@@ -83,7 +83,7 @@ function ListingDetails() {
     alert("Logged out!");
     navigate("/");
   }
-  
+
   return (
     <div className="listing-details">
       <div className="topcontainer">

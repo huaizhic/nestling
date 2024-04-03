@@ -1,0 +1,13 @@
+{
+    "desiredProperty": [
+        {
+            "amenity1": "Parks",
+            "amenity2": "Supermarkets",
+            "amenity3": "MRT",
+            "location": "CHOA CHU KANG MRT STATION",
+            "roomCount": "4 rooms",
+            "distanceRadius": "2-3km",
+            "grossFloorArea": "2851"
+        }
+    ]
+}
