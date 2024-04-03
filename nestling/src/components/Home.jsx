@@ -14,9 +14,17 @@ function Home () {
                     </div>
 
                     <div className="article-reg">
-                        <div className="star">
-                            <img src={star} alt="Star icon" />
+                        <div className ="article-content">
+                            <div>
+                                <Link to="https://blog.bluenest.sg/buying-private-property-procedure/" className="article-header">is the price truly right?</Link>
+                            </div>
+                            <div>
+                                <p className="article-content">read testimonials from previous clients on how they could find their dream home with just a simple search! and that too, for a reasonable price. read testimonials from previous clients on how they could find their dream home with just a simple search!</p>
+                            </div>
                         </div>
+                    </div>
+
+                    <div className="article-reg">
                         <div className ="article-content">
                             <div>
                                 <Link to="/article" className="article-header">is the price truly right?</Link>
@@ -28,23 +36,6 @@ function Home () {
                     </div>
 
                     <div className="article-reg">
-                        <div className="star">
-                            <img src="../../src/assets/image/star-icon.png" alt="Star icon" />
-                        </div>
-                        <div className ="article-content">
-                            <div>
-                                <Link to="/article" className="article-header">is the price truly right?</Link>
-                            </div>
-                            <div>
-                                <p className="article-content">read testimonials from previous clients on how they could find their dream home with just a simple search! and that too, for a reasonable price. read testimonials from previous clients on how they could find their dream home with just a simple search!</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="article-reg">
-                        <div className="star">
-                            <img src="../../src/assets/image/star-icon.png" alt="Star icon" />
-                        </div>
                         <div className ="article-content">
                             <div>
                                 <Link to="/article" className="article-header">is the price truly right?</Link>
@@ -56,9 +47,6 @@ function Home () {
                     </div>
 
                     <div className="article-small">
-                        <div className="star">
-                            <img src="../../src/assets/image/star-icon.png" alt="Star icon" />
-                        </div>
                         <div className ="article-content">
                             <div>
                                 <Link to="/article" className="article-header">is the price truly right?</Link>
