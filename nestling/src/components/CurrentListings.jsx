@@ -270,11 +270,13 @@ function CurrentListings({
                   }
                 }}
               >
-                <option value="option1">Preferred amenities</option>
-                <option value="Schools">Schools</option>
-                <option value="Supermarkets">Supermarkets</option>
-                <option value="Parks">Parks</option>
-                <option value="Stations">MRT Stations</option>
+                <option value="option1">Select an option</option>
+                <option value="station">MRT Stations</option>
+                <option value="supermarkets">Supermarkets</option>
+                <option value="primary school">Primary Schools</option>
+                <option value="secondary school">Secondary Schools</option>
+                <option value="park">Parks</option>
+                <option value="mall">Malls</option>
                 {/* <option value="Malls">Malls</option> */}
               </select>
               <select
@@ -294,11 +296,13 @@ function CurrentListings({
                   }
                 }}
               >
-                <option value="option2">Preferred amenities</option>
-                <option value="Schools">Schools</option>
-                <option value="Supermarkets">Supermarkets</option>
-                <option value="Parks">Parks</option>
-                <option value="Stations">MRT Stations</option>
+                <option value="option2">Select an option</option>
+                <option value="station">MRT Stations</option>
+                <option value="supermarkets">Supermarkets</option>
+                <option value="primary school">Primary Schools</option>
+                <option value="secondary school">Secondary Schools</option>
+                <option value="park">Parks</option>
+                <option value="mall">Malls</option>
                 {/* <option value="Malls">Malls</option> */}
               </select>
               <select
@@ -324,11 +328,13 @@ function CurrentListings({
               <option value="option4">Supermarkets</option>
               <option value="option5">Parks</option>
               <option value="option6">Malls</option> */}
-                <option value="option3">Preferred amenities</option>
-                <option value="Schools">Schools</option>
-                <option value="Supermarkets">Supermarkets</option>
-                <option value="Parks">Parks</option>
-                <option value="Stations">MRT Stations</option>
+                <option value="option3">Select an option</option>
+                <option value="station">MRT Stations</option>
+                <option value="supermarkets">Supermarkets</option>
+                <option value="primary school">Primary Schools</option>
+                <option value="secondary school">Secondary Schools</option>
+                <option value="park">Parks</option>
+                <option value="mall">Malls</option>
                 {/* <option value="Malls">Malls</option> */}
               </select>
             </div>
