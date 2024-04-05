@@ -10,6 +10,7 @@ import supabase from "../supabase";
 import { percentageMatchLogic } from "./percentageMatchLogic";
 import { locations } from "../App";
 import whitecross from "../../src/assets/images/whitecross.png";
+import axios from "axios";
 
 export let tempJSON = "";
 
@@ -46,16 +47,19 @@ function Compare({
 
   const [nicoleData, setNicoleData] = useState({
     email: "",
-    searchListing: {
-      searchLocation: locationInput,
-      searchAmenity1: amenityInput1,
-      searchAmenity2: amenityInput2,
-      searchAmenity3: amenityInput3,
-      searchDistance: distanceRadius,
-      searchRoomCount: roomCountInput,
-      searchGFA: grossFloorArea,
-    },
+    searchListing: [
+      {
+        searchLocation: locationInput,
+        searchAmenity1: amenityInput1,
+        searchAmenity2: amenityInput2,
+        searchAmenity3: amenityInput3,
+        searchDistance: distanceRadius,
+        searchRoomCount: roomCountInput,
+        searchGFA: grossFloorArea,
+      },
+    ],
   });
+  const [AIoutput, setAIoutput] = useState("");
 
   let withPythonFlag = false;
 
@@ -74,22 +78,24 @@ function Compare({
       // console.log("nicoleData:", nicoleData);
       let tempData = {
         ...nicoleData,
-        currentListing: {
-          currentLocation: currentListing[0].address,
-          currentAmenity1: currentListing[0].nearestMRT,
-          currentAmenity2: currentListing[0].nearestMarket,
-          currentAmenity3: currentListing[0].nearestSchool,
-          currentAmenity4: currentListing[0].nearestPark,
-          currentAmenity1Distance: currentListing[0].nearestMRTDistance,
-          currentAmenity2Distance: currentListing[0].nearestMarketDistance,
-          currentAmenity3Distance: currentListing[0].nearestSchoolDistance,
-          currentAmenity4Distance: currentListing[0].nearestParkDistance,
-          currentRoomCount: currentListing[0].roomCount,
-          currentGFA: currentListing[0].GFA,
-        },
+        currentListing: [
+          {
+            currentLocation: currentListing[0].address,
+            currentAmenity1: currentListing[0].nearestMRT,
+            currentAmenity2: currentListing[0].nearestMarket,
+            currentAmenity3: currentListing[0].nearestSchool,
+            currentAmenity4: currentListing[0].nearestPark,
+            currentAmenity1Distance: currentListing[0].nearestMRTDistance,
+            currentAmenity2Distance: currentListing[0].nearestMarketDistance,
+            currentAmenity3Distance: currentListing[0].nearestSchoolDistance,
+            currentAmenity4Distance: currentListing[0].nearestParkDistance,
+            currentRoomCount: currentListing[0].roomCount,
+            currentGFA: currentListing[0].GFA,
+          },
+        ],
       };
 
-      // console.log("tempData:", tempData);
+      console.log("tempData:", tempData);
       setNicoleData(tempData);
       tempJSON = JSON.stringify(tempData);
       console.log("tempJSON:", tempJSON);
@@ -140,26 +146,44 @@ function Compare({
     navigate("/");
   }
 
-  function withPython() {
+  function withPython(tempJSON) {
     var xml = new XMLHttpRequest();
-    xml.open("POST", "{{url__for(http://localhost:8080/python)}} ", true);
+    xml.open("POST", "http://localhost:8080/python", true);
     xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     // receive python response
     xml.onload = function () {
       var dataReply = JSON.parse(this.responseText);
-      alert(dataReply);
+      alert("dataReply received, check console");
+      console.log("dataReply:", dataReply);
+      setAIoutput(dataReply.Suggestion[0]);
+      console.log("dataReply.Suggestion[0]:", dataReply.Suggestion[0]);
     };
 
     // send data to python backend
     xml.send(tempJSON);
+    // console.log(xml.responseText);
+    // console.log(xml.send(tempJSON));
   }
 
-  if (tempJSON.length !== 0 && withPythonFlag === false) {
-    withPython();
+  // if (tempJSON.length !== 0 && withPythonFlag === false) {
+  //   withPython();
+  // }
+
+  const fetchAPI = async () => {
+    const response = await axios.get("http://localhost:8080/python");
+    //console.log(response.data.Suggestion);
+    setArray(response.data.Suggestion);
+  };
+
+  function handleGenerate() {
+    // console.log(tempJSON);
+    withPython(tempJSON);
+    // fetchAPI();
+    // setArray(dataReply);
   }
 
   return (
-    <div className="listing-details">
+    <div className="compare">
       <div className="topcontainer">
         <div className="logo">
           <img src={walterlogo} alt="Walter Logo" />
@@ -277,7 +301,27 @@ function Compare({
       <div className="prompt">
         Like this property? Click the + button to save it!
       </div>
-      <div className="AI-output">AI OUTPUT</div>
+      <div className="AI-output">
+        AI OUTPUT
+        <br></br>
+        <button onClick={() => handleGenerate()}>Generate</button>
+        <p>{AIoutput}</p>
+        {/* <p>
+          Property 1 offers a location in Tampines, with a room count of 4 and a
+          gross floor area of 1324. It is within close proximity to Tampines
+          West MRT Station (1.379991485 distance), PRIME SUPERMARKET LIMITED
+          (0.867331326 distance), and DAMAI SECONDARY SCHOOL (1.220755183
+          distance). Property 2, on the other hand, is also located in Tampines
+          but has a room count of 3 and a larger gross floor area of 1500. It is
+          within a distance radius of 2 to schools, supermarkets, and parks.
+          Considering common priorities like family-friendliness, accessibility,
+          and lifestyle amenities, I'd recommend Property 1 for its closer
+          proximity to amenities and Property 2 for its larger floor area and
+          access to schools, supermarkets, and parks. In addition, Property 1 is
+          located in the East region of Singapore while Property 2 is located in
+          the North East region.
+        </p> */}
+      </div>
     </div>
   );
 }
