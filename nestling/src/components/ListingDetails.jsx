@@ -84,6 +84,15 @@ function ListingDetails() {
     navigate("/");
   }
 
+  const [count, setCount] = useState(0)
+  const [array,setArray] = useState ([]);
+
+  //add this for the forntend to fetch from the API
+  const fetchAPI = async() =>{
+    const response = await axios.get("http://localhost:8080/python");
+    //console.log(response.data.Suggestion);
+    setArray(response.data.Suggestion);
+
   return (
     <div className="listing-details">
       <div className="topcontainer">
@@ -192,13 +201,18 @@ function ListingDetails() {
         </div>
       </div>
       <div className="percentage-match-bubble">{Math.round(parseFloat(percentageMatch))}%</div>
-      <div className="compareButton">
-        <Link to={`/compare/${id}`}>
-          <button>Compare</button>
-        </Link>
-      </div>
+      {/*<div className="compareButton">
+      <button onClick={fetchAPI}>Fetch Data</button>
+        <p>
+          {array.map((Suggestion, index) => (
+            <span key={index}>{Suggestion}</span>
+          ))}
+        </p>
+          <Link to={`/compare/${id}`}><button>Compare</button></Link>
+          </div>*/}
     </div>
   );
+}
 }
 
 export default ListingDetails;
