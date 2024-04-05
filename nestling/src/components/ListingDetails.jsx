@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
 import "./ListingDetails.css";
@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import supabase from "../supabase";
 import { percentageMatchLogic } from "./percentageMatchLogic";
+import axios from "axios";
 
 function ListingDetails() {
   const { id } = useParams();
@@ -92,6 +93,12 @@ function ListingDetails() {
     const response = await axios.get("http://localhost:8080/python");
     //console.log(response.data.Suggestion);
     setArray(response.data.Suggestion);
+  }
+
+  const handleCompare = async () => {
+    await fetchAPI();
+    history.push(`/compare/${id}`);
+  }
 
   return (
     <div className="listing-details">
@@ -201,18 +208,22 @@ function ListingDetails() {
         </div>
       </div>
       <div className="percentage-match-bubble">{Math.round(parseFloat(percentageMatch))}%</div>
-      {/*<div className="compareButton">
-      <button onClick={fetchAPI}>Fetch Data</button>
+      <div className="compareButton">
+      <button onClick={fetchAPI}>Compare</button>
         <p>
           {array.map((Suggestion, index) => (
             <span key={index}>{Suggestion}</span>
           ))}
-        </p>
-          <Link to={`/compare/${id}`}><button>Compare</button></Link>
-          </div>*/}
+          </p>
+          {/*<Link to={`/compare/${id}`}><button>Compare</button></Link>
+          <p>
+        {array.map((Suggestion, index) => (
+          <span key={index}>{Suggestion}</span>
+        ))}
+        </p>*/}
+      </div>
     </div>
   );
-}
-}
+      }
 
 export default ListingDetails;
