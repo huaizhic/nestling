@@ -11,6 +11,8 @@ import { percentageMatchLogic } from "./percentageMatchLogic";
 import { locations } from "../App";
 import whitecross from "../../src/assets/images/whitecross.png";
 
+export let tempJSON = "";
+
 function Compare({
   locationInput,
   setLocationInput,
@@ -53,16 +55,9 @@ function Compare({
       searchRoomCount: roomCountInput,
       searchGFA: grossFloorArea,
     },
-
-    //   currentLocation: listing.address,
-    //   currentAmenity1: listing.nearestMRT,
-    //   currentAmenity1Distance: listing.nearestMRTDistance,
-    //   currentAmenity2Distance: listing.nearestMarketDistance,
-    //   currentAmenity3Distance: listing.nearestSchoolDistance,
-    //   currentAmenity4Distance: listing.nearestParkDistance,
-    //   currentRoomCount: listing.roomCount,
-    //   currentGFA: listing.GFA,
   });
+
+  let withPythonFlag = false;
 
   useEffect(() => {
     const fetchIndivListing = async () => {
@@ -76,7 +71,7 @@ function Compare({
       //   console.log(currentListing);
       //   console.log(error);
       setListing(currentListing[0]);
-      console.log("nicoleData:", nicoleData);
+      // console.log("nicoleData:", nicoleData);
       let tempData = {
         ...nicoleData,
         currentListing: {
@@ -94,8 +89,10 @@ function Compare({
         },
       };
 
-      console.log("tempData:", tempData);
+      // console.log("tempData:", tempData);
       setNicoleData(tempData);
+      tempJSON = JSON.stringify(tempData);
+      console.log("tempJSON:", tempJSON);
       const {
         data: { user },
       } = await supabase.auth.getUser();
@@ -110,7 +107,7 @@ function Compare({
       //   console.log(data1);
       let desiredProperty = data1[0].desiredProperty[0];
       //   console.log(percentageMatch);
-      console.log(desiredProperty);
+      // console.log(desiredProperty);
       setDesiredListing(desiredProperty);
 
       if (percentageMatch === 0) {
@@ -141,6 +138,24 @@ function Compare({
     let { error } = await supabase.auth.signOut();
     alert("Logged out!");
     navigate("/");
+  }
+
+  function withPython() {
+    var xml = new XMLHttpRequest();
+    xml.open("POST", "{{url__for(http://localhost:8080/python)}} ", true);
+    xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    // receive python response
+    xml.onload = function () {
+      var dataReply = JSON.parse(this.responseText);
+      alert(dataReply);
+    };
+
+    // send data to python backend
+    xml.send(tempJSON);
+  }
+
+  if (tempJSON.length !== 0 && withPythonFlag === false) {
+    withPython();
   }
 
   return (
