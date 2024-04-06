@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import star from '../../src/assets/images/star-icon.png'; 
+import './CurrentListings.css'
+import walterlogo from "../../src/assets/images/walterlogo.png";
+import greenwalter from "../../src/assets/images/greenwalter.png";
 
 function Home () {
+    async function handleLogout() {
+        let { error } = await supabase.auth.signOut();
+        alert("Logged out!");
+        navigate("/");
+    }
+
     return (
         <div className="home">
+            <div className="top">
+            </div>
+
 
             <div className="bottom">
                 <div className="blog">

@@ -205,7 +205,7 @@ function CurrentListings({
         <div className="navbar">
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/home">Home</Link>
             </li>
             <li>
               <Link to="/desired-property">Desired Property</Link>
@@ -223,7 +223,7 @@ function CurrentListings({
         </div>
         <div className="profile-picture">
           <img src={greenwalter} alt="Green Walter Profile" />
-          <Link to="/account-details">Account</Link>
+            <Link to="/account-details">Account</Link>
         </div>
       </div>
       <div className="columns">

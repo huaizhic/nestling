@@ -11,6 +11,7 @@ export default function Favourites () {
                 <div className="header">Favourites</div>
                 <div className="the-rest">
                     <div className="listing-panel">
+                        <ListingPanel />
                     </div>
                 </div>
             </div>

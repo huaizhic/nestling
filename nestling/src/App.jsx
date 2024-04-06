@@ -60,7 +60,7 @@ function App() {
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/reset-password" element={<ResetPassword />} />
       <Route path="/email-login" element={<EmailLogin />} />
-      <Route path="/homepage" element={<Homepage />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/account-details" element={<AcctDetails />} />
       <Route
         path="/current-listings"

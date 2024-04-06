@@ -4,26 +4,33 @@
     align-items: center;
     color: black;
     background-color: #f3fdff;
-    width: 1440px;
-    height: 1024px;
+    width: 100vw;
+    height: 100vh;
     font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
 }
 
 .bottom{
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    display: flex;
-  justify-content: center; /* horizontally center */
-  align-items: center; /* vertically center */
+    align-items: flex-start;
+    width: 90vw;
 }
 
 .blog{
     background-color: #84B4BC;
-    width: 616px;
+    width: 40vw;
     height: 805px;
     border-radius: 25px;
+    text-align: center;
+    justify-content: center;
+}
+
+.about-us{
+    width: 40vw;
+    height: 805px;
+    background-color: #84B4BC;
+    border-radius: 25px;
+    margin-left: 20px;
     text-align: center;
     justify-content: center;
 }
@@ -34,6 +41,7 @@
 
 .header-text{
     margin-top: 20px;
+    margin-bottom: 15px;
     font-size: 44px;
     color: #84B4BC;
     font-weight:bold;
@@ -42,13 +50,12 @@
 .article-reg{
     justify-content: center;
     background-color: #002224;
-    width:581px;
+    width:550px;
     height: 175px;
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    margin-left: 15px;
+    border-radius: 18px;
+    padding: 5px;
 }
 
 .article-header{
@@ -58,22 +65,21 @@
 }
 
 .article-content{
+    margin-top: 5px;
     color: #f3fdff;
 }
 
 .article-small{
-    width: 581px;
+    width: 550px;
     height: 117px;
     background-color: #002224;
-}
-
-.about-us{
-    width: 616px;
-    height: 805px;
-    background-color: #84B4BC;
-    border-radius: 25px;
+    border-radius: 18px;
+    margin-left: 15px;
+    padding: 5px;
 }
 
 .about-us-content{
-    
+    margin: 20px;
+    font-size: 16px;
+    font-weight: 500;
 }
