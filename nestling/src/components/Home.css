@@ -9,11 +9,31 @@
     font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
 }
 
+.top {
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f3fdff;
+    padding: 0 20px;
+}
+
+.box {
+    width: 50%; /* Set each box to take 50% of the width */
+    height: 100%; /* Ensure boxes are the same height as their container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #84B4BC; /* Set background color */
+}
+
 .bottom{
     display: flex;
     justify-content: center;
     align-items: flex-start;
     width: 90vw;
+
 }
 
 .blog{

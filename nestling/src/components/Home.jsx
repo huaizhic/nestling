@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css';
-import './CurrentListings.css'
+import './Test.css';
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
 
-function Home () {
+export default function Test() {
     async function handleLogout() {
         let { error } = await supabase.auth.signOut();
         alert("Logged out!");
@@ -14,62 +13,61 @@ function Home () {
 
     return (
         <div className="home">
-            <div className="top">
+            <div className="logo"><img src={walterlogo} alt="Walter Logo" /></div>
+            <div className="navbar">
+                <ul>
+                    <li><Link to="/home">Home</Link></li>
+                    <li><Link to="/desired-property">Desired Property</Link></li>
+                    <li><Link to="/current-listings">Current Listings</Link></li>
+                    <li><Link to="/favourites">Favourites</Link></li>
+                    <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
+                    <li className="profile-picture">
+                        <img src={greenwalter} alt="Green Walter Profile" />
+                        <Link to="/account-details">Account</Link>
+                    </li>
+                </ul>
             </div>
-
-
             <div className="bottom">
-                <div className="blog">
-                    <div className="header">
-                        <h2 className="header-text">What's Chirping!</h2>
-                    </div>
-
-                    <div className="article-reg">
-                        <div className ="article-content">
-                            <div>
-                                <Link to="https://blog.bluenest.sg/buying-private-property-procedure/" className="article-header">is the price truly right?</Link>
-                            </div>
-                            <div>
-                                <p className="article-content">read testimonials from previous clients on how they could find their dream home with just a simple search! and that too, for a reasonable price. read testimonials from previous clients on how they could find their dream home with just a simple search!</p>
+                <div className="box">
+                    <div className="articles-container">
+                        <div className="header">
+                            <h2 className="header-text">What's Chirping!</h2>
+                        </div>
+                        <div className="article-reg">
+                            <div className ="article-content">
+                                <div>
+                                    <Link to="https://blog.bluenest.sg/buying-private-property-procedure/" className="article-header">is the price truly right?</Link>
+                                </div>
+                                <div>
+                                    <p className="article-content">read testimonials from previous clients on how they could find their dream home with just a simple search! and that too, for a reasonable price. read testimonials from previous clients on how they could find their dream home with just a simple search!</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className="article-reg">
-                        <div className ="article-content">
-                            <div>
-                                <Link to="/article" className="article-header">is the price truly right?</Link>
-                            </div>
-                            <div>
-                                <p className="article-content">read testimonials from previous clients on how they could find their dream home with just a simple search! and that too, for a reasonable price. read testimonials from previous clients on how they could find their dream home with just a simple search!</p>
+                        <div className="article-reg">
+                            <div className ="article-content">
+                                <div>
+                                    <Link to="/article" className="article-header">is the price truly right?</Link>
+                                </div>
+                                <div>
+                                    <p className="article-content">read testimonials from previous clients on how they could find their dream home with just a simple search! and that too, for a reasonable price. read testimonials from previous clients on how they could find their dream home with just a simple search!</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className="article-reg">
-                        <div className ="article-content">
-                            <div>
-                                <Link to="/article" className="article-header">is the price truly right?</Link>
-                            </div>
-                            <div>
-                                <p className="article-content">read testimonials from previous clients on how they could find their dream home with just a simple search! and that too, for a reasonable price. read testimonials from previous clients on how they could find their dream home with just a simple search!</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="article-small">
-                        <div className ="article-content">
-                            <div>
-                                <Link to="/article" className="article-header">is the price truly right?</Link>
-                            </div>
-                            <div>
-                                <p className="article-content">read testimonials from previous clients on how they could find their dream home with just a simple search!</p>
+                        <div className="article-reg">
+                            <div className ="article-content">
+                                <div>
+                                    <Link to="/article" className="article-header">is the price truly right?</Link>
+                                </div>
+                                <div>
+                                    <p className="article-content">read testimonials from previous clients on how they could find their dream home with just a simple search! and that too, for a reasonable price. read testimonials from previous clients on how they could find their dream home with just a simple search!</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div className="about-us">
+                <div className="box-a">
                     <div className="header">
                         <h2 className="header-text">About us!</h2>
                     </div>
@@ -81,5 +79,3 @@ function Home () {
         </div>
     );
 }
-
-export default Home;
