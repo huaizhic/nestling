@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./CurrentListings.css";
+import './Navbar.css';
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
 import { ListingPanel } from "./ListingPanel";
@@ -199,32 +200,22 @@ function CurrentListings({
   return (
     <div className="current-listings">
       <div className="topcontainer">
-        <div className="logo">
-          <img src={walterlogo} alt="Walter Logo" />
-        </div>
-        <div className="navbar">
-          <ul>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/desired-property">Desired Property</Link>
-            </li>
-            <li>
-              <Link to="/current-listings">Current Listings</Link>
-            </li>
-            <li>
-              <Link to="/favourites">Favourites</Link>
-            </li>
-            <li>
-              <Link to="/" onClick={handleLogout}>Logout</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="profile-picture">
-          <img src={greenwalter} alt="Green Walter Profile" />
-            <Link to="/account-details">Account</Link>
-        </div>
+      <div className="logo">
+        <img src={walterlogo} alt="Walter Logo" />
+      </div>
+      <div className="navbar">
+        <ul>
+          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/desired-property">Desired Property</Link></li>
+          <li><Link to="/current-listings">Current Listings</Link></li>
+          <li><Link to="/favourites">Favourites</Link></li>
+          <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
+        </ul>
+      </div>
+      <div className="profile-picture">
+        <img src={greenwalter} alt="Green Walter Profile" />
+          <Link to="/account-details">Account</Link>
+      </div>
       </div>
       <div className="columns">
         <div className="search-column">

@@ -10,67 +10,12 @@
 }
 
 .topcontainer {
-  width: 100vw;
-  height: 15vh;
   display: flex;
-  justify-content: space-around;
-  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
   background-color: #f3fdff;
-}
-
-.navbar{
-    width: 794px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    margin: 50px 0 30px 200px;
-}
-.navbar ul {
-    background-color: #f3fdff;
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 400px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-.navbar ul li:first-child{
-    padding-left: 70px;
-}
-
-.navbar ul li:last-child{
-    padding-right: 70px;
-}
-
-.logo {
-  display: flex;
-  height: 80px;
-  width: 80px;
-}
-
-.profile-picture {
-    display: flex;
-    flex-direction: column;
-    height: 70px;
-    width: 70px;
-}
-
-.profile-picture a {
-  text-decoration: none;
-  color: black;
-  display: flex;
-  justify-content: center;
-}
-
-.logo img,
-.profile-picture img {
-  max-width: 100%;
-  height: auto;
+  padding-left: 20px;
+  padding-right:30px;
 }
 
 .search-column {
