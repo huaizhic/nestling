@@ -1,0 +1,43 @@
+.navbar {
+    padding: 10px 20px;
+    color: white;
+    margin-left: 100px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap; /* Prevent line breaks */
+}
+
+.navbar ul li {
+    display: inline;
+    margin-left: 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #002224;
+}
+
+.logo {
+    display: flex;
+    height: 80px;
+    width: 80px;
+  }
+  
+.profile-picture {
+      display: flex;
+      flex-direction: column;
+      height: 70px;
+      width: 70px;
+  }
+  
+.profile-picture a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+  
