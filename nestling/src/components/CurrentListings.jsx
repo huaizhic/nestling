@@ -118,29 +118,33 @@ function CurrentListings({
 
   const handleNormalSearch = (e) => {
     e.preventDefault();
-    let tempData = percentageMatchLogic(
-      currentList,
-      locationInput,
-      roomCountInput,
-      distanceRadius,
-      amenityInput1,
-      amenityInput2,
-      amenityInput3,
-      grossFloorArea
-    );
-    // console.log(tempData);
-    tempData.sort((a, b) => {
-      if (a.percentageMatch < b.percentageMatch) {
-        return 1;
-      } else if (a.percentageMatch > b.percentageMatch) {
-        return -1;
-      }
-      // if a.percentageMatch = b.percentageMatch
-      return 0;
-    });
-    setCurrentList(tempData);
-    setShowListings(true);
-    setSearchPerformed(true);
+    if (grossFloorArea <= 0 || grossFloorArea > 5000) {
+      alert("Error, gross floor area can only be between 1 and 5000 sqm!");
+    } else {
+      let tempData = percentageMatchLogic(
+        currentList,
+        locationInput,
+        roomCountInput,
+        distanceRadius,
+        amenityInput1,
+        amenityInput2,
+        amenityInput3,
+        grossFloorArea
+      );
+      // console.log(tempData);
+      tempData.sort((a, b) => {
+        if (a.percentageMatch < b.percentageMatch) {
+          return 1;
+        } else if (a.percentageMatch > b.percentageMatch) {
+          return -1;
+        }
+        // if a.percentageMatch = b.percentageMatch
+        return 0;
+      });
+      setCurrentList(tempData);
+      setShowListings(true);
+      setSearchPerformed(true);
+    }
   };
 
   const handleDesiredSubmit = async (e) => {
@@ -214,6 +218,32 @@ function CurrentListings({
       </div>
       <div className="profile-picture">
         <img src={greenwalter} alt="Green Walter Profile" />
+        <div className="logo">
+          <img src={walterlogo} alt="Walter Logo" />
+        </div>
+        <div className="navbar">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/desired-property">Desired Property</Link>
+            </li>
+            <li>
+              <Link to="/current-listings">Current Listings</Link>
+            </li>
+            <li>
+              <Link to="/favourites">Favourites</Link>
+            </li>
+            <li>
+              <Link to="/" onClick={handleLogout}>
+                Logout
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="profile-picture">
+          <img src={greenwalter} alt="Green Walter Profile" />
           <Link to="/account-details">Account</Link>
       </div>
       </div>
@@ -353,6 +383,8 @@ function CurrentListings({
               onChange={(e) => setRoomCountInput(e.target.value)}
             >
               <option value="option1">Preferred number of rooms</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
@@ -396,17 +428,17 @@ function CurrentListings({
                   </div>
                 );
               })} */}
-              {!searchPerformed && (
-                <p className="chirpingText">Nothing chirping yet:(</p>
-              )}
-              {showListings &&
-                currentList.map((indivPanel) => {
-                  return (
-                    <div className="listing-panel" key={indivPanel.id}>
-                      <ListingPanel indivData={indivPanel} />
-                    </div>
-                  );
-                })}
+            {!searchPerformed && (
+              <p className="chirpingText">Nothing chirping yet:(</p>
+            )}
+            {showListings &&
+              currentList.map((indivPanel) => {
+                return (
+                  <div className="listing-panel" key={indivPanel.id}>
+                    <ListingPanel indivData={indivPanel} />
+                  </div>
+                );
+              })}
           </div>
         </div>
       </div>
