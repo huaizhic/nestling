@@ -1,21 +1,23 @@
 Property 1:
-Location: Tampines
+Location: 81 Tampines Avenue 1 
 Desired Amenities:
-  - Amenity 1: Stations
-  - Amenity 2: Supermarkets
-  - Amenity 3: Parks
-Room Count: 5
-Distance Radius: 3
-Gross Floor Area: 3400
+  - Amenity 1: TAMPINES WEST MRT STATION
+  - Amenity 1 distance: 1.379991485
+  - Amenity 2: PRIME SUPERMARKET LIMITED?
+  - Amenity 2 distance: 0.867331326
+  - Amenity 3: DAMAI SECONDARY SCHOOL
+  - Amenity 3 distance: 1.220755183
+Room Count: 4
+Gross Floor Area: 1324
 
 Property 2:
-Location: SEMBAWANG STATION
+Location: Tampines
 Desired Amenities:
-  - Amenity 1: Parks
+  - Amenity 1: Schools
   - Amenity 2: Supermarkets
-  - Amenity 3: MRT
-Room Count: 4 rooms
-Distance Radius: 2-3km
-Gross Floor Area: 2851
+  - Amenity 3: Parks
+Room Count: 3
+Distance Radius: 2
+Gross Floor Area: 1500
 
 North: Woodlands, Marsiling, Kranji, Yew Tee, Admiralty, Sembawang, Canberra, Yishun, Khatib, Yio Chu Kang, Ang Mo Kio, Bishan, Braddell, Toa Payoh, Novena, Newton West: Jurong East, Bukit Batok, Bukit Gombak, Choa Chu Kang, Boon Lay, Lakeside, Chinese Garden, Clementi, Dover, Commonwealth, Buona Vista, Queenstown, Redhill, Tiong Bahru, Outram Park East:Pasir Ris, Tampines, Simei, Tanah Merah, Expo, Changi Airport, Paya Lebar, Aljunied, Eunos, Kembangan, Bedok, Tanjong Katong, Marine Parade, Dakota
