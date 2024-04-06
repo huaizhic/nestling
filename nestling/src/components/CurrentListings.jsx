@@ -54,6 +54,7 @@ function CurrentListings({
 }) {
   const [currentList, setCurrentList] = useState([]);
   const [fetchflag, setFetchFlag] = useState(false);
+  const [searchPerformed, setSearchPerformed] = useState(false);
   // const [locationInput, setLocationInput] = useState("Tampines");
   // const [amenityInput1, setAmenityInput1] = useState("Schools");
   // const [amenityInput2, setAmenityInput2] = useState("Supermarkets");
@@ -61,7 +62,7 @@ function CurrentListings({
   // const [distanceRadius, setDistanceRadius] = useState(2);
   // const [roomCountInput, setRoomCountInput] = useState(3);
   // const [grossFloorArea, setGrossFloorArea] = useState(1500);
-  const [showListings, setShowListings] = useState(true);
+  const [showListings, setShowListings] = useState(false);
   {
     /*conditional render*/
   }
@@ -138,9 +139,7 @@ function CurrentListings({
     });
     setCurrentList(tempData);
     setShowListings(true);
-    {
-      /*conditional render*/
-    }
+    setSearchPerformed(true);
   };
 
   const handleDesiredSubmit = async (e) => {
@@ -188,6 +187,7 @@ function CurrentListings({
     });
     setCurrentList(tempData);
     setShowListings(true);
+    setSearchPerformed(true);
   };
 
   async function handleLogout() {
@@ -394,29 +394,28 @@ function CurrentListings({
             <h3>Current Listings</h3>
           </div>
           <div className="listings-container">
-            {!showListings && (
+            {/* {!showListings && (
               <p className="chirpingText">Nothing chirping yet:(</p>
             )}
-            {/*conditional render*/}
-            {/* <ListingPanel />
-            <ListingPanel />
-            <ListingPanel />
-            <ListingPanel />
-            <ListingPanel /> */}
             {showListings &&
               currentList.map((indivPanel) => {
                 return (
-                  /*<div className="listing-panel" key={index}>
-                <ListingPanel
-                  title={indivPanel.projectName}
-                  price={indivPanel.price}
-                  percentageMatch={indivPanel.percentageMatch}
-                />*/
                   <div className="listing-panel">
                     <ListingPanel indivData={indivPanel} />
                   </div>
                 );
-              })}
+              })} */}
+              {!searchPerformed && (
+                <p className="chirpingText">Nothing chirping yet:(</p>
+              )}
+              {showListings &&
+                currentList.map((indivPanel) => {
+                  return (
+                    <div className="listing-panel" key={indivPanel.id}>
+                      <ListingPanel indivData={indivPanel} />
+                    </div>
+                  );
+                })}
           </div>
         </div>
       </div>
