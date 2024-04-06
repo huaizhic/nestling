@@ -1,14 +1,14 @@
 Property 1:
-Location: 81 Tampines Avenue 1 
+Location: 173 Chin Swee Road 
 Desired Amenities:
-  - Amenity 1: TAMPINES WEST MRT STATION
-  - Amenity 1 distance: 1.379991485
-  - Amenity 2: PRIME SUPERMARKET LIMITED?
-  - Amenity 2 distance: 0.867331326
-  - Amenity 3: DAMAI SECONDARY SCHOOL
-  - Amenity 3 distance: 1.220755183
-Room Count: 4
-Gross Floor Area: 1324
+  - Amenity 1: CHINATOWN MRT STATION
+  - Amenity 1 distance: 0.474916996
+  - Amenity 2: SHENG SIONG SUPERMARKET PTE LTD
+  - Amenity 2 distance: 0.24737393
+  - Amenity 3: ALEXANDRA PRIMARY SCHOOL
+  - Amenity 3 distance: 1.828056615
+Room Count: 3
+Gross Floor Area: 764
 
 Property 2:
 Location: Tampines
