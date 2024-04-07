@@ -195,26 +195,34 @@ function DesiredProperty() {
   }
 
   const handleSubmit = async () => {
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/generate_price",
-        {
-          // Send user input to the backend
-          amenities1: selectedAmenities1,
-          amenities2: selectedAmenities2,
-          amenities3: selectedAmenities3,
-          distanceRadius: selectedDistance,
-          area: selectedGFA,
-        }
-      );
+    if (
+      selectedAmenities1 === selectedAmenities2 ||
+      selectedAmenities1 === selectedAmenities3 ||
+      selectedAmenities2 === selectedAmenities3
+    ) {
+      alert("Cannot have same amenity choices!");
+    } else {
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/generate_price",
+          {
+            // Send user input to the backend
+            amenities1: selectedAmenities1,
+            amenities2: selectedAmenities2,
+            amenities3: selectedAmenities3,
+            distanceRadius: selectedDistance,
+            area: selectedGFA,
+          }
+        );
 
-      // Update state with the estimated price returned by the backend
-      setEstimatedPrice(response.data.estimated_price);
+        // Update state with the estimated price returned by the backend
+        setEstimatedPrice(response.data.estimated_price);
 
-      // Toggle visibility after receiving response
-      toggleVisibility();
-    } catch (error) {
-      console.error("Error:", error);
+        // Toggle visibility after receiving response
+        toggleVisibility();
+      } catch (error) {
+        console.error("Error:", error);
+      }
     }
   };
 
