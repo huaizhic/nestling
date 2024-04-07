@@ -134,9 +134,39 @@ function ListingDetails({
     setPercentageMatch(tempData[0].percentageMatch);
   }
 
-  function handleSave(e) {
+  async function handleSave(e) {
     e.preventDefault();
-    alert("works");
+    // alert("works");
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+
+    const { data: userFavData, error: desiredError } = await supabase
+      .from("userInfo")
+      .select("savedProperties")
+      .eq("email", userData.user.email);
+
+    let temp = userFavData[0].savedProperties;
+    // console.log(temp);
+    let gotDuplicates = temp.some((property) => property.id === id);
+    // console.log(gotDuplicates);
+    if (gotDuplicates) {
+      alert("Cannot save duplicate property to favourites!");
+    } else {
+      temp.push({ id: id });
+      // console.log(temp.length);
+      const { data, error } = await supabase
+        .from("userInfo")
+        .update({ savedProperties: temp })
+        .eq("email", userData.user.email)
+        .select();
+
+      // console.log(data);
+      // console.log(error);
+      if (data) {
+        alert("Property Saved! View them in favourites");
+      } else if (error) {
+        alert("Error saving property! Error:", error);
+      }
+    }
   }
 
   return (
