@@ -13,6 +13,8 @@ import supabase from "../supabase";
 export default function Favourites() {
   const [favIDList, setFavIDList] = useState([]);
   const [displayList, setDisplayList] = useState([]);
+  const [checkList, setCheckList] = useState([]);
+  let component = "favourites";
 
   useEffect(() => {
     async function fetchFav() {
@@ -42,7 +44,7 @@ export default function Favourites() {
         });
       });
 
-      console.log(tempDisplayList);
+      console.log("tempDisplayList:", tempDisplayList);
       setDisplayList(tempDisplayList);
     }
     fetchFav();
@@ -101,9 +103,14 @@ export default function Favourites() {
         <div className="header">Favourites</div>
         <div className="the-rest">
           {displayList.map((property) => {
-            return <ListingPanel indivData={property} />;
+            return (
+              <ListingPanel
+                indivData={property}
+                component={component}
+                displayList={displayList}
+              />
+            );
           })}
-          {/* <h1>Hi</h1> */}
         </div>
       </div>
       <div>
