@@ -26,9 +26,165 @@ def generate_price():
     distanceRadius = data.get("distanceRadius")
     area = data.get("area")
 
-    print(amenities1)
+    if (amenities1 == "station" and amenities2 == "supermarket" and amenities3 == "primary school") or \
+    (amenities1 == "station" and amenities2 == "primary school" and amenities3 == "supermarket") or \
+    (amenities1 == "supermarket" and amenities2 == "station" and amenities3 == "primary school") or \
+    (amenities1 == "supermarket" and amenities2 == "primary school" and amenities3 == "station") or \
+    (amenities1 == "primary school" and amenities2 == "station" and amenities3 == "supermarket") or \
+    (amenities1 == "primary school" and amenities2 == "supermarket" and amenities3 == "station"):
+        pickle_filename = "MRTSupermarketPrimarySchool.pkl"
 
-    pickle_filename = "SupermarketPrimarySchoolMall.pkl"
+    elif (amenities1 == "station" and amenities2 == "supermarket" and amenities3 == "secondary school") or \
+        (amenities1 == "station" and amenities2 == "secondary school" and amenities3 == "supermarket") or \
+        (amenities1 == "supermarket" and amenities2 == "station" and amenities3 == "secondary school") or \
+        (amenities1 == "supermarket" and amenities2 == "secondary school" and amenities3 == "station") or \
+        (amenities1 == "secondary school" and amenities2 == "station" and amenities3 == "supermarket") or \
+        (amenities1 == "secondary school" and amenities2 == "supermarket" and amenities3 == "station"):
+        pickle_filename = "MRTSupermarketSecondarySchool.pkl"
+
+    elif (amenities1 == "station" and amenities2 == "supermarket" and amenities3 == "park") or \
+        (amenities1 == "station" and amenities2 == "park" and amenities3 == "supermarket") or \
+        (amenities1 == "supermarket" and amenities2 == "station" and amenities3 == "park") or \
+        (amenities1 == "supermarket" and amenities2 == "park" and amenities3 == "station") or \
+        (amenities1 == "park" and amenities2 == "station" and amenities3 == "supermarket") or \
+        (amenities1 == "park" and amenities2 == "supermarket" and amenities3 == "station"):
+        pickle_filename = "MRTSupermarketPark.pkl"
+
+    elif (amenities1 == "station" and amenities2 == "supermarket" and amenities3 == "mall") or \
+        (amenities1 == "station" and amenities2 == "mall" and amenities3 == "supermarket") or \
+        (amenities1 == "supermarket" and amenities2 == "station" and amenities3 == "mall") or \
+        (amenities1 == "supermarket" and amenities2 == "mall" and amenities3 == "station") or \
+        (amenities1 == "mall" and amenities2 == "station" and amenities3 == "supermarket") or \
+        (amenities1 == "mall" and amenities2 == "supermarket" and amenities3 == "station"):
+        pickle_filename = "MRTSupermarketMall.pkl"
+
+    elif (amenities1 == "station" and amenities2 == "primary school" and amenities3 == "secondary school") or \
+        (amenities1 == "station" and amenities2 == "secondary school" and amenities3 == "primary school") or \
+        (amenities1 == "primary school" and amenities2 == "station" and amenities3 == "secondary school") or \
+        (amenities1 == "primary school" and amenities2 == "secondary school" and amenities3 == "station") or \
+        (amenities1 == "secondary school" and amenities2 == "station" and amenities3 == "primary school") or \
+        (amenities1 == "secondary school" and amenities2 == "primary school" and amenities3 == "station"):
+        pickle_filename = "MRTPrimarySchoolSecondarySchool.pkl"
+
+    elif (amenities1 == "station" and amenities2 == "primary school" and amenities3 == "park") or \
+        (amenities1 == "station" and amenities2 == "park" and amenities3 == "primary school") or \
+        (amenities1 == "primary school" and amenities2 == "station" and amenities3 == "park") or \
+        (amenities1 == "primary school" and amenities2 == "park" and amenities3 == "station") or \
+        (amenities1 == "park" and amenities2 == "station" and amenities3 == "primary school") or \
+        (amenities1 == "park" and amenities2 == "primary school" and amenities3 == "station"):
+        pickle_filename = "MRTPrimarySchoolPark.pkl"
+
+    elif (amenities1 == "station" and amenities2 == "primary school" and amenities3 == "mall") or \
+        (amenities1 == "station" and amenities2 == "mall" and amenities3 == "primary school") or \
+        (amenities1 == "primary school" and amenities2 == "station" and amenities3 == "mall") or \
+        (amenities1 == "primary school" and amenities2 == "mall" and amenities3 == "station") or \
+        (amenities1 == "mall" and amenities2 == "station" and amenities3 == "primary school") or \
+        (amenities1 == "mall" and amenities2 == "primary school" and amenities3 == "station"):
+        pickle_filename = "MRTPrimarySchoolMall.pkl"
+
+    elif (amenities1 == "station" and amenities2 == "secondary school" and amenities3 == "park") or \
+        (amenities1 == "station" and amenities2 == "park" and amenities3 == "secondary school") or \
+        (amenities1 == "secondary school" and amenities2 == "station" and amenities3 == "park") or \
+        (amenities1 == "secondary school" and amenities2 == "park" and amenities3 == "station") or \
+        (amenities1 == "park" and amenities2 == "station" and amenities3 == "secondary school") or \
+        (amenities1 == "park" and amenities2 == "secondary school" and amenities3 == "station"):
+        pickle_filename = "MRTSecondarySchoolPark.pkl"
+
+    elif (amenities1 == "station" and amenities2 == "secondary school" and amenities3 == "mall") or \
+        (amenities1 == "station" and amenities2 == "mall" and amenities3 == "secondary school") or \
+        (amenities1 == "secondary school" and amenities2 == "station" and amenities3 == "mall") or \
+        (amenities1 == "secondary school" and amenities2 == "mall" and amenities3 == "station") or \
+        (amenities1 == "mall" and amenities2 == "station" and amenities3 == "secondary school") or \
+        (amenities1 == "mall" and amenities2 == "secondary school" and amenities3 == "station"):
+        pickle_filename = "MRTSecondarySchoolMall.pkl"
+
+    elif (amenities1 == "station" and amenities2 == "park" and amenities3 == "mall") or \
+        (amenities1 == "station" and amenities2 == "mall" and amenities3 == "park") or \
+        (amenities1 == "park" and amenities2 == "station" and amenities3 == "mall") or \
+        (amenities1 == "park" and amenities2 == "mall" and amenities3 == "station") or \
+        (amenities1 == "mall" and amenities2 == "station" and amenities3 == "park") or \
+        (amenities1 == "mall" and amenities2 == "park" and amenities3 == "station"):
+        pickle_filename = "MRTParkMall.pkl"
+
+    elif (amenities1 == "supermarket" and amenities2 == "primary school" and amenities3 == "secondary school") or \
+        (amenities1 == "supermarket" and amenities2 == "secondary school" and amenities3 == "primary school") or \
+        (amenities1 == "primary school" and amenities2 == "supermarket" and amenities3 == "secondary school") or \
+        (amenities1 == "primary school" and amenities2 == "secondary school" and amenities3 == "supermarket") or \
+        (amenities1 == "secondary school" and amenities2 == "supermarket" and amenities3 == "primary school") or \
+        (amenities1 == "secondary school" and amenities2 == "primary school" and amenities3 == "supermarket"):
+        pickle_filename = "SupermarketPrimarySchoolSecondarySchool.pkl"
+
+    elif (amenities1 == "supermarket" and amenities2 == "primary school" and amenities3 == "park") or \
+        (amenities1 == "supermarket" and amenities2 == "park" and amenities3 == "primary school") or \
+        (amenities1 == "primary school" and amenities2 == "supermarket" and amenities3 == "park") or \
+        (amenities1 == "primary school" and amenities2 == "park" and amenities3 == "supermarket") or \
+        (amenities1 == "park" and amenities2 == "supermarket" and amenities3 == "primary school") or \
+        (amenities1 == "park" and amenities2 == "primary school" and amenities3 == "supermarket"):
+        pickle_filename = "SupermarketPrimarySchoolPark.pkl"
+
+    elif (amenities1 == "supermarket" and amenities2 == "primary school" and amenities3 == "mall") or \
+        (amenities1 == "supermarket" and amenities2 == "mall" and amenities3 == "primary school") or \
+        (amenities1 == "primary school" and amenities2 == "supermarket" and amenities3 == "mall") or \
+        (amenities1 == "primary school" and amenities2 == "mall" and amenities3 == "supermarket") or \
+        (amenities1 == "mall" and amenities2 == "supermarket" and amenities3 == "primary school") or \
+        (amenities1 == "mall" and amenities2 == "primary school" and amenities3 == "supermarket"):
+        pickle_filename = "SupermarketPrimarySchoolMall.pkl"
+
+    elif (amenities1 == "supermarket" and amenities2 == "secondary school" and amenities3 == "park") or \
+        (amenities1 == "supermarket" and amenities2 == "park" and amenities3 == "secondary school") or \
+        (amenities1 == "secondary school" and amenities2 == "supermarket" and amenities3 == "park") or \
+        (amenities1 == "secondary school" and amenities2 == "park" and amenities3 == "supermarket") or \
+        (amenities1 == "park" and amenities2 == "supermarket" and amenities3 == "secondary school") or \
+        (amenities1 == "park" and amenities2 == "secondary school" and amenities3 == "supermarket"):
+        pickle_filename = "SupermarketSecondarySchoolPark.pkl"
+
+    elif (amenities1 == "supermarket" and amenities2 == "secondary school" and amenities3 == "mall") or \
+        (amenities1 == "supermarket" and amenities2 == "mall" and amenities3 == "secondary school") or \
+        (amenities1 == "secondary school" and amenities2 == "supermarket" and amenities3 == "mall") or \
+        (amenities1 == "secondary school" and amenities2 == "mall" and amenities3 == "supermarket") or \
+        (amenities1 == "mall" and amenities2 == "supermarket" and amenities3 == "secondary school") or \
+        (amenities1 == "mall" and amenities2 == "secondary school" and amenities3 == "supermarket"):
+        pickle_filename = "SupermarketSecondarySchoolMall.pkl"
+
+    elif (amenities1 == "supermarket" and amenities2 == "park" and amenities3 == "mall") or \
+        (amenities1 == "supermarket" and amenities2 == "mall" and amenities3 == "park") or \
+        (amenities1 == "park" and amenities2 == "supermarket" and amenities3 == "mall") or \
+        (amenities1 == "park" and amenities2 == "mall" and amenities3 == "supermarket") or \
+        (amenities1 == "mall" and amenities2 == "supermarket" and amenities3 == "park") or \
+        (amenities1 == "mall" and amenities2 == "park" and amenities3 == "supermarket"):
+        pickle_filename = "SupermarketParkMall.pkl"
+
+    elif (amenities1 == "primary school" and amenities2 == "secondary school" and amenities3 == "park") or \
+        (amenities1 == "primary school" and amenities2 == "park" and amenities3 == "secondary school") or \
+        (amenities1 == "secondary school" and amenities2 == "primary school" and amenities3 == "park") or \
+        (amenities1 == "secondary school" and amenities2 == "park" and amenities3 == "primary school") or \
+        (amenities1 == "park" and amenities2 == "primary school" and amenities3 == "secondary school") or \
+        (amenities1 == "park" and amenities2 == "secondary school" and amenities3 == "primary school"):
+        pickle_filename = "PrimarySchoolSecondarySchoolPark.pkl"
+
+    elif (amenities1 == "primary school" and amenities2 == "secondary school" and amenities3 == "mall") or \
+        (amenities1 == "primary school" and amenities2 == "mall" and amenities3 == "secondary school") or \
+        (amenities1 == "secondary school" and amenities2 == "primary school" and amenities3 == "mall") or \
+        (amenities1 == "secondary school" and amenities2 == "mall" and amenities3 == "primary school") or \
+        (amenities1 == "mall" and amenities2 == "primary school" and amenities3 == "secondary school") or \
+        (amenities1 == "mall" and amenities2 == "secondary school" and amenities3 == "primary school"):
+        pickle_filename = "PrimarySchoolSecondarySchoolMall.pkl"
+
+    elif (amenities1 == "primary school" and amenities2 == "park" and amenities3 == "mall") or \
+        (amenities1 == "primary school" and amenities2 == "mall" and amenities3 == "park") or \
+        (amenities1 == "park" and amenities2 == "primary school" and amenities3 == "mall") or \
+        (amenities1 == "park" and amenities2 == "mall" and amenities3 == "primary school") or \
+        (amenities1 == "mall" and amenities2 == "primary school" and amenities3 == "park") or \
+        (amenities1 == "mall" and amenities2 == "park" and amenities3 == "primary school"):
+        pickle_filename = "PrimarySchoolParkMall.pkl"
+
+    elif (amenities1 == "secondary school" and amenities2 == "park" and amenities3 == "mall") or \
+        (amenities1 == "secondary school" and amenities2 == "mall" and amenities3 == "park") or \
+        (amenities1 == "park" and amenities2 == "secondary school" and amenities3 == "mall") or \
+        (amenities1 == "park" and amenities2 == "mall" and amenities3 == "secondary school") or \
+        (amenities1 == "mall" and amenities2 == "secondary school" and amenities3 == "park") or \
+        (amenities1 == "mall" and amenities2 == "park" and amenities3 == "secondary school"):
+        pickle_filename = "SecondarySchoolParkMall.pkl"
 
     # Load the model from the pickle file
     model = load_model_from_pickle(pickle_filename)
