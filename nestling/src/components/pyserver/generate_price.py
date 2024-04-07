@@ -194,6 +194,8 @@ def generate_price():
 
     estimated_price = model.predict(input_values)
 
+    print(estimated_price)
+
     # Convert the estimated price to an integer
     estimated_price_integer = int(estimated_price)
 
