@@ -26,6 +26,8 @@ def generate_price():
     distanceRadius = data.get("distanceRadius")
     area = data.get("area")
 
+    print(amenities1)
+
     pickle_filename = "SupermarketPrimarySchoolMall.pkl"
 
     # Load the model from the pickle file

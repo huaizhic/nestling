@@ -179,12 +179,12 @@ function DesiredProperty() {
   ];
 
   const amenities = [
-    { value: "Stations", label: "MRT Stations" },
-    { value: "Supermarkets", label: "Supermarkets" },
-    { value: "Primary schools", label: "Primary schools" },
-    { value: "Secondary schools", label: "Secondary schools" },
-    { value: "Parks", label: "Parks" },
-    { value: "Malls", label: "Malls" },
+    { value: "station", label: "MRT Stations" },
+    { value: "supermarket", label: "Supermarkets" },
+    { value: "primary school", label: "Primary schools" },
+    { value: "secondary school", label: "Secondary schools" },
+    { value: "park", label: "Parks" },
+    { value: "mall", label: "Malls" },
   ];
 
   const handleAmenities = () => {
