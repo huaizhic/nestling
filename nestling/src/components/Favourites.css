@@ -1,20 +1,19 @@
 .favourites {
-    justify-content: center;
+    height: 1100px;
+    width: 100vw;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    font-family: 'Montserrat', sans-serif; 
-    background-color: #F3FDFF;
-    flex-direction: row;
-    height: 1024x;
-    width: 1440px;
+    color: black;
+    background-color: #f3fdff;
+    font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
 }
 
 .bottom {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Align children vertically */
-    margin-top: 20px; /* Adjust as needed */
+    flex-direction: column;
 }
 
 .header {
@@ -24,9 +23,73 @@
     text-align: center; /* Align text horizontally */
 }
 
-.the-rest {
+.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+    padding:10px;
+}
+
+.the-rest{
+    width: 1295px;
+    height:700px;
+    background-color: #FCCACA;
+    border-radius: 15px;
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
+    overflow: hidden;
+}
+
+.box-a {
+    width: 220px;
+    height: 300px;
+    background-color: #701E1E;
+    border-radius: 10px;
+}
+
+.img {
+    background-color: #f3fdff;
+    width: 200px;
+    height: 200px;
+    opacity: 0.9;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.a-header{
+    color:#f3fdff;
+    font-size: 16px;
+    justify-content: flex-start;
+}
+
+.address {
+    color:#f3fdff;
+    font-size: 12px;
+    justify-content: flex-start; 
+}
+
+.price {
+    color:#f3fdff;
+    font-size: 12px;
+    justify-content: flex-start; 
+}
+
+.pmatch {
+    color:#f3fdff;
+    font-size: 12px;
+    justify-content: flex-start; 
+}
+
+.button-div{
     margin-top: 10px;
-    color: black;
-    width: 50px;
-    height: 50px;
+    width: 200px;
+    height: 60px;
+    background-color: #002224;
+    border-radius: 10px;
+    color:#f3fdff;
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 32px;
+    padding-top: 5px;
 }
