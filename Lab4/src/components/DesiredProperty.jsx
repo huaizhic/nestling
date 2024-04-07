@@ -188,29 +188,6 @@ function DesiredProperty() {
     { value: "mall", label: "Malls" },
   ];
 
-  const handleAmenities = () => {
-    // if (
-    //   (selectedAmenities3 &&
-    //     selectedAmenities2 &&
-    //     selectedAmenities3 === selectedAmenities2) ||
-    //   (selectedAmenities1 &&
-    //     selectedAmenities3 &&
-    //     selectedAmenities1 === selectedAmenities3) ||
-    //   (selectedAmenities1 &&
-    //     selectedAmenities2 &&
-    //     selectedAmenities1 === selectedAmenities2)
-    // ) {
-    //   alert("Please choose different amenities!");
-    // }
-    if (
-      selectedAmenities1 === selectedAmenities2 ||
-      selectedAmenities1 === selectedAmenities3
-    ) {
-      alert("Please choose different amenities!");
-      setAmenities1("");
-    }
-  };
-
   async function handleLogout() {
     let { error } = await supabase.auth.signOut();
     alert("Logged out!");

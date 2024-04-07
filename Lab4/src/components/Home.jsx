@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Test.css";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
+import supabase from "../supabase";
 
 export default function Test() {
   async function handleLogout() {
@@ -31,11 +32,11 @@ export default function Test() {
             <Link to="/favourites">Favourites</Link>
           </li>
           <li>
-            <Link to="/" onClick={() => handleLogout()}>
+            <Link to="/" onClick={handleLogout}>
               Logout
             </Link>
-            {/* <button onClick={() => handleLogout()} Log Out></button> */}
           </li>
+          {/* <button className="" onClick={() => handleLogout()} Log Out></button> */}
           <li className="profile-picture">
             <img src={greenwalter} alt="Green Walter Profile" />
             <Link to="/account-details">Account</Link>
