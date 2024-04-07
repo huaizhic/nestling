@@ -17,7 +17,8 @@ import Favourites from "./components/Favourites.jsx";
 import ListingDetails from "./components/ListingDetails.jsx";
 import Compare from "./components/Compare.jsx";
 import Test from "./components/Test.jsx";
-// import SavedProperties from "./components/SavedProperties.jsx";
+import SavedProperties from "./components/SavedProperties.jsx";
+import CompareFav from "./components/CompareFav.jsx";
 
 export let locations = [
   { value: "Ang Mo Kio", label: "Ang Mo Kio" },
@@ -56,6 +57,9 @@ function App() {
   const [grossFloorArea, setGrossFloorArea] = useState(1500);
   const [housePrice, setHousePrice] = useState(1000000);
 
+  const [selection, setSelection] = useState([]);
+  const [rerenderCompareFav, setRerenderCompareFav] = useState(false);
+
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
@@ -66,7 +70,17 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/account-details" element={<AcctDetails />} />
       <Route path="/test" element={<Test />} />
-      {/* <Route path="/saved-properties" element={<SavedProperties />} /> */}
+      <Route
+        path="/compare-fav"
+        element={
+          <CompareFav
+            selection={selection}
+            setSelection={setSelection}
+            rerenderCompareFav={rerenderCompareFav}
+            setRerenderCompareFav={setRerenderCompareFav}
+          />
+        }
+      />
       <Route
         path="/current-listings"
         element={
@@ -95,7 +109,17 @@ function App() {
       <Route path="/account-details" element={<Account />} />
       <Route path="/desired-property" element={<DesiredProperty />} />
       {/* <Route path="/listing-info" element={<ListingInfo />} /> */}
-      <Route path="/favourites" element={<Favourites />} />
+      <Route
+        path="/favourites"
+        element={
+          <Favourites
+            selection={selection}
+            setSelection={setSelection}
+            rerenderCompareFav={rerenderCompareFav}
+            setRerenderCompareFav={setRerenderCompareFav}
+          />
+        }
+      />
       {/* <Route path="/listing-info/:id" element={<ListingInfo />} /> */}
       <Route
         path="/listing-details/:id"

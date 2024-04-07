@@ -1,95 +1,97 @@
 .favourites {
-    height: 1100px;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: black;
-    background-color: #f3fdff;
-    font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
+  height: 1100px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  background-color: #f3fdff;
+  font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
 }
 
 .bottom {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .header {
-    color: #670F0F;
-    font-size: 64px;
-    font-weight: bold;
-    text-align: center; /* Align text horizontally */
+  color: #670f0f;
+  font-size: 64px;
+  font-weight: bold;
+  text-align: center; /* Align text horizontally */
 }
 
 .bottom {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Center children horizontally */
-    align-items: center; /* Center children vertically */
-    padding:10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  padding: 10px;
 }
 
-.the-rest{
-    width: 1295px;
-    height:700px;
-    background-color: #FCCACA;
-    border-radius: 15px;
-    justify-content: center; /* Center children horizontally */
-    align-items: center; /* Center children vertically */
-    overflow: hidden;
+.the-rest {
+  width: 1295px;
+  height: 700px;
+  background-color: #fccaca;
+  border-radius: 15px;
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 .box-a {
-    width: 220px;
-    height: 300px;
-    background-color: #701E1E;
-    border-radius: 10px;
+  width: 220px;
+  height: 300px;
+  background-color: #701e1e;
+  border-radius: 10px;
 }
 
 .img {
-    background-color: #f3fdff;
-    width: 200px;
-    height: 200px;
-    opacity: 0.9;
-    margin: 10px;
-    border-radius: 10px;
+  background-color: #f3fdff;
+  width: 200px;
+  height: 200px;
+  opacity: 0.9;
+  margin: 10px;
+  border-radius: 10px;
 }
 
-.a-header{
-    color:#f3fdff;
-    font-size: 16px;
-    justify-content: flex-start;
+.a-header {
+  color: #f3fdff;
+  font-size: 16px;
+  justify-content: flex-start;
 }
 
 .address {
-    color:#f3fdff;
-    font-size: 12px;
-    justify-content: flex-start; 
+  color: #f3fdff;
+  font-size: 12px;
+  justify-content: flex-start;
 }
 
 .price {
-    color:#f3fdff;
-    font-size: 12px;
-    justify-content: flex-start; 
+  color: #f3fdff;
+  font-size: 12px;
+  justify-content: flex-start;
 }
 
 .pmatch {
-    color:#f3fdff;
-    font-size: 12px;
-    justify-content: flex-start; 
+  color: #f3fdff;
+  font-size: 12px;
+  justify-content: flex-start;
 }
 
-.button-div{
-    margin-top: 10px;
-    width: 200px;
-    height: 60px;
-    background-color: #002224;
-    border-radius: 10px;
-    color:#f3fdff;
-    font-size: 30px;
-    font-weight: bold;
-    padding-left: 32px;
-    padding-top: 5px;
+.button-div {
+  margin-top: 10px;
+  width: 200px;
+  height: 60px;
+  background-color: #002224;
+  border-radius: 10px;
+  color: #f3fdff;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 32px;
+  padding-top: 5px;
 }

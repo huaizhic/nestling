@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import supabase from "../supabase";
 import { percentageMatchLogic } from "./percentageMatchLogic";
 import axios from "axios";
+import whitecross from "../../src/assets/images/whitecross.png";
 
 function ListingDetails({
   locationInput,
@@ -133,6 +134,41 @@ function ListingDetails({
     setPercentageMatch(tempData[0].percentageMatch);
   }
 
+  async function handleSave(e) {
+    e.preventDefault();
+    // alert("works");
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+
+    const { data: userFavData, error: desiredError } = await supabase
+      .from("userInfo")
+      .select("savedProperties")
+      .eq("email", userData.user.email);
+
+    let temp = userFavData[0].savedProperties;
+    // console.log(temp);
+    let gotDuplicates = temp.some((property) => property.id === id);
+    // console.log(gotDuplicates);
+    if (gotDuplicates) {
+      alert("Cannot save duplicate property to favourites!");
+    } else {
+      temp.push({ id: id });
+      // console.log(temp.length);
+      const { data, error } = await supabase
+        .from("userInfo")
+        .update({ savedProperties: temp })
+        .eq("email", userData.user.email)
+        .select();
+
+      // console.log(data);
+      // console.log(error);
+      if (data) {
+        alert("Property Saved! View them in favourites");
+      } else if (error) {
+        alert("Error saving property! Error:", error);
+      }
+    }
+  }
+
   return (
     <div className="listing-details">
       <div className="topcontainer">
@@ -177,6 +213,11 @@ function ListingDetails({
           )}
           <h3 className="imgprojectname">{listing.projectName}</h3>
           <h3 className="imgaddress">{listing.address}</h3>
+        </div>
+        <div className="save-button">
+          <button onClick={(e) => handleSave(e)}>
+            <img src={whitecross} />
+          </button>
         </div>
         <div className="textColumn">
           <div className="field">

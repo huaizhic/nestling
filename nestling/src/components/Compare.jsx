@@ -48,7 +48,7 @@ function Compare({
   ]);
 
   const [nicoleData, setNicoleData] = useState({
-    email: "",
+    from: "compare",
     searchListing: [
       {
         searchLocation: locationInput,
@@ -186,6 +186,41 @@ function Compare({
     // setArray(dataReply);
   }
 
+  async function handleSave(e) {
+    e.preventDefault();
+    // alert("works");
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+
+    const { data: userFavData, error: desiredError } = await supabase
+      .from("userInfo")
+      .select("savedProperties")
+      .eq("email", userData.user.email);
+
+    let temp = userFavData[0].savedProperties;
+    // console.log(temp);
+    let gotDuplicates = temp.some((property) => property.id === id);
+    // console.log(gotDuplicates);
+    if (gotDuplicates) {
+      alert("Cannot save duplicate property to favourites!");
+    } else {
+      temp.push({ id: id });
+      // console.log(temp.length);
+      const { data, error } = await supabase
+        .from("userInfo")
+        .update({ savedProperties: temp })
+        .eq("email", userData.user.email)
+        .select();
+
+      // console.log(data);
+      // console.log(error);
+      if (data) {
+        alert("Property Saved! View them in favourites");
+      } else if (error) {
+        alert("Error saving property! Error:", error);
+      }
+    }
+  }
+
   return (
     <div className="compare">
       <div className="topcontainer">
@@ -251,7 +286,7 @@ function Compare({
           <div className="listing-info-container">
             <h2>{listing.projectName}</h2>
             <div className="save-button">
-              <button>
+              <button onClick={(e) => handleSave(e)}>
                 <img src={whitecross} />
               </button>
             </div>

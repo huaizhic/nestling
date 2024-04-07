@@ -1,15 +1,15 @@
 Property 1:
-Location: 15 Pasir Ris Rise 
+Location: 71 Anchorvale Crescent 
 Desired Amenities:
-  - Amenity 1: PASIR RIS MRT STATION
-  - Amenity 1 distance: 1.109067834
-  - Amenity 2: RAW MARKET PTE. LTD.
-  - Amenity 2 distance: 0.230145025
-  - Amenity 3: CASUARINA PRIMARY SCHOOL
-  - Amenity 3 distance: 0.362992452
+  - Amenity 1: CHENG LIM LRT STATION
+  - Amenity 1 distance: 0.102934092
+  - Amenity 2: PRIME SUPERMARKET LIMITED?
+  - Amenity 2 distance: 0.298686078
+  - Amenity 3: COMPASSVALE PRIMARY SCHOOL
+  - Amenity 3 distance: 0.472297555
 Room Count: 4
-House Price: 1660000
-Gross Floor Area: 1335
+House Price: 1500000
+Gross Floor Area: 1033
 
 Property 2:
 Location: Tampines

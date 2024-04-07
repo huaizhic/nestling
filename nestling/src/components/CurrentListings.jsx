@@ -70,6 +70,8 @@ function CurrentListings({
     /*conditional render*/
   }
 
+  let component = "currentListings";
+
   useEffect(() => {
     const fetchListing = async () => {
       let { data, error } = await supabase.from("currentList").select("*");
@@ -427,7 +429,10 @@ function CurrentListings({
               currentList.map((indivPanel) => {
                 return (
                   <div className="listing-panel" key={indivPanel.id}>
-                    <ListingPanel indivData={indivPanel} />
+                    <ListingPanel
+                      indivData={indivPanel}
+                      component={component}
+                    />
                   </div>
                 );
               })}
