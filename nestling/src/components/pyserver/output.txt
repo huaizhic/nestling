@@ -1,14 +1,15 @@
 Property 1:
-Location: 55 Pasir Ris Drive 1 
+Location: 15 Pasir Ris Rise 
 Desired Amenities:
   - Amenity 1: PASIR RIS MRT STATION
-  - Amenity 1 distance: 0.946064996
-  - Amenity 2: GOLDEN BAMBOO BROS SUPERMART PTE LTD
-  - Amenity 2 distance: 0.586199983
-  - Amenity 3: ELIAS PARK PRIMARY SCHOOL
-  - Amenity 3 distance: 0.498304115
-Room Count: 3
-Gross Floor Area: 829
+  - Amenity 1 distance: 1.109067834
+  - Amenity 2: RAW MARKET PTE. LTD.
+  - Amenity 2 distance: 0.230145025
+  - Amenity 3: CASUARINA PRIMARY SCHOOL
+  - Amenity 3 distance: 0.362992452
+Room Count: 4
+House Price: 1660000
+Gross Floor Area: 1335
 
 Property 2:
 Location: Tampines
@@ -18,6 +19,7 @@ Desired Amenities:
   - Amenity 3: Parks
 Room Count: 3
 Distance Radius: 2
+House Price: 1000000
 Gross Floor Area: 1500
 
 North: Woodlands, Marsiling, Kranji, Yew Tee, Admiralty, Sembawang, Canberra, Yishun, Khatib, Yio Chu Kang, Ang Mo Kio, Bishan, Braddell, Toa Payoh, Novena, Newton West: Jurong East, Bukit Batok, Bukit Gombak, Choa Chu Kang, Boon Lay, Lakeside, Chinese Garden, Clementi, Dover, Commonwealth, Buona Vista, Queenstown, Redhill, Tiong Bahru, Outram Park East:Pasir Ris, Tampines, Simei, Tanah Merah, Expo, Changi Airport, Paya Lebar, Aljunied, Eunos, Kembangan, Bedok, Tanjong Katong, Marine Parade, Dakota
