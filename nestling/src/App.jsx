@@ -54,6 +54,7 @@ function App() {
   const [distanceRadius, setDistanceRadius] = useState(2);
   const [roomCountInput, setRoomCountInput] = useState(3);
   const [grossFloorArea, setGrossFloorArea] = useState(1500);
+  const [housePrice, setHousePrice] = useState(100000);
 
   return (
     <Routes>
@@ -84,6 +85,8 @@ function App() {
             setRoomCountInput={setRoomCountInput}
             grossFloorArea={grossFloorArea}
             setGrossFloorArea={setGrossFloorArea}
+            housePrice={housePrice}
+            setHousePrice={setHousePrice}
           />
         }
       />
@@ -113,6 +116,8 @@ function App() {
             setRoomCountInput={setRoomCountInput}
             grossFloorArea={grossFloorArea}
             setGrossFloorArea={setGrossFloorArea}
+            housePrice={housePrice}
+            setHousePrice={setHousePrice}
           />
         }
       />
