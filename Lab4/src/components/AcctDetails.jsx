@@ -125,10 +125,13 @@ function AcctDetails() {
           </div>
           <div className="links-wrapper">
             <div className="link-wrapper-1">
-              <button><Link to="/reset-password">Change Password Instead</Link></button>
+              <button>
+                <Link to="/reset-password">Change Password Instead</Link>
+              </button>
             </div>
           </div>
         </div>
+        <br></br>
         <div className="button">
           <button>Confirm username/number</button>
         </div>

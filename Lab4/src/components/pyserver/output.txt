@@ -1,23 +1,23 @@
 Property 1:
-Location: 5 Flora Drive 
+Location: 1 Palm Road 
 Desired Amenities:
-  - Amenity 1: TAMPINES EAST MRT STATION
-  - Amenity 1 distance: 1.24942761
-  - Amenity 2: AZMI SHOP PTE. LTD.
-  - Amenity 2 distance: 0.346454725
-  - Amenity 3: EAST SPRING SECONDARY SCHOOL
-  - Amenity 3 distance: 0.635983199
+  - Amenity 1: BEDOK MRT STATION
+  - Amenity 1 distance: 1.173643826
+  - Amenity 2: GOLDEN TICKET SINGAPORE PTE. LTD.
+  - Amenity 2 distance: 0.635938816
+  - Amenity 3: BEDOK GREEN PRIMARY SCHOOL
+  - Amenity 3 distance: 1.360275249
 Room Count: 5
-House Price: 1648000
-Gross Floor Area: 1507
+House Price: 2180000
+Gross Floor Area: 1744
 
 Property 2:
-Location: Jurong West
+Location: Tampines
 Desired Amenities:
   - Amenity 1: school
-  - Amenity 2: secondary school
+  - Amenity 2: supermarket
   - Amenity 3: park
-Room Count: 5
+Room Count: 3
 Distance Radius: 2
 House Price: 1000000
 Gross Floor Area: 1500
