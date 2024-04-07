@@ -33,35 +33,39 @@ function Compare({
   setHousePrice,
   selection,
   setSelection,
+  rerenderCompareFav,
+  setRerenderCompareFav,
 }) {
   // const { id } = useParams();
+  if (selection.length === 0) {
+    return <h1> Loading... </h1>;
+  }
 
-  const [leftListing, setLeftListing] = useState([
-    {
-      projectName: "loading",
-      address: "loading",
-    },
-  ]);
-  const [rightListing, setRightListing] = useState([
-    {
-      projectName: "loading",
-      address: "loading",
-    },
-  ]);
+  const [leftListing, setLeftListing] = useState({
+    projectName: "loading",
+    address: "loading",
+  });
+  const [rightListing, setRightListing] = useState({
+    projectName: "loading",
+    address: "loading",
+  });
   // const [percentageMatch, setPercentageMatch] = useState(0);
-
   const [nicoleData, setNicoleData] = useState({
     from: "compareFav",
     searchListing: [
       {
-        searchLocation: locationInput,
-        searchAmenity1: amenityInput1,
-        searchAmenity2: amenityInput2,
-        searchAmenity3: amenityInput3,
-        searchDistance: distanceRadius,
-        searchRoomCount: roomCountInput,
-        searchPrice: housePrice,
-        searchGFA: grossFloorArea,
+        location: selection[0].address,
+        amenity1: selection[0].nearestMRT,
+        amenity2: selection[0].nearestMarket,
+        amenity3: selection[0].nearestSchool,
+        amenity4: selection[0].nearestPark,
+        amenity1Distance: selection[0].nearestMRTDistance,
+        amenity2Distance: selection[0].nearestMarketDistance,
+        amenity3Distance: selection[0].nearestSchoolDistance,
+        amenity4Distance: selection[0].nearestParkDistance,
+        roomCount: selection[0].roomCount,
+        price: selection[0].price,
+        GFA: selection[0].GFA,
       },
     ],
   });
@@ -70,73 +74,70 @@ function Compare({
   let withPythonFlag = false;
 
   useEffect(() => {
-    const fetchIndivListing = async () => {
+    const fetch = () => {
       setRightListing([selection[1]]);
       // console.log("nicoleData:", nicoleData);
       let tempData = {
         ...nicoleData,
         currentListing: [
           {
-            currentLocation: selection[1].address,
-            currentAmenity1: selection[1].nearestMRT,
-            currentAmenity2: selection[1].nearestMarket,
-            currentAmenity3: selection[1].nearestSchool,
-            currentAmenity4: selection[1].nearestPark,
-            currentAmenity1Distance: selection[1].nearestMRTDistance,
-            currentAmenity2Distance: selection[1].nearestMarketDistance,
-            currentAmenity3Distance: selection[1].nearestSchoolDistance,
-            currentAmenity4Distance: selection[1].nearestParkDistance,
-            currentRoomCount: selection[1].roomCount,
-            currentPrice: selection[1].price,
-            currentGFA: selection[1].GFA,
+            rightLocation: selection[1].address,
+            rightAmenity1: selection[1].nearestMRT,
+            rightAmenity2: selection[1].nearestMarket,
+            rightAmenity3: selection[1].nearestSchool,
+            rightAmenity4: selection[1].nearestPark,
+            rightAmenity1Distance: selection[1].nearestMRTDistance,
+            rightAmenity2Distance: selection[1].nearestMarketDistance,
+            rightAmenity3Distance: selection[1].nearestSchoolDistance,
+            rightAmenity4Distance: selection[1].nearestParkDistance,
+            rightRoomCount: selection[1].roomCount,
+            rightPrice: selection[1].price,
+            rightGFA: selection[1].GFA,
           },
         ],
       };
+
+      setLeftListing({
+        location: selection[0].address,
+        amenity1: selection[0].nearestMRT,
+        amenity2: selection[0].nearestMarket,
+        amenity3: selection[0].nearestSchool,
+        amenity4: selection[0].nearestPark,
+        amenity1Distance: selection[0].nearestMRTDistance,
+        amenity2Distance: selection[0].nearestMarketDistance,
+        amenity3Distance: selection[0].nearestSchoolDistance,
+        amenity4Distance: selection[0].nearestParkDistance,
+        roomCount: selection[0].roomCount,
+        price: selection[0].price,
+        GFA: selection[0].GFA,
+      });
+
+      setRightListing({
+        location: selection[1].address,
+        amenity1: selection[1].nearestMRT,
+        amenity2: selection[1].nearestMarket,
+        amenity3: selection[1].nearestSchool,
+        amenity4: selection[1].nearestPark,
+        amenity1Distance: selection[1].nearestMRTDistance,
+        amenity2Distance: selection[1].nearestMarketDistance,
+        amenity3Distance: selection[1].nearestSchoolDistance,
+        amenity4Distance: selection[1].nearestParkDistance,
+        roomCount: selection[1].roomCount,
+        price: selection[1].price,
+        GFA: selection[1].GFA,
+      });
 
       console.log("tempData:", tempData);
       setNicoleData(tempData);
       tempJSON = JSON.stringify(tempData);
       console.log("tempJSON:", tempJSON);
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
 
-      //   console.log(user);
-      //   console.log(user.email);
-
-      let { data: data1, error: error1 } = await supabase
-        .from("userInfo")
-        .select("desiredProperty")
-        .eq("email", user.email);
-      //   console.log(data1);
-      let desiredProperty = data1[0].desiredProperty[0];
-      //   console.log(percentageMatch);
-      // console.log(desiredProperty);
-      setDesiredListing(desiredProperty);
-
-      if (percentageMatch === 0) {
-        let tempData = percentageMatchLogic(
-          currentListing,
-          desiredProperty.location,
-          desiredProperty.roomCount,
-          desiredProperty.distanceRadius,
-          desiredProperty.amenity1,
-          desiredProperty.amenity2,
-          desiredProperty.amenity3,
-          desiredProperty.grossFloorArea
-        );
-
-        // console.log(tempData);
-        // let temp = tempData[0].percentageMatch;
-        // console.log(temp);
-        setPercentageMatch(tempData[0].percentageMatch);
-      }
       //   console.log("hi");
       //   console.log(listing);
     };
 
-    fetchIndivListing();
-  }, []);
+    fetch();
+  }, [rerenderCompareFav]);
 
   async function handleLogout() {
     let { error } = await supabase.auth.signOut();
@@ -250,7 +251,7 @@ function Compare({
       <div className="overall-container">
         <div className="desired-prop-col">
           <div className="listing-info-container">
-            <h2>{listing.projectName}</h2>
+            <h2>{leftListing.projectName}</h2>
             {/* <div className="save-button">
               <button onClick={(e) => handleSave(e)}>
                 <img src={whitecross} />
@@ -261,7 +262,7 @@ function Compare({
               {/* <h3> {listing.nearestMRT}</h3> */}
               <span id="locationField"></span>
             </div>
-            <h3 className="data">{listing.address}</h3>
+            <h3 className="data">{leftListing.location}</h3>
             <div className="field">
               <h3>Amenities & Their Distances From Property</h3>
               {/* <button
@@ -274,44 +275,45 @@ function Compare({
               <span id="amenitiesField"></span>
             </div>
             <h3 className="data">
-              Nearest School: {listing.nearestSchool}
-              <br /> {parseFloat(listing.nearestSchoolDistance).toFixed(1)} km
+              Nearest School: {leftListing.amenity3}
+              <br /> {parseFloat(leftListing.amenity3Distance).toFixed(1)} km
               away
             </h3>
             <h3 className="data">
-              Nearest MRT: {listing.nearestMRT}
-              <br /> {parseFloat(listing.nearestMRTDistance).toFixed(1)} km away
-            </h3>
-            <h3 className="data">
-              Nearest Park: {listing.nearestPark}
-              <br /> {parseFloat(listing.nearestParkDistance).toFixed(1)} km
+              Nearest MRT: {leftListing.amenity1}
+              <br /> {parseFloat(leftListing.amenity1Distance).toFixed(1)} km
               away
             </h3>
             <h3 className="data">
-              Nearest Market: {listing.nearestMarket}
-              <br /> {parseFloat(listing.nearestMarketDistance).toFixed(1)} km
+              Nearest Park: {leftListing.amenity4}
+              <br /> {parseFloat(leftListing.amenity4Distance).toFixed(1)} km
+              away
+            </h3>
+            <h3 className="data">
+              Nearest Market: {leftListing.amenity2}
+              <br /> {parseFloat(leftListing.amenity2Distance).toFixed(1)} km
               away
             </h3>
             <div className="field">
               <h3>Room Count</h3>
               <span id="roomCountField"></span>
             </div>
-            <h3 className="data">{listing.roomCount}</h3>
+            <h3 className="data">{leftListing.roomCount}</h3>
             <div className="field">
               <h3>GFA (gross floor area)</h3>
               <span id="gfaField"></span>
             </div>
-            <h3 className="data">{listing.GFA} sqm</h3>
+            <h3 className="data">{leftListing.GFA} sqm</h3>
             <div className="field">
               <h3>Price</h3>
               <span id="price"></span>
             </div>
-            <h3 className="data">{listing.price} </h3>
+            <h3 className="data">{leftListing.price} </h3>
           </div>
         </div>
         <div className="listing-col">
           <div className="listing-info-container">
-            <h2>{listing.projectName}</h2>
+            <h2>{rightListing.projectName}</h2>
             {/* <div className="save-button">
               <button onClick={(e) => handleSave(e)}>
                 <img src={whitecross} />
@@ -322,7 +324,7 @@ function Compare({
               {/* <h3> {listing.nearestMRT}</h3> */}
               <span id="locationField"></span>
             </div>
-            <h3 className="data">{listing.address}</h3>
+            <h3 className="data">{rightListing.location}</h3>
             <div className="field">
               <h3>Amenities & Their Distances From Property</h3>
               {/* <button
@@ -335,39 +337,40 @@ function Compare({
               <span id="amenitiesField"></span>
             </div>
             <h3 className="data">
-              Nearest School: {listing.nearestSchool}
-              <br /> {parseFloat(listing.nearestSchoolDistance).toFixed(1)} km
+              Nearest School: {rightListing.amenity3}
+              <br /> {parseFloat(rightListing.amenity3Distance).toFixed(1)} km
               away
             </h3>
             <h3 className="data">
-              Nearest MRT: {listing.nearestMRT}
-              <br /> {parseFloat(listing.nearestMRTDistance).toFixed(1)} km away
-            </h3>
-            <h3 className="data">
-              Nearest Park: {listing.nearestPark}
-              <br /> {parseFloat(listing.nearestParkDistance).toFixed(1)} km
+              Nearest MRT: {rightListing.amenity1}
+              <br /> {parseFloat(rightListing.amenity1Distance).toFixed(1)} km
               away
             </h3>
             <h3 className="data">
-              Nearest Market: {listing.nearestMarket}
-              <br /> {parseFloat(listing.nearestMarketDistance).toFixed(1)} km
+              Nearest Park: {rightListing.amenity4}
+              <br /> {parseFloat(rightListing.amenity4Distance).toFixed(1)} km
+              away
+            </h3>
+            <h3 className="data">
+              Nearest Market: {rightListing.amenity2}
+              <br /> {parseFloat(rightListing.amenity2Distance).toFixed(1)} km
               away
             </h3>
             <div className="field">
               <h3>Room Count</h3>
               <span id="roomCountField"></span>
             </div>
-            <h3 className="data">{listing.roomCount}</h3>
+            <h3 className="data">{rightListing.roomCount}</h3>
             <div className="field">
               <h3>GFA (gross floor area)</h3>
               <span id="gfaField"></span>
             </div>
-            <h3 className="data">{listing.GFA} sqm</h3>
+            <h3 className="data">{rightListing.GFA} sqm</h3>
             <div className="field">
               <h3>Price</h3>
               <span id="price"></span>
             </div>
-            <h3 className="data">{listing.price} </h3>
+            <h3 className="data">{rightListing.price} </h3>
           </div>
         </div>
       </div>

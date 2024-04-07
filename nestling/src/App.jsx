@@ -58,6 +58,7 @@ function App() {
   const [housePrice, setHousePrice] = useState(1000000);
 
   const [selection, setSelection] = useState([]);
+  const [rerenderCompareFav, setRerenderCompareFav] = useState(false);
 
   return (
     <Routes>
@@ -72,7 +73,12 @@ function App() {
       <Route
         path="/compare-fav"
         element={
-          <CompareFav selection={selection} setSelection={setSelection} />
+          <CompareFav
+            selection={selection}
+            setSelection={setSelection}
+            rerenderCompareFav={rerenderCompareFav}
+            setRerenderCompareFav={setRerenderCompareFav}
+          />
         }
       />
       <Route
@@ -106,7 +112,12 @@ function App() {
       <Route
         path="/favourites"
         element={
-          <Favourites selection={selection} setSelection={setSelection} />
+          <Favourites
+            selection={selection}
+            setSelection={setSelection}
+            rerenderCompareFav={rerenderCompareFav}
+            setRerenderCompareFav={setRerenderCompareFav}
+          />
         }
       />
       {/* <Route path="/listing-info/:id" element={<ListingInfo />} /> */}

@@ -10,7 +10,12 @@ import supabase from "../supabase";
 
 // export let tempDisplayList = [];
 
-export default function Favourites({ selection, setSelection }) {
+export default function Favourites({
+  selection,
+  setSelection,
+  rerenderCompareFav,
+  setRerenderCompareFav,
+}) {
   const [favIDList, setFavIDList] = useState([]);
   const [displayList, setDisplayList] = useState([]);
   const [checkList, setCheckList] = useState([]);
@@ -66,7 +71,8 @@ export default function Favourites({ selection, setSelection }) {
     // console.log(finalList);
     console.log(finalList);
     setSelection(finalList);
-    // navigate("/compare-fav"); // Navigate to '/other-route' on button click
+    navigate("/compare-fav"); // Navigate to '/other-route' on button click
+    setRerenderCompareFav(!rerenderCompareFav);
   }
 
   if (displayList.length === 0) {
