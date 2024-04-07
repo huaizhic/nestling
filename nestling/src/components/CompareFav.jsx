@@ -52,7 +52,7 @@ function Compare({
   // const [percentageMatch, setPercentageMatch] = useState(0);
   const [nicoleData, setNicoleData] = useState({
     from: "compareFav",
-    searchListing: [
+    leftListing: [
       {
         location: selection[0].address,
         amenity1: selection[0].nearestMRT,
@@ -79,20 +79,20 @@ function Compare({
       // console.log("nicoleData:", nicoleData);
       let tempData = {
         ...nicoleData,
-        currentListing: [
+        rightListing: [
           {
-            rightLocation: selection[1].address,
-            rightAmenity1: selection[1].nearestMRT,
-            rightAmenity2: selection[1].nearestMarket,
-            rightAmenity3: selection[1].nearestSchool,
-            rightAmenity4: selection[1].nearestPark,
-            rightAmenity1Distance: selection[1].nearestMRTDistance,
-            rightAmenity2Distance: selection[1].nearestMarketDistance,
-            rightAmenity3Distance: selection[1].nearestSchoolDistance,
-            rightAmenity4Distance: selection[1].nearestParkDistance,
-            rightRoomCount: selection[1].roomCount,
-            rightPrice: selection[1].price,
-            rightGFA: selection[1].GFA,
+            location: selection[1].address,
+            amenity1: selection[1].nearestMRT,
+            amenity2: selection[1].nearestMarket,
+            amenity3: selection[1].nearestSchool,
+            amenity4: selection[1].nearestPark,
+            amenity1Distance: selection[1].nearestMRTDistance,
+            amenity2Distance: selection[1].nearestMarketDistance,
+            amenity3Distance: selection[1].nearestSchoolDistance,
+            amenity4Distance: selection[1].nearestParkDistance,
+            roomCount: selection[1].roomCount,
+            price: selection[1].price,
+            GFA: selection[1].GFA,
           },
         ],
       };
@@ -164,56 +164,8 @@ function Compare({
     // console.log(xml.send(tempJSON));
   }
 
-  // if (tempJSON.length !== 0 && withPythonFlag === false) {
-  //   withPython();
-  // }
-
-  const fetchAPI = async () => {
-    const response = await axios.get("http://localhost:8080/python");
-    //console.log(response.data.Suggestion);
-    setArray(response.data.Suggestion);
-  };
-
   function handleGenerate() {
-    // console.log(tempJSON);
     withPython(tempJSON);
-    // fetchAPI();
-    // setArray(dataReply);
-  }
-
-  async function handleSave(e) {
-    e.preventDefault();
-    // alert("works");
-    const { data: userData, error: userError } = await supabase.auth.getUser();
-
-    const { data: userFavData, error: desiredError } = await supabase
-      .from("userInfo")
-      .select("savedProperties")
-      .eq("email", userData.user.email);
-
-    let temp = userFavData[0].savedProperties;
-    // console.log(temp);
-    let gotDuplicates = temp.some((property) => property.id === id);
-    // console.log(gotDuplicates);
-    if (gotDuplicates) {
-      alert("Cannot save duplicate property to favourites!");
-    } else {
-      temp.push({ id: id });
-      // console.log(temp.length);
-      const { data, error } = await supabase
-        .from("userInfo")
-        .update({ savedProperties: temp })
-        .eq("email", userData.user.email)
-        .select();
-
-      // console.log(data);
-      // console.log(error);
-      if (data) {
-        alert("Property Saved! View them in favourites");
-      } else if (error) {
-        alert("Error saving property! Error:", error);
-      }
-    }
   }
 
   return (

@@ -68,33 +68,33 @@ def users():
         formatted_prop += f"Gross Floor Area: {prop['currentGFA']}\n\n"
         return formatted_prop
 
-    def format_LeftProperty(prop):
-        formatted_prop = f"Location: {prop['currentLocation']}\n"
+    def format_SavedProperty(prop):
+        formatted_prop = f"Location: {prop['location']}\n"
         formatted_prop += f"Desired Amenities:\n"
-        formatted_prop += f"  - Amenity 1: {prop['currentAmenity1']}\n"
-        formatted_prop += f"  - Amenity 1 distance: {prop['currentAmenity1Distance']}\n"
-        formatted_prop += f"  - Amenity 2: {prop['currentAmenity2']}\n"
-        formatted_prop += f"  - Amenity 2 distance: {prop['currentAmenity2Distance']}\n"
-        formatted_prop += f"  - Amenity 3: {prop['currentAmenity3']}\n"
-        formatted_prop += f"  - Amenity 3 distance: {prop['currentAmenity3Distance']}\n"
-        formatted_prop += f"Room Count: {prop['currentRoomCount']}\n"
-        formatted_prop += f"House Price: {prop['currentPrice']}\n"
-        formatted_prop += f"Gross Floor Area: {prop['currentGFA']}\n\n"
+        formatted_prop += f"  - Amenity 1: {prop['amenity1']}\n"
+        formatted_prop += f"  - Amenity 1 distance: {prop['amenity1Distance']}\n"
+        formatted_prop += f"  - Amenity 2: {prop['amenity2']}\n"
+        formatted_prop += f"  - Amenity 2 distance: {prop['amenity2Distance']}\n"
+        formatted_prop += f"  - Amenity 3: {prop['amenity3']}\n"
+        formatted_prop += f"  - Amenity 3 distance: {prop['amenity3Distance']}\n"
+        formatted_prop += f"Room Count: {prop['roomCount']}\n"
+        formatted_prop += f"House Price: {prop['price']}\n"
+        formatted_prop += f"Gross Floor Area: {prop['GFA']}\n\n"
         return formatted_prop
 
-    def format_RightProperty(prop):
-        formatted_prop = f"Location: {prop['currentLocation']}\n"
-        formatted_prop += f"Desired Amenities:\n"
-        formatted_prop += f"  - Amenity 1: {prop['currentAmenity1']}\n"
-        formatted_prop += f"  - Amenity 1 distance: {prop['currentAmenity1Distance']}\n"
-        formatted_prop += f"  - Amenity 2: {prop['currentAmenity2']}\n"
-        formatted_prop += f"  - Amenity 2 distance: {prop['currentAmenity2Distance']}\n"
-        formatted_prop += f"  - Amenity 3: {prop['currentAmenity3']}\n"
-        formatted_prop += f"  - Amenity 3 distance: {prop['currentAmenity3Distance']}\n"
-        formatted_prop += f"Room Count: {prop['currentRoomCount']}\n"
-        formatted_prop += f"House Price: {prop['currentPrice']}\n"
-        formatted_prop += f"Gross Floor Area: {prop['currentGFA']}\n\n"
-        return formatted_prop
+    # def format_RightProperty(prop):
+    #     formatted_prop = f"Location: {prop['currentLocation']}\n"
+    #     formatted_prop += f"Desired Amenities:\n"
+    #     formatted_prop += f"  - Amenity 1: {prop['amenity1']}\n"
+    #     formatted_prop += f"  - Amenity 1 distance: {prop['amenity1Distance']}\n"
+    #     formatted_prop += f"  - Amenity 2: {prop['amenity2']}\n"
+    #     formatted_prop += f"  - Amenity 2 distance: {prop['amenity2Distance']}\n"
+    #     formatted_prop += f"  - Amenity 3: {prop['amenity3']}\n"
+    #     formatted_prop += f"  - Amenity 3 distance: {prop['amenity3Distance']}\n"
+    #     formatted_prop += f"Room Count: {prop['currentRoomCount']}\n"
+    #     formatted_prop += f"House Price: {prop['currentPrice']}\n"
+    #     formatted_prop += f"Gross Floor Area: {prop['currentGFA']}\n\n"
+    #     return formatted_prop
 
     if dataGet['from'] == 'compare':
         print("THIS DATA IS COMING FROM COMPARE.JSX")
@@ -111,16 +111,16 @@ def users():
                            "West: Jurong East, Bukit Batok, Bukit Gombak, Choa Chu Kang, Boon Lay, Lakeside, Chinese Garden, Clementi, Dover, Commonwealth, Buona Vista, Queenstown, Redhill, Tiong Bahru, Outram Park " +
                            "East:Pasir Ris, Tampines, Simei, Tanah Merah, Expo, Changi Airport, Paya Lebar, Aljunied, Eunos, Kembangan, Bedok, Tanjong Katong, Marine Parade, Dakota")
     elif dataGet['from'] == 'compareFav':
-        print("THIS DATA IS COMING FROM COMPARE.JSX")
+        print("THIS DATA IS COMING FROM COMPARE-FAV.JSX")
         # Open a text file to write
         with open('output.txt', 'w') as file:
-            for index, prop in enumerate(dataGet['currentListing'], start=1):
+            for index, prop in enumerate(dataGet['leftListing'], start=1):
                 file.write(f"Property {1}:\n")
-                file.write(format_CurrentProperty(prop))
-            for index, prop in enumerate(dataGet['searchListing'], start=1):
+                file.write(format_SavedProperty(prop))
+            for index, prop in enumerate(dataGet['rightListing'], start=1):
                 print("index:", index)
                 file.write(f"Property {2}:\n")
-                file.write(format_SearchProperty(prop))
+                file.write(format_SavedProperty(prop))
                 file.write("North: Woodlands, Marsiling, Kranji, Yew Tee, Admiralty, Sembawang, Canberra, Yishun, Khatib, Yio Chu Kang, Ang Mo Kio, Bishan, Braddell, Toa Payoh, Novena, Newton " +
                            "West: Jurong East, Bukit Batok, Bukit Gombak, Choa Chu Kang, Boon Lay, Lakeside, Chinese Garden, Clementi, Dover, Commonwealth, Buona Vista, Queenstown, Redhill, Tiong Bahru, Outram Park " +
                            "East:Pasir Ris, Tampines, Simei, Tanah Merah, Expo, Changi Airport, Paya Lebar, Aljunied, Eunos, Kembangan, Bedok, Tanjong Katong, Marine Parade, Dakota")
