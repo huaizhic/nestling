@@ -73,7 +73,6 @@ function DesiredProperty() {
             setDistance(fetchedDesiredAttributes.distanceRadius || "");
             setRoomCount(fetchedDesiredAttributes.roomCount || "");
             setGFA(fetchedDesiredAttributes.grossFloorArea || "");
-            setEstimatedPrice(fetchedDesiredAttributes.price || "");
           }
         }
       }
@@ -241,6 +240,27 @@ function DesiredProperty() {
     }
   };
 
+  const handleSubmit2 = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/generate_price",
+        {
+          // Send user input to the backend
+          amenities1: selectedAmenities1,
+          amenities2: selectedAmenities2,
+          amenities3: selectedAmenities3,
+          distanceRadius: selectedDistance,
+          area: selectedGFA,
+        }
+      );
+
+      // Update state with the estimated price returned by the backend
+      setEstimatedPrice(response.data.estimated_price);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   // useEffect(() => {
   //   handleAmenities();
   // }, [selectedAmenities1, selectedAmenities2, selectedAmenities3]);
@@ -345,17 +365,6 @@ function DesiredProperty() {
             onChange={(e) => setGFA(e.target.value)}
           />
         </div>
-        <div className="dropdown-div">
-          <h3 className="gfa" style={{ fontSize: "15px" }}>
-            Previously Generated Price
-          </h3>
-          <input
-            type="number"
-            value={estimatedPrice}
-            className="dropdown"
-            onChange={(e) => setEstimatedPrice(e.target.value)}
-          />
-        </div>
       </div>
       {!isVisible && (
         <div>
@@ -380,7 +389,9 @@ function DesiredProperty() {
           </div>
           <div className="buttons">
             <div>
-              <button className="reconfigure">Re-generate</button>
+              <button onClick={handleSubmit2} className="reconfigure">
+                Re-generate
+              </button>
             </div>
             <div>
               <button onClick={handleSave} className="confirm">
