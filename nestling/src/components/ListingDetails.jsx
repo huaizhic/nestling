@@ -292,7 +292,13 @@ function ListingDetails({
         {Math.round(parseFloat(percentageMatch))}%
       </div>
       <div className="compareButton">
-        <button onClick={fetchAPI}>Compare</button>
+        <button
+          onClick={() => {
+            navigate("/compare");
+          }}
+        >
+          Compare
+        </button>
         <p>
           {array.map((Suggestion, index) => (
             <span key={index}>{Suggestion}</span>

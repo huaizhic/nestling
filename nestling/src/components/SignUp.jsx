@@ -52,7 +52,7 @@ function SignUp() {
       alert("Sign Up Successful! You will be redirected to user home page");
       console.log("error:", error);
       console.log(userInfo);
-      navigate("/homepage");
+      navigate("/home");
     } else {
       alert("sign up error");
     }

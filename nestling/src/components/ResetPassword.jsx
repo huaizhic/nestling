@@ -45,7 +45,7 @@ function ResetPassword() {
       console.log("error:", error);
       if (error === null) {
         alert("Password change successful!");
-        navigate("/homepage");
+        navigate("/home");
       }
     } else if (newPassword !== confirmNewPassword) {
       // alert("Passwords don't match! Check again!");
