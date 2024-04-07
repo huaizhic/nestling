@@ -70,9 +70,13 @@ export default function Favourites({
     });
     // console.log(finalList);
     console.log(finalList);
-    setSelection(finalList);
-    navigate("/compare-fav"); // Navigate to '/other-route' on button click
-    setRerenderCompareFav(!rerenderCompareFav);
+    if (finalList.length !== 2) {
+      alert("Please select exactly 2 properties to compare!");
+    } else if (finalList.length === 2) {
+      setSelection(finalList);
+      navigate("/compare-fav"); // Navigate to '/other-route' on button click
+      setRerenderCompareFav(!rerenderCompareFav);
+    }
   }
 
   if (displayList.length === 0) {
