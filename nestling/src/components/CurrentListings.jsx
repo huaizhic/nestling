@@ -285,13 +285,13 @@ function CurrentListings({
                 }}
               >
                 <option value="option1">Select an option</option>
-                <option value="Schools">Schools</option>
-                <option value="Primary schools">Primary schools</option>
-                <option value="Secondary schools">Secondary schools</option>
-                <option value="Supermarkets">Supermarkets</option>
-                <option value="Parks">Parks</option>
-                <option value="Stations">MRT Stations</option>
-                <option value="Malls">Malls</option>
+                <option value="school">Schools</option>
+                <option value="primary school">Primary schools</option>
+                <option value="secondary school">Secondary schools</option>
+                <option value="supermarket">Supermarkets</option>
+                <option value="park">Parks</option>
+                <option value="station">MRT Stations</option>
+                <option value="mall">Malls</option>
               </select>
               <select
                 id="Amenities"
@@ -311,13 +311,13 @@ function CurrentListings({
                 }}
               >
                 <option value="option2">Select an option</option>
-                <option value="Schools">Schools</option>
-                <option value="Primary schools">Primary schools</option>
-                <option value="Secondary schools">Secondary schools</option>
-                <option value="Supermarkets">Supermarkets</option>
-                <option value="Parks">Parks</option>
-                <option value="Stations">MRT Stations</option>
-                <option value="Malls">Malls</option>
+                <option value="school">Schools</option>
+                <option value="primary school">Primary schools</option>
+                <option value="secondary school">Secondary schools</option>
+                <option value="supermarket">Supermarkets</option>
+                <option value="park">Parks</option>
+                <option value="station">MRT Stations</option>
+                <option value="mall">Malls</option>
               </select>
               <select
                 id="Amenities"
@@ -337,13 +337,13 @@ function CurrentListings({
                 }}
               >
                 <option value="option3">Select an option</option>
-                <option value="Schools">Schools</option>
-                <option value="Primary schools">Primary schools</option>
-                <option value="Secondary schools">Secondary schools</option>
-                <option value="Supermarkets">Supermarkets</option>
-                <option value="Parks">Parks</option>
-                <option value="Stations">MRT Stations</option>
-                <option value="Malls">Malls</option>
+                <option value="school">Schools</option>
+                <option value="primary school">Primary schools</option>
+                <option value="secondary school">Secondary schools</option>
+                <option value="supermarket">Supermarkets</option>
+                <option value="park">Parks</option>
+                <option value="station">MRT Stations</option>
+                <option value="mall">Malls</option>
               </select>
             </div>
             <label htmlFor="Distance">Distance (KM)</label>

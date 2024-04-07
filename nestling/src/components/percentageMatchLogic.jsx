@@ -34,37 +34,37 @@ export const percentageMatchLogic = (
     }
 
     switch (firstAmenityChoice) {
-      case "Schools":
+      case "school":
         if (distanceAsInt >= house.nearestSchoolDistance) {
           house.points += 30;
         }
         break;
-      case "Primary schools":
+      case "primary school":
         if (distanceAsInt >= house.nearestPriSchDistance) {
           house.points += 30;
         }
         break;
-      case "Secondary schools":
+      case "secondary school":
         if (distanceAsInt >= house.nearestSecSchDistance) {
           house.points += 30;
         }
         break;
-      case "Supermarkets":
+      case "supermarket":
         if (distanceAsInt >= house.nearestMarketDistance) {
           house.points += 30;
         }
         break;
-      case "Parks":
+      case "park":
         if (distanceAsInt >= house.nearestParkDistance) {
           house.points += 30;
         }
         break;
-      case "Stations":
+      case "station":
         if (distanceAsInt >= house.nearestMRTDistance) {
           house.points += 30;
         }
         break;
-      case "Malls":
+      case "mall":
         if (distanceAsInt >= house.nearestMallDistance) {
           house.points += 30;
         }
@@ -75,37 +75,37 @@ export const percentageMatchLogic = (
     }
 
     switch (secondAmenityChoice) {
-      case "Schools":
+      case "school":
         if (distanceAsInt >= house.nearestSchoolDistance) {
           house.points += 30;
         }
         break;
-      case "Primary schools":
+      case "primary school":
         if (distanceAsInt >= house.nearestPriSchDistance) {
           house.points += 30;
         }
         break;
-      case "Secondary schools":
+      case "secondary school":
         if (distanceAsInt >= house.nearestSecSchDistance) {
           house.points += 30;
         }
         break;
-      case "Supermarkets":
+      case "supermarket":
         if (distanceAsInt >= house.nearestMarketDistance) {
           house.points += 30;
         }
         break;
-      case "Parks":
+      case "park":
         if (distanceAsInt >= house.nearestParkDistance) {
           house.points += 30;
         }
         break;
-      case "Stations":
+      case "station":
         if (distanceAsInt >= house.nearestMRTDistance) {
           house.points += 30;
         }
         break;
-      case "Malls":
+      case "mall":
         if (distanceAsInt >= house.nearestMallDistance) {
           house.points += 30;
         }
@@ -116,37 +116,37 @@ export const percentageMatchLogic = (
     }
 
     switch (thirdAmenityChoice) {
-      case "Schools":
+      case "school":
         if (distanceAsInt >= house.nearestSchoolDistance) {
           house.points += 30;
         }
         break;
-      case "Primary schools":
+      case "primary school":
         if (distanceAsInt >= house.nearestPriSchDistance) {
           house.points += 30;
         }
         break;
-      case "Secondary schools":
+      case "secondary school":
         if (distanceAsInt >= house.nearestSecSchDistance) {
           house.points += 30;
         }
         break;
-      case "Supermarkets":
+      case "supermarket":
         if (distanceAsInt >= house.nearestMarketDistance) {
           house.points += 30;
         }
         break;
-      case "Parks":
+      case "park":
         if (distanceAsInt >= house.nearestParkDistance) {
           house.points += 30;
         }
         break;
-      case "Stations":
+      case "station":
         if (distanceAsInt >= house.nearestMRTDistance) {
           house.points += 30;
         }
         break;
-      case "Malls":
+      case "mall":
         if (distanceAsInt >= house.nearestMallDistance) {
           house.points += 30;
         }
