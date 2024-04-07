@@ -8,7 +8,7 @@ import { ListingPanel } from "./ListingPanel";
 //import { Capsule } from "./Capsule";
 import supabase from "../supabase";
 
-export let tempDisplayList = [];
+// export let tempDisplayList = [];
 
 export default function Favourites() {
   const [favIDList, setFavIDList] = useState([]);
@@ -33,7 +33,7 @@ export default function Favourites() {
       setFavIDList(temp);
       console.log(currentList);
 
-      //   let tempDisplayList = [];
+      let tempDisplayList = [];
       temp.forEach((obj) => {
         currentList.forEach((property) => {
           parseInt(obj.id) === property.id
