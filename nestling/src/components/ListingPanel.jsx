@@ -15,7 +15,7 @@ export const ListingPanel = ({ indivData }) => {
             ) : (
               <img
                 src={indivData.imageURL}
-                style={{ width: "80px", height: "100px" }}
+                style={{ width: "250px", height: "200px" }}
               ></img>
             )}
             {/* <img src={emptyimage}></img> */}
