@@ -59,7 +59,7 @@ export default function Favourites() {
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate("/saved-properties"); // Navigate to '/other-route' on button click
+    navigate("/compare-fav"); // Navigate to '/other-route' on button click
   }
 
   if (displayList.length === 0) {

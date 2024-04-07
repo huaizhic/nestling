@@ -18,6 +18,7 @@ import ListingDetails from "./components/ListingDetails.jsx";
 import Compare from "./components/Compare.jsx";
 import Test from "./components/Test.jsx";
 import SavedProperties from "./components/SavedProperties.jsx";
+import CompareFav from "./components/CompareFav.jsx";
 
 export let locations = [
   { value: "Ang Mo Kio", label: "Ang Mo Kio" },
@@ -66,7 +67,7 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/account-details" element={<AcctDetails />} />
       <Route path="/test" element={<Test />} />
-      <Route path="/saved-properties" element={<SavedProperties />} />
+      <Route path="/compare-fav" element={<CompareFav />} />
       <Route
         path="/current-listings"
         element={
