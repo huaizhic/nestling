@@ -105,6 +105,7 @@ function DesiredProperty() {
     desiredAttributes[0].distanceRadius = selectedDistance;
     desiredAttributes[0].roomCount = selectedRoomCount;
     desiredAttributes[0].grossFloorArea = selectedGFA;
+    desiredAttributes[0].price = estimatedPrice;
 
     const { data: userData, error: userError } = await supabase.auth.getUser();
     if (userError) {
