@@ -1,15 +1,15 @@
 Property 1:
-Location: 71 Anchorvale Crescent 
+Location: 2 Canberra Drive 
 Desired Amenities:
-  - Amenity 1: CHENG LIM LRT STATION
-  - Amenity 1 distance: 0.102934092
-  - Amenity 2: PRIME SUPERMARKET LIMITED?
-  - Amenity 2 distance: 0.298686078
-  - Amenity 3: COMPASSVALE PRIMARY SCHOOL
-  - Amenity 3 distance: 0.472297555
+  - Amenity 1: CANBERRA MRT STATION
+  - Amenity 1 distance: 0.590347485
+  - Amenity 2: COLD STORAGE SINGAPORE (1983) PTE LTD
+  - Amenity 2 distance: 0.682629541
+  - Amenity 3: AHMAD IBRAHIM SECONDARY SCHOOL
+  - Amenity 3 distance: 0.253319552
 Room Count: 4
 House Price: 1500000
-Gross Floor Area: 1033
+Gross Floor Area: 1152
 
 Property 2:
 Location: Tampines
