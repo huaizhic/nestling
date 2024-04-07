@@ -3,7 +3,7 @@ import "./DesiredProperty.css";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown.jsx";
 import supabase from "../supabase";
-import './Navbar.css';
+import "./Navbar.css";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
 
@@ -173,12 +173,12 @@ function DesiredProperty() {
   ];
 
   const amenities = [
-    { value: "station", label: "MRT Stations" },
-    { value: "supermarket", label: "Supermarkets" },
-    { value: "primary school", label: "Primary schools" },
-    { value: "secondary school", label: "Secondary schools" },
-    { value: "park", label: "Parks" },
-    { value: "mall", label: "Malls" },
+    { value: "Stations", label: "MRT Stations" },
+    { value: "Supermarkets", label: "Supermarkets" },
+    { value: "Primary schools", label: "Primary schools" },
+    { value: "Secondary schools", label: "Secondary schools" },
+    { value: "Parks", label: "Parks" },
+    { value: "Malls", label: "Malls" },
   ];
 
   const handleAmenities = () => {
@@ -222,11 +222,23 @@ function DesiredProperty() {
         </div>
         <div className="navbar">
           <ul>
-            <li><Link to="/home">Home</Link></li>
-            <li><Link to="/desired-property">Desired Property</Link></li>
-            <li><Link to="/current-listings">Current Listings</Link></li>
-            <li><Link to="/favourites">Favourites</Link></li>
-            <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
+            <li>
+              <Link to="/home">Home</Link>
+            </li>
+            <li>
+              <Link to="/desired-property">Desired Property</Link>
+            </li>
+            <li>
+              <Link to="/current-listings">Current Listings</Link>
+            </li>
+            <li>
+              <Link to="/favourites">Favourites</Link>
+            </li>
+            <li>
+              <Link to="/" onClick={handleLogout}>
+                Logout
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="profile-picture">

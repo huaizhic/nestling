@@ -37,12 +37,21 @@ export const percentageMatchLogic = (
           house.points += 30;
         }
         break;
+      case "Primary schools":
+        if (distanceAsInt >= house.nearestPriSchDistance) {
+          house.points += 30;
+        }
+        break;
+      case "Secondary schools":
+        if (distanceAsInt >= house.nearestSecSchDistance) {
+          house.points += 30;
+        }
+        break;
       case "Supermarkets":
         if (distanceAsInt >= house.nearestMarketDistance) {
           house.points += 30;
         }
         break;
-
       case "Parks":
         if (distanceAsInt >= house.nearestParkDistance) {
           house.points += 30;
@@ -50,6 +59,11 @@ export const percentageMatchLogic = (
         break;
       case "Stations":
         if (distanceAsInt >= house.nearestMRTDistance) {
+          house.points += 30;
+        }
+        break;
+      case "Malls":
+        if (distanceAsInt >= house.nearestMallDistance) {
           house.points += 30;
         }
         break;

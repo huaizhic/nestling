@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./CurrentListings.css";
-import './Navbar.css';
+import "./Navbar.css";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
 import { ListingPanel } from "./ListingPanel";
@@ -205,15 +205,27 @@ function CurrentListings({
     <div className="current-listings">
       <div className="top">
         <div className="logo">
-            <img src={walterlogo} alt="Walter Logo" />
+          <img src={walterlogo} alt="Walter Logo" />
         </div>
         <div className="navbar">
           <ul>
-            <li><Link to="/home">Home</Link></li>
-            <li><Link to="/desired-property">Desired Property</Link></li>
-            <li><Link to="/current-listings">Current Listings</Link></li>
-            <li><Link to="/favourites">Favourites</Link></li>
-            <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
+            <li>
+              <Link to="/home">Home</Link>
+            </li>
+            <li>
+              <Link to="/desired-property">Desired Property</Link>
+            </li>
+            <li>
+              <Link to="/current-listings">Current Listings</Link>
+            </li>
+            <li>
+              <Link to="/favourites">Favourites</Link>
+            </li>
+            <li>
+              <Link to="/" onClick={handleLogout}>
+                Logout
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="profile-picture">
@@ -267,9 +279,12 @@ function CurrentListings({
               >
                 <option value="option1">Select an option</option>
                 <option value="Schools">Schools</option>
+                <option value="Primary schools">Primary schools</option>
+                <option value="Secondary schools">Secondary schools</option>
                 <option value="Supermarkets">Supermarkets</option>
                 <option value="Parks">Parks</option>
                 <option value="Stations">MRT Stations</option>
+                <option value="Malls">Malls</option>
               </select>
               <select
                 id="Amenities"
@@ -288,11 +303,14 @@ function CurrentListings({
                   }
                 }}
               >
-                <option value="option1">Select an option</option>
+                <option value="option2">Select an option</option>
                 <option value="Schools">Schools</option>
+                <option value="Primary schools">Primary schools</option>
+                <option value="Secondary schools">Secondary schools</option>
                 <option value="Supermarkets">Supermarkets</option>
                 <option value="Parks">Parks</option>
                 <option value="Stations">MRT Stations</option>
+                <option value="Malls">Malls</option>
               </select>
               <select
                 id="Amenities"
@@ -311,11 +329,14 @@ function CurrentListings({
                   }
                 }}
               >
-                <option value="option1">Select an option</option>
+                <option value="option3">Select an option</option>
                 <option value="Schools">Schools</option>
+                <option value="Primary schools">Primary schools</option>
+                <option value="Secondary schools">Secondary schools</option>
                 <option value="Supermarkets">Supermarkets</option>
                 <option value="Parks">Parks</option>
                 <option value="Stations">MRT Stations</option>
+                <option value="Malls">Malls</option>
               </select>
             </div>
             <label htmlFor="Distance">Distance (KM)</label>
