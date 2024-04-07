@@ -77,7 +77,16 @@ export default function Favourites({
 
   if (displayList.length === 0) {
     // setFetchFlag(!fetchflag);
-    return <h1>Fetching data...</h1>;
+    return (
+      <>
+        <h1>Fetching data...</h1>
+        <br></br>
+        <h3>
+          If you have not added any favourites yet, please add some before
+          coming here!
+        </h3>
+      </>
+    );
   }
 
   return (

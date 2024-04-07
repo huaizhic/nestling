@@ -1,25 +1,27 @@
 Property 1:
-Location: 1 Palm Road 
+Location:  Kew Crescent
 Desired Amenities:
-  - Amenity 1: BEDOK MRT STATION
-  - Amenity 1 distance: 1.173643826
-  - Amenity 2: GOLDEN TICKET SINGAPORE PTE. LTD.
-  - Amenity 2 distance: 0.635938816
-  - Amenity 3: BEDOK GREEN PRIMARY SCHOOL
-  - Amenity 3 distance: 1.360275249
-Room Count: 5
-House Price: 2180000
-Gross Floor Area: 1744
+  - Amenity 1: TANAH MERAH MRT STATION
+  - Amenity 1 distance: 1.04980303
+  - Amenity 2: COLD STORAGE SINGAPORE (1983) PTE LTD
+  - Amenity 2 distance: 0.548777483
+  - Amenity 3: BEDOK SOUTH SECONDARY SCHOOL
+  - Amenity 3 distance: 0.670410279
+Room Count: 7
+House Price: 3250000
+Gross Floor Area: 3584
 
 Property 2:
-Location: Tampines
+Location: 55 Pasir Ris Drive 1 
 Desired Amenities:
-  - Amenity 1: school
-  - Amenity 2: supermarket
-  - Amenity 3: park
+  - Amenity 1: PASIR RIS MRT STATION
+  - Amenity 1 distance: 0.946064996
+  - Amenity 2: GOLDEN BAMBOO BROS SUPERMART PTE LTD
+  - Amenity 2 distance: 0.586199983
+  - Amenity 3: ELIAS PARK PRIMARY SCHOOL
+  - Amenity 3 distance: 0.498304115
 Room Count: 3
-Distance Radius: 2
-House Price: 1000000
-Gross Floor Area: 1500
+House Price: 1120000
+Gross Floor Area: 829
 
 North: Woodlands, Marsiling, Kranji, Yew Tee, Admiralty, Sembawang, Canberra, Yishun, Khatib, Yio Chu Kang, Ang Mo Kio, Bishan, Braddell, Toa Payoh, Novena, Newton West: Jurong East, Bukit Batok, Bukit Gombak, Choa Chu Kang, Boon Lay, Lakeside, Chinese Garden, Clementi, Dover, Commonwealth, Buona Vista, Queenstown, Redhill, Tiong Bahru, Outram Park East:Pasir Ris, Tampines, Simei, Tanah Merah, Expo, Changi Airport, Paya Lebar, Aljunied, Eunos, Kembangan, Bedok, Tanjong Katong, Marine Parade, Dakota
