@@ -19,7 +19,7 @@ function LoginPage() {
 
       console.log(user);
       if (user.role === "authenticated") {
-        navigate("/homepage");
+        navigate("/home");
       }
     };
     checkLogin();
@@ -51,7 +51,7 @@ function LoginPage() {
         alert("login success");
         // Handle successful login (e.g., redirect to dashboard)
         setWrongLogin(false);
-        navigate("/homepage");
+        navigate("/home");
       }
     } catch (error) {
       // setError("An error occurred while logging in");
