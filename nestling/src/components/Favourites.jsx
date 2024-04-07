@@ -1,94 +1,116 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import './Favourites.css';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Favourites.css";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
-import './Navbar.css';
+import "./Navbar.css";
+import { ListingPanel } from "./ListingPanel";
 //import { Capsule } from "./Capsule";
+import supabase from "../supabase";
 
-export default function Favourites () {
-    async function handleLogout() {
-        let { error } = await supabase.auth.signOut();
-        alert("Logged out!");
-        navigate("/");
+export let tempDisplayList = [];
+
+export default function Favourites() {
+  const [favIDList, setFavIDList] = useState([]);
+  const [displayList, setDisplayList] = useState([]);
+
+  useEffect(() => {
+    async function fetchFav() {
+      let { data: currentList, error } = await supabase
+        .from("currentList")
+        .select("*");
+
+      const { data: userData, error: userError } =
+        await supabase.auth.getUser();
+
+      const { data: userFavData, error: desiredError } = await supabase
+        .from("userInfo")
+        .select("savedProperties")
+        .eq("email", userData.user.email);
+
+      console.log("fav properties:", userFavData[0].savedProperties);
+      let temp = userFavData[0].savedProperties;
+      setFavIDList(temp);
+      console.log(currentList);
+
+      //   let tempDisplayList = [];
+      temp.forEach((obj) => {
+        currentList.forEach((property) => {
+          parseInt(obj.id) === property.id
+            ? tempDisplayList.push(property)
+            : null;
+        });
+      });
+
+      console.log(tempDisplayList);
+      setDisplayList(tempDisplayList);
     }
+    fetchFav();
+  }, []);
 
-    const navigate = useNavigate(); 
+  async function handleLogout() {
+    let { error } = await supabase.auth.signOut();
+    alert("Logged out!");
+    navigate("/");
+  }
 
-    function handleClick() {
-        navigate('/saved-properties'); // Navigate to '/other-route' on button click
-    }
+  const navigate = useNavigate();
 
-    return(
-        <div className = "favourites">
-            <div className="top">
-                <div className="logo">
-                    <img src={walterlogo} alt="Walter Logo" />
-                </div>
-                <div className="navbar">
-                    <ul>
-                        <li><Link to="/home">Home</Link></li>
-                        <li><Link to="/desired-property">Desired Property</Link></li>
-                        <li><Link to="/current-listings">Current Listings</Link></li>
-                        <li><Link to="/favourites">Favourites</Link></li>
-                        <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
-                    </ul>
-                </div>
-                <div className="profile-picture">
-                    <img src={greenwalter} alt="Green Walter Profile" />
-                    <Link to="/account-details">Account</Link>
-                </div>
-            </div>
-            <div>
-                <div className="header">Favourites</div>
-                <div className="the-rest">
-                        <div className="bottom">
-                            <div className="box-a">
-                                <div className="img"></div>
-                                <div className="a-header">Article Name</div>
-                                <div className="address">Address</div>
-                                <div className="price">Price</div>
-                                <div className="pmatch">Percentage Match</div>
-                            </div>
-                            <div className="box-a">
-                                <div className="img"></div>
-                                <div className="a-header">Article Name</div>
-                                <div className="address">Address</div>
-                                <div className="price">Price</div>
-                                <div className="pmatch">Percentage Match</div>
-                            </div>
-                            <div className="box-a">
-                                <div className="img"></div>
-                            </div>
-                            <div className="box-a">
-                                <div className="img"></div>
-                            </div>
-                            <div className="box-a">
-                            <div className="img"></div>
-                            </div>
-                    </div>
-                    <div className="bottom">
-                            <div className="box-a">
-                                <div className="img"></div>
-                            </div>
-                            <div className="box-a">
-                                <div className="img"></div>
-                            </div>
-                            <div className="box-a">
-                                <div className="img"></div>
-                            </div>
-                            <div className="box-a">
-                                <div className="img"></div>
-                            </div>
-                            <div className="box-a">
-                                <div className="img"></div>
-                            </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <button className="button-div" onClick ={handleClick}>compare</button>
-            </div>
+  function handleClick() {
+    navigate("/saved-properties"); // Navigate to '/other-route' on button click
+  }
+
+  if (displayList.length === 0) {
+    // setFetchFlag(!fetchflag);
+    return <h1>Fetching data...</h1>;
+  }
+
+  return (
+    <div className="favourites">
+      <div className="top">
+        <div className="logo">
+          <img src={walterlogo} alt="Walter Logo" />
         </div>
-    );
-};
+        <div className="navbar">
+          <ul>
+            <li>
+              <Link to="/home">Home</Link>
+            </li>
+            <li>
+              <Link to="/desired-property">Desired Property</Link>
+            </li>
+            <li>
+              <Link to="/current-listings">Current Listings</Link>
+            </li>
+            <li>
+              <Link to="/favourites">Favourites</Link>
+            </li>
+            <li>
+              <Link to="/" onClick={handleLogout}>
+                Logout
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="profile-picture">
+          <img src={greenwalter} alt="Green Walter Profile" />
+          <Link to="/account-details">Account</Link>
+        </div>
+      </div>
+      <div>
+        <div className="header">Favourites</div>
+        <div className="the-rest">
+          {displayList.map((property) => {
+            return <ListingPanel indivData={property} />;
+          })}
+          {/* <h1>Hi</h1> */}
+        </div>
+      </div>
+      <div>
+        <button className="button-div" onClick={handleClick}>
+          compare
+        </button>
+      </div>
+    </div>
+  );
+}

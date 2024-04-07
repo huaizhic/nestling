@@ -186,6 +186,11 @@ function Compare({
     // setArray(dataReply);
   }
 
+  function handleSave(e) {
+    e.preventDefault();
+    alert("works");
+  }
+
   return (
     <div className="compare">
       <div className="topcontainer">
@@ -251,7 +256,7 @@ function Compare({
           <div className="listing-info-container">
             <h2>{listing.projectName}</h2>
             <div className="save-button">
-              <button>
+              <button onClick={(e) => handleSave(e)}>
                 <img src={whitecross} />
               </button>
             </div>

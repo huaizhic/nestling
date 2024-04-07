@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import supabase from "../supabase";
 import { percentageMatchLogic } from "./percentageMatchLogic";
 import axios from "axios";
+import whitecross from "../../src/assets/images/whitecross.png";
 
 function ListingDetails({
   locationInput,
@@ -133,6 +134,11 @@ function ListingDetails({
     setPercentageMatch(tempData[0].percentageMatch);
   }
 
+  function handleSave(e) {
+    e.preventDefault();
+    alert("works");
+  }
+
   return (
     <div className="listing-details">
       <div className="topcontainer">
@@ -177,6 +183,11 @@ function ListingDetails({
           )}
           <h3 className="imgprojectname">{listing.projectName}</h3>
           <h3 className="imgaddress">{listing.address}</h3>
+        </div>
+        <div className="save-button">
+          <button onClick={(e) => handleSave(e)}>
+            <img src={whitecross} />
+          </button>
         </div>
         <div className="textColumn">
           <div className="field">
