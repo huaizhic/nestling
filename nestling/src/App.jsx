@@ -17,6 +17,7 @@ import Favourites from "./components/Favourites.jsx";
 import ListingDetails from "./components/ListingDetails.jsx";
 import Compare from "./components/Compare.jsx";
 import Test from "./components/Test.jsx";
+// import SavedProperties from "./components/SavedProperties.jsx";
 
 export let locations = [
   { value: "Ang Mo Kio", label: "Ang Mo Kio" },
@@ -53,6 +54,7 @@ function App() {
   const [distanceRadius, setDistanceRadius] = useState(2);
   const [roomCountInput, setRoomCountInput] = useState(3);
   const [grossFloorArea, setGrossFloorArea] = useState(1500);
+  const [housePrice, setHousePrice] = useState(100000);
 
   return (
     <Routes>
@@ -64,6 +66,7 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/account-details" element={<AcctDetails />} />
       <Route path="/test" element={<Test />} />
+      {/* <Route path="/saved-properties" element={<SavedProperties />} /> */}
       <Route
         path="/current-listings"
         element={
@@ -82,6 +85,8 @@ function App() {
             setRoomCountInput={setRoomCountInput}
             grossFloorArea={grossFloorArea}
             setGrossFloorArea={setGrossFloorArea}
+            housePrice={housePrice}
+            setHousePrice={setHousePrice}
           />
         }
       />
@@ -111,6 +116,8 @@ function App() {
             setRoomCountInput={setRoomCountInput}
             grossFloorArea={grossFloorArea}
             setGrossFloorArea={setGrossFloorArea}
+            housePrice={housePrice}
+            setHousePrice={setHousePrice}
           />
         }
       />

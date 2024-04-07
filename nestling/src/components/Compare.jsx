@@ -29,6 +29,8 @@ function Compare({
   setRoomCountInput,
   grossFloorArea,
   setGrossFloorArea,
+  housePrice,
+  setHousePrice,
 }) {
   const { id } = useParams();
   const [listing, setListing] = useState([

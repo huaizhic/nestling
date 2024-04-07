@@ -9,15 +9,6 @@
     font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
 }
 
-.top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f3fdff;
-    padding-left: 20px;
-    padding-right:30px;
-}
-
 .bottom {
     display: flex;
     flex-direction: row;
@@ -48,7 +39,6 @@
     justify-content: center;
     align-items: center;
 }
-
 
 .header{
     background-color: #f3fdff;
