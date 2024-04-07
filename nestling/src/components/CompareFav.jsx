@@ -255,41 +255,74 @@ function Compare({
       </div>
       <div className="overall-container">
         <div className="desired-prop-col">
-          <div className="search-container">
-            <div className="search">
-              <h2>Search</h2>
+          <div className="listing-info-container">
+            <h2>{listing.projectName}</h2>
+            {/* <div className="save-button">
+              <button onClick={(e) => handleSave(e)}>
+                <img src={whitecross} />
+              </button>
+            </div> */}
+            <div className="field">
+              <h3>Location </h3>
+              {/* <h3> {listing.nearestMRT}</h3> */}
+              <span id="locationField"></span>
             </div>
-            <label htmlFor="Location">Location</label>
-            <span>{locationInput}</span>
-
-            <label htmlFor="Amenities">Amenities</label>
-            <span>{amenityInput1}</span>
-            <span>{amenityInput2}</span>
-            <span>{amenityInput3}</span>
-
-            <label htmlFor="Distance">
-              Preferred Distance From Property To Amenities (KM)
-            </label>
-            <span>{distanceRadius}</span>
-
-            <label htmlFor="Room Count">Room Count</label>
-            <span>{roomCountInput}</span>
-            <label htmlFor="GFA(gross floor area)">
-              GFA (gross floor area)
-            </label>
-            <span>{grossFloorArea} sqm</span>
-            <label htmlFor="price">Price</label>
-            <span>{housePrice} </span>
+            <h3 className="data">{listing.address}</h3>
+            <div className="field">
+              <h3>Amenities & Their Distances From Property</h3>
+              {/* <button
+                    onClick={() => {
+                        console.log("nicoleData:", nicoleData);
+                    }}
+                    >
+                    hi
+                    </button> */}
+              <span id="amenitiesField"></span>
+            </div>
+            <h3 className="data">
+              Nearest School: {listing.nearestSchool}
+              <br /> {parseFloat(listing.nearestSchoolDistance).toFixed(1)} km
+              away
+            </h3>
+            <h3 className="data">
+              Nearest MRT: {listing.nearestMRT}
+              <br /> {parseFloat(listing.nearestMRTDistance).toFixed(1)} km away
+            </h3>
+            <h3 className="data">
+              Nearest Park: {listing.nearestPark}
+              <br /> {parseFloat(listing.nearestParkDistance).toFixed(1)} km
+              away
+            </h3>
+            <h3 className="data">
+              Nearest Market: {listing.nearestMarket}
+              <br /> {parseFloat(listing.nearestMarketDistance).toFixed(1)} km
+              away
+            </h3>
+            <div className="field">
+              <h3>Room Count</h3>
+              <span id="roomCountField"></span>
+            </div>
+            <h3 className="data">{listing.roomCount}</h3>
+            <div className="field">
+              <h3>GFA (gross floor area)</h3>
+              <span id="gfaField"></span>
+            </div>
+            <h3 className="data">{listing.GFA} sqm</h3>
+            <div className="field">
+              <h3>Price</h3>
+              <span id="price"></span>
+            </div>
+            <h3 className="data">{listing.price} </h3>
           </div>
         </div>
         <div className="listing-col">
           <div className="listing-info-container">
             <h2>{listing.projectName}</h2>
-            <div className="save-button">
+            {/* <div className="save-button">
               <button onClick={(e) => handleSave(e)}>
                 <img src={whitecross} />
               </button>
-            </div>
+            </div> */}
             <div className="field">
               <h3>Location </h3>
               {/* <h3> {listing.nearestMRT}</h3> */}
@@ -344,9 +377,9 @@ function Compare({
           </div>
         </div>
       </div>
-      <div className="prompt">
+      {/* <div className="prompt">
         Like this property? Click the + button to save it!
-      </div>
+      </div> */}
       <div className="AI-output">
         AI OUTPUT
         <br></br>
