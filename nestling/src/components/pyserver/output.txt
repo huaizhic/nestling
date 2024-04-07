@@ -1,14 +1,14 @@
 Property 1:
-Location: 173 Chin Swee Road 
+Location: 55 Pasir Ris Drive 1 
 Desired Amenities:
-  - Amenity 1: CHINATOWN MRT STATION
-  - Amenity 1 distance: 0.474916996
-  - Amenity 2: SHENG SIONG SUPERMARKET PTE LTD
-  - Amenity 2 distance: 0.24737393
-  - Amenity 3: ALEXANDRA PRIMARY SCHOOL
-  - Amenity 3 distance: 1.828056615
+  - Amenity 1: PASIR RIS MRT STATION
+  - Amenity 1 distance: 0.946064996
+  - Amenity 2: GOLDEN BAMBOO BROS SUPERMART PTE LTD
+  - Amenity 2 distance: 0.586199983
+  - Amenity 3: ELIAS PARK PRIMARY SCHOOL
+  - Amenity 3 distance: 0.498304115
 Room Count: 3
-Gross Floor Area: 764
+Gross Floor Area: 829
 
 Property 2:
 Location: Tampines

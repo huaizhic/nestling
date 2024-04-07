@@ -172,6 +172,7 @@ function CurrentListings({
     setDistanceRadius(desiredAttributes.distanceRadius);
     setRoomCountInput(desiredAttributes.roomCount);
     setGrossFloorArea(desiredAttributes.grossFloorArea);
+    setHousePrice(desiredAttributes.price);
 
     let tempData = percentageMatchLogic(
       currentList,
@@ -181,7 +182,8 @@ function CurrentListings({
       desiredAttributes.amenity1,
       desiredAttributes.amenity2,
       desiredAttributes.amenity3,
-      desiredAttributes.grossFloorArea
+      desiredAttributes.grossFloorArea,
+      desiredAttributes.price
     );
     // console.log(tempData);
     tempData.sort((a, b) => {
