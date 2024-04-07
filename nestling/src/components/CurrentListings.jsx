@@ -52,6 +52,8 @@ function CurrentListings({
   setRoomCountInput,
   grossFloorArea,
   setGrossFloorArea,
+  housePrice,
+  setHousePrice,
 }) {
   const [currentList, setCurrentList] = useState([]);
   const [fetchflag, setFetchFlag] = useState(false);
@@ -129,7 +131,8 @@ function CurrentListings({
         amenityInput1,
         amenityInput2,
         amenityInput3,
-        grossFloorArea
+        grossFloorArea,
+        housePrice
       );
       // console.log(tempData);
       tempData.sort((a, b) => {
@@ -377,6 +380,13 @@ function CurrentListings({
               value={grossFloorArea}
               style={{ color: "black" }}
               onChange={(e) => setGrossFloorArea(e.target.value)}
+            />
+            <label htmlFor="Price">Price</label>
+            <input
+              type="number"
+              value={housePrice}
+              style={{ color: "black" }}
+              onChange={(e) => setHousePrice(e.target.value)}
             />
             <button onClick={(e) => handleNormalSearch(e)}>SEARCH</button>
           </div>

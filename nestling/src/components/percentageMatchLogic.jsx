@@ -8,14 +8,16 @@ export const percentageMatchLogic = (
   firstAmenityChoice,
   secondAmenityChoice,
   thirdAmenityChoice,
-  floorArea
+  floorArea,
+  housePrice
 ) => {
   let distanceAsInt = parseInt(distance); // convert string type to integer type
   let roomCountAsInt = parseInt(roomCount);
   let grossFloorAreaAsInt = parseInt(floorArea);
+  let housePriceAsInt = parseInt(housePrice);
 
   let currentPoints = 0;
-  let maxPoints = 230;
+  let maxPoints = 280;
 
   // since we don't want to modify the housing data itself, we create a temp array instead
   // we will add new temporary attributes to each house object, namely points and percentageMatch
@@ -78,12 +80,21 @@ export const percentageMatchLogic = (
           house.points += 30;
         }
         break;
+      case "Primary schools":
+        if (distanceAsInt >= house.nearestPriSchDistance) {
+          house.points += 30;
+        }
+        break;
+      case "Secondary schools":
+        if (distanceAsInt >= house.nearestSecSchDistance) {
+          house.points += 30;
+        }
+        break;
       case "Supermarkets":
         if (distanceAsInt >= house.nearestMarketDistance) {
           house.points += 30;
         }
         break;
-
       case "Parks":
         if (distanceAsInt >= house.nearestParkDistance) {
           house.points += 30;
@@ -94,8 +105,13 @@ export const percentageMatchLogic = (
           house.points += 30;
         }
         break;
+      case "Malls":
+        if (distanceAsInt >= house.nearestMallDistance) {
+          house.points += 30;
+        }
+        break;
       default:
-        // console.log("no amenities matched for option 2");
+        // console.log("no amenities matched for option 1");
         break;
     }
 
@@ -105,12 +121,21 @@ export const percentageMatchLogic = (
           house.points += 30;
         }
         break;
+      case "Primary schools":
+        if (distanceAsInt >= house.nearestPriSchDistance) {
+          house.points += 30;
+        }
+        break;
+      case "Secondary schools":
+        if (distanceAsInt >= house.nearestSecSchDistance) {
+          house.points += 30;
+        }
+        break;
       case "Supermarkets":
         if (distanceAsInt >= house.nearestMarketDistance) {
           house.points += 30;
         }
         break;
-
       case "Parks":
         if (distanceAsInt >= house.nearestParkDistance) {
           house.points += 30;
@@ -121,12 +146,17 @@ export const percentageMatchLogic = (
           house.points += 30;
         }
         break;
+      case "Malls":
+        if (distanceAsInt >= house.nearestMallDistance) {
+          house.points += 30;
+        }
+        break;
       default:
-        // console.log("no amenities matched for option 3");
+        // console.log("no amenities matched for option 1");
         break;
     }
 
-    let roomCountDifference = Math.abs(roomCountAsInt - house.fakeRoomCount);
+    let roomCountDifference = Math.abs(roomCountAsInt - house.roomCount);
     if (roomCountDifference === 0) {
       // house = { ...house, points: (house.points += 40) };
       house.points += 40;
@@ -154,6 +184,15 @@ export const percentageMatchLogic = (
       // };
       house.points += (grossFloorAreaAsInt / house.GFA) * 50;
       // console.log("!!!");
+    }
+
+    // console.log(house.price);
+    if (housePriceAsInt === house.price) {
+      house.points += 50;
+    } else if (housePriceAsInt > house.price) {
+      house.points += (house.price / housePriceAsInt) * 50;
+    } else if (housePriceAsInt < house.price) {
+      house.points += (housePriceAsInt / house.price) * 50;
     }
 
     house.percentageMatch = (house.points / maxPoints) * 100;

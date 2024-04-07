@@ -6,6 +6,7 @@ import supabase from "../supabase";
 import "./Navbar.css";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
+import axios from "axios"; // For the python environment
 
 export let desiredAttributes = [
   {
@@ -30,6 +31,7 @@ function DesiredProperty() {
   const [selectedAmenities3, setAmenities3] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [abhijeetData, setAbhijeetData] = useState("");
+  const [estimatedPrice, setEstimatedPrice] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -78,16 +80,20 @@ function DesiredProperty() {
     fetchData();
   }, []);
 
+  // const toggleVisibility = () => {
+  //   setIsVisible(!isVisible);
+  //   let temp = [
+  //     {
+  //       distanceRadius: selectedDistance,
+  //       grossFloorArea: selectedGFA,
+  //     },
+  //   ];
+  //   setAbhijeetData(temp);
+  //   console.log("abhijeetData:", temp);
+  // };
+
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
-    let temp = [
-      {
-        distanceRadius: selectedDistance,
-        grossFloorArea: selectedGFA,
-      },
-    ];
-    setAbhijeetData(temp);
-    console.log("abhijeetData:", temp);
   };
 
   const handleSave = async (e) => {
@@ -210,6 +216,30 @@ function DesiredProperty() {
     navigate("/");
   }
 
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/generate_price",
+        {
+          // Send user input to the backend
+          amenities1: selectedAmenities1,
+          amenities2: selectedAmenities2,
+          amenities3: selectedAmenities3,
+          distanceRadius: selectedDistance,
+          area: selectedGFA,
+        }
+      );
+
+      // Update state with the estimated price returned by the backend
+      setEstimatedPrice(response.data.estimated_price);
+
+      // Toggle visibility after receiving response
+      toggleVisibility();
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   // useEffect(() => {
   //   handleAmenities();
   // }, [selectedAmenities1, selectedAmenities2, selectedAmenities3]);
@@ -317,7 +347,13 @@ function DesiredProperty() {
       </div>
       {!isVisible && (
         <div>
-          <button onClick={toggleVisibility} className="generate-price">
+          <button
+            onClick={() => {
+              handleSubmit();
+              toggleVisibility;
+            }}
+            className="generate-price"
+          >
             Generate Price
           </button>
         </div>
@@ -327,7 +363,7 @@ function DesiredProperty() {
           <div className="generated-price-div">
             <p className="generated-price-header">Estimated Price</p>
             <div className="estimated-price-div">
-              <p className="estimated-price">~$100k</p>
+              <p className="estimated-price">~${estimatedPrice}</p>
             </div>
           </div>
           <div className="buttons">
