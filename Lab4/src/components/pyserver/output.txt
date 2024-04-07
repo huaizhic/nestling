@@ -1,23 +1,23 @@
 Property 1:
-Location: 2 Canberra Drive 
+Location: 5 Flora Drive 
 Desired Amenities:
-  - Amenity 1: CANBERRA MRT STATION
-  - Amenity 1 distance: 0.590347485
-  - Amenity 2: COLD STORAGE SINGAPORE (1983) PTE LTD
-  - Amenity 2 distance: 0.682629541
-  - Amenity 3: AHMAD IBRAHIM SECONDARY SCHOOL
-  - Amenity 3 distance: 0.253319552
-Room Count: 4
-House Price: 1500000
-Gross Floor Area: 1152
+  - Amenity 1: TAMPINES EAST MRT STATION
+  - Amenity 1 distance: 1.24942761
+  - Amenity 2: AZMI SHOP PTE. LTD.
+  - Amenity 2 distance: 0.346454725
+  - Amenity 3: EAST SPRING SECONDARY SCHOOL
+  - Amenity 3 distance: 0.635983199
+Room Count: 5
+House Price: 1648000
+Gross Floor Area: 1507
 
 Property 2:
-Location: Tampines
+Location: Jurong West
 Desired Amenities:
-  - Amenity 1: Schools
-  - Amenity 2: Supermarkets
-  - Amenity 3: Parks
-Room Count: 3
+  - Amenity 1: school
+  - Amenity 2: secondary school
+  - Amenity 3: park
+Room Count: 5
 Distance Radius: 2
 House Price: 1000000
 Gross Floor Area: 1500

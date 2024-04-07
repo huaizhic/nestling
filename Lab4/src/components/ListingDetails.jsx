@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
 import "./ListingDetails.css";
@@ -30,6 +30,7 @@ function ListingDetails({
   setHousePrice,
 }) {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [listing, setListing] = useState([
     {
       projectName: "loading",
@@ -294,7 +295,7 @@ function ListingDetails({
       <div className="compareButton">
         <button
           onClick={() => {
-            navigate("/compare");
+            navigate(`/compare/${id}`);
           }}
         >
           Compare

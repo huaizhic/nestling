@@ -49,9 +49,9 @@ export let locations = [
 
 function App() {
   const [locationInput, setLocationInput] = useState("Tampines");
-  const [amenityInput1, setAmenityInput1] = useState("Schools");
-  const [amenityInput2, setAmenityInput2] = useState("Supermarkets");
-  const [amenityInput3, setAmenityInput3] = useState("Parks");
+  const [amenityInput1, setAmenityInput1] = useState("school");
+  const [amenityInput2, setAmenityInput2] = useState("supermarket");
+  const [amenityInput3, setAmenityInput3] = useState("park");
   const [distanceRadius, setDistanceRadius] = useState(2);
   const [roomCountInput, setRoomCountInput] = useState(3);
   const [grossFloorArea, setGrossFloorArea] = useState(1500);
