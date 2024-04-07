@@ -13,7 +13,7 @@ cors = CORS(app, origins='*')
 url = "https://ycypmpdbtmpsjqublvez.supabase.co"
 key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljeXBtcGRidG1wc2pxdWJsdmV6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkyMzY2NDQsImV4cCI6MjAyNDgxMjY0NH0.vBC30fXKWw3TRl5lFjEKHwkUSynnUfiNJ0fps2FNEUw"
 supabase = create_client(url, key)
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 
 
 def application(environ, start_response):
