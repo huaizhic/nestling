@@ -10,7 +10,7 @@ import supabase from "../supabase";
 
 // export let tempDisplayList = [];
 
-export default function Favourites() {
+export default function Favourites({ selection, setSelection }) {
   const [favIDList, setFavIDList] = useState([]);
   const [displayList, setDisplayList] = useState([]);
   const [checkList, setCheckList] = useState([]);
@@ -58,8 +58,15 @@ export default function Favourites() {
 
   const navigate = useNavigate();
 
-  function handleClick() {
-    navigate("/compare-fav"); // Navigate to '/other-route' on button click
+  function handleSubmit(e) {
+    let finalList = [];
+    displayList.forEach((property) => {
+      property.checkbox === true ? finalList.push(property) : null;
+    });
+    // console.log(finalList);
+    console.log(finalList);
+    setSelection(finalList);
+    // navigate("/compare-fav"); // Navigate to '/other-route' on button click
   }
 
   if (displayList.length === 0) {
@@ -114,7 +121,7 @@ export default function Favourites() {
         </div>
       </div>
       <div>
-        <button className="button-div" onClick={handleClick}>
+        <button className="button-div" onClick={(e) => handleSubmit(e)}>
           compare
         </button>
       </div>

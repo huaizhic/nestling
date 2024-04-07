@@ -31,24 +31,27 @@ function Compare({
   setGrossFloorArea,
   housePrice,
   setHousePrice,
+  selection,
+  setSelection,
 }) {
-  const { id } = useParams();
-  const [listing, setListing] = useState([
+  // const { id } = useParams();
+
+  const [leftListing, setLeftListing] = useState([
     {
       projectName: "loading",
       address: "loading",
     },
   ]);
-  const [percentageMatch, setPercentageMatch] = useState(0);
-  const [desiredListing, setDesiredListing] = useState([
+  const [rightListing, setRightListing] = useState([
     {
       projectName: "loading",
       address: "loading",
     },
   ]);
+  // const [percentageMatch, setPercentageMatch] = useState(0);
 
   const [nicoleData, setNicoleData] = useState({
-    email: "",
+    from: "compareFav",
     searchListing: [
       {
         searchLocation: locationInput,
@@ -68,33 +71,24 @@ function Compare({
 
   useEffect(() => {
     const fetchIndivListing = async () => {
-      //   console.log(id);
-      // fetch individual property details
-      let { data: currentListing, error } = await supabase
-        .from("currentList")
-        .select("*")
-        .eq("id", id);
-
-      //   console.log(currentListing);
-      //   console.log(error);
-      setListing(currentListing[0]);
+      setRightListing([selection[1]]);
       // console.log("nicoleData:", nicoleData);
       let tempData = {
         ...nicoleData,
         currentListing: [
           {
-            currentLocation: currentListing[0].address,
-            currentAmenity1: currentListing[0].nearestMRT,
-            currentAmenity2: currentListing[0].nearestMarket,
-            currentAmenity3: currentListing[0].nearestSchool,
-            currentAmenity4: currentListing[0].nearestPark,
-            currentAmenity1Distance: currentListing[0].nearestMRTDistance,
-            currentAmenity2Distance: currentListing[0].nearestMarketDistance,
-            currentAmenity3Distance: currentListing[0].nearestSchoolDistance,
-            currentAmenity4Distance: currentListing[0].nearestParkDistance,
-            currentRoomCount: currentListing[0].roomCount,
-            currentPrice: currentListing[0].price,
-            currentGFA: currentListing[0].GFA,
+            currentLocation: selection[1].address,
+            currentAmenity1: selection[1].nearestMRT,
+            currentAmenity2: selection[1].nearestMarket,
+            currentAmenity3: selection[1].nearestSchool,
+            currentAmenity4: selection[1].nearestPark,
+            currentAmenity1Distance: selection[1].nearestMRTDistance,
+            currentAmenity2Distance: selection[1].nearestMarketDistance,
+            currentAmenity3Distance: selection[1].nearestSchoolDistance,
+            currentAmenity4Distance: selection[1].nearestParkDistance,
+            currentRoomCount: selection[1].roomCount,
+            currentPrice: selection[1].price,
+            currentGFA: selection[1].GFA,
           },
         ],
       };

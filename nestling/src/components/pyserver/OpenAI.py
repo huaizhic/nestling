@@ -40,26 +40,6 @@ def users():
           dataGet: ''', dataGet, '''====================================================
           ''')
 
-    # url = "https://ycypmpdbtmpsjqublvez.supabase.co"
-    # key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InljeXBtcGRidG1wc2pxdWJsdmV6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkyMzY2NDQsImV4cCI6MjAyNDgxMjY0NH0.vBC30fXKWw3TRl5lFjEKHwkUSynnUfiNJ0fps2FNEUw"
-    # supabase = create_client(url,key)
-    # os.environ["OPENAI_API_KEY"]= "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"
-
-    # response1 = supabase.table('userInfo').select("desiredProperty").eq(
-    #     "email", "nestling.ai@gmail.com").execute()
-    # response = response1.data[0]
-
-    # lisitingAttri = json.loads(dataGet)
-    # print('''*************************************************************
-    #       lisitingAttri: ''', lisitingAttri, '''************************************************************
-    #       ''')
-
-    # with open('sample.json', 'r') as file:
-    #     # Load the JSON data into a Python dictionary
-    #     lisitingAttri = json.load(file)
-
-    # Function to format property information
-
     def format_SearchProperty(prop):
         formatted_prop = f"Location: {prop['searchLocation']}\n"
         formatted_prop += f"Desired Amenities:\n"

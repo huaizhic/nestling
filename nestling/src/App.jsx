@@ -57,6 +57,8 @@ function App() {
   const [grossFloorArea, setGrossFloorArea] = useState(1500);
   const [housePrice, setHousePrice] = useState(1000000);
 
+  const [selection, setSelection] = useState([]);
+
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
@@ -67,7 +69,12 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/account-details" element={<AcctDetails />} />
       <Route path="/test" element={<Test />} />
-      <Route path="/compare-fav" element={<CompareFav />} />
+      <Route
+        path="/compare-fav"
+        element={
+          <CompareFav selection={selection} setSelection={setSelection} />
+        }
+      />
       <Route
         path="/current-listings"
         element={
@@ -96,7 +103,12 @@ function App() {
       <Route path="/account-details" element={<Account />} />
       <Route path="/desired-property" element={<DesiredProperty />} />
       {/* <Route path="/listing-info" element={<ListingInfo />} /> */}
-      <Route path="/favourites" element={<Favourites />} />
+      <Route
+        path="/favourites"
+        element={
+          <Favourites selection={selection} setSelection={setSelection} />
+        }
+      />
       {/* <Route path="/listing-info/:id" element={<ListingInfo />} /> */}
       <Route
         path="/listing-details/:id"

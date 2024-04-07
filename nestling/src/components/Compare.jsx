@@ -48,7 +48,7 @@ function Compare({
   ]);
 
   const [nicoleData, setNicoleData] = useState({
-    email: "",
+    from: "compare",
     searchListing: [
       {
         searchLocation: locationInput,
