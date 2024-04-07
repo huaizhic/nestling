@@ -58,33 +58,45 @@ function ListingDetails({
       //   console.log(error);
       setListing(currentListing[0]);
 
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
+      // const {
+      //   data: { user },
+      // } = await supabase.auth.getUser();
 
-      //   console.log(user);
-      //   console.log(user.email);
+      // //   console.log(user);
+      // //   console.log(user.email);
 
-      let { data: data1, error: error1 } = await supabase
-        .from("userInfo")
-        .select("desiredProperty")
-        .eq("email", user.email);
-      //   console.log(data1);
-      let desiredProperty = data1[0].desiredProperty[0];
-      //   console.log(percentageMatch);
-      console.log(desiredProperty);
-      setDesiredListing(desiredProperty);
+      // let { data: data1, error: error1 } = await supabase
+      //   .from("userInfo")
+      //   .select("desiredProperty")
+      //   .eq("email", user.email);
+      // //   console.log(data1);
+      // let desiredProperty = data1[0].desiredProperty[0];
+      // //   console.log(percentageMatch);
+      // console.log(desiredProperty);
+      // setDesiredListing(desiredProperty);
 
       if (percentageMatch === 0) {
+        // let tempData = percentageMatchLogic(
+        //   currentListing,
+        //   desiredProperty.location,
+        //   desiredProperty.roomCount,
+        //   desiredProperty.distanceRadius,
+        //   desiredProperty.amenity1,
+        //   desiredProperty.amenity2,
+        //   desiredProperty.amenity3,
+        //   desiredProperty.grossFloorArea
+        // );
+
         let tempData = percentageMatchLogic(
           currentListing,
-          desiredProperty.location,
-          desiredProperty.roomCount,
-          desiredProperty.distanceRadius,
-          desiredProperty.amenity1,
-          desiredProperty.amenity2,
-          desiredProperty.amenity3,
-          desiredProperty.grossFloorArea
+          locationInput,
+          roomCountInput,
+          distanceRadius,
+          amenityInput1,
+          amenityInput2,
+          amenityInput3,
+          grossFloorArea,
+          housePrice
         );
 
         // console.log(tempData);
