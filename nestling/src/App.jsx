@@ -54,7 +54,7 @@ function App() {
   const [distanceRadius, setDistanceRadius] = useState(2);
   const [roomCountInput, setRoomCountInput] = useState(3);
   const [grossFloorArea, setGrossFloorArea] = useState(1500);
-  const [housePrice, setHousePrice] = useState(100000);
+  const [housePrice, setHousePrice] = useState(1000000);
 
   return (
     <Routes>
@@ -97,7 +97,29 @@ function App() {
       {/* <Route path="/listing-info" element={<ListingInfo />} /> */}
       <Route path="/favourites" element={<Favourites />} />
       {/* <Route path="/listing-info/:id" element={<ListingInfo />} /> */}
-      <Route path="/listing-details/:id" element={<ListingDetails />} />
+      <Route
+        path="/listing-details/:id"
+        element={
+          <ListingDetails
+            locationInput={locationInput}
+            setLocationInput={setLocationInput}
+            amenityInput1={amenityInput1}
+            setAmenityInput1={setAmenityInput1}
+            amenityInput2={amenityInput2}
+            setAmenityInput2={setAmenityInput2}
+            amenityInput3={amenityInput3}
+            setAmenityInput3={setAmenityInput3}
+            distanceRadius={distanceRadius}
+            setDistanceRadius={setDistanceRadius}
+            roomCountInput={roomCountInput}
+            setRoomCountInput={setRoomCountInput}
+            grossFloorArea={grossFloorArea}
+            setGrossFloorArea={setGrossFloorArea}
+            housePrice={housePrice}
+            setHousePrice={setHousePrice}
+          />
+        }
+      />
       <Route
         path="/compare/:id"
         element={

@@ -57,6 +57,7 @@ function Compare({
         searchAmenity3: amenityInput3,
         searchDistance: distanceRadius,
         searchRoomCount: roomCountInput,
+        searchPrice: housePrice,
         searchGFA: grossFloorArea,
       },
     ],
@@ -92,6 +93,7 @@ function Compare({
             currentAmenity3Distance: currentListing[0].nearestSchoolDistance,
             currentAmenity4Distance: currentListing[0].nearestParkDistance,
             currentRoomCount: currentListing[0].roomCount,
+            currentPrice: currentListing[0].price,
             currentGFA: currentListing[0].GFA,
           },
         ],
@@ -241,6 +243,8 @@ function Compare({
               GFA (gross floor area)
             </label>
             <span>{grossFloorArea} sqm</span>
+            <label htmlFor="price">Price</label>
+            <span>{housePrice} </span>
           </div>
         </div>
         <div className="listing-col">
@@ -297,6 +301,11 @@ function Compare({
               <span id="gfaField"></span>
             </div>
             <h3 className="data">{listing.GFA} sqm</h3>
+            <div className="field">
+              <h3>Price</h3>
+              <span id="price"></span>
+            </div>
+            <h3 className="data">{listing.price} </h3>
           </div>
         </div>
       </div>

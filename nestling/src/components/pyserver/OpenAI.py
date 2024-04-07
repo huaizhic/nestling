@@ -68,6 +68,7 @@ def users():
         formatted_prop += f"  - Amenity 3: {prop['searchAmenity3']}\n"
         formatted_prop += f"Room Count: {prop['searchRoomCount']}\n"
         formatted_prop += f"Distance Radius: {prop['searchDistance']}\n"
+        formatted_prop += f"House Price: {prop['searchPrice']}\n"
         formatted_prop += f"Gross Floor Area: {prop['searchGFA']}\n\n"
         return formatted_prop
 
@@ -81,7 +82,7 @@ def users():
         formatted_prop += f"  - Amenity 3: {prop['currentAmenity3']}\n"
         formatted_prop += f"  - Amenity 3 distance: {prop['currentAmenity3Distance']}\n"
         formatted_prop += f"Room Count: {prop['currentRoomCount']}\n"
-        # formatted_prop += f"Distance Radius: {prop['currentDistance']}\n"
+        formatted_prop += f"House Price: {prop['currentPrice']}\n"
         formatted_prop += f"Gross Floor Area: {prop['currentGFA']}\n\n"
         return formatted_prop
 

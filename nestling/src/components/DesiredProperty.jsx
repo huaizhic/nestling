@@ -73,6 +73,7 @@ function DesiredProperty() {
             setDistance(fetchedDesiredAttributes.distanceRadius || "");
             setRoomCount(fetchedDesiredAttributes.roomCount || "");
             setGFA(fetchedDesiredAttributes.grossFloorArea || "");
+            setEstimatedPrice(fetchedDesiredAttributes.price || "");
           }
         }
       }
@@ -342,6 +343,17 @@ function DesiredProperty() {
             value={selectedGFA}
             className="dropdown"
             onChange={(e) => setGFA(e.target.value)}
+          />
+        </div>
+        <div className="dropdown-div">
+          <h3 className="gfa" style={{ fontSize: "15px" }}>
+            Previously Generated Price
+          </h3>
+          <input
+            type="number"
+            value={estimatedPrice}
+            className="dropdown"
+            onChange={(e) => setEstimatedPrice(e.target.value)}
           />
         </div>
       </div>

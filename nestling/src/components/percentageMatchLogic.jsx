@@ -186,12 +186,13 @@ export const percentageMatchLogic = (
       // console.log("!!!");
     }
 
-    if (housePriceAsInt === house.housePrice) {
+    // console.log(house.price);
+    if (housePriceAsInt === house.price) {
       house.points += 50;
-    } else if (housePriceAsInt > house.housePrice) {
-      house.points += (house.housePrice / housePriceAsInt) * 50;
-    } else if (housePriceAsInt < house.housePrice) {
-      house.points += (housePriceAsInt / house.housePrice) * 50;
+    } else if (housePriceAsInt > house.price) {
+      house.points += (house.price / housePriceAsInt) * 50;
+    } else if (housePriceAsInt < house.price) {
+      house.points += (housePriceAsInt / house.price) * 50;
     }
 
     house.percentageMatch = (house.points / maxPoints) * 100;

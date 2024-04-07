@@ -10,7 +10,24 @@ import supabase from "../supabase";
 import { percentageMatchLogic } from "./percentageMatchLogic";
 import axios from "axios";
 
-function ListingDetails() {
+function ListingDetails({
+  locationInput,
+  setLocationInput,
+  amenityInput1,
+  setAmenityInput1,
+  setAmenityInput2,
+  setAmenityInput3,
+  amenityInput2,
+  amenityInput3,
+  distanceRadius,
+  setDistanceRadius,
+  roomCountInput,
+  setRoomCountInput,
+  grossFloorArea,
+  setGrossFloorArea,
+  housePrice,
+  setHousePrice,
+}) {
   const { id } = useParams();
   const [listing, setListing] = useState([
     {
@@ -18,7 +35,7 @@ function ListingDetails() {
       address: "loading",
     },
   ]);
-  const [percentageMatch, setPercentageMatch] = useState(0);
+  const [percentageMatch, setPercentageMatch] = useState("");
   const [desiredListing, setDesiredListing] = useState([
     {
       projectName: "loading",
@@ -85,19 +102,35 @@ function ListingDetails() {
     navigate("/");
   }
 
-  const [count, setCount] = useState(0)
-  const [array,setArray] = useState ([]);
+  const [count, setCount] = useState(0);
+  const [array, setArray] = useState([]);
 
   //add this for the forntend to fetch from the API
-  const fetchAPI = async() =>{
+  const fetchAPI = async () => {
     const response = await axios.get("http://localhost:8080/python");
     //console.log(response.data.Suggestion);
     setArray(response.data.Suggestion);
-  }
+  };
 
   const handleCompare = async () => {
     await fetchAPI();
     history.push(`/compare/${id}`);
+  };
+
+  if (percentageMatch === "") {
+    let tempData = percentageMatchLogic(
+      [listing],
+      locationInput,
+      roomCountInput,
+      distanceRadius,
+      amenityInput1,
+      amenityInput2,
+      amenityInput3,
+      grossFloorArea,
+      housePrice
+    );
+    console.log(tempData[0].percentageMatch);
+    setPercentageMatch(tempData[0].percentageMatch);
   }
 
   return (
@@ -121,7 +154,9 @@ function ListingDetails() {
               <Link to="/favourites">Favourites</Link>
             </li>
             <li>
-              <Link to="/" onClick={handleLogout}>Logout</Link>
+              <Link to="/" onClick={handleLogout}>
+                Logout
+              </Link>
             </li>
           </ul>
         </div>
@@ -205,17 +240,24 @@ function ListingDetails() {
             <span id="featuresField"></span>
           </div>
           <h3 className="data">{listing.districtGroup}</h3>
+          <div className="field">
+            <h3>Price</h3>
+            <span id="featuresField"></span>
+          </div>
+          <h3 className="data">{listing.price}</h3>
         </div>
       </div>
-      <div className="percentage-match-bubble">{Math.round(parseFloat(percentageMatch))}%</div>
+      <div className="percentage-match-bubble">
+        {Math.round(parseFloat(percentageMatch))}%
+      </div>
       <div className="compareButton">
-      <button onClick={fetchAPI}>Compare</button>
+        <button onClick={fetchAPI}>Compare</button>
         <p>
           {array.map((Suggestion, index) => (
             <span key={index}>{Suggestion}</span>
           ))}
-          </p>
-          {/*<Link to={`/compare/${id}`}><button>Compare</button></Link>
+        </p>
+        {/*<Link to={`/compare/${id}`}><button>Compare</button></Link>
           <p>
         {array.map((Suggestion, index) => (
           <span key={index}>{Suggestion}</span>
@@ -224,6 +266,6 @@ function ListingDetails() {
       </div>
     </div>
   );
-      }
+}
 
 export default ListingDetails;
