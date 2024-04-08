@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
 import "./CompareFav.css";
-import './Navbar.css';
+import "./Navbar.css";
 import emptyimage from "../assets/images/emptyimage.png";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -153,7 +153,7 @@ function Compare({
     // receive python response
     xml.onload = function () {
       var dataReply = JSON.parse(this.responseText);
-      alert("dataReply received, check console");
+      alert("AI Output generated!");
       console.log("dataReply:", dataReply);
       setAIoutput(dataReply.Suggestion[0]);
       console.log("dataReply.Suggestion[0]:", dataReply.Suggestion[0]);

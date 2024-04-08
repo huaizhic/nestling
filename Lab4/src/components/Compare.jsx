@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
 import "./Compare.css";
-import './Navbar.css';
+import "./Navbar.css";
 import emptyimage from "../assets/images/emptyimage.png";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -158,7 +158,7 @@ function Compare({
     // receive python response
     xml.onload = function () {
       var dataReply = JSON.parse(this.responseText);
-      alert("dataReply received, check console");
+      alert("AI Output generated!");
       console.log("dataReply:", dataReply);
       setAIoutput(dataReply.Suggestion[0]);
       console.log("dataReply.Suggestion[0]:", dataReply.Suggestion[0]);
@@ -276,10 +276,14 @@ function Compare({
             <div className="search">
               <h2>Search Parameters</h2>
             </div>
-            <div className="label" htmlFor="Location">Location</div>
+            <div className="label" htmlFor="Location">
+              Location
+            </div>
             <span>{locationInput}</span>
 
-            <div className="label" htmlFor="Amenities">Amenities</div>
+            <div className="label" htmlFor="Amenities">
+              Amenities
+            </div>
             <div className="amenities-section">
               <div>{amenityInput1}</div>
               <div>{amenityInput2}</div>
@@ -291,7 +295,9 @@ function Compare({
             </div>
             <span>{distanceRadius}</span>
 
-            <div className="label-1" htmlFor="Room Count">Room Count</div>
+            <div className="label-1" htmlFor="Room Count">
+              Room Count
+            </div>
             <span>{roomCountInput}</span>
 
             <div className="label" htmlFor="GFA(gross floor area)">
@@ -299,7 +305,9 @@ function Compare({
             </div>
             <span>{grossFloorArea} sqm</span>
 
-            <div className="label" htmlFor="price">Price</div>
+            <div className="label" htmlFor="price">
+              Price
+            </div>
             <span>{housePrice} </span>
           </div>
         </div>
