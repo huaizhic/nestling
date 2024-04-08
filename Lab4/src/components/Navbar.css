@@ -5,6 +5,8 @@
     background-color: #f3fdff;
     padding-left: 20px;
     padding-right:30px;
+    padding-top: 50px;
+    width: 100vw;
 }
 
 .navbar {
@@ -23,17 +25,22 @@
 .navbar ul li {
     display: inline;
     margin-left: 10px;
+    margin-left: 100px;
 }
 
 .navbar ul li a {
     text-decoration: none;
     color: #002224;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 .logo {
     display: flex;
     height: 80px;
     width: 80px;
+    margin-top: 40px;
+    margin-left: 40px;
 }
 
 .profile-picture {
@@ -41,6 +48,7 @@
     flex-direction: column;
     height: 70px;
     width: 70px;
+    margin-left: 150px;
 }
 
 .profile-picture a {
