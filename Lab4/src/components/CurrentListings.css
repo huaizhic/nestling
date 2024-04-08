@@ -26,6 +26,7 @@
   justify-content: flex-start;
   align-items: center;
   background-color: #f3fdff;
+  margin-left: 40px;
 }
 
 .search-container-current-listings {
@@ -59,7 +60,7 @@
 }
 
 .search-container-current-listings button {
-  width: 95%;
+  width: 100%;
   background-color: #f3fdff;
   color: black;
   border: none;
@@ -67,7 +68,7 @@
   cursor: pointer;
   margin-top: 10px;
   font-weight: bold;
-  margin-left: 10px;
+  margin-left: 0px;
 }
 
 .search-container-current-listings button:hover {
@@ -123,11 +124,12 @@
 }
 
 .listings-column {
-  width: 60%;
+  width: 50%;
   height: 85vh;
   display:flex;
   flex-direction: column;
   background-color: #f3fdff;
+  margin-right: 40px;
 }
 
 .Listings {
@@ -153,7 +155,7 @@
 
 .chirpingText{
   width: 350px;
-  margin-left: 180px;
+  margin-left: 150px;
   padding-top: 250px;
   font-weight: bold;
   font-size: 30px;

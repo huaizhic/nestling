@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
 import "./ListingDetails.css";
+import './Navbar.css';
 import emptyimage from "../assets/images/emptyimage.png";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -201,7 +202,7 @@ function ListingDetails({
 
   return (
     <div className="listing-details">
-      <div className="topcontainer">
+      <div className="top">
         <div className="logo">
           <img src={walterlogo} alt="Walter Logo" />
         </div>

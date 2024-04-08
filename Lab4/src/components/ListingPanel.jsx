@@ -84,6 +84,7 @@ export const ListingPanel = ({ indivData, component, displayList }) => {
             </span>
           ) : component === "favourites" ? (
             <input
+            className="checkbox"
               type="checkbox"
               value={indivData.checkbox}
               onChange={(e) => handleCheckbox(e)}

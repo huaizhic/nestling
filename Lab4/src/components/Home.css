@@ -1,58 +1,43 @@
-.home{
+.home {
+    height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: black;
     background-color: #f3fdff;
-    width: 100vw;
-    height: 100vh;
     font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
 }
 
-.top {
-    width: 100vw;
-    height: 15vh;
+.bottom {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f3fdff;
-    padding: 0 20px;
+    flex-direction: row;
+    justify-content: center; /* Center children horizontally */
+    align-items: center; /* Center children vertically */
 }
 
 .box {
-    width: 50%; /* Set each box to take 50% of the width */
-    height: 100%; /* Ensure boxes are the same height as their container */
-    display: flex;
+    margin-top: 10px;
+    margin-right: 20px; /* Add margin between the boxes */
+    width: 550px;
+    height: 680px;
+    background-color: #84B4BC;
+    border-radius: 25px;
+    text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: #84B4BC; /* Set background color */
 }
 
-.bottom{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 90vw;
-
-}
-
-.blog{
+.box-a {
+    margin-top: 10px;
+    margin-right: 20px; /* Add margin between the boxes */
+    width: 550px;
+    height: 680px;
     background-color: #84B4BC;
-    width: 40vw;
-    height: 805px;
     border-radius: 25px;
     text-align: center;
     justify-content: center;
-}
-
-.about-us{
-    width: 40vw;
-    height: 805px;
-    background-color: #84B4BC;
-    border-radius: 25px;
-    margin-left: 20px;
-    text-align: center;
-    justify-content: center;
+    align-items: center;
 }
 
 .header{
@@ -61,25 +46,25 @@
 
 .header-text{
     margin-top: 20px;
-    margin-bottom: 15px;
-    font-size: 44px;
+    margin-bottom: 30px;
+    font-size: 36px;
     color: #84B4BC;
     font-weight:bold;
 }
 
 .article-reg{
+    margin-left:25px;
+    margin-bottom: 15px;
     justify-content: center;
     background-color: #002224;
-    width:550px;
-    height: 175px;
-    margin-bottom: 20px;
-    margin-left: 15px;
+    width:500px;
+    height: 195px;
     border-radius: 18px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .article-header{
-    font-size: 28px;
+    font-size: 22px;
     font-weight:bold;
     color:#f3fdff;
 }
@@ -87,15 +72,7 @@
 .article-content{
     margin-top: 5px;
     color: #f3fdff;
-}
-
-.article-small{
-    width: 550px;
-    height: 117px;
-    background-color: #002224;
-    border-radius: 18px;
-    margin-left: 15px;
-    padding: 5px;
+    font-size: 16px;
 }
 
 .about-us-content{
