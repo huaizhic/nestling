@@ -23,7 +23,7 @@ export let desiredAttributes = [
 function DesiredProperty() {
   const [currentList, setCurrentList] = useState([]);
   const [selectedLocation, setLocation] = useState("");
-  const [selectedDistance, setDistance] = useState("a");
+  const [selectedDistance, setDistance] = useState("");
   const [selectedRoomCount, setRoomCount] = useState("");
   const [selectedGFA, setGFA] = useState("");
   const [selectedAmenities1, setAmenities1] = useState("");
@@ -62,11 +62,22 @@ function DesiredProperty() {
             desiredError.message
           );
         } else {
-          const fetchedDesiredAttributes =
-            userDesiredData[0]?.desiredProperty[0];
+          // console.log(userDesiredData);
+          // console.log(userDesiredData[0]?.desiredProperty[0]);
+
+          // const fetchedDesiredAttributes =
+          //   userDesiredData[0]?.desiredProperty[0];
           // console.log(fetchedDesiredAttributes);
 
           if (userDesiredData[0].desiredProperty === null) {
+            // setLocation("Bedok");
+            // setAmenities1("primary school");
+            // setAmenities2("park");
+            // setAmenities3("supermarket");
+            // setDistance("3");
+            // setRoomCount("3");
+            // setGFA("2000");
+            // setEstimatedPrice(10000);
             setLocation("");
             setAmenities1("");
             setAmenities2("");
@@ -74,15 +85,20 @@ function DesiredProperty() {
             setDistance("");
             setRoomCount("");
             setGFA("");
-            // setEstimatedPrice
-          } else if (fetchedDesiredAttributes) {
-            setLocation(fetchedDesiredAttributes.location || "");
-            setAmenities1(fetchedDesiredAttributes.amenity1 || "");
-            setAmenities2(fetchedDesiredAttributes.amenity2 || "");
-            setAmenities3(fetchedDesiredAttributes.amenity3 || "");
-            setDistance(fetchedDesiredAttributes.distanceRadius || "");
-            setRoomCount(fetchedDesiredAttributes.roomCount || "");
-            setGFA(fetchedDesiredAttributes.grossFloorArea || "");
+            setEstimatedPrice("0");
+          } else {
+            const fetchedDesiredAttributes =
+              userDesiredData[0]?.desiredProperty[0];
+
+            if (fetchedDesiredAttributes) {
+              setLocation(fetchedDesiredAttributes.location || "");
+              setAmenities1(fetchedDesiredAttributes.amenity1 || "");
+              setAmenities2(fetchedDesiredAttributes.amenity2 || "");
+              setAmenities3(fetchedDesiredAttributes.amenity3 || "");
+              setDistance(fetchedDesiredAttributes.distanceRadius || "");
+              setRoomCount(fetchedDesiredAttributes.roomCount || "");
+              setGFA(fetchedDesiredAttributes.grossFloorArea || "");
+            }
           }
         }
       }
@@ -117,17 +133,23 @@ function DesiredProperty() {
     desiredAttributes[0].grossFloorArea = selectedGFA;
     desiredAttributes[0].price = estimatedPrice;
 
+    console.log("desiredAttributes:", desiredAttributes);
+
     const { data: userData, error: userError } = await supabase.auth.getUser();
     if (userError) {
       console.error("Error fetching user data:", userError.message);
       return;
     }
-
+    // console.log("userData:", userData);
+    // console.log("userData.email:", userData.email);
     const { data, error } = await supabase
       .from("userInfo")
       .update({ desiredProperty: desiredAttributes })
-      .eq("email", userData.email)
+      .eq("email", userData.user.email)
       .select();
+
+    // console.log("supabase data:", data);
+    // console.log("supabase error:", error);
 
     if (error) {
       console.error("Error updating desired property:", error.message);
@@ -401,6 +423,9 @@ function DesiredProperty() {
           </div>
         </div>
       )}
+      {/* <button onClick={handleSave} className="confirm">
+        Save
+      </button> */}
     </div>
   );
 }
