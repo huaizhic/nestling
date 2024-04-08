@@ -29,6 +29,7 @@
   padding-right: 20px;
   border-radius: 15px;
   margin-left: 10px;
+  color: black;
 }
 .amenities {
   margin-top: 23.5px;
@@ -175,3 +176,6 @@
   padding-right: 30px;
 }
 
+.dropdown-div h1{
+  color: black;
+}

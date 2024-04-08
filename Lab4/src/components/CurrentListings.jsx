@@ -385,7 +385,7 @@ function CurrentListings({
               style={{ color: "black" }}
               onChange={(e) => setGrossFloorArea(e.target.value)}
             />
-            <label htmlFor="Price">Price</label>
+            <label style={{ marginTop: '15px' }} htmlFor="Price">Price</label>
             <input
               type="number"
               value={housePrice}

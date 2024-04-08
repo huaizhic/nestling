@@ -5,50 +5,48 @@
     background-color: #f3fdff;
     padding-left: 20px;
     padding-right:30px;
-    padding-top: 50px;
+    padding-top: 35px;
+    padding-bottom: 60px;
     width: 100vw;
 }
 
-.navbar {
-    padding: 10px 20px;
-    color: white;
-    margin-left: 100px;
-}
-
 .navbar ul {
+    position: absolute;
     list-style-type: none;
     margin: 0;
     padding: 0;
     white-space: nowrap; /* Prevent line breaks */
+    margin-left: 280px;
+    margin-top: 5rem;
 }
 
 .navbar ul li {
     display: inline;
-    margin-left: 10px;
-    margin-left: 100px;
+    margin-left: 60px;
 }
 
 .navbar ul li a {
     text-decoration: none;
+    font-weight: bold;
     color: #002224;
-    margin-left: 20px;
-    margin-top: 20px;
 }
 
 .logo {
     display: flex;
     height: 80px;
     width: 80px;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 40px;
 }
 
 .profile-picture {
+    position: absolute;
+    margin-left: 82rem;
+    margin-top: 1.75rem;
     display: flex;
     flex-direction: column;
     height: 70px;
     width: 70px;
-    margin-left: 150px;
 }
 
 .profile-picture a {

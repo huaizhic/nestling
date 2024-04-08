@@ -31,7 +31,7 @@
 
 .search-container-current-listings {
   width: 100%;
-  height: 65vh;
+  height: 70vh;
   background-color: #6cc2e8;
   padding: 10px;
   border-radius: 15px;
@@ -82,10 +82,9 @@
 }
 
 .desiredpropsearch {
-  margin-top: 5px;
   width: 100%;
   background-color: #6cc2e8;
-  padding: 15px;
+  padding: 10px;
   border-radius: 15px;
   display: flex;
   justify-content: center;
@@ -114,7 +113,7 @@
   justify-content: space-around;
   background-color: #f3fdff;
   width: 90vw;
-  height: 80vh;
+  height: 83vh;
   margin-top: 10px;
 }
 
@@ -125,7 +124,7 @@
 
 .listings-column {
   width: 50%;
-  height: 85vh;
+  height: 83.5vh;
   display:flex;
   flex-direction: column;
   background-color: #f3fdff;
@@ -144,7 +143,7 @@
 }
 
 .listings-container {
-  height: 83.5%;
+  height: 700px;
   background-color: #fccaca;
   border-radius: 15px;
   margin-left: 5px;
@@ -165,4 +164,6 @@
 
 .amenities-container {
   display: flex;
+  padding: 0px;
+  margin-bottom: 0px;
 }

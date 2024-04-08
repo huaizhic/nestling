@@ -12,16 +12,14 @@ House Price: 3646000
 Gross Floor Area: 1432
 
 Property 2:
-Location: 71 Cairnhill Road 
+Location: Bukit Panjang
 Desired Amenities:
-  - Amenity 1: NEWTON MRT STATION
-  - Amenity 1 distance: 0.425792599
-  - Amenity 2: NTUC Fairprice Co-operative Ltd
-  - Amenity 2 distance: 0.490766488
-  - Amenity 3: ANGLO-CHINESE SCHOOL (JUNIOR)
-  - Amenity 3 distance: 0.535205402
+  - Amenity 1: primary school
+  - Amenity 2: park
+  - Amenity 3: station
 Room Count: 4
-House Price: 5230000
-Gross Floor Area: 1496
+Distance Radius: 3
+House Price: 5509714
+Gross Floor Area: 450
 
 North: Woodlands, Marsiling, Kranji, Yew Tee, Admiralty, Sembawang, Canberra, Yishun, Khatib, Yio Chu Kang, Ang Mo Kio, Bishan, Braddell, Toa Payoh, Novena, Newton West: Jurong East, Bukit Batok, Bukit Gombak, Choa Chu Kang, Boon Lay, Lakeside, Chinese Garden, Clementi, Dover, Commonwealth, Buona Vista, Queenstown, Redhill, Tiong Bahru, Outram Park East:Pasir Ris, Tampines, Simei, Tanah Merah, Expo, Changi Airport, Paya Lebar, Aljunied, Eunos, Kembangan, Bedok, Tanjong Katong, Marine Parade, Dakota

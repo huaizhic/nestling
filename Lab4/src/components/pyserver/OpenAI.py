@@ -126,7 +126,7 @@ def users():
                            "East:Pasir Ris, Tampines, Simei, Tanah Merah, Expo, Changi Airport, Paya Lebar, Aljunied, Eunos, Kembangan, Bedok, Tanjong Katong, Marine Parade, Dakota")
 
     query = "As a housing estate agent, help me start comparing two properties to guide me in my decision-making. Here is the template of how to answer : Property A offers [attributes given], while Property B [attributes given]. Considering common priorities like family-friendliness, accessibility, and lifestyle amenities, I'd recommend Property A for [common priorites] and Property B for those prioritizing [common priorites] options. In addtion, the location are grouped in terms of North east west of singapore"
-
+    #query = "As a housing estate agent, help me start comparing my search property attributes (named property  2)  with Property 1 to guide me in my decision-making if i should buy this house or not. Here is the template of how to answer : Your Search property attributes are [attributes given with House Price], while Property 1  [attributes given with  House Price]. Then start explaining how property 1 is a great suit for the user as [state the similarities while also considering common priorities like family-friendliness, accessibility, and lifestyle amenities].  In addition,  state the location of property grouped in terms of North east west of Singapore."
     # get the data from the output.txt file and feed it into the AI
     loader = TextLoader("output.txt")
     index = VectorstoreIndexCreator().from_loaders([loader])
