@@ -65,7 +65,17 @@ function DesiredProperty() {
           const fetchedDesiredAttributes =
             userDesiredData[0]?.desiredProperty[0];
           // console.log(fetchedDesiredAttributes);
-          if (fetchedDesiredAttributes) {
+
+          if (userDesiredData[0].desiredProperty === null) {
+            setLocation("");
+            setAmenities1("");
+            setAmenities2("");
+            setAmenities3("");
+            setDistance("");
+            setRoomCount("");
+            setGFA("");
+            // setEstimatedPrice
+          } else if (fetchedDesiredAttributes) {
             setLocation(fetchedDesiredAttributes.location || "");
             setAmenities1(fetchedDesiredAttributes.amenity1 || "");
             setAmenities2(fetchedDesiredAttributes.amenity2 || "");
@@ -285,75 +295,75 @@ function DesiredProperty() {
       </div>
 
       {/*<div className="bottom">*/}
-        <div className="header-section">
-          <h1 className="header">Desired Property</h1>
-        </div>
+      <div className="header-section">
+        <h1 className="header">Desired Property</h1>
+      </div>
 
-        <div className="dropdown-div">
-          <h3 className="location">Location</h3>
-          <Dropdown
-            options={locations}
-            selectedOption={selectedLocation}
-            onSelect={setLocation}
-          />
-        </div>
+      <div className="dropdown-div">
+        <h3 className="location">Location</h3>
+        <Dropdown
+          options={locations}
+          selectedOption={selectedLocation}
+          onSelect={setLocation}
+        />
+      </div>
 
-        <div className="amenities">
-          <div>
-            <h3 className="amenities-div">Amenities</h3>
+      <div className="amenities">
+        <div>
+          <h3 className="amenities-div">Amenities</h3>
+        </div>
+        <div className="amenities-dropdowns">
+          <div className="amenities-1">
+            <Dropdown
+              options={amenities}
+              selectedOption={selectedAmenities1}
+              onSelect={setAmenities1}
+            />
           </div>
-          <div className="amenities-dropdowns">
-            <div className="amenities-1">
-              <Dropdown
-                options={amenities}
-                selectedOption={selectedAmenities1}
-                onSelect={setAmenities1}
-              />
-            </div>
-            <div className="amenities-2">
-              <Dropdown
-                options={amenities}
-                selectedOption={selectedAmenities2}
-                onSelect={setAmenities2}
-              />
-            </div>
-            <div className="amenities-3">
-              <Dropdown
-                options={amenities}
-                selectedOption={selectedAmenities3}
-                onSelect={setAmenities3}
-              />
-            </div>
+          <div className="amenities-2">
+            <Dropdown
+              options={amenities}
+              selectedOption={selectedAmenities2}
+              onSelect={setAmenities2}
+            />
+          </div>
+          <div className="amenities-3">
+            <Dropdown
+              options={amenities}
+              selectedOption={selectedAmenities3}
+              onSelect={setAmenities3}
+            />
           </div>
         </div>
+      </div>
 
-        <div className="dropdown-div">
-          <h3 className="distance">Distance (km)</h3>
-          <Dropdown
-            options={distance}
-            selectedOption={selectedDistance}
-            onSelect={setDistance}
-          />
-        </div>
+      <div className="dropdown-div">
+        <h3 className="distance">Distance (km)</h3>
+        <Dropdown
+          options={distance}
+          selectedOption={selectedDistance}
+          onSelect={setDistance}
+        />
+      </div>
 
-        <div className="dropdown-div">
-          <h3 className="room-count">Room Count</h3>
-          <Dropdown
-            options={roomcount}
-            selectedOption={selectedRoomCount}
-            onSelect={setRoomCount}
-          />
-        </div>
+      <div className="dropdown-div">
+        <h3 className="room-count">Room Count</h3>
+        <Dropdown
+          options={roomcount}
+          selectedOption={selectedRoomCount}
+          onSelect={setRoomCount}
+        />
+      </div>
 
-        <div className="dropdown-div">
-          <h3 className="gfa">GFA</h3>
-          <input
-            type="number"
-            value={selectedGFA}
-            className="dropdown"
-            onChange={(e) => setGFA(e.target.value)}
-          />
-        </div>
+      <div className="dropdown-div">
+        <h3 className="gfa">GFA</h3>
+        <input
+          type="number"
+          value={selectedGFA}
+          className="dropdown"
+          onChange={(e) => setGFA(e.target.value)}
+        />
+      </div>
       {/*</div>*/}
 
       {!isVisible && (
@@ -363,7 +373,10 @@ function DesiredProperty() {
               handleSubmit();
               toggleVisibility;
             }}
-            className="generate-price">Generate Price</button>
+            className="generate-price"
+          >
+            Generate Price
+          </button>
         </div>
       )}
       {isVisible && (
@@ -375,8 +388,16 @@ function DesiredProperty() {
             </div>
           </div>
           <div className="buttons">
-            <div><button onClick={handleSubmit2} className="reconfigure">Re-generate</button></div>
-            <div><button onClick={handleSave} className="confirm">Save</button></div>
+            <div>
+              <button onClick={handleSubmit2} className="reconfigure">
+                Re-generate
+              </button>
+            </div>
+            <div>
+              <button onClick={handleSave} className="confirm">
+                Save
+              </button>
+            </div>
           </div>
         </div>
       )}
