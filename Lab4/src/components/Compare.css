@@ -9,77 +9,6 @@
   font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
 }
 
-.topcontainer {
-  width: 100vw;
-  height: 15vh;
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  padding-bottom: 0px;
-  background-color: #f3fdff;
-}
-
-.navbar {
-  width: 794px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  margin: 50px 0 30px 200px;
-  background-color: #f3fdff;
-}
-
-.navbar ul {
-  background-color: #f3fdff;
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 60px;
-}
-
-.navbar ul li {
-  padding-left: 70px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-.navbar ul li:first-child {
-  padding-left: 70px;
-}
-
-.navbar ul li:last-child {
-  padding-right: 70px;
-}
-
-.logo {
-  display: flex;
-  height: 80px;
-  width: 80px;
-}
-
-.profile-picture {
-  display: flex;
-  flex-direction: column;
-  height: 70px;
-  width: 70px;
-}
-
-.profile-picture a {
-  text-decoration: none;
-  color: black;
-  display: flex;
-  justify-content: center;
-}
-
-.logo img,
-.profile-picture img {
-  max-width: 100%;
-  height: auto;
-}
-
 .overall-container {
   display: flex;
   width: 70vw;
@@ -88,19 +17,20 @@
 }
 
 .desired-prop-col {
-  width: 50%;
+  width: 45%;
   height: 100%;
 }
 
 .listing-col {
-  width: 50%;
+  width: 45%;
   height: 100%;
 }
 
 .search-container {
-  width: 100%;
+  padding:10px;
+  width: 90%;
   height: 100%;
-  margin-right: 10px;
+  margin-right: 20px;
   border-radius: 15px;
   background-color: #6cc2e8;
 }
@@ -109,32 +39,14 @@
   width: 100%;
   font-weight: bold;
   text-align: center;
-  padding-top: 10px;
 }
 
 .listing-info-container {
-  width: 100%;
+  width: 90%;
   height: 100%;
-  margin-left: 10px;
+  margin-left: 20px;
   border-radius: 15px;
   background-color: #fccaca;
-}
-
-.field h3 {
-  background-color: #670f0f;
-  color: white;
-  border-radius: 15px;
-  font-weight: bold;
-  padding: 6px;
-  padding-left: 10px;
-  font-size: 15px;
-}
-
-.data {
-  padding-left: 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #670f0f;
 }
 
 .listing-info-container h2 {
@@ -146,29 +58,17 @@
 }
 
 .search h2 {
-  padding-bottom: 5px;
-  padding-top: 0px;
   font-size: 2rem;
   font-weight: bold;
   color: #002224;
-}
-
-.search-container label {
-  width: 100%;
-  background-color: #002224;
-  color: white;
-  border-radius: 15px;
-  font-weight: bold;
-  padding: 4px;
-  padding-left: 10px;
-  font-size: 15px;
+  margin-bottom: -5px;
 }
 
 .search-container span {
   padding-left: 7px;
   padding-top: 7px;
   padding-bottom: 7px;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
   color: #002224;
 }
@@ -208,8 +108,6 @@
 .prompt {
   position: absolute;
   right: 0;
-  margin-top: 38rem;
-  margin-right: 10rem;
   background-color: #bd5084;
   padding: 3px;
   padding-left: 6px;
@@ -217,4 +115,39 @@
   border-radius: 3px;
   color: white;
   font-weight: bold;
+}
+
+.label{
+  background-color: #002224;
+  width: 490px;
+  height: 30px;
+  border-radius: 8px;
+  color: #f3fdff;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-top: 1px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.amenities-section {
+  display:flex;
+  flex-direction: column;
+  margin-left:8px;
+  font-size: 15px;
+  font-weight: 550;
+  color: #002224;
+}
+
+.label-1{
+  background-color: #002224;
+  width: 490px;
+  height: 30px;
+  border-radius: 8px;
+  color: #f3fdff;
+  font-size: 18px;
+  padding-left: 10px;
+  padding-top: 1px;
+  font-weight: bold;
+  margin-top: 80px;
 }

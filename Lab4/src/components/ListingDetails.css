@@ -9,78 +9,8 @@
   font-family: "Plus Jakarta Sans", Montserrat, sans-serif;
 }
 
-.topcontainer {
-  width: 100vw;
-  height: 15vh;
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  padding-bottom: 0px;
-  background-color: #f3fdff;
-}
-
-.navbar {
-  width: 794px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  margin: 50px 0 30px 200px;
-  background-color: #f3fdff;
-}
-
-.navbar ul {
-  background-color: #f3fdff;
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 60px;
-}
-
-.navbar ul li {
-  padding-left: 70px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-.navbar ul li:first-child {
-  padding-left: 70px;
-}
-
-.navbar ul li:last-child {
-  padding-right: 70px;
-}
-
-.logo {
-  display: flex;
-  height: 80px;
-  width: 80px;
-}
-
-.profile-picture {
-  display: flex;
-  flex-direction: column;
-  height: 70px;
-  width: 70px;
-}
-
-.profile-picture a {
-  text-decoration: none;
-  color: black;
-  display: flex;
-  justify-content: center;
-}
-
-.logo img,
-.profile-picture img {
-  max-width: 100%;
-  height: auto;
-}
-
 .infoContainer {
+  margin-top: 10px;
   display: flex;
   justify-content: space-around;
   width: 70vw;
@@ -92,14 +22,15 @@
 
 .compareButton button {
   height: 60px;
-  width: 292px;
+  width: 250px;
   font-weight: bold;
   background-color: #670f0f;
   color: white;
   margin-top: 10px;
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
+  padding-top: 7px;
 }
 
 .imgColumn {

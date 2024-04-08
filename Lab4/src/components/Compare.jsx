@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import walterlogo from "../../src/assets/images/walterlogo.png";
 import greenwalter from "../../src/assets/images/greenwalter.png";
 import "./Compare.css";
+import './Navbar.css';
 import emptyimage from "../assets/images/emptyimage.png";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -239,7 +240,7 @@ function Compare({
   }
   return (
     <div className="compare">
-      <div className="topcontainer">
+      <div className="top">
         <div className="logo">
           <img src={walterlogo} alt="Walter Logo" />
         </div>
@@ -273,28 +274,32 @@ function Compare({
         <div className="desired-prop-col">
           <div className="search-container">
             <div className="search">
-              <h2>Search</h2>
+              <h2>Search Parameters</h2>
             </div>
-            <label htmlFor="Location">Location</label>
+            <div className="label" htmlFor="Location">Location</div>
             <span>{locationInput}</span>
 
-            <label htmlFor="Amenities">Amenities</label>
-            <span>{amenityInput1}</span>
-            <span>{amenityInput2}</span>
-            <span>{amenityInput3}</span>
+            <div className="label" htmlFor="Amenities">Amenities</div>
+            <div className="amenities-section">
+              <div>{amenityInput1}</div>
+              <div>{amenityInput2}</div>
+              <div>{amenityInput3}</div>
+            </div>
 
-            <label htmlFor="Distance">
-              Preferred Distance From Property To Amenities (KM)
-            </label>
+            <div className="label" htmlFor="Distance">
+              Distance From Property To Amenities (KM)
+            </div>
             <span>{distanceRadius}</span>
 
-            <label htmlFor="Room Count">Room Count</label>
+            <div className="label-1" htmlFor="Room Count">Room Count</div>
             <span>{roomCountInput}</span>
-            <label htmlFor="GFA(gross floor area)">
+
+            <div className="label" htmlFor="GFA(gross floor area)">
               GFA (gross floor area)
-            </label>
+            </div>
             <span>{grossFloorArea} sqm</span>
-            <label htmlFor="price">Price</label>
+
+            <div className="label" htmlFor="price">Price</div>
             <span>{housePrice} </span>
           </div>
         </div>

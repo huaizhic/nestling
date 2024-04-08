@@ -283,10 +283,12 @@ function DesiredProperty() {
           <Link to="/account-details">Account</Link>
         </div>
       </div>
-      <div className="bottom">
+
+      {/*<div className="bottom">*/}
         <div className="header-section">
-          <h2 className="header">Desired Property</h2>
+          <h1 className="header">Desired Property</h1>
         </div>
+
         <div className="dropdown-div">
           <h3 className="location">Location</h3>
           <Dropdown
@@ -324,6 +326,7 @@ function DesiredProperty() {
             </div>
           </div>
         </div>
+
         <div className="dropdown-div">
           <h3 className="distance">Distance (km)</h3>
           <Dropdown
@@ -351,7 +354,8 @@ function DesiredProperty() {
             onChange={(e) => setGFA(e.target.value)}
           />
         </div>
-      </div>
+      {/*</div>*/}
+
       {!isVisible && (
         <div>
           <button
@@ -359,10 +363,7 @@ function DesiredProperty() {
               handleSubmit();
               toggleVisibility;
             }}
-            className="generate-price"
-          >
-            Generate Price
-          </button>
+            className="generate-price">Generate Price</button>
         </div>
       )}
       {isVisible && (
@@ -374,16 +375,8 @@ function DesiredProperty() {
             </div>
           </div>
           <div className="buttons">
-            <div>
-              <button onClick={handleSubmit2} className="reconfigure">
-                Re-generate
-              </button>
-            </div>
-            <div>
-              <button onClick={handleSave} className="confirm">
-                Save
-              </button>
-            </div>
+            <div><button onClick={handleSubmit2} className="reconfigure">Re-generate</button></div>
+            <div><button onClick={handleSave} className="confirm">Save</button></div>
           </div>
         </div>
       )}

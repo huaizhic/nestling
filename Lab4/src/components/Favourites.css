@@ -1,5 +1,5 @@
 .favourites {
-  height: 1100px;
+  height: 1000px;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -32,8 +32,10 @@
 }
 
 .the-rest {
+  margin-top: 10px;
+  padding-top: 5px;
   width: 1295px;
-  height: 700px;
+  height: 380px;
   background-color: #fccaca;
   border-radius: 15px;
   justify-content: center; /* Center children horizontally */
@@ -84,7 +86,7 @@
 }
 
 .button-div {
-  margin-top: 10px;
+  margin-top: 20px;
   width: 200px;
   height: 60px;
   background-color: #002224;
@@ -95,3 +97,20 @@
   padding-left: 32px;
   padding-top: 5px;
 }
+
+.panelWrapper {
+  position: relative;
+  /* Other styles */
+}
+
+.checkbox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border:0px;
+  transform: scale(1.5); /* Enlarge the checkbox */
+  /* Adjust as necessary for alignment */
+  margin-right: 10px; /* Add some space from the right edge */
+  margin-top: 10px; /* Add some space from the top edge */
+}
+
