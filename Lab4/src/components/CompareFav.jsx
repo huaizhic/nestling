@@ -202,128 +202,80 @@ function Compare({
         </div>
       </div>
       <div className="overall-container">
-        <div className="desired-prop-col">
-          <div className="listing-info-container">
-            <h2>{leftListing.projectName}</h2>
-            {/* <div className="save-button">
-              <button onClick={(e) => handleSave(e)}>
-                <img src={whitecross} />
-              </button>
-            </div> */}
-            <div className="field">
-              <h3>Location </h3>
-              {/* <h3> {listing.nearestMRT}</h3> */}
-              <span id="locationField"></span>
+        <div className="section">
+          <div className="project-name">{leftListing.projectName}</div>
+          <div>
+            <div className="header">Location</div>
+            <div className="data-f">{leftListing.location}</div>
+          </div>
+          <div className="header">Amenities & Their Distances From Property</div>
+          <div className="amenities-section">
+            <div className="f-amenities">
+              <div className="data-fkm">Nearest School: {leftListing.amenity3}</div>
+              <div className="data-km">{parseFloat(leftListing.amenity3Distance).toFixed(1)} km</div>
             </div>
-            <h3 className="data">{leftListing.location}</h3>
-            <div className="field">
-              <h3>Amenities & Their Distances From Property</h3>
-              {/* <button
-                    onClick={() => {
-                        console.log("nicoleData:", nicoleData);
-                    }}
-                    >
-                    hi
-                    </button> */}
-              <span id="amenitiesField"></span>
+            <div className="f-amenities">
+              <div className="data-fkm">Nearest MRT: {leftListing.amenity1}</div>
+              <div className="data-km">{parseFloat(leftListing.amenity1Distance).toFixed(1)} km</div>
             </div>
-            <h3 className="data">
-              Nearest School: {leftListing.amenity3}
-              <br /> {parseFloat(leftListing.amenity3Distance).toFixed(1)} km
-              away
-            </h3>
-            <h3 className="data">
-              Nearest MRT: {leftListing.amenity1}
-              <br /> {parseFloat(leftListing.amenity1Distance).toFixed(1)} km
-              away
-            </h3>
-            <h3 className="data">
-              Nearest Park: {leftListing.amenity4}
-              <br /> {parseFloat(leftListing.amenity4Distance).toFixed(1)} km
-              away
-            </h3>
-            <h3 className="data">
-              Nearest Market: {leftListing.amenity2}
-              <br /> {parseFloat(leftListing.amenity2Distance).toFixed(1)} km
-              away
-            </h3>
-            <div className="field">
-              <h3>Room Count</h3>
-              <span id="roomCountField"></span>
+            <div className="f-amenities">
+              <div className="data-fkm">Nearest Park: {leftListing.amenity4}</div>
+              <div className="data-km">{parseFloat(leftListing.amenity4Distance).toFixed(1)} km</div>
             </div>
-            <h3 className="data">{leftListing.roomCount}</h3>
-            <div className="field">
-              <h3>GFA (gross floor area)</h3>
-              <span id="gfaField"></span>
+            <div className="f-amenities">
+              <div className="data-fkm">Nearest Market: {leftListing.amenity2}</div>
+              <div className="data-km">{parseFloat(leftListing.amenity2Distance).toFixed(1)} km</div>
             </div>
-            <h3 className="data">{leftListing.GFA} sqm</h3>
-            <div className="field">
-              <h3>Price</h3>
-              <span id="price"></span>
-            </div>
-            <h3 className="data">{leftListing.price} </h3>
+          </div>
+          <div>
+            <div className="header">Room Count</div>
+            <h3 className="data-f">{leftListing.roomCount}</h3>
+          </div>
+          <div>
+            <div className="header">GFA (gross floor area)</div>
+            <div className="data-f">{leftListing.GFA} sqm</div>
+          </div>
+          <div>
+            <div className="header">Price</div>
+            <div className="data-f">{leftListing.price} </div>
           </div>
         </div>
-        <div className="listing-col">
-          <div className="listing-info-container">
-            <h2>{rightListing.projectName}</h2>
-            {/* <div className="save-button">
-              <button onClick={(e) => handleSave(e)}>
-                <img src={whitecross} />
-              </button>
-            </div> */}
-            <div className="field">
-              <h3>Location </h3>
-              {/* <h3> {listing.nearestMRT}</h3> */}
-              <span id="locationField"></span>
+        <div className="section-a">
+          <div className="project-name">{rightListing.projectName}</div>
+          <div>
+            <div className="header">Location</div>
+            <div className="data-f">{rightListing.location}</div>
+          </div>
+          <div className="header">Amenities & Their Distances From Property</div>
+          <div className="amenities-section">
+            <div className="f-amenities">
+              <div className="data-fkm">Nearest School: {rightListing.amenity3}</div>
+              <div className="data-km">{parseFloat(rightListing.amenity3Distance).toFixed(1)} km</div>
             </div>
-            <h3 className="data">{rightListing.location}</h3>
-            <div className="field">
-              <h3>Amenities & Their Distances From Property</h3>
-              {/* <button
-                    onClick={() => {
-                        console.log("nicoleData:", nicoleData);
-                    }}
-                    >
-                    hi
-                    </button> */}
-              <span id="amenitiesField"></span>
+            <div className="f-amenities">
+              <div className="data-fkm">Nearest MRT: {rightListing.amenity1}</div>
+              <div className="data-km">{parseFloat(rightListing.amenity1Distance).toFixed(1)} km</div>
             </div>
-            <h3 className="data">
-              Nearest School: {rightListing.amenity3}
-              <br /> {parseFloat(rightListing.amenity3Distance).toFixed(1)} km
-              away
-            </h3>
-            <h3 className="data">
-              Nearest MRT: {rightListing.amenity1}
-              <br /> {parseFloat(rightListing.amenity1Distance).toFixed(1)} km
-              away
-            </h3>
-            <h3 className="data">
-              Nearest Park: {rightListing.amenity4}
-              <br /> {parseFloat(rightListing.amenity4Distance).toFixed(1)} km
-              away
-            </h3>
-            <h3 className="data">
-              Nearest Market: {rightListing.amenity2}
-              <br /> {parseFloat(rightListing.amenity2Distance).toFixed(1)} km
-              away
-            </h3>
-            <div className="field">
-              <h3>Room Count</h3>
-              <span id="roomCountField"></span>
+            <div className="f-amenities">
+              <div className="data-fkm">Nearest Park: {rightListing.amenity4}</div>
+              <div className="data-km">{parseFloat(rightListing.amenity4Distance).toFixed(1)} km</div>
             </div>
-            <h3 className="data">{rightListing.roomCount}</h3>
-            <div className="field">
-              <h3>GFA (gross floor area)</h3>
-              <span id="gfaField"></span>
+            <div className="f-amenities">
+              <div className="data-fkm">Nearest Market: {rightListing.amenity2}</div>
+              <div className="data-km">{parseFloat(rightListing.amenity2Distance).toFixed(1)} km</div>
             </div>
-            <h3 className="data">{rightListing.GFA} sqm</h3>
-            <div className="field">
-              <h3>Price</h3>
-              <span id="price"></span>
-            </div>
-            <h3 className="data">{rightListing.price} </h3>
+          </div>
+          <div>
+            <div className="header">Room Count</div>
+            <h3 className="data-f">{rightListing.roomCount}</h3>
+          </div>
+          <div>
+            <div className="header">GFA (gross floor area)</div>
+            <div className="data-f">{rightListing.GFA} sqm</div>
+          </div>
+          <div>
+            <div className="header">Price</div>
+            <div className="data-f">{rightListing.price} </div>
           </div>
         </div>
       </div>
