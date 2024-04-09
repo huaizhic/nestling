@@ -245,7 +245,7 @@ function ListingDetails({
           <h3 className="imgprojectname">{listing.projectName}</h3>
           <h3 className="imgaddress">{listing.address}</h3>
         </div>
-        <div className="save-button">
+        <div className="save-button-listing-details">
           <button onClick={(e) => handleSave(e)}>
             <img src={whitecross} />
           </button>
