@@ -11,9 +11,9 @@
 
 .overall-container {
   display: flex;
+  flex-direction: row;
+  margin-top: 20px;
   width: 70vw;
-  height: 65vh;
-  background-color: #f3fdff;
 }
 
 .desired-prop-col {
@@ -57,7 +57,7 @@
   color: #670f0f;
 }
 
-.search h2 {
+.search {
   font-size: 2rem;
   font-weight: bold;
   color: #002224;
@@ -76,7 +76,7 @@
 .save-button button {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 30px;
   margin-top: 6rem;
   margin-right: 11.5rem;
   height: 64px;
@@ -106,7 +106,8 @@
 
 .prompt {
   position: absolute;
-  right: 0;
+  top: 675px;
+  right: 180px;
   background-color: #bd5084;
   padding: 3px;
   padding-left: 6px;
@@ -132,7 +133,6 @@
 .amenities-section {
   display:flex;
   flex-direction: column;
-  margin-left:8px;
   font-size: 15px;
   font-weight: 550;
   color: #002224;
@@ -148,6 +148,7 @@
   padding-left: 10px;
   padding-top: 1px;
   font-weight: bold;
+<<<<<<< HEAD
   margin-top: 80px;
 }
 
@@ -162,4 +163,24 @@
   color: white;
   font-weight: bold;
   background-color: green;
+=======
+  margin-top: 50px;
+}
+
+.section-b{
+  margin-left: 20px;
+  width: 600px;
+  height: auto;
+  margin-right: 20px;
+  background-color: #6CC2E8;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.output{
+  color:#002224;
+  font-size: 16px;
+  font-weight:bold;
+  margin-left: 5px;
+>>>>>>> 676333420a3c61754b8f14ac037a5baaf977ef4c
 }

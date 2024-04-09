@@ -318,7 +318,7 @@ function DesiredProperty() {
 
       {/*<div className="bottom">*/}
       <div className="header-section">
-        <h1 className="header">Desired Property</h1>
+        <div className="header-d">Desired Property</div>
       </div>
 
       <div className="dropdown-div">

@@ -126,7 +126,7 @@ export default function Favourites({
         </div>
       </div>
       <div>
-        <div className="header">Favourites</div>
+        <div className="header-f">Favourites</div>
         <div className="the-rest">
           {displayList.map((property) => {
             return (
