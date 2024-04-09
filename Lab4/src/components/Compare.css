@@ -1,6 +1,5 @@
-.compare {
-  height: 100vh;
-  width: 100vw;
+.compare-page {
+  height: 135vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -157,7 +156,7 @@
 
 .AI-output button{
   border-radius: 10px;
-  margin-left: 325px;
+  margin-left: 300px;
   color: white;
   font-weight: bold;
   background-color: green;
@@ -182,4 +181,13 @@
 
 .header{
   font-weight: bold;
+}
+
+.speaking-walter-img img{
+  position: absolute;
+  left: 0;
+  top: 55rem;
+  margin-left: 4rem;
+  height: auto;
+  width: 150px;
 }

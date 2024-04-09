@@ -12,7 +12,8 @@ import { percentageMatchLogic } from "./percentageMatchLogic";
 import { locations } from "../App";
 import whitecross from "../../src/assets/images/whitecross.png";
 import axios from "axios";
-
+import speaking_walter from "../../src/assets/images/speaking_walter.png";
+import walter_loudhailer from "../../src/assets/images/walter_loudhailer.png";
 
 export let tempJSON = "";
 
@@ -243,7 +244,7 @@ function Compare({
 
   const [showButton, setShowButton] = useState(true);
   return (
-    <div className="compare">
+    <div className="compare-page">
       <div className="top">
         <div className="logo">
           <img src={walterlogo} alt="Walter Logo" />
@@ -348,23 +349,13 @@ function Compare({
         {showButton ? (
                 <button onClick={handleGenerate}>Generate AI Comparison</button>
             ) : (
+              <div>
                 <div className="AI-output-text"><p>{AIoutput}</p></div>
+                <div className="speaking-walter-img">
+                  <img src={walter_loudhailer} alt="Speaking walter" />
+                </div>
+              </div>
             )}
-        {/* <p>
-          Property 1 offers a location in Tampines, with a room count of 4 and a
-          gross floor area of 1324. It is within close proximity to Tampines
-          West MRT Station (1.379991485 distance), PRIME SUPERMARKET LIMITED
-          (0.867331326 distance), and DAMAI SECONDARY SCHOOL (1.220755183
-          distance). Property 2, on the other hand, is also located in Tampines
-          but has a room count of 3 and a larger gross floor area of 1500. It is
-          within a distance radius of 2 to schools, supermarkets, and parks.
-          Considering common priorities like family-friendliness, accessibility,
-          and lifestyle amenities, I'd recommend Property 1 for its closer
-          proximity to amenities and Property 2 for its larger floor area and
-          access to schools, supermarkets, and parks. In addition, Property 1 is
-          located in the East region of Singapore while Property 2 is located in
-          the North East region.
-        </p> */}
       </div>
     </div>
   );
