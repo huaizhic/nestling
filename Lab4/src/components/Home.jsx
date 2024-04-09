@@ -48,8 +48,8 @@ export default function Home() {
       <div className="bottom">
         <div className="box-a">
           <div className="articles-container">
-            <div className="header">
-              <h2 className="header-text">What's Chirping!</h2>
+            <div className="header-h">
+              <h2 className="header-text-h">What's Chirping!</h2>
             </div>
             <div className="article-reg">
               <div className="article-content">
@@ -90,7 +90,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="article-reg">
+            <div className="article-small">
               <div className="article-content">
                 <div>
                   <Link to="/article" className="article-header">
@@ -101,9 +101,7 @@ export default function Home() {
                   <p className="article-content">
                     read testimonials from previous clients on how they could
                     find their dream home with just a simple search! and that
-                    too, for a reasonable price. read testimonials from previous
-                    clients on how they could find their dream home with just a
-                    simple search!
+                    too, for a reasonable price.
                   </p>
                 </div>
               </div>
@@ -112,8 +110,8 @@ export default function Home() {
         </div>
 
         <div className="box-a">
-          <div className="header">
-            <h2 className="header-text">About us!</h2>
+          <div className="header-h">
+            <h2 className="header-text-h">About us!</h2>
           </div>
           <div>
             <p className="about-us-content">
@@ -135,9 +133,7 @@ export default function Home() {
               houses currently on the market. Whether you are a prospective
               buyer, seller, or simply a curious observer, our commitment is to
               deliver accurate, up-to-date information to guide you on your
-              journey through the world of real estate. Join us as we transform
-              the way you perceive, assess, and navigate the housing market,
-              making your homeownership dreams a well-informed reality. Welcome
+              journey through the world of real estate. Welcome
               to Nestling – Where Homes and Insights Unite.
             </p>
           </div>
