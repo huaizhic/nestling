@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./CompareFav.css";
-import {Navbar} from "./Navbar.jsx";
+import { Navbar } from "./Navbar.jsx";
 import emptyimage from "../assets/images/emptyimage.png";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -109,6 +109,7 @@ function Compare({
         roomCount: selection[0].roomCount,
         price: selection[0].price,
         GFA: selection[0].GFA,
+        imageURL: selection[0].imageURL,
       });
 
       setRightListing({
@@ -124,6 +125,7 @@ function Compare({
         roomCount: selection[1].roomCount,
         price: selection[1].price,
         GFA: selection[1].GFA,
+        imageURL: selection[1].imageURL,
       });
 
       console.log("tempData:", tempData);
@@ -164,6 +166,7 @@ function Compare({
   }
 
   function handleGenerate() {
+    // console.log(leftListing);
     withPython(tempJSON);
   }
 
@@ -174,26 +177,50 @@ function Compare({
         <div className="section">
           <div className="project-name">{leftListing.projectName}</div>
           <div>
+            <img
+              style={{ width: "300px", height: "200px" }}
+              src={leftListing.imageURL}
+            />
+          </div>
+          <div>
             <div className="header">Location</div>
             <div className="data-f">{leftListing.location}</div>
           </div>
-          <div className="header">Amenities & Their Distances From Property</div>
+          <div className="header">
+            Amenities & Their Distances From Property
+          </div>
           <div className="amenities-section">
             <div className="f-amenities">
-              <div className="data-fkm">Nearest School: {leftListing.amenity3}</div>
-              <div className="data-km">{parseFloat(leftListing.amenity3Distance).toFixed(1)} km</div>
+              <div className="data-fkm">
+                Nearest School: {leftListing.amenity3}
+              </div>
+              <div className="data-km">
+                {parseFloat(leftListing.amenity3Distance).toFixed(1)} km
+              </div>
             </div>
             <div className="f-amenities">
-              <div className="data-fkm">Nearest MRT: {leftListing.amenity1}</div>
-              <div className="data-km">{parseFloat(leftListing.amenity1Distance).toFixed(1)} km</div>
+              <div className="data-fkm">
+                Nearest MRT: {leftListing.amenity1}
+              </div>
+              <div className="data-km">
+                {parseFloat(leftListing.amenity1Distance).toFixed(1)} km
+              </div>
             </div>
             <div className="f-amenities">
-              <div className="data-fkm">Nearest Park: {leftListing.amenity4}</div>
-              <div className="data-km">{parseFloat(leftListing.amenity4Distance).toFixed(1)} km</div>
+              <div className="data-fkm">
+                Nearest Park: {leftListing.amenity4}
+              </div>
+              <div className="data-km">
+                {parseFloat(leftListing.amenity4Distance).toFixed(1)} km
+              </div>
             </div>
             <div className="f-amenities">
-              <div className="data-fkm">Nearest Market: {leftListing.amenity2}</div>
-              <div className="data-km">{parseFloat(leftListing.amenity2Distance).toFixed(1)} km</div>
+              <div className="data-fkm">
+                Nearest Market: {leftListing.amenity2}
+              </div>
+              <div className="data-km">
+                {parseFloat(leftListing.amenity2Distance).toFixed(1)} km
+              </div>
             </div>
           </div>
           <div>
@@ -212,26 +239,50 @@ function Compare({
         <div className="section-a">
           <div className="project-name">{rightListing.projectName}</div>
           <div>
+            <img
+              style={{ width: "300px", height: "200px" }}
+              src={rightListing.imageURL}
+            />
+          </div>
+          <div>
             <div className="header">Location</div>
             <div className="data-f">{rightListing.location}</div>
           </div>
-          <div className="header">Amenities & Their Distances From Property</div>
+          <div className="header">
+            Amenities & Their Distances From Property
+          </div>
           <div className="amenities-section">
             <div className="f-amenities">
-              <div className="data-fkm">Nearest School: {rightListing.amenity3}</div>
-              <div className="data-km">{parseFloat(rightListing.amenity3Distance).toFixed(1)} km</div>
+              <div className="data-fkm">
+                Nearest School: {rightListing.amenity3}
+              </div>
+              <div className="data-km">
+                {parseFloat(rightListing.amenity3Distance).toFixed(1)} km
+              </div>
             </div>
             <div className="f-amenities">
-              <div className="data-fkm">Nearest MRT: {rightListing.amenity1}</div>
-              <div className="data-km">{parseFloat(rightListing.amenity1Distance).toFixed(1)} km</div>
+              <div className="data-fkm">
+                Nearest MRT: {rightListing.amenity1}
+              </div>
+              <div className="data-km">
+                {parseFloat(rightListing.amenity1Distance).toFixed(1)} km
+              </div>
             </div>
             <div className="f-amenities">
-              <div className="data-fkm">Nearest Park: {rightListing.amenity4}</div>
-              <div className="data-km">{parseFloat(rightListing.amenity4Distance).toFixed(1)} km</div>
+              <div className="data-fkm">
+                Nearest Park: {rightListing.amenity4}
+              </div>
+              <div className="data-km">
+                {parseFloat(rightListing.amenity4Distance).toFixed(1)} km
+              </div>
             </div>
             <div className="f-amenities">
-              <div className="data-fkm">Nearest Market: {rightListing.amenity2}</div>
-              <div className="data-km">{parseFloat(rightListing.amenity2Distance).toFixed(1)} km</div>
+              <div className="data-fkm">
+                Nearest Market: {rightListing.amenity2}
+              </div>
+              <div className="data-km">
+                {parseFloat(rightListing.amenity2Distance).toFixed(1)} km
+              </div>
             </div>
           </div>
           <div>
