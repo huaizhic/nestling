@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Favourites.css";
-import walterlogo from "../../src/assets/images/walterlogo.png";
-import greenwalter from "../../src/assets/images/greenwalter.png";
-import "./Navbar.css";
+import {Navbar} from './Navbar.jsx';
 import { ListingPanel } from "./ListingPanel";
 //import { Capsule } from "./Capsule";
 import supabase from "../supabase";
@@ -95,36 +93,7 @@ export default function Favourites({
 
   return (
     <div className="favourites">
-      <div className="top">
-        <div className="logo">
-          <img src={walterlogo} alt="Walter Logo" />
-        </div>
-        <div className="navbar">
-          <ul>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/desired-property">Desired Property</Link>
-            </li>
-            <li>
-              <Link to="/current-listings">Current Listings</Link>
-            </li>
-            <li>
-              <Link to="/favourites">Favourites</Link>
-            </li>
-            <li>
-              <Link to="/" onClick={handleLogout}>
-                Logout
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="profile-picture">
-          <img src={greenwalter} alt="Green Walter Profile" />
-          <Link to="/account-details">Account</Link>
-        </div>
-      </div>
+      <Navbar />
       <div>
         <div className="header-f">Favourites</div>
         <div className="the-rest">

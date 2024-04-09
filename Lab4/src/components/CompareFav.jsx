@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import walterlogo from "../../src/assets/images/walterlogo.png";
-import greenwalter from "../../src/assets/images/greenwalter.png";
 import "./CompareFav.css";
-import "./Navbar.css";
+import {Navbar} from "./Navbar.jsx";
 import emptyimage from "../assets/images/emptyimage.png";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -171,36 +169,7 @@ function Compare({
 
   return (
     <div className="compare">
-      <div className="top">
-        <div className="logo">
-          <img src={walterlogo} alt="Walter Logo" />
-        </div>
-        <div className="navbar">
-          <ul>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/desired-property">Desired Property</Link>
-            </li>
-            <li>
-              <Link to="/current-listings">Current Listings</Link>
-            </li>
-            <li>
-              <Link to="/favourites">Favourites</Link>
-            </li>
-            <li>
-              <Link to="/" onClick={handleLogout}>
-                Logout
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="profile-picture">
-          <img src={greenwalter} alt="Green Walter Profile" />
-          <Link to="/account-details">Account</Link>
-        </div>
-      </div>
+      <Navbar />
       <div className="overall-container">
         <div className="section">
           <div className="project-name">{leftListing.projectName}</div>

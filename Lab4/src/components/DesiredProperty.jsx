@@ -3,9 +3,7 @@ import "./DesiredProperty.css";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown.jsx";
 import supabase from "../supabase";
-import "./Navbar.css";
-import walterlogo from "../../src/assets/images/walterlogo.png";
-import greenwalter from "../../src/assets/images/greenwalter.png";
+import {Navbar} from './Navbar';
 import axios from "axios"; // For the python environment
 
 export let desiredAttributes = [
@@ -220,12 +218,6 @@ function DesiredProperty() {
     { value: "mall", label: "Malls" },
   ];
 
-  async function handleLogout() {
-    let { error } = await supabase.auth.signOut();
-    alert("Logged out!");
-    navigate("/");
-  }
-
   const handleSubmit = async () => {
     if (
       selectedAmenities1 === selectedAmenities2 ||
@@ -285,36 +277,7 @@ function DesiredProperty() {
 
   return (
     <div className="desired-property">
-      <div className="top">
-        <div className="logo">
-          <img src={walterlogo} alt="Walter Logo" />
-        </div>
-        <div className="navbar">
-          <ul>
-            <li>
-              <Link to="/home">Home</Link>
-            </li>
-            <li>
-              <Link to="/desired-property">Desired Property</Link>
-            </li>
-            <li>
-              <Link to="/current-listings">Current Listings</Link>
-            </li>
-            <li>
-              <Link to="/favourites">Favourites</Link>
-            </li>
-            <li>
-              <Link to="/" onClick={handleLogout}>
-                Logout
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="profile-picture">
-          <img src={greenwalter} alt="Green Walter Profile" />
-          <Link to="/account-details">Account</Link>
-        </div>
-      </div>
+      <Navbar />
 
       {/*<div className="bottom">*/}
       <div className="header-section">
