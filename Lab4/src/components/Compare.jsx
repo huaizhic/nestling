@@ -13,6 +13,7 @@ import { locations } from "../App";
 import whitecross from "../../src/assets/images/whitecross.png";
 import axios from "axios";
 
+
 export let tempJSON = "";
 
 function Compare({
@@ -185,6 +186,7 @@ function Compare({
     withPython(tempJSON);
     // fetchAPI();
     // setArray(dataReply);
+    setShowButton(false);
   }
 
   async function handleSave(e) {
@@ -238,6 +240,8 @@ function Compare({
       }
     }
   }
+
+  const [showButton, setShowButton] = useState(true);
   return (
     <div className="compare">
       <div className="top">
@@ -338,10 +342,14 @@ function Compare({
         Like this property? Click the + button to save it!
       </div>
       <div className="AI-output">
-        AI OUTPUT
         <br></br>
-        <button onClick={() => handleGenerate()}>Generate</button>
-        <p>{AIoutput}</p>
+        {/*<button onClick={() => handleGenerate()}>Generate AI Comparison</button>
+        <p>{AIoutput}</p>*/}
+        {showButton ? (
+                <button onClick={handleGenerate}>Generate AI Comparison</button>
+            ) : (
+                <div className="AI-output-text"><p>{AIoutput}</p></div>
+            )}
         {/* <p>
           Property 1 offers a location in Tampines, with a room count of 4 and a
           gross floor area of 1324. It is within close proximity to Tampines

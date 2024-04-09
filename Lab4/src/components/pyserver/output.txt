@@ -1,27 +1,25 @@
-Property 1:
-Location: 18 Dunman Road 
+Search Attributes:
+Location: Tampines
 Desired Amenities:
-  - Amenity 1: DAKOTA MRT STATION
-  - Amenity 1 distance: 0.198082666
-  - Amenity 2: NTUC Fairprice Co-operative Ltd
-  - Amenity 2 distance: 0.625279612
-  - Amenity 3: CHUNG CHENG HIGH SCHOOL (MAIN)
-  - Amenity 3 distance: 0.344160357
-Room Count: 4
-House Price: 3646000
-Gross Floor Area: 1432
+  - Amenity 1: school
+  - Amenity 2: supermarket
+  - Amenity 3: park
+Room Count: 3
+Distance Radius: 2
+House Price: 1000000
+Gross Floor Area: 1500
 
-Property 2:
-Location: 71 Cairnhill Road 
+Choosen Property:
+Location: 55 Pasir Ris Drive 1 
 Desired Amenities:
-  - Amenity 1: NEWTON MRT STATION
-  - Amenity 1 distance: 0.425792599
-  - Amenity 2: NTUC Fairprice Co-operative Ltd
-  - Amenity 2 distance: 0.490766488
-  - Amenity 3: ANGLO-CHINESE SCHOOL (JUNIOR)
-  - Amenity 3 distance: 0.535205402
-Room Count: 4
-House Price: 5230000
-Gross Floor Area: 1496
+  - Amenity 1: PASIR RIS MRT STATION
+  - Amenity 1 distance: 0.946064996
+  - Amenity 2: GOLDEN BAMBOO BROS SUPERMART PTE LTD
+  - Amenity 2 distance: 0.586199983
+  - Amenity 3: ELIAS PARK PRIMARY SCHOOL
+  - Amenity 3 distance: 0.498304115
+Room Count: 3
+House Price: 1120000
+Gross Floor Area: 829
 
-North: Woodlands, Marsiling, Kranji, Yew Tee, Admiralty, Sembawang, Canberra, Yishun, Khatib, Yio Chu Kang, Ang Mo Kio, Bishan, Braddell, Toa Payoh, Novena, Newton West: Jurong East, Bukit Batok, Bukit Gombak, Choa Chu Kang, Boon Lay, Lakeside, Chinese Garden, Clementi, Dover, Commonwealth, Buona Vista, Queenstown, Redhill, Tiong Bahru, Outram Park East:Pasir Ris, Tampines, Simei, Tanah Merah, Expo, Changi Airport, Paya Lebar, Aljunied, Eunos, Kembangan, Bedok, Tanjong Katong, Marine Parade, Dakota
+North: Woodlands, Marsiling, Kranji, Yew Tee, Admiralty, Sembawang, Canberra, Yishun, Khatib, Yio Chu Kang, Ang Mo Kio, Bishan, Braddell, Toa Payoh, Novena, Newton West: Jurong East, Bukit Batok, Bukit Gombak, Choa Chu Kang, Boon Lay, Lakeside, Chinese Garden, Clementi, Dover, Commonwealth, Buona Vista, Queenstown, Redhill, Tiong Bahru, Outram Park East: Bedok,Pasir Ris, Tampines, Simei, Tanah Merah, Expo, Changi Airport, Paya Lebar, Aljunied, Eunos, Kembangan, Bedok, Tanjong Katong, Marine Parade, Dakota, Tanah Merah

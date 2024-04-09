@@ -36,9 +36,9 @@ def users():
     # parses incoming JSON into a python dictionary
     # works, able to see in python cmd terminal
     dataGet = request.get_json(force=True)
-    print('''====================================================
-          dataGet: ''', dataGet, '''====================================================
-          ''')
+    print(====================================================
+          dataGet: , dataGet, ====================================================
+          )
 
     print('dataGet.from:', dataGet['from'])
 
