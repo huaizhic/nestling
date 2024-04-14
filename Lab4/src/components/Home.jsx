@@ -38,9 +38,12 @@ export default function Home() {
             <div className="article-reg">
               <div className="article-content">
                 <div>
-                  <Link to="/article" className="article-header">
-                    is the price truly right?
-                  </Link>
+                  <Link
+                      to="https://blog.bluenest.sg/buying-private-property-procedure/"
+                      className="article-header"
+                    >
+                      is the price truly right?
+                    </Link>
                 </div>
                 <div>
                   <p className="article-content">
@@ -56,9 +59,12 @@ export default function Home() {
             <div className="article-small">
               <div className="article-content">
                 <div>
-                  <Link to="/article" className="article-header">
-                    is the price truly right?
-                  </Link>
+                  <Link
+                      to="https://blog.bluenest.sg/buying-private-property-procedure/"
+                      className="article-header"
+                    >
+                      is the price truly right?
+                    </Link>
                 </div>
                 <div>
                   <p className="article-content">
