@@ -386,9 +386,6 @@ function DesiredProperty() {
           </div>
         </div>
       )}
-      {/* <button onClick={handleSave} className="confirm">
-        Save
-      </button> */}
     </div>
   );
 }

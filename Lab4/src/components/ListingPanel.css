@@ -7,7 +7,7 @@
 }
 
 .listingPanel h3 {
-  width: 100%;
+  width: 70%;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-align: left;
@@ -75,6 +75,6 @@
   margin: 20px;
   border-radius: 10px;
   width: 290px;
-  height: 330px;
+  height: 350px;
   position: relative; /* Add this line */
 }
