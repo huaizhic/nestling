@@ -1,108 +1,108 @@
-import React, { useState, useEffect } from "react";
-import "./DesiredProperty.css";
-import { Link } from "react-router-dom";
-import Dropdown from "./Dropdown.jsx";
-import supabase from "../supabase";
-import {Navbar} from './Navbar';
-import axios from "axios"; // For the python environment
+import React, { useState, useEffect } from 'react';
+import './DesiredProperty.css';
+import { Link } from 'react-router-dom';
+import Dropdown from './Dropdown.jsx';
+import supabase from '../supabase';
+import { Navbar } from './Navbar';
+import axios from 'axios'; // For the python environment
 
 export let desiredAttributes = [
   {
-    location: "",
-    amenity1: "",
-    amenity2: "",
-    amenity3: "",
-    distanceRadius: "",
-    roomCount: "",
-    grossFloorArea: "",
+    location: '',
+    amenity1: '',
+    amenity2: '',
+    amenity3: '',
+    distanceRadius: '',
+    roomCount: '',
+    grossFloorArea: '',
   },
 ];
 
 function DesiredProperty() {
   const [currentList, setCurrentList] = useState([]);
-  const [selectedLocation, setLocation] = useState("");
-  const [selectedDistance, setDistance] = useState("");
-  const [selectedRoomCount, setRoomCount] = useState("");
-  const [selectedGFA, setGFA] = useState("");
-  const [selectedAmenities1, setAmenities1] = useState("");
-  const [selectedAmenities2, setAmenities2] = useState("");
-  const [selectedAmenities3, setAmenities3] = useState("");
+  const [selectedLocation, setLocation] = useState('');
+  const [selectedDistance, setDistance] = useState('');
+  const [selectedRoomCount, setRoomCount] = useState('');
+  const [selectedGFA, setGFA] = useState('');
+  const [selectedAmenities1, setAmenities1] = useState('');
+  const [selectedAmenities2, setAmenities2] = useState('');
+  const [selectedAmenities3, setAmenities3] = useState('');
   const [isVisible, setIsVisible] = useState(false);
-  const [abhijeetData, setAbhijeetData] = useState("");
+  const [abhijeetData, setAbhijeetData] = useState('');
   const [estimatedPrice, setEstimatedPrice] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data, error } = await supabase.from("currentList").select("*");
-      if (error) {
-        console.error("Error fetching data:", error.message);
-      } else {
-        setCurrentList(data);
-        // console.log(data);
-      }
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const { data, error } = await supabase.from('currentList').select('*');
+  //     if (error) {
+  //       console.error('Error fetching data:', error.message);
+  //     } else {
+  //       setCurrentList(data);
+  //       // console.log(data);
+  //     }
 
-      const { data: userData, error: userError } =
-        await supabase.auth.getUser();
-      if (userError) {
-        console.error("Error fetching user data:", userError.message);
-      } else {
-        // console.log(userData);
-        const { data: userDesiredData, error: desiredError } = await supabase
-          .from("userInfo")
-          .select("desiredProperty")
-          .eq("email", userData.user.email);
+  //     const { data: userData, error: userError } =
+  //       await supabase.auth.getUser();
+  //     if (userError) {
+  //       console.error('Error fetching user data:', userError.message);
+  //     } else {
+  //       // console.log(userData);
+  //       const { data: userDesiredData, error: desiredError } = await supabase
+  //         .from('userInfo')
+  //         .select('desiredProperty')
+  //         .eq('email', userData.user.email);
 
-        // console.log(userDesiredData);
+  //       // console.log(userDesiredData);
 
-        if (desiredError) {
-          console.error(
-            "Error fetching desired property data:",
-            desiredError.message
-          );
-        } else {
-          // console.log(userDesiredData);
-          // console.log(userDesiredData[0]?.desiredProperty[0]);
+  //       if (desiredError) {
+  //         console.error(
+  //           'Error fetching desired property data:',
+  //           desiredError.message
+  //         );
+  //       } else {
+  //         // console.log(userDesiredData);
+  //         // console.log(userDesiredData[0]?.desiredProperty[0]);
 
-          // const fetchedDesiredAttributes =
-          //   userDesiredData[0]?.desiredProperty[0];
-          // console.log(fetchedDesiredAttributes);
+  //         // const fetchedDesiredAttributes =
+  //         //   userDesiredData[0]?.desiredProperty[0];
+  //         // console.log(fetchedDesiredAttributes);
 
-          if (userDesiredData[0].desiredProperty === null) {
-            // setLocation("Bedok");
-            // setAmenities1("primary school");
-            // setAmenities2("park");
-            // setAmenities3("supermarket");
-            // setDistance("3");
-            // setRoomCount("3");
-            // setGFA("2000");
-            // setEstimatedPrice(10000);
-            setLocation("");
-            setAmenities1("");
-            setAmenities2("");
-            setAmenities3("");
-            setDistance("");
-            setRoomCount("");
-            setGFA("");
-            setEstimatedPrice("0");
-          } else {
-            const fetchedDesiredAttributes =
-              userDesiredData[0]?.desiredProperty[0];
+  //         if (userDesiredData[0].desiredProperty === null) {
+  //           // setLocation("Bedok");
+  //           // setAmenities1("primary school");
+  //           // setAmenities2("park");
+  //           // setAmenities3("supermarket");
+  //           // setDistance("3");
+  //           // setRoomCount("3");
+  //           // setGFA("2000");
+  //           // setEstimatedPrice(10000);
+  //           setLocation('');
+  //           setAmenities1('');
+  //           setAmenities2('');
+  //           setAmenities3('');
+  //           setDistance('');
+  //           setRoomCount('');
+  //           setGFA('');
+  //           setEstimatedPrice('0');
+  //         } else {
+  //           const fetchedDesiredAttributes =
+  //             userDesiredData[0]?.desiredProperty[0];
 
-            if (fetchedDesiredAttributes) {
-              setLocation(fetchedDesiredAttributes.location || "");
-              setAmenities1(fetchedDesiredAttributes.amenity1 || "");
-              setAmenities2(fetchedDesiredAttributes.amenity2 || "");
-              setAmenities3(fetchedDesiredAttributes.amenity3 || "");
-              setDistance(fetchedDesiredAttributes.distanceRadius || "");
-              setRoomCount(fetchedDesiredAttributes.roomCount || "");
-              setGFA(fetchedDesiredAttributes.grossFloorArea || "");
-            }
-          }
-        }
-      }
-    };
-    fetchData();
-  }, []);
+  //           if (fetchedDesiredAttributes) {
+  //             setLocation(fetchedDesiredAttributes.location || '');
+  //             setAmenities1(fetchedDesiredAttributes.amenity1 || '');
+  //             setAmenities2(fetchedDesiredAttributes.amenity2 || '');
+  //             setAmenities3(fetchedDesiredAttributes.amenity3 || '');
+  //             setDistance(fetchedDesiredAttributes.distanceRadius || '');
+  //             setRoomCount(fetchedDesiredAttributes.roomCount || '');
+  //             setGFA(fetchedDesiredAttributes.grossFloorArea || '');
+  //           }
+  //         }
+  //       }
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   // const toggleVisibility = () => {
   //   setIsVisible(!isVisible);
@@ -122,66 +122,36 @@ function DesiredProperty() {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    desiredAttributes[0].location = selectedLocation;
-    desiredAttributes[0].amenity1 = selectedAmenities1;
-    desiredAttributes[0].amenity2 = selectedAmenities2;
-    desiredAttributes[0].amenity3 = selectedAmenities3;
-    desiredAttributes[0].distanceRadius = selectedDistance;
-    desiredAttributes[0].roomCount = selectedRoomCount;
-    desiredAttributes[0].grossFloorArea = selectedGFA;
-    desiredAttributes[0].price = estimatedPrice;
 
-    console.log("desiredAttributes:", desiredAttributes);
-
-    const { data: userData, error: userError } = await supabase.auth.getUser();
-    if (userError) {
-      console.error("Error fetching user data:", userError.message);
-      return;
-    }
-    // console.log("userData:", userData);
-    // console.log("userData.email:", userData.email);
-    const { data, error } = await supabase
-      .from("userInfo")
-      .update({ desiredProperty: desiredAttributes })
-      .eq("email", userData.user.email)
-      .select();
-
-    // console.log("supabase data:", data);
-    // console.log("supabase error:", error);
-
-    if (error) {
-      console.error("Error updating desired property:", error.message);
-    } else {
-      alert("Update success!");
-    }
+    alert('(Demo) Update success!');
   };
 
   //for dropdown boxes: amenities, room count, distance and location
   const locations = [
-    { value: "Ang Mo Kio", label: "Ang Mo Kio" },
-    { value: "Bedok", label: "Bedok" },
-    { value: "Bishan", label: "Bishan" },
-    { value: "Bukit Batok", label: "Bukit Batok" },
-    { value: "Bukit Merah", label: "Bukit Merah" },
-    { value: "Bukit Panjang", label: "Bukit Panjang" },
-    { value: "Choa Chu Kang", label: "Choa Chu Kang" },
-    { value: "Clementi", label: "Clementi" },
-    { value: "Geylang", label: "Geylang" },
-    { value: "Hougang", label: "Hougang" },
-    { value: "Jurong East", label: "Jurong East" },
-    { value: "Jurong West", label: "Jurong West" },
-    { value: "Kallang/Whampoa", label: "Kallang/Whampoa" },
-    { value: "Pasir Ris", label: "Pasir Ris" },
-    { value: "Punggol", label: "Punggol" },
-    { value: "Queenstown", label: "Queenstown" },
-    { value: "Sembawang", label: "Sembawang" },
-    { value: "Sengkang", label: "Sengkang" },
-    { value: "Serangoon", label: "Serangoon" },
-    { value: "Tampines", label: "Tampines" },
-    { value: "Tengah", label: "Tengah" },
-    { value: "Toa Payoh", label: "Toa Payoh" },
-    { value: "Woodlands", label: "Woodlands" },
-    { value: "Yishun", label: "Yishun" },
+    { value: 'Ang Mo Kio', label: 'Ang Mo Kio' },
+    { value: 'Bedok', label: 'Bedok' },
+    { value: 'Bishan', label: 'Bishan' },
+    { value: 'Bukit Batok', label: 'Bukit Batok' },
+    { value: 'Bukit Merah', label: 'Bukit Merah' },
+    { value: 'Bukit Panjang', label: 'Bukit Panjang' },
+    { value: 'Choa Chu Kang', label: 'Choa Chu Kang' },
+    { value: 'Clementi', label: 'Clementi' },
+    { value: 'Geylang', label: 'Geylang' },
+    { value: 'Hougang', label: 'Hougang' },
+    { value: 'Jurong East', label: 'Jurong East' },
+    { value: 'Jurong West', label: 'Jurong West' },
+    { value: 'Kallang/Whampoa', label: 'Kallang/Whampoa' },
+    { value: 'Pasir Ris', label: 'Pasir Ris' },
+    { value: 'Punggol', label: 'Punggol' },
+    { value: 'Queenstown', label: 'Queenstown' },
+    { value: 'Sembawang', label: 'Sembawang' },
+    { value: 'Sengkang', label: 'Sengkang' },
+    { value: 'Serangoon', label: 'Serangoon' },
+    { value: 'Tampines', label: 'Tampines' },
+    { value: 'Tengah', label: 'Tengah' },
+    { value: 'Toa Payoh', label: 'Toa Payoh' },
+    { value: 'Woodlands', label: 'Woodlands' },
+    { value: 'Yishun', label: 'Yishun' },
   ];
 
   // const distance = [
@@ -195,27 +165,27 @@ function DesiredProperty() {
   // ];
 
   const distance = [
-    { value: "1", label: "< 1" },
-    { value: "2", label: "< 2" },
-    { value: "3", label: "< 3" },
-    { value: "4", label: "< 4" },
-    { value: "5", label: "< 5" },
+    { value: '1', label: '< 1' },
+    { value: '2', label: '< 2' },
+    { value: '3', label: '< 3' },
+    { value: '4', label: '< 4' },
+    { value: '5', label: '< 5' },
   ];
 
   const roomcount = [
-    { value: "3", label: "3 rooms" },
-    { value: "4", label: "4 rooms" },
-    { value: "5", label: "5 rooms" },
+    { value: '3', label: '3 rooms' },
+    { value: '4', label: '4 rooms' },
+    { value: '5', label: '5 rooms' },
     // { value: ">5 rooms", label: ">5 rooms" },
   ];
 
   const amenities = [
-    { value: "station", label: "MRT Stations" },
-    { value: "supermarket", label: "Supermarkets" },
-    { value: "primary school", label: "Primary schools" },
-    { value: "secondary school", label: "Secondary schools" },
-    { value: "park", label: "Parks" },
-    { value: "mall", label: "Malls" },
+    { value: 'station', label: 'MRT Stations' },
+    { value: 'supermarket', label: 'Supermarkets' },
+    { value: 'primary school', label: 'Primary schools' },
+    { value: 'secondary school', label: 'Secondary schools' },
+    { value: 'park', label: 'Parks' },
+    { value: 'mall', label: 'Malls' },
   ];
 
   const handleSubmit = async () => {
@@ -224,28 +194,28 @@ function DesiredProperty() {
       selectedAmenities1 === selectedAmenities3 ||
       selectedAmenities2 === selectedAmenities3
     ) {
-      alert("Cannot have same amenity choices!");
+      alert('Cannot have same amenity choices!');
     } else {
       try {
-        const response = await axios.post(
-          "http://localhost:8000/generate_price",
-          {
-            // Send user input to the backend
-            amenities1: selectedAmenities1,
-            amenities2: selectedAmenities2,
-            amenities3: selectedAmenities3,
-            distanceRadius: selectedDistance,
-            area: selectedGFA,
-          }
-        );
+        // const response = await axios.post(
+        //   "http://localhost:8000/generate_price",
+        //   {
+        //     // Send user input to the backend
+        //     amenities1: selectedAmenities1,
+        //     amenities2: selectedAmenities2,
+        //     amenities3: selectedAmenities3,
+        //     distanceRadius: selectedDistance,
+        //     area: selectedGFA,
+        //   }
+        // );
 
         // Update state with the estimated price returned by the backend
-        setEstimatedPrice(response.data.estimated_price);
+        setEstimatedPrice('1300000');
 
         // Toggle visibility after receiving response
         toggleVisibility();
       } catch (error) {
-        console.error("Error:", error);
+        console.error('Error:', error);
       }
     }
   };
@@ -253,7 +223,7 @@ function DesiredProperty() {
   const handleSubmit2 = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/generate_price",
+        'http://localhost:8000/generate_price',
         {
           // Send user input to the backend
           amenities1: selectedAmenities1,
@@ -267,7 +237,7 @@ function DesiredProperty() {
       // Update state with the estimated price returned by the backend
       setEstimatedPrice(response.data.estimated_price);
     } catch (error) {
-      console.error("Error:", error);
+      console.error('Error:', error);
     }
   };
 

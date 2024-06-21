@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import "./SignUp.css";
-import walter from "../assets/images/walter.png";
-import { useNavigate } from "react-router-dom";
-import supabase from "../supabase";
+import React, { useState } from 'react';
+import './SignUp.css';
+import walter from '../assets/images/walter.png';
+import { useNavigate } from 'react-router-dom';
+import supabase from '../supabase';
 
 function SignUp() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -29,33 +29,9 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add logic to handle form submission (e.g., validate inputs, submit data to server)
-    // console.log('Username:', username);
-    // console.log('Phone Number:', phoneNumber);
-    // console.log('Email:', email);
-    // console.log('Password:', password);
 
-    let { data: signupInfo, error } = await supabase.auth.signUp({
-      email: email,
-      password: password,
-    });
-
-    console.log(signupInfo);
-    console.log(error);
-
-    if (signupInfo.user.role === "authenticated") {
-      const { data: userInfo, error } = await supabase
-        .from("userInfo")
-        .upsert({ username: username, number: phoneNumber, email: email })
-        .select();
-
-      alert("Sign Up Successful! You will be redirected to user home page");
-      console.log("error:", error);
-      console.log(userInfo);
-      navigate("/home");
-    } else {
-      alert("sign up error");
-    }
+    alert('Sign Up Successful! You will be redirected to user home page');
+    navigate('/home');
   };
 
   return (
@@ -65,6 +41,10 @@ function SignUp() {
       </div>
       <h1>Nestling.ai</h1>
       <h2>New here?</h2>
+      <p>
+        For demo purposes, clicking the button will work irregardless of
+        credentials provided.
+      </p>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="input-wrapper">
           <label htmlFor="username">Username</label>

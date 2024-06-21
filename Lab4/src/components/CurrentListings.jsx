@@ -1,38 +1,38 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./CurrentListings.css";
-import { Navbar } from "./Navbar.jsx";
-import { ListingPanel } from "./ListingPanel.jsx";
-import supabase from "../supabase";
-import { percentageMatchLogic } from "./percentageMatchLogic";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './CurrentListings.css';
+import { Navbar } from './Navbar.jsx';
+import { ListingPanel } from './ListingPanel.jsx';
+import supabase from '../supabase';
+import { percentageMatchLogic } from './percentageMatchLogic';
 // import { tempData } from "./desiredHouseForm";
 
 // export let currentList = [];
 export let locations = [
-  { value: "Ang Mo Kio", label: "Ang Mo Kio" },
-  { value: "Bedok", label: "Bedok" },
-  { value: "Bishan", label: "Bishan" },
-  { value: "Bukit Batok", label: "Bukit Batok" },
-  { value: "Bukit Merah", label: "Bukit Merah" },
-  { value: "Bukit Panjang", label: "Bukit Panjang" },
-  { value: "Choa Chu Kang", label: "Choa Chu Kang" },
-  { value: "Clementi", label: "Clementi" },
-  { value: "Geylang", label: "Geylang" },
-  { value: "Hougang", label: "Hougang" },
-  { value: "Jurong East", label: "Jurong East" },
-  { value: "Jurong West", label: "Jurong West" },
-  { value: "Kallang/Whampoa", label: "Kallang/Whampoa" },
-  { value: "Pasir Ris", label: "Pasir Ris" },
-  { value: "Punggol", label: "Punggol" },
-  { value: "Queenstown", label: "Queenstown" },
-  { value: "Sembawang", label: "Sembawang" },
-  { value: "Sengkang", label: "Sengkang" },
-  { value: "Serangoon", label: "Serangoon" },
-  { value: "Tampines", label: "Tampines" },
-  { value: "Tengah", label: "Tengah" },
-  { value: "Toa Payoh", label: "Toa Payoh" },
-  { value: "Woodlands", label: "Woodlands" },
-  { value: "Yishun", label: "Yishun" },
+  { value: 'Ang Mo Kio', label: 'Ang Mo Kio' },
+  { value: 'Bedok', label: 'Bedok' },
+  { value: 'Bishan', label: 'Bishan' },
+  { value: 'Bukit Batok', label: 'Bukit Batok' },
+  { value: 'Bukit Merah', label: 'Bukit Merah' },
+  { value: 'Bukit Panjang', label: 'Bukit Panjang' },
+  { value: 'Choa Chu Kang', label: 'Choa Chu Kang' },
+  { value: 'Clementi', label: 'Clementi' },
+  { value: 'Geylang', label: 'Geylang' },
+  { value: 'Hougang', label: 'Hougang' },
+  { value: 'Jurong East', label: 'Jurong East' },
+  { value: 'Jurong West', label: 'Jurong West' },
+  { value: 'Kallang/Whampoa', label: 'Kallang/Whampoa' },
+  { value: 'Pasir Ris', label: 'Pasir Ris' },
+  { value: 'Punggol', label: 'Punggol' },
+  { value: 'Queenstown', label: 'Queenstown' },
+  { value: 'Sembawang', label: 'Sembawang' },
+  { value: 'Sengkang', label: 'Sengkang' },
+  { value: 'Serangoon', label: 'Serangoon' },
+  { value: 'Tampines', label: 'Tampines' },
+  { value: 'Tengah', label: 'Tengah' },
+  { value: 'Toa Payoh', label: 'Toa Payoh' },
+  { value: 'Woodlands', label: 'Woodlands' },
+  { value: 'Yishun', label: 'Yishun' },
 ];
 
 function CurrentListings({
@@ -68,11 +68,11 @@ function CurrentListings({
     /*conditional render*/
   }
 
-  let component = "currentListings";
+  let component = 'currentListings';
 
   useEffect(() => {
     const fetchListing = async () => {
-      let { data, error } = await supabase.from("currentList").select("*");
+      let { data, error } = await supabase.from('currentList').select('*');
       console.log(data);
       setCurrentList(data);
       // return data;
@@ -121,7 +121,7 @@ function CurrentListings({
   const handleNormalSearch = (e) => {
     e.preventDefault();
     if (grossFloorArea <= 0 || grossFloorArea > 5000) {
-      alert("Error, gross floor area can only be between 1 and 5000 sqm!");
+      alert('Error, gross floor area can only be between 1 and 5000 sqm!');
     } else {
       let tempData = percentageMatchLogic(
         currentList,
@@ -153,18 +153,27 @@ function CurrentListings({
   const handleDesiredSubmit = async (e) => {
     e.preventDefault();
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    console.log(user);
+    // const {
+    //   data: { user },
+    // } = await supabase.auth.getUser();
+    // console.log(user);
 
-    let { data, error } = await supabase
-      .from("userInfo")
-      .select("desiredProperty")
-      .eq("email", user.email);
+    // let { data, error } = await supabase
+    //   .from("userInfo")
+    //   .select("desiredProperty")
+    //   .eq("email", user.email);
 
     // console.log(data);
-    let desiredAttributes = data[0].desiredProperty[0];
+    let desiredAttributes = {
+      location: 'Woodlands',
+      amenity1: 'school',
+      amenity2: 'park',
+      amenity3: 'supermarket',
+      distanceRadius: '2',
+      roomCount: '3',
+      grossFloorArea: '2200',
+      price: '1500000',
+    };
     setLocationInput(desiredAttributes.location);
     setAmenityInput1(desiredAttributes.amenity1);
     setAmenityInput2(desiredAttributes.amenity2);
@@ -213,7 +222,7 @@ function CurrentListings({
             <select
               id="Location"
               value={locationInput}
-              style={{ color: "black" }}
+              style={{ color: 'black' }}
               onChange={(e) => setLocationInput(e.target.value)}
             >
               <option value="option1">Preferred location</option>
@@ -233,15 +242,15 @@ function CurrentListings({
               <select
                 id="Amenities"
                 className="amenity-dropdown"
-                style={{ color: "black" }}
+                style={{ color: 'black' }}
                 value={amenityInput1}
                 onChange={(e) => {
                   if (
                     e.target.value === amenityInput2 ||
                     e.target.value === amenityInput3
                   ) {
-                    alert("Cannot choose same amenity again");
-                    setAmenityInput1("option1");
+                    alert('Cannot choose same amenity again');
+                    setAmenityInput1('option1');
                   } else {
                     setAmenityInput1(e.target.value);
                   }
@@ -259,15 +268,15 @@ function CurrentListings({
               <select
                 id="Amenities"
                 className="amenity-dropdown"
-                style={{ color: "black" }}
+                style={{ color: 'black' }}
                 value={amenityInput2}
                 onChange={(e) => {
                   if (
                     e.target.value === amenityInput1 ||
                     e.target.value === amenityInput3
                   ) {
-                    alert("Cannot choose same amenity again");
-                    setAmenityInput2("option2");
+                    alert('Cannot choose same amenity again');
+                    setAmenityInput2('option2');
                   } else {
                     setAmenityInput2(e.target.value);
                   }
@@ -285,15 +294,15 @@ function CurrentListings({
               <select
                 id="Amenities"
                 className="amenity-dropdown"
-                style={{ color: "black" }}
+                style={{ color: 'black' }}
                 value={amenityInput3}
                 onChange={(e) => {
                   if (
                     e.target.value === amenityInput1 ||
                     e.target.value === amenityInput2
                   ) {
-                    alert("Cannot choose same amenity again");
-                    setAmenityInput3("option3");
+                    alert('Cannot choose same amenity again');
+                    setAmenityInput3('option3');
                   } else {
                     setAmenityInput3(e.target.value);
                   }
@@ -312,11 +321,11 @@ function CurrentListings({
             <label htmlFor="Distance">Distance (KM)</label>
             <select
               id="Distance"
-              style={{ color: "black" }}
+              style={{ color: 'black' }}
               value={distanceRadius}
               onChange={(e) => setDistanceRadius(e.target.value)}
             >
-              <option value="option1" style={{ color: "black" }}>
+              <option value="option1" style={{ color: 'black' }}>
                 Radius within which amenities are
               </option>
               <option value="1">1</option>
@@ -328,7 +337,7 @@ function CurrentListings({
             <label htmlFor="Room Count">Room Count</label>
             <select
               id="Room Count"
-              style={{ color: "black" }}
+              style={{ color: 'black' }}
               value={roomCountInput}
               onChange={(e) => setRoomCountInput(e.target.value)}
             >
@@ -345,14 +354,16 @@ function CurrentListings({
             <input
               type="number"
               value={grossFloorArea}
-              style={{ color: "black" }}
+              style={{ color: 'black' }}
               onChange={(e) => setGrossFloorArea(e.target.value)}
             />
-            <label style={{ marginTop: '15px' }} htmlFor="Price">Price</label>
+            <label style={{ marginTop: '15px' }} htmlFor="Price">
+              Price
+            </label>
             <input
               type="number"
               value={housePrice}
-              style={{ color: "black" }}
+              style={{ color: 'black' }}
               onChange={(e) => setHousePrice(e.target.value)}
             />
             <button onClick={(e) => handleNormalSearch(e)}>SEARCH</button>
@@ -362,7 +373,7 @@ function CurrentListings({
           </div>
           <div className="desiredpropsearch">
             <button
-              style={{ color: "black" }}
+              style={{ color: 'black' }}
               onClick={(e) => handleDesiredSubmit(e)}
             >
               Search using my desired property attributes

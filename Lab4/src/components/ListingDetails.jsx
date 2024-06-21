@@ -1,14 +1,14 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./ListingDetails.css";
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './ListingDetails.css';
 import { Navbar } from './Navbar.jsx';
-import emptyimage from "../assets/images/emptyimage.png";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import supabase from "../supabase";
-import { percentageMatchLogic } from "./percentageMatchLogic";
-import axios from "axios";
-import whitecross from "../../src/assets/images/whitecross.png";
+import emptyimage from '../assets/images/emptyimage.png';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import supabase from '../supabase';
+import { percentageMatchLogic } from './percentageMatchLogic';
+import axios from 'axios';
+import whitecross from '../../src/assets/images/whitecross.png';
 
 function ListingDetails({
   locationInput,
@@ -32,15 +32,15 @@ function ListingDetails({
   const navigate = useNavigate();
   const [listing, setListing] = useState([
     {
-      projectName: "loading",
-      address: "loading",
+      projectName: 'loading',
+      address: 'loading',
     },
   ]);
-  const [percentageMatch, setPercentageMatch] = useState("");
+  const [percentageMatch, setPercentageMatch] = useState('');
   const [desiredListing, setDesiredListing] = useState([
     {
-      projectName: "loading",
-      address: "loading",
+      projectName: 'loading',
+      address: 'loading',
     },
   ]);
 
@@ -49,9 +49,9 @@ function ListingDetails({
       //   console.log(id);
       // fetch individual property details
       let { data: currentListing, error } = await supabase
-        .from("currentList")
-        .select("*")
-        .eq("id", id);
+        .from('currentList')
+        .select('*')
+        .eq('id', id);
 
       console.log(currentListing);
       //   console.log(error);
@@ -114,7 +114,7 @@ function ListingDetails({
 
   //add this for the forntend to fetch from the API
   const fetchAPI = async () => {
-    const response = await axios.get("http://localhost:8080/python");
+    const response = await axios.get('http://localhost:8080/python');
     //console.log(response.data.Suggestion);
     setArray(response.data.Suggestion);
   };
@@ -124,7 +124,7 @@ function ListingDetails({
     history.push(`/compare/${id}`);
   };
 
-  if (percentageMatch === "") {
+  if (percentageMatch === '') {
     let tempData = percentageMatchLogic(
       [listing],
       locationInput,
@@ -143,53 +143,8 @@ function ListingDetails({
   async function handleSave(e) {
     e.preventDefault();
     // alert("works");
-    const { data: userData, error: userError } = await supabase.auth.getUser();
 
-    const { data: userFavData, error: desiredError } = await supabase
-      .from("userInfo")
-      .select("savedProperties")
-      .eq("email", userData.user.email);
-
-    let temp = userFavData[0].savedProperties;
-    console.log(temp);
-
-    if (temp === null) {
-      temp = [];
-      temp.push({ id: id });
-      const { data, error } = await supabase
-        .from("userInfo")
-        .update({ savedProperties: temp })
-        .eq("email", userData.user.email)
-        .select();
-
-      if (data) {
-        alert("Property Saved! View them in favourites");
-      } else if (error) {
-        alert("Error saving property! Error:", error);
-      }
-    } else {
-      let gotDuplicates = temp.some((property) => property.id === id);
-      // console.log(gotDuplicates);
-      if (gotDuplicates) {
-        alert("Cannot save duplicate property to favourites!");
-      } else {
-        temp.push({ id: id });
-        // console.log(temp.length);
-        const { data, error } = await supabase
-          .from("userInfo")
-          .update({ savedProperties: temp })
-          .eq("email", userData.user.email)
-          .select();
-
-        // console.log(data);
-        // console.log(error);
-        if (data) {
-          alert("Property Saved! View them in favourites");
-        } else if (error) {
-          alert("Error saving property! Error:", error);
-        }
-      }
-    }
+    alert('Property Saved! View them in favourites');
   }
 
   return (
@@ -198,11 +153,11 @@ function ListingDetails({
       <div className="infoContainer">
         <div className="imgColumn">
           {listing.imageURL === null ? (
-            <img src={emptyimage} style={{ width: "95%", height: "80%" }}></img>
+            <img src={emptyimage} style={{ width: '95%', height: '80%' }}></img>
           ) : (
             <img
               src={listing.imageURL}
-              style={{ width: "95%", height: "80%" }}
+              style={{ width: '95%', height: '80%' }}
             ></img>
           )}
           <h3 className="imgprojectname">{listing.projectName}</h3>

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./Favourites.css";
-import {Navbar} from './Navbar.jsx';
-import { ListingPanel } from "./ListingPanel";
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './Favourites.css';
+import { Navbar } from './Navbar.jsx';
+import { ListingPanel } from './ListingPanel';
 //import { Capsule } from "./Capsule";
-import supabase from "../supabase";
+import supabase from '../supabase';
 
 // export let tempDisplayList = [];
 
@@ -17,23 +17,23 @@ export default function Favourites({
   const [favIDList, setFavIDList] = useState([]);
   const [displayList, setDisplayList] = useState([]);
   const [checkList, setCheckList] = useState([]);
-  let component = "favourites";
+  let component = 'favourites';
 
   useEffect(() => {
     async function fetchFav() {
       let { data: currentList, error } = await supabase
-        .from("currentList")
-        .select("*");
+        .from('currentList')
+        .select('*');
 
-      const { data: userData, error: userError } =
-        await supabase.auth.getUser();
+      // const { data: userData, error: userError } =
+      //   await supabase.auth.getUser();
 
       const { data: userFavData, error: desiredError } = await supabase
-        .from("userInfo")
-        .select("savedProperties")
-        .eq("email", userData.user.email);
+        .from('userInfo')
+        .select('savedProperties')
+        .eq('email', 'hello@gmail.com');
 
-      console.log("fav properties:", userFavData[0].savedProperties);
+      console.log('fav properties:', userFavData[0].savedProperties);
       let temp = userFavData[0].savedProperties;
       setFavIDList(temp);
       console.log(currentList);
@@ -47,7 +47,7 @@ export default function Favourites({
         });
       });
 
-      console.log("tempDisplayList:", tempDisplayList);
+      console.log('tempDisplayList:', tempDisplayList);
       setDisplayList(tempDisplayList);
     }
     fetchFav();
@@ -55,8 +55,8 @@ export default function Favourites({
 
   async function handleLogout() {
     let { error } = await supabase.auth.signOut();
-    alert("Logged out!");
-    navigate("/");
+    alert('Logged out!');
+    navigate('/');
   }
 
   const navigate = useNavigate();
@@ -69,10 +69,10 @@ export default function Favourites({
     // console.log(finalList);
     console.log(finalList);
     if (finalList.length !== 2) {
-      alert("Please select exactly 2 properties to compare!");
+      alert('Please select exactly 2 properties to compare!');
     } else if (finalList.length === 2) {
       setSelection(finalList);
-      navigate("/compare-fav"); // Navigate to '/other-route' on button click
+      navigate('/compare-fav'); // Navigate to '/other-route' on button click
       setRerenderCompareFav(!rerenderCompareFav);
     }
   }

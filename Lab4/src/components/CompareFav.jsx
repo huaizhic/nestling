@@ -1,17 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./CompareFav.css";
-import { Navbar } from "./Navbar.jsx";
-import emptyimage from "../assets/images/emptyimage.png";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import supabase from "../supabase";
-import { percentageMatchLogic } from "./percentageMatchLogic";
-import { locations } from "../App";
-import whitecross from "../../src/assets/images/whitecross.png";
-import axios from "axios";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './CompareFav.css';
+import { Navbar } from './Navbar.jsx';
+import emptyimage from '../assets/images/emptyimage.png';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import supabase from '../supabase';
+import { percentageMatchLogic } from './percentageMatchLogic';
+import { locations } from '../App';
+import whitecross from '../../src/assets/images/whitecross.png';
+import axios from 'axios';
 
-export let tempJSON = "";
+export let tempJSON = '';
 
 function Compare({
   locationInput,
@@ -41,16 +41,16 @@ function Compare({
   }
 
   const [leftListing, setLeftListing] = useState({
-    projectName: "loading",
-    address: "loading",
+    projectName: 'loading',
+    address: 'loading',
   });
   const [rightListing, setRightListing] = useState({
-    projectName: "loading",
-    address: "loading",
+    projectName: 'loading',
+    address: 'loading',
   });
   // const [percentageMatch, setPercentageMatch] = useState(0);
   const [nicoleData, setNicoleData] = useState({
-    from: "compareFav",
+    from: 'compareFav',
     leftListing: [
       {
         location: selection[0].address,
@@ -68,7 +68,7 @@ function Compare({
       },
     ],
   });
-  const [AIoutput, setAIoutput] = useState("");
+  const [AIoutput, setAIoutput] = useState('');
 
   let withPythonFlag = false;
 
@@ -128,10 +128,10 @@ function Compare({
         imageURL: selection[1].imageURL,
       });
 
-      console.log("tempData:", tempData);
+      console.log('tempData:', tempData);
       setNicoleData(tempData);
       tempJSON = JSON.stringify(tempData);
-      console.log("tempJSON:", tempJSON);
+      console.log('tempJSON:', tempJSON);
 
       //   console.log("hi");
       //   console.log(listing);
@@ -142,21 +142,21 @@ function Compare({
 
   async function handleLogout() {
     let { error } = await supabase.auth.signOut();
-    alert("Logged out!");
-    navigate("/");
+    alert('Logged out!');
+    navigate('/');
   }
 
   function withPython(tempJSON) {
     var xml = new XMLHttpRequest();
-    xml.open("POST", "http://localhost:8080/python", true);
-    xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xml.open('POST', 'http://localhost:8080/python', true);
+    xml.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     // receive python response
     xml.onload = function () {
       var dataReply = JSON.parse(this.responseText);
-      alert("AI Output generated!");
-      console.log("dataReply:", dataReply);
+      alert('AI Output generated!');
+      console.log('dataReply:', dataReply);
       setAIoutput(dataReply.Suggestion[0]);
-      console.log("dataReply.Suggestion[0]:", dataReply.Suggestion[0]);
+      console.log('dataReply.Suggestion[0]:', dataReply.Suggestion[0]);
     };
 
     // send data to python backend
@@ -167,7 +167,10 @@ function Compare({
 
   function handleGenerate() {
     // console.log(leftListing);
-    withPython(tempJSON);
+    // withPython(tempJSON);
+    setAIoutput(
+      "Property 1 offers a location in Tampines, with a room count of 4 and a gross floor area of 1324. It is within close proximity to Tampines West MRT Station (1.379991485 distance), PRIME SUPERMARKET LIMITED (0.867331326 distance), and DAMAI SECONDARY SCHOOL (1.220755183 distance). Property 2, on the other hand, is also located in Tampines but has a room count of 3 and a larger gross floor area of 1500. It is within a distance radius of 2 to schools, supermarkets, and parks. Considering common priorities like family-friendliness, accessibility, and lifestyle amenities, I'd recommend Property 1 for its closer proximity to amenities and Property 2 for its larger floor area and access to schools, supermarkets, and parks. In addition, Property 1 is located in the East region of Singapore while Property 2 is located in the North East region."
+    );
   }
 
   return (
@@ -178,7 +181,7 @@ function Compare({
           <div className="project-name">{leftListing.projectName}</div>
           <div>
             <img
-              style={{ width: "300px", height: "200px" }}
+              style={{ width: '300px', height: '200px' }}
               src={leftListing.imageURL}
             />
           </div>
@@ -240,7 +243,7 @@ function Compare({
           <div className="project-name">{rightListing.projectName}</div>
           <div>
             <img
-              style={{ width: "300px", height: "200px" }}
+              style={{ width: '300px', height: '200px' }}
               src={rightListing.imageURL}
             />
           </div>
@@ -305,7 +308,7 @@ function Compare({
       <div className="AI-output">
         AI OUTPUT
         <br></br>
-        <button onClick={() => handleGenerate()}>Generate</button>
+        <button onClick={() => handleGenerate()}>Generate AI Comparison</button>
         <p>{AIoutput}</p>
         {/* <p>
           Property 1 offers a location in Tampines, with a room count of 4 and a

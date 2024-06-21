@@ -6,7 +6,7 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .login-page > div {
@@ -82,7 +82,7 @@
   padding-bottom: 10px;
   padding-top: 5px;
   padding-right: 10px;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .login-page form .input-wrapper label {
@@ -93,7 +93,7 @@
   margin-right: 30px;
 }
 
-.login-page form input[type="text"] {
+.login-page form input[type='text'] {
   border: none;
   background-color: #4ab3e2;
   font-weight: bold;
@@ -102,10 +102,9 @@
   margin-top: 5px;
   height: 35px;
   padding-left: 10px;
-  
 }
 
-.login-page form input[type="password"] {
+.login-page form input[type='password'] {
   border: none;
   background-color: #4ab3e2;
   font-weight: bold;
